@@ -261,7 +261,7 @@ Public Class frmMAIN
     End Sub
 
     Private Sub StockCategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockCategoryToolStripMenuItem.Click
-        If Not GetPermission("frmSKUCat") = False Then
+        If Not GetPermission("frmSKUCategory") = False Then
             frmSKUCategory.MdiParent = Me
             frmSKUCategory.Show()
             frmSKUCategory.BringToFront()
