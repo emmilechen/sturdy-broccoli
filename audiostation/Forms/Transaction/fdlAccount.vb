@@ -64,7 +64,7 @@ Public Class fdlAccount
                     .AccountCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
                 End With
             Case "frmSKUCat"
-                With frmSKUCat
+                With frmSKUCategory
                     .AccountId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                     .AccountCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
                 End With
