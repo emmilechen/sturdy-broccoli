@@ -6,11 +6,34 @@ Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
 Public Class frmMAIN
+    Sub DefineToolstrip()
+        Dim menu As New MenuStrip()
+        For i As Integer = 0 To 2
+            Dim item As New ToolStripMenuItem(String.Format("Main Item{0}", i.ToString()))
+            For j As Integer = 0 To 7
+                Dim innerItem As New ToolStripMenuItem(String.Format("Inner Menu Item {0}", j.ToString()))
+
+                'Give the DropDown Item a name so it can be identified in the handler sub
+                innerItem.Name = item.Text & "_" & j.ToString
+
+                'Add a Click handler to the DropDown Item
+                AddHandler innerItem.Click, AddressOf ToolStripMenuItem1_Click
+
+                item.DropDownItems.Add(innerItem)
+            Next
+            'menu.Items.Add(item)
+            MenuStrip.Items.Add(item)
+        Next
+        'Me.Controls.Add(menu)
+    End Sub
+
     Private Sub frmMAIN_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'MenuStrip.Visible = False
+        DefineToolstrip()
         Try
             Dim fileReader As System.IO.StreamReader
             fileReader = My.Computer.FileSystem.OpenTextFileReader("C:\ProgramData\kbh.txt")
-    
+
             Dim stringReader As String
             stringReader = fileReader.ReadLine()
 
@@ -155,6 +178,20 @@ Public Class frmMAIN
         End If
     End Sub
 
+    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'Dim DropDownName As String = DirectCast(sender, ToolStripItem).Name
+        'MessageBox.Show(DropDownName)
+
+        Dim strCreatedFromButton As String = "frmPOList"
+        If Not GetPermission(strCreatedFromButton) = True Then
+            Dim frm1 As New Form
+            frm1 = DirectCast(CreateObjectInstance(strCreatedFromButton), Form)
+            frm1.MdiParent = Me
+            frm1.Show()
+            frm1.BringToFront()
+        End If
+    End Sub
+
     Private Sub PurchaseOrderToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseOrderToolStripMenuItem1.Click
         If Not GetPermission("frmPOList") = False Then
             frmPOList.MdiParent = Me
@@ -225,9 +262,9 @@ Public Class frmMAIN
 
     Private Sub StockCategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockCategoryToolStripMenuItem.Click
         If Not GetPermission("frmSKUCat") = False Then
-            frmSKUCat.MdiParent = Me
-            frmSKUCat.Show()
-            frmSKUCat.BringToFront()
+            frmSKUCategory.MdiParent = Me
+            frmSKUCategory.Show()
+            frmSKUCategory.BringToFront()
         End If
     End Sub
 
@@ -1166,6 +1203,14 @@ Public Class frmMAIN
                 .Show()
                 .BringToFront()
             End With
+        End If
+    End Sub
+
+    Private Sub StockSubCategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockSubCategoryToolStripMenuItem.Click
+        If Not GetPermission("frmSKUCategorySub") = False Then
+            frmSKUCategorySub.MdiParent = Me
+            frmSKUCategorySub.Show()
+            frmSKUCategorySub.BringToFront()
         End If
     End Sub
 End Class
