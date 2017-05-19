@@ -4,6 +4,7 @@ Imports System
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Net.NetworkInformation
+Imports System.Reflection
 
 Module modFunction
     Dim strConnection As String = My.Settings.ConnStr
@@ -312,6 +313,22 @@ Module modFunction
         End While
         myReader.Close()
         cn.Close()
+    End Function
+
+    Public Function CreateObjectInstance(ByVal objectName As String) As Object
+        Dim obj As Object
+        Try
+            If objectName.LastIndexOf(".") = -1 Then
+                objectName = [Assembly].GetEntryAssembly.GetName.Name & "." & objectName
+            End If
+
+            obj = [Assembly].GetEntryAssembly.CreateInstance(objectName)
+
+        Catch ex As Exception
+            obj = Nothing
+        End Try
+        Return obj
+
     End Function
 End Module
 
