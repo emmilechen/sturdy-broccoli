@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmSKUCat
+Partial Class frmSKUCategory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,10 +23,10 @@ Partial Class frmSKUCat
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSKUCat))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSKUCategory))
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.txtSKUCategory = New System.Windows.Forms.TextBox()
-        Me.txtCatRemarks = New System.Windows.Forms.TextBox()
+        Me.txtCategoryName = New System.Windows.Forms.TextBox()
+        Me.txtCategoryRemarks = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
@@ -40,6 +40,8 @@ Partial Class frmSKUCat
         Me.btnAccount = New System.Windows.Forms.Button()
         Me.txtAccountCode = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtCategoryCode = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'ListView1
@@ -58,41 +60,41 @@ Partial Class frmSKUCat
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
         '
-        'txtSKUCategory
+        'txtCategoryName
         '
-        Me.txtSKUCategory.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSKUCategory.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSKUCategory.Location = New System.Drawing.Point(542, 47)
-        Me.txtSKUCategory.Name = "txtSKUCategory"
-        Me.txtSKUCategory.Size = New System.Drawing.Size(259, 21)
-        Me.txtSKUCategory.TabIndex = 1
+        Me.txtCategoryName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCategoryName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCategoryName.Location = New System.Drawing.Point(542, 68)
+        Me.txtCategoryName.Name = "txtCategoryName"
+        Me.txtCategoryName.Size = New System.Drawing.Size(259, 21)
+        Me.txtCategoryName.TabIndex = 1
         '
-        'txtCatRemarks
+        'txtCategoryRemarks
         '
-        Me.txtCatRemarks.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCatRemarks.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCatRemarks.Location = New System.Drawing.Point(542, 73)
-        Me.txtCatRemarks.Name = "txtCatRemarks"
-        Me.txtCatRemarks.Size = New System.Drawing.Size(259, 21)
-        Me.txtCatRemarks.TabIndex = 2
+        Me.txtCategoryRemarks.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCategoryRemarks.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCategoryRemarks.Location = New System.Drawing.Point(542, 94)
+        Me.txtCategoryRemarks.Name = "txtCategoryRemarks"
+        Me.txtCategoryRemarks.Size = New System.Drawing.Size(259, 21)
+        Me.txtCategoryRemarks.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(415, 47)
+        Me.Label1.Location = New System.Drawing.Point(415, 68)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 13)
+        Me.Label1.Size = New System.Drawing.Size(88, 13)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Stock Category *"
+        Me.Label1.Text = "Category Name*"
         '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(415, 73)
+        Me.Label2.Location = New System.Drawing.Point(415, 94)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(48, 13)
         Me.Label2.TabIndex = 5
@@ -189,7 +191,7 @@ Partial Class frmSKUCat
         Me.btnAccount.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccount.ImageIndex = 0
         Me.btnAccount.ImageList = Me.ImageList1
-        Me.btnAccount.Location = New System.Drawing.Point(647, 97)
+        Me.btnAccount.Location = New System.Drawing.Point(647, 118)
         Me.btnAccount.Name = "btnAccount"
         Me.btnAccount.Size = New System.Drawing.Size(29, 25)
         Me.btnAccount.TabIndex = 4
@@ -199,7 +201,7 @@ Partial Class frmSKUCat
         '
         Me.txtAccountCode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtAccountCode.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAccountCode.Location = New System.Drawing.Point(542, 100)
+        Me.txtAccountCode.Location = New System.Drawing.Point(542, 121)
         Me.txtAccountCode.MaxLength = 255
         Me.txtAccountCode.Name = "txtAccountCode"
         Me.txtAccountCode.ReadOnly = True
@@ -211,17 +213,39 @@ Partial Class frmSKUCat
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(414, 103)
+        Me.Label3.Location = New System.Drawing.Point(414, 124)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(46, 13)
         Me.Label3.TabIndex = 112
         Me.Label3.Text = "Account"
         '
-        'frmSKUCat
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(415, 41)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 13)
+        Me.Label5.TabIndex = 119
+        Me.Label5.Text = "Category Code*"
+        '
+        'txtCategoryCode
+        '
+        Me.txtCategoryCode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCategoryCode.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCategoryCode.Location = New System.Drawing.Point(542, 41)
+        Me.txtCategoryCode.Name = "txtCategoryCode"
+        Me.txtCategoryCode.Size = New System.Drawing.Size(100, 21)
+        Me.txtCategoryCode.TabIndex = 0
+        '
+        'frmSKUCategory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(813, 361)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.txtCategoryCode)
         Me.Controls.Add(Me.btnAccount)
         Me.Controls.Add(Me.txtAccountCode)
         Me.Controls.Add(Me.Label3)
@@ -234,11 +258,11 @@ Partial Class frmSKUCat
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtCatRemarks)
-        Me.Controls.Add(Me.txtSKUCategory)
+        Me.Controls.Add(Me.txtCategoryRemarks)
+        Me.Controls.Add(Me.txtCategoryName)
         Me.Controls.Add(Me.ListView1)
         Me.Location = New System.Drawing.Point(434, 0)
-        Me.Name = "frmSKUCat"
+        Me.Name = "frmSKUCategory"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Stock Category"
@@ -247,8 +271,8 @@ Partial Class frmSKUCat
 
     End Sub
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents txtSKUCategory As System.Windows.Forms.TextBox
-    Friend WithEvents txtCatRemarks As System.Windows.Forms.TextBox
+    Friend WithEvents txtCategoryName As System.Windows.Forms.TextBox
+    Friend WithEvents txtCategoryRemarks As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnCancel As System.Windows.Forms.Button
@@ -262,4 +286,6 @@ Partial Class frmSKUCat
     Friend WithEvents btnAccount As System.Windows.Forms.Button
     Friend WithEvents txtAccountCode As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtCategoryCode As System.Windows.Forms.TextBox
 End Class
