@@ -3,6 +3,7 @@
     Private Sub LvtAboutBox_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label1.Text = fdlLogin.Label3.Text
         Label2.Text = "DB " & GetSysInit("db_version")
+        'mungkin kayak gini
     End Sub
 
 
