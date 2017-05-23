@@ -36,7 +36,7 @@ Public Class frmMAIN
 
             Dim stringReader As String
             stringReader = fileReader.ReadLine()
-
+            ' "k0t4r0m1n4m1" '
             If stringReader = "k0t4r0m1n4m1" Then
                 Dim strConnection As String = My.Settings.ConnStr
                 Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -1212,5 +1212,13 @@ Public Class frmMAIN
             frmSKUCategorySub.Show()
             frmSKUCategorySub.BringToFront()
         End If
+    End Sub
+
+    Private Sub FormInductionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FormInductionToolStripMenuItem.Click
+        'If Not GetPermission("frmSOList") = False Then
+        FTR_Induction.MdiParent = Me
+        FTR_Induction.Show()
+        FTR_Induction.BringToFront()
+        'End If
     End Sub
 End Class
