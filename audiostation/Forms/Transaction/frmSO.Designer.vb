@@ -115,6 +115,7 @@ Partial Class frmSO
         Me.txtSInvoiceNo = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.btnInvoiceNo = New System.Windows.Forms.Button()
+        Me.btnPrintSInv = New System.Windows.Forms.Button()
         Me.ntbSOCurrRate = New boxtree.NumericTextBox()
         Me.ntbSOTaxPercent = New boxtree.NumericTextBox()
         Me.ntbSODiscAmt = New boxtree.NumericTextBox()
@@ -122,7 +123,6 @@ Partial Class frmSO
         Me.ntbPaymentTerms = New boxtree.NumericTextBox()
         Me.ntbSOPrice = New boxtree.NumericTextBox()
         Me.ntbSOQty = New boxtree.NumericTextBox()
-        Me.btnPrintSInv = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'txtSONo
@@ -968,6 +968,16 @@ Partial Class frmSO
         Me.btnInvoiceNo.Text = "Invoice No. Booking"
         Me.btnInvoiceNo.UseVisualStyleBackColor = True
         '
+        'btnPrintSInv
+        '
+        Me.btnPrintSInv.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrintSInv.Location = New System.Drawing.Point(1174, 601)
+        Me.btnPrintSInv.Name = "btnPrintSInv"
+        Me.btnPrintSInv.Size = New System.Drawing.Size(84, 26)
+        Me.btnPrintSInv.TabIndex = 55
+        Me.btnPrintSInv.Text = "Print S. Inv."
+        Me.btnPrintSInv.UseVisualStyleBackColor = True
+        '
         'ntbSOCurrRate
         '
         Me.ntbSOCurrRate.AllowSpace = False
@@ -1037,16 +1047,6 @@ Partial Class frmSO
         Me.ntbSOQty.Size = New System.Drawing.Size(40, 21)
         Me.ntbSOQty.TabIndex = 22
         Me.ntbSOQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'btnPrintSInv
-        '
-        Me.btnPrintSInv.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrintSInv.Location = New System.Drawing.Point(1174, 601)
-        Me.btnPrintSInv.Name = "btnPrintSInv"
-        Me.btnPrintSInv.Size = New System.Drawing.Size(84, 26)
-        Me.btnPrintSInv.TabIndex = 55
-        Me.btnPrintSInv.Text = "Print S. Inv."
-        Me.btnPrintSInv.UseVisualStyleBackColor = True
         '
         'frmSO
         '

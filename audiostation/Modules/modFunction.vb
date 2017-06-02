@@ -48,7 +48,9 @@ Module modFunction
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@trxtype", SqlDbType.NVarChar, 50)
         prm1.Value = TrxType
 
-        cn.Open()
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While myReader.Read()
             GetSysNumber = CStr(myReader.GetInt32(2))
@@ -329,6 +331,36 @@ Module modFunction
         End Try
         Return obj
 
+    End Function
+    Public Function getvalcheck(ByVal kondisi As Boolean) As Integer
+        getvalcheck = IIf(kondisi, 1, 0)
+        Return getvalcheck
+    End Function
+    Public Function Executestr(ByVal strsql As String) As Boolean
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Try
+            If cn.State = ConnectionState.Closed Then
+                cn.Open()
+            End If
+
+            cmd = New SqlCommand(strsql, cn)
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            Executestr = True
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Exec Str")
+            Executestr = False
+        End Try
+
+    End Function
+    Public Function checkisnumber(ByVal KCode As String) As Boolean
+        If Asc(KCode) <> 13 AndAlso Asc(KCode) <> 8 AndAlso Not IsNumeric(KCode) AndAlso Not KCode = "." Then
+            MsgBox("Please enter numbers only !", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Box-Tree")
+            checkisnumber = False
+        Else
+            checkisnumber = True
+        End If
     End Function
 End Module
 

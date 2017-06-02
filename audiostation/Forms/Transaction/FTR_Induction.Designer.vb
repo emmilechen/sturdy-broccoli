@@ -42,11 +42,13 @@ Partial Class FTR_Induction
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Panel12 = New System.Windows.Forms.Panel()
+        Me.CheckBox43 = New System.Windows.Forms.CheckBox()
         Me.CheckBox23 = New System.Windows.Forms.CheckBox()
         Me.CheckBox24 = New System.Windows.Forms.CheckBox()
         Me.Label63 = New System.Windows.Forms.Label()
         Me.Label64 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.CheckBox41 = New System.Windows.Forms.CheckBox()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.TextBox34 = New System.Windows.Forms.TextBox()
         Me.TextBox35 = New System.Windows.Forms.TextBox()
@@ -59,6 +61,7 @@ Partial Class FTR_Induction
         Me.Label51 = New System.Windows.Forms.Label()
         Me.Label52 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.CheckBox42 = New System.Windows.Forms.CheckBox()
         Me.CheckBox11 = New System.Windows.Forms.CheckBox()
         Me.CheckBox12 = New System.Windows.Forms.CheckBox()
         Me.CheckBox13 = New System.Windows.Forms.CheckBox()
@@ -66,6 +69,7 @@ Partial Class FTR_Induction
         Me.Label47 = New System.Windows.Forms.Label()
         Me.Label48 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.CheckBox37 = New System.Windows.Forms.CheckBox()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.Label76 = New System.Windows.Forms.Label()
@@ -121,6 +125,7 @@ Partial Class FTR_Induction
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Panel10 = New System.Windows.Forms.Panel()
+        Me.CheckBox46 = New System.Windows.Forms.CheckBox()
         Me.CheckBox38 = New System.Windows.Forms.CheckBox()
         Me.CheckBox39 = New System.Windows.Forms.CheckBox()
         Me.CheckBox40 = New System.Windows.Forms.CheckBox()
@@ -142,6 +147,8 @@ Partial Class FTR_Induction
         Me.Label59 = New System.Windows.Forms.Label()
         Me.Label60 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.CheckBox45 = New System.Windows.Forms.CheckBox()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
         Me.TextBox40 = New System.Windows.Forms.TextBox()
         Me.TextBox39 = New System.Windows.Forms.TextBox()
         Me.TextBox38 = New System.Windows.Forms.TextBox()
@@ -154,6 +161,7 @@ Partial Class FTR_Induction
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.CheckBox44 = New System.Windows.Forms.CheckBox()
         Me.TextBox37 = New System.Windows.Forms.TextBox()
         Me.TextBox36 = New System.Windows.Forms.TextBox()
         Me.CheckBox29 = New System.Windows.Forms.CheckBox()
@@ -185,6 +193,14 @@ Partial Class FTR_Induction
         Me.Label68 = New System.Windows.Forms.Label()
         Me.Label69 = New System.Windows.Forms.Label()
         Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.TextBox43 = New System.Windows.Forms.TextBox()
         Me.TextBox20 = New System.Windows.Forms.TextBox()
         Me.TextBox41 = New System.Windows.Forms.TextBox()
         Me.TextBox42 = New System.Windows.Forms.TextBox()
@@ -206,10 +222,10 @@ Partial Class FTR_Induction
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Panel14 = New System.Windows.Forms.Panel()
         Me.txtguid = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmdprint = New System.Windows.Forms.Button()
+        Me.cmdexit = New System.Windows.Forms.Button()
+        Me.cmdfind = New System.Windows.Forms.Button()
+        Me.cmdsave = New System.Windows.Forms.Button()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label66 = New System.Windows.Forms.Label()
@@ -224,8 +240,7 @@ Partial Class FTR_Induction
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
-        Me.TextBox43 = New System.Windows.Forms.TextBox()
+        Me.cmddel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -313,6 +328,7 @@ Partial Class FTR_Induction
         '
         'TextBox5
         '
+        Me.TextBox5.BackColor = System.Drawing.Color.Orange
         Me.TextBox5.Location = New System.Drawing.Point(126, 107)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(104, 21)
@@ -320,6 +336,7 @@ Partial Class FTR_Induction
         '
         'TextBox4
         '
+        Me.TextBox4.BackColor = System.Drawing.Color.Orange
         Me.TextBox4.Location = New System.Drawing.Point(126, 80)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(104, 21)
@@ -327,6 +344,7 @@ Partial Class FTR_Induction
         '
         'TextBox3
         '
+        Me.TextBox3.BackColor = System.Drawing.Color.Orange
         Me.TextBox3.Location = New System.Drawing.Point(126, 55)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(104, 21)
@@ -342,6 +360,7 @@ Partial Class FTR_Induction
         '
         'TextBox2
         '
+        Me.TextBox2.BackColor = System.Drawing.Color.Orange
         Me.TextBox2.Location = New System.Drawing.Point(126, 30)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(104, 21)
@@ -449,6 +468,7 @@ Partial Class FTR_Induction
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.LightGreen
+        Me.Panel12.Controls.Add(Me.CheckBox43)
         Me.Panel12.Controls.Add(Me.CheckBox23)
         Me.Panel12.Controls.Add(Me.CheckBox24)
         Me.Panel12.Controls.Add(Me.Label63)
@@ -458,6 +478,16 @@ Partial Class FTR_Induction
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(429, 56)
         Me.Panel12.TabIndex = 20
+        '
+        'CheckBox43
+        '
+        Me.CheckBox43.AutoSize = True
+        Me.CheckBox43.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox43.Name = "CheckBox43"
+        Me.CheckBox43.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox43.TabIndex = 50
+        Me.CheckBox43.Text = "&Semua"
+        Me.CheckBox43.UseVisualStyleBackColor = True
         '
         'CheckBox23
         '
@@ -502,6 +532,7 @@ Partial Class FTR_Induction
         'Panel8
         '
         Me.Panel8.BackColor = System.Drawing.Color.Khaki
+        Me.Panel8.Controls.Add(Me.CheckBox41)
         Me.Panel8.Controls.Add(Me.Label79)
         Me.Panel8.Controls.Add(Me.TextBox34)
         Me.Panel8.Controls.Add(Me.TextBox35)
@@ -519,6 +550,16 @@ Partial Class FTR_Induction
         Me.Panel8.Size = New System.Drawing.Size(429, 117)
         Me.Panel8.TabIndex = 20
         '
+        'CheckBox41
+        '
+        Me.CheckBox41.AutoSize = True
+        Me.CheckBox41.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox41.Name = "CheckBox41"
+        Me.CheckBox41.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox41.TabIndex = 50
+        Me.CheckBox41.Text = "&Semua"
+        Me.CheckBox41.UseVisualStyleBackColor = True
+        '
         'Label79
         '
         Me.Label79.AutoSize = True
@@ -532,6 +573,7 @@ Partial Class FTR_Induction
         '
         'TextBox34
         '
+        Me.TextBox34.BackColor = System.Drawing.Color.Orange
         Me.TextBox34.Location = New System.Drawing.Point(326, 87)
         Me.TextBox34.Name = "TextBox34"
         Me.TextBox34.Size = New System.Drawing.Size(87, 21)
@@ -539,6 +581,7 @@ Partial Class FTR_Induction
         '
         'TextBox35
         '
+        Me.TextBox35.BackColor = System.Drawing.Color.Orange
         Me.TextBox35.Location = New System.Drawing.Point(221, 87)
         Me.TextBox35.Name = "TextBox35"
         Me.TextBox35.Size = New System.Drawing.Size(87, 21)
@@ -627,6 +670,7 @@ Partial Class FTR_Induction
         'Panel7
         '
         Me.Panel7.BackColor = System.Drawing.Color.Pink
+        Me.Panel7.Controls.Add(Me.CheckBox42)
         Me.Panel7.Controls.Add(Me.CheckBox11)
         Me.Panel7.Controls.Add(Me.CheckBox12)
         Me.Panel7.Controls.Add(Me.CheckBox13)
@@ -638,6 +682,16 @@ Partial Class FTR_Induction
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(429, 87)
         Me.Panel7.TabIndex = 19
+        '
+        'CheckBox42
+        '
+        Me.CheckBox42.AutoSize = True
+        Me.CheckBox42.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox42.Name = "CheckBox42"
+        Me.CheckBox42.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox42.TabIndex = 50
+        Me.CheckBox42.Text = "&Semua"
+        Me.CheckBox42.UseVisualStyleBackColor = True
         '
         'CheckBox11
         '
@@ -702,6 +756,7 @@ Partial Class FTR_Induction
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.Plum
+        Me.Panel6.Controls.Add(Me.CheckBox37)
         Me.Panel6.Controls.Add(Me.Label78)
         Me.Panel6.Controls.Add(Me.Label77)
         Me.Panel6.Controls.Add(Me.Label76)
@@ -734,6 +789,16 @@ Partial Class FTR_Induction
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(429, 215)
         Me.Panel6.TabIndex = 18
+        '
+        'CheckBox37
+        '
+        Me.CheckBox37.AutoSize = True
+        Me.CheckBox37.Location = New System.Drawing.Point(360, 10)
+        Me.CheckBox37.Name = "CheckBox37"
+        Me.CheckBox37.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox37.TabIndex = 49
+        Me.CheckBox37.Text = "&Semua"
+        Me.CheckBox37.UseVisualStyleBackColor = True
         '
         'Label78
         '
@@ -770,6 +835,7 @@ Partial Class FTR_Induction
         '
         'TextBox32
         '
+        Me.TextBox32.BackColor = System.Drawing.Color.Orange
         Me.TextBox32.Location = New System.Drawing.Point(331, 130)
         Me.TextBox32.Name = "TextBox32"
         Me.TextBox32.Size = New System.Drawing.Size(87, 21)
@@ -777,6 +843,7 @@ Partial Class FTR_Induction
         '
         'TextBox33
         '
+        Me.TextBox33.BackColor = System.Drawing.Color.Orange
         Me.TextBox33.Location = New System.Drawing.Point(226, 130)
         Me.TextBox33.Name = "TextBox33"
         Me.TextBox33.Size = New System.Drawing.Size(87, 21)
@@ -784,6 +851,7 @@ Partial Class FTR_Induction
         '
         'TextBox28
         '
+        Me.TextBox28.BackColor = System.Drawing.Color.Orange
         Me.TextBox28.Location = New System.Drawing.Point(331, 103)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(87, 21)
@@ -791,6 +859,7 @@ Partial Class FTR_Induction
         '
         'TextBox29
         '
+        Me.TextBox29.BackColor = System.Drawing.Color.Orange
         Me.TextBox29.Location = New System.Drawing.Point(226, 103)
         Me.TextBox29.Name = "TextBox29"
         Me.TextBox29.Size = New System.Drawing.Size(87, 21)
@@ -798,6 +867,7 @@ Partial Class FTR_Induction
         '
         'TextBox30
         '
+        Me.TextBox30.BackColor = System.Drawing.Color.Orange
         Me.TextBox30.Location = New System.Drawing.Point(331, 77)
         Me.TextBox30.Name = "TextBox30"
         Me.TextBox30.Size = New System.Drawing.Size(87, 21)
@@ -805,6 +875,7 @@ Partial Class FTR_Induction
         '
         'TextBox31
         '
+        Me.TextBox31.BackColor = System.Drawing.Color.Orange
         Me.TextBox31.Location = New System.Drawing.Point(226, 77)
         Me.TextBox31.Name = "TextBox31"
         Me.TextBox31.Size = New System.Drawing.Size(87, 21)
@@ -1035,6 +1106,7 @@ Partial Class FTR_Induction
         '
         'TextBox26
         '
+        Me.TextBox26.BackColor = System.Drawing.Color.Orange
         Me.TextBox26.Location = New System.Drawing.Point(331, 58)
         Me.TextBox26.Name = "TextBox26"
         Me.TextBox26.Size = New System.Drawing.Size(87, 21)
@@ -1042,6 +1114,7 @@ Partial Class FTR_Induction
         '
         'TextBox27
         '
+        Me.TextBox27.BackColor = System.Drawing.Color.Orange
         Me.TextBox27.Location = New System.Drawing.Point(226, 58)
         Me.TextBox27.Name = "TextBox27"
         Me.TextBox27.Size = New System.Drawing.Size(87, 21)
@@ -1049,6 +1122,7 @@ Partial Class FTR_Induction
         '
         'TextBox25
         '
+        Me.TextBox25.BackColor = System.Drawing.Color.Orange
         Me.TextBox25.Location = New System.Drawing.Point(331, 32)
         Me.TextBox25.Name = "TextBox25"
         Me.TextBox25.Size = New System.Drawing.Size(87, 21)
@@ -1056,6 +1130,7 @@ Partial Class FTR_Induction
         '
         'TextBox24
         '
+        Me.TextBox24.BackColor = System.Drawing.Color.Orange
         Me.TextBox24.Location = New System.Drawing.Point(226, 32)
         Me.TextBox24.Name = "TextBox24"
         Me.TextBox24.Size = New System.Drawing.Size(87, 21)
@@ -1272,6 +1347,7 @@ Partial Class FTR_Induction
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.Yellow
+        Me.Panel10.Controls.Add(Me.CheckBox46)
         Me.Panel10.Controls.Add(Me.CheckBox38)
         Me.Panel10.Controls.Add(Me.CheckBox39)
         Me.Panel10.Controls.Add(Me.CheckBox40)
@@ -1283,6 +1359,16 @@ Partial Class FTR_Induction
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(429, 124)
         Me.Panel10.TabIndex = 20
+        '
+        'CheckBox46
+        '
+        Me.CheckBox46.AutoSize = True
+        Me.CheckBox46.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox46.Name = "CheckBox46"
+        Me.CheckBox46.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox46.TabIndex = 50
+        Me.CheckBox46.Text = "&Semua"
+        Me.CheckBox46.UseVisualStyleBackColor = True
         '
         'CheckBox38
         '
@@ -1481,6 +1567,7 @@ Partial Class FTR_Induction
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.Khaki
+        Me.Panel4.Controls.Add(Me.CheckBox45)
         Me.Panel4.Controls.Add(Me.TextBox21)
         Me.Panel4.Controls.Add(Me.TextBox40)
         Me.Panel4.Controls.Add(Me.TextBox39)
@@ -1499,8 +1586,27 @@ Partial Class FTR_Induction
         Me.Panel4.Size = New System.Drawing.Size(429, 124)
         Me.Panel4.TabIndex = 18
         '
+        'CheckBox45
+        '
+        Me.CheckBox45.AutoSize = True
+        Me.CheckBox45.Location = New System.Drawing.Point(357, 10)
+        Me.CheckBox45.Name = "CheckBox45"
+        Me.CheckBox45.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox45.TabIndex = 50
+        Me.CheckBox45.Text = "&Semua"
+        Me.CheckBox45.UseVisualStyleBackColor = True
+        '
+        'TextBox21
+        '
+        Me.TextBox21.BackColor = System.Drawing.Color.Orange
+        Me.TextBox21.Location = New System.Drawing.Point(226, 61)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox21.TabIndex = 9
+        '
         'TextBox40
         '
+        Me.TextBox40.BackColor = System.Drawing.Color.Orange
         Me.TextBox40.Location = New System.Drawing.Point(226, 88)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.Size = New System.Drawing.Size(87, 21)
@@ -1508,6 +1614,7 @@ Partial Class FTR_Induction
         '
         'TextBox39
         '
+        Me.TextBox39.BackColor = System.Drawing.Color.Orange
         Me.TextBox39.Location = New System.Drawing.Point(226, 35)
         Me.TextBox39.Name = "TextBox39"
         Me.TextBox39.Size = New System.Drawing.Size(87, 21)
@@ -1515,6 +1622,7 @@ Partial Class FTR_Induction
         '
         'TextBox38
         '
+        Me.TextBox38.BackColor = System.Drawing.Color.Orange
         Me.TextBox38.Location = New System.Drawing.Point(226, 8)
         Me.TextBox38.Name = "TextBox38"
         Me.TextBox38.Size = New System.Drawing.Size(87, 21)
@@ -1603,6 +1711,7 @@ Partial Class FTR_Induction
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel3.Controls.Add(Me.CheckBox44)
         Me.Panel3.Controls.Add(Me.TextBox37)
         Me.Panel3.Controls.Add(Me.TextBox36)
         Me.Panel3.Controls.Add(Me.CheckBox29)
@@ -1627,8 +1736,19 @@ Partial Class FTR_Induction
         Me.Panel3.Size = New System.Drawing.Size(429, 198)
         Me.Panel3.TabIndex = 17
         '
+        'CheckBox44
+        '
+        Me.CheckBox44.AutoSize = True
+        Me.CheckBox44.Location = New System.Drawing.Point(357, 11)
+        Me.CheckBox44.Name = "CheckBox44"
+        Me.CheckBox44.Size = New System.Drawing.Size(58, 17)
+        Me.CheckBox44.TabIndex = 50
+        Me.CheckBox44.Text = "&Semua"
+        Me.CheckBox44.UseVisualStyleBackColor = True
+        '
         'TextBox37
         '
+        Me.TextBox37.BackColor = System.Drawing.Color.Orange
         Me.TextBox37.Location = New System.Drawing.Point(226, 56)
         Me.TextBox37.Name = "TextBox37"
         Me.TextBox37.Size = New System.Drawing.Size(87, 21)
@@ -1636,6 +1756,7 @@ Partial Class FTR_Induction
         '
         'TextBox36
         '
+        Me.TextBox36.BackColor = System.Drawing.Color.Orange
         Me.TextBox36.Location = New System.Drawing.Point(226, 29)
         Me.TextBox36.Name = "TextBox36"
         Me.TextBox36.Size = New System.Drawing.Size(87, 21)
@@ -1921,6 +2042,13 @@ Partial Class FTR_Induction
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.PeachPuff
+        Me.Panel13.Controls.Add(Me.Label85)
+        Me.Panel13.Controls.Add(Me.Label86)
+        Me.Panel13.Controls.Add(Me.Label87)
+        Me.Panel13.Controls.Add(Me.Label82)
+        Me.Panel13.Controls.Add(Me.Label83)
+        Me.Panel13.Controls.Add(Me.Label81)
+        Me.Panel13.Controls.Add(Me.Label80)
         Me.Panel13.Controls.Add(Me.TextBox43)
         Me.Panel13.Controls.Add(Me.TextBox20)
         Me.Panel13.Controls.Add(Me.TextBox41)
@@ -1939,8 +2067,87 @@ Partial Class FTR_Induction
         Me.Panel13.Size = New System.Drawing.Size(429, 123)
         Me.Panel13.TabIndex = 28
         '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label85.Location = New System.Drawing.Point(223, 68)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(24, 13)
+        Me.Label85.TabIndex = 16
+        Me.Label85.Text = "Rp."
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label86.Location = New System.Drawing.Point(223, 41)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(24, 13)
+        Me.Label86.TabIndex = 15
+        Me.Label86.Text = "Rp."
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label87.Location = New System.Drawing.Point(223, 14)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(24, 13)
+        Me.Label87.TabIndex = 14
+        Me.Label87.Text = "Rp."
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label82.Location = New System.Drawing.Point(93, 95)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(17, 13)
+        Me.Label82.TabIndex = 13
+        Me.Label82.Text = "@"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.Location = New System.Drawing.Point(93, 68)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(17, 13)
+        Me.Label83.TabIndex = 12
+        Me.Label83.Text = "@"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.Location = New System.Drawing.Point(93, 41)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(17, 13)
+        Me.Label81.TabIndex = 11
+        Me.Label81.Text = "@"
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label80.Location = New System.Drawing.Point(93, 14)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(17, 13)
+        Me.Label80.TabIndex = 10
+        Me.Label80.Text = "@"
+        '
+        'TextBox43
+        '
+        Me.TextBox43.BackColor = System.Drawing.Color.Orange
+        Me.TextBox43.Location = New System.Drawing.Point(116, 92)
+        Me.TextBox43.Name = "TextBox43"
+        Me.TextBox43.Size = New System.Drawing.Size(104, 21)
+        Me.TextBox43.TabIndex = 9
+        '
         'TextBox20
         '
+        Me.TextBox20.BackColor = System.Drawing.Color.Orange
         Me.TextBox20.Location = New System.Drawing.Point(247, 65)
         Me.TextBox20.Name = "TextBox20"
         Me.TextBox20.Size = New System.Drawing.Size(104, 21)
@@ -1948,6 +2155,7 @@ Partial Class FTR_Induction
         '
         'TextBox41
         '
+        Me.TextBox41.BackColor = System.Drawing.Color.Orange
         Me.TextBox41.Location = New System.Drawing.Point(247, 38)
         Me.TextBox41.Name = "TextBox41"
         Me.TextBox41.Size = New System.Drawing.Size(104, 21)
@@ -1955,6 +2163,7 @@ Partial Class FTR_Induction
         '
         'TextBox42
         '
+        Me.TextBox42.BackColor = System.Drawing.Color.Orange
         Me.TextBox42.Location = New System.Drawing.Point(247, 11)
         Me.TextBox42.Name = "TextBox42"
         Me.TextBox42.Size = New System.Drawing.Size(104, 21)
@@ -1970,6 +2179,7 @@ Partial Class FTR_Induction
         '
         'TextBox19
         '
+        Me.TextBox19.BackColor = System.Drawing.Color.Orange
         Me.TextBox19.Location = New System.Drawing.Point(116, 65)
         Me.TextBox19.Name = "TextBox19"
         Me.TextBox19.Size = New System.Drawing.Size(104, 21)
@@ -1977,6 +2187,7 @@ Partial Class FTR_Induction
         '
         'TextBox18
         '
+        Me.TextBox18.BackColor = System.Drawing.Color.Orange
         Me.TextBox18.Location = New System.Drawing.Point(116, 38)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(104, 21)
@@ -1984,6 +2195,7 @@ Partial Class FTR_Induction
         '
         'TextBox17
         '
+        Me.TextBox17.BackColor = System.Drawing.Color.Orange
         Me.TextBox17.Location = New System.Drawing.Point(116, 11)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(104, 21)
@@ -2070,6 +2282,7 @@ Partial Class FTR_Induction
         '
         'TextBox1
         '
+        Me.TextBox1.BackColor = System.Drawing.Color.Chartreuse
         Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(12, 36)
         Me.TextBox1.Name = "TextBox1"
@@ -2107,11 +2320,12 @@ Partial Class FTR_Induction
         'Panel14
         '
         Me.Panel14.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel14.Controls.Add(Me.cmddel)
         Me.Panel14.Controls.Add(Me.txtguid)
-        Me.Panel14.Controls.Add(Me.Button4)
-        Me.Panel14.Controls.Add(Me.Button3)
-        Me.Panel14.Controls.Add(Me.Button2)
-        Me.Panel14.Controls.Add(Me.Button1)
+        Me.Panel14.Controls.Add(Me.cmdprint)
+        Me.Panel14.Controls.Add(Me.cmdexit)
+        Me.Panel14.Controls.Add(Me.cmdfind)
+        Me.Panel14.Controls.Add(Me.cmdsave)
         Me.Panel14.Location = New System.Drawing.Point(905, 70)
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Size = New System.Drawing.Size(156, 617)
@@ -2119,54 +2333,54 @@ Partial Class FTR_Induction
         '
         'txtguid
         '
-        Me.txtguid.Location = New System.Drawing.Point(18, 4)
+        Me.txtguid.Location = New System.Drawing.Point(18, 5)
         Me.txtguid.Name = "txtguid"
         Me.txtguid.ReadOnly = True
         Me.txtguid.Size = New System.Drawing.Size(125, 20)
         Me.txtguid.TabIndex = 33
         '
-        'Button4
+        'cmdprint
         '
-        Me.Button4.BackColor = System.Drawing.Color.Chartreuse
-        Me.Button4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(18, 522)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(125, 37)
-        Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Print"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.cmdprint.BackColor = System.Drawing.Color.Chartreuse
+        Me.cmdprint.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdprint.Location = New System.Drawing.Point(18, 522)
+        Me.cmdprint.Name = "cmdprint"
+        Me.cmdprint.Size = New System.Drawing.Size(125, 37)
+        Me.cmdprint.TabIndex = 3
+        Me.cmdprint.Text = "Print"
+        Me.cmdprint.UseVisualStyleBackColor = False
         '
-        'Button3
+        'cmdexit
         '
-        Me.Button3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(18, 567)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(125, 37)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Exit"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.cmdexit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdexit.Location = New System.Drawing.Point(18, 567)
+        Me.cmdexit.Name = "cmdexit"
+        Me.cmdexit.Size = New System.Drawing.Size(125, 37)
+        Me.cmdexit.TabIndex = 2
+        Me.cmdexit.Text = "Exit"
+        Me.cmdexit.UseVisualStyleBackColor = True
         '
-        'Button2
+        'cmdfind
         '
-        Me.Button2.BackColor = System.Drawing.Color.LightCoral
-        Me.Button2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(18, 479)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(125, 37)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Find"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.cmdfind.BackColor = System.Drawing.Color.LightCoral
+        Me.cmdfind.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdfind.Location = New System.Drawing.Point(18, 441)
+        Me.cmdfind.Name = "cmdfind"
+        Me.cmdfind.Size = New System.Drawing.Size(125, 37)
+        Me.cmdfind.TabIndex = 1
+        Me.cmdfind.Text = "Find"
+        Me.cmdfind.UseVisualStyleBackColor = False
         '
-        'Button1
+        'cmdsave
         '
-        Me.Button1.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(18, 436)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(125, 37)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Save"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmdsave.BackColor = System.Drawing.Color.DodgerBlue
+        Me.cmdsave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdsave.Location = New System.Drawing.Point(18, 398)
+        Me.cmdsave.Name = "cmdsave"
+        Me.cmdsave.Size = New System.Drawing.Size(125, 37)
+        Me.cmdsave.TabIndex = 0
+        Me.cmdsave.Text = "Save"
+        Me.cmdsave.UseVisualStyleBackColor = False
         '
         'ComboBox4
         '
@@ -2301,19 +2515,16 @@ Partial Class FTR_Induction
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Kompetitor 1"
         '
-        'TextBox21
+        'cmddel
         '
-        Me.TextBox21.Location = New System.Drawing.Point(226, 61)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(87, 21)
-        Me.TextBox21.TabIndex = 9
-        '
-        'TextBox43
-        '
-        Me.TextBox43.Location = New System.Drawing.Point(116, 92)
-        Me.TextBox43.Name = "TextBox43"
-        Me.TextBox43.Size = New System.Drawing.Size(104, 21)
-        Me.TextBox43.TabIndex = 9
+        Me.cmddel.BackColor = System.Drawing.Color.Red
+        Me.cmddel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmddel.Location = New System.Drawing.Point(18, 482)
+        Me.cmddel.Name = "cmddel"
+        Me.cmddel.Size = New System.Drawing.Size(125, 37)
+        Me.cmddel.TabIndex = 34
+        Me.cmddel.Text = "Delete"
+        Me.cmddel.UseVisualStyleBackColor = False
         '
         'FTR_Induction
         '
@@ -2580,13 +2791,28 @@ Partial Class FTR_Induction
     Friend WithEvents TextBox42 As System.Windows.Forms.TextBox
     Friend WithEvents ComboBox11 As System.Windows.Forms.ComboBox
     Friend WithEvents DateTimePicker3 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cmdprint As System.Windows.Forms.Button
+    Friend WithEvents cmdexit As System.Windows.Forms.Button
+    Friend WithEvents cmdfind As System.Windows.Forms.Button
+    Friend WithEvents cmdsave As System.Windows.Forms.Button
     Friend WithEvents DateTimePicker4 As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox21 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox43 As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox37 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox43 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox41 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox42 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox46 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox45 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox44 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label85 As System.Windows.Forms.Label
+    Friend WithEvents Label86 As System.Windows.Forms.Label
+    Friend WithEvents Label87 As System.Windows.Forms.Label
+    Friend WithEvents Label82 As System.Windows.Forms.Label
+    Friend WithEvents Label83 As System.Windows.Forms.Label
+    Friend WithEvents Label81 As System.Windows.Forms.Label
+    Friend WithEvents Label80 As System.Windows.Forms.Label
+    Friend WithEvents cmddel As System.Windows.Forms.Button
 End Class

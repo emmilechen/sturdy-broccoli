@@ -202,6 +202,18 @@
     <Compile Include="Forms\Master\Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\frmSKUCategory.Designer.vb">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategorySub.Designer.vb">
+      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategorySub.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Master\frmSKUPrice.Designer.vb">
       <DependentUpon>frmSKUPrice.vb</DependentUpon>
     </Compile>
@@ -548,6 +560,24 @@
       <DependentUpon>fdlJournal.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\fdlJournal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\FDLSearch.Designer.vb">
+      <DependentUpon>FDLSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\FDLSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\fdlSKUCat2.Designer.vb">
+      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\fdlSKUCat2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\Form3.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmBankPaymentPostList.Designer.vb">
@@ -1271,12 +1301,6 @@
     <Compile Include="Forms\Master\frmSKU.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Master\frmSKUCat.Designer.vb">
-      <DependentUpon>frmSKUCat.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUCat.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Master\frmCustomer.Designer.vb">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </Compile>
@@ -1347,6 +1371,12 @@
       <DependentUpon>frmWorkOrderList.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\frmWorkOrderList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\FTR_Induction.Designer.vb">
+      <DependentUpon>FTR_Induction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\FTR_Induction.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\clsLvwCompare.vb" />
@@ -1430,6 +1460,12 @@
     </Compile>
     <Compile Include="ReportDocs\frmDocViewer.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT_Induction_Form.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Induction_Form.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\RPT_Pch_Invoice_Form.vb">
       <AutoGen>True</AutoGen>
@@ -1542,6 +1578,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUCategory.resx">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUCategorySub.resx">
+      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKUPrice.resx">
       <DependentUpon>frmSKUPrice.vb</DependentUpon>
@@ -1696,9 +1738,6 @@
     <EmbeddedResource Include="Forms\Master\frmSKU.resx">
       <DependentUpon>frmSKU.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUCat.resx">
-      <DependentUpon>frmSKUCat.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmCustomer.resx">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </EmbeddedResource>
@@ -1731,6 +1770,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlJournal.resx">
       <DependentUpon>fdlJournal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\FDLSearch.resx">
+      <DependentUpon>FDLSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\fdlSKUCat2.resx">
+      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmBankPaymentPostList.resx">
       <DependentUpon>frmBankPaymentPostList.vb</DependentUpon>
@@ -2113,6 +2158,9 @@
     <EmbeddedResource Include="Forms\Transaction\frmWorkOrderList.resx">
       <DependentUpon>frmWorkOrderList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\FTR_Induction.resx">
+      <DependentUpon>FTR_Induction.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -2152,6 +2200,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportDocs\frmDocViewer.resx">
       <DependentUpon>frmDocViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT_Induction_Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Induction_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Pch_Invoice_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -2233,44 +2285,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>9</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>4</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>6</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

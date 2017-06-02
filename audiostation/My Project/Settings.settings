@@ -11,12 +11,13 @@
     <Setting Name="ConnStr" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=EJNOTE\EJ2008;Initial Catalog= boxtree;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=hp1-pc;Initial Catalog=boxtree;Persist Security Info=True;User ID=sa;Password=153624&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=EJNOTE\EJ2008;Initial Catalog= boxtree;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=hp1-pc;Initial Catalog=boxtree;Persist Security Info=True;User ID=sa;Password=153624</Value>
     </Setting>
     <Setting Name="SvrName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">EJNOTE\EJ2008</Value>
+      <Value Profile="(Default)">hp1-pc</Value>
     </Setting>
   </Settings>
 </SettingsFile>

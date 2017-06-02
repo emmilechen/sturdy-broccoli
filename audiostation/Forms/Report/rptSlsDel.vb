@@ -282,122 +282,122 @@ Public Class rptSlsDel
 
     End Sub
     Private Sub ExecuteToExcel()
-        Dim xlApp As Microsoft.Office.Interop.Excel.Application
-        Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook
-        Dim xlWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
-        Dim misValue As Object = System.Reflection.Missing.Value
-        Dim i As Integer
-        Dim j As Integer
-        Dim percent As Integer
+        'Dim xlApp As Microsoft.Office.Interop.Excel.Application
+        'Dim xlWorkBook As Microsoft.Office.Interop.Excel.Workbook
+        'Dim xlWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
+        'Dim misValue As Object = System.Reflection.Missing.Value
+        'Dim i As Integer
+        'Dim j As Integer
+        'Dim percent As Integer
 
-        xlApp = New Microsoft.Office.Interop.Excel.Application
-        xlWorkBook = xlApp.Workbooks.Add(misValue)
-        xlWorkSheet = xlWorkBook.Sheets("sheet1")
+        'xlApp = New Microsoft.Office.Interop.Excel.Application
+        'xlWorkBook = xlApp.Workbooks.Add(misValue)
+        'xlWorkSheet = xlWorkBook.Sheets("sheet1")
 
-        Dim strConnection As String = My.Settings.ConnStr
-        Dim Connection As New SqlConnection(strConnection)
-        Dim strSQL As String
-        Dim dateFrom1 As String
-        Dim dateTo1 As String
-        Dim SNoFrom1 As String
-        Dim SNoTo1 As String
-        Dim CCodeFrom1 As String
-        Dim CCodeTo1 As String
-        Dim slsCode1 As String
+        'Dim strConnection As String = My.Settings.ConnStr
+        'Dim Connection As New SqlConnection(strConnection)
+        'Dim strSQL As String
+        'Dim dateFrom1 As String
+        'Dim dateTo1 As String
+        'Dim SNoFrom1 As String
+        'Dim SNoTo1 As String
+        'Dim CCodeFrom1 As String
+        'Dim CCodeTo1 As String
+        'Dim slsCode1 As String
 
-        If rbAll.Checked = True Then
-            dateFrom1 = ""
-            dateTo1 = ""
-            SNoFrom1 = ""
-            SNoTo1 = ""
-            CCodeFrom1 = ""
-            CCodeTo1 = ""
-            slsCode1 = ""
-        Else
-            dtpFrom.Format = DateTimePickerFormat.Custom
-            dtpFrom.CustomFormat = "yyyy/MM/dd"
-            dtpTo.Format = DateTimePickerFormat.Custom
-            dtpTo.CustomFormat = "yyyy/MM/dd"
-            dateFrom1 = dtpFrom.Text
-            dateTo1 = dtpTo.Text
-            If txtSNoFrom.Text <> "" And txtSNoTo.Text <> "" Then
-                SNoFrom1 = txtCCodeFrom.Text
-                SNoTo1 = txtCCodeTo.Text
-                If txtSNoFrom.Text = "" And txtSNoTo.Text <> "" Then
-                    SNoFrom1 = ""
-                    SNoTo1 = txtSNoTo.Text
-                ElseIf txtSNoFrom.Text <> "" And txtSNoTo.Text = "" Then
-                    SNoFrom1 = txtSNoFrom.Text
-                    SNoTo1 = ""
-                End If
-            Else
-                SNoFrom1 = ""
-                SNoTo1 = ""
-            End If
-            If txtCCodeFrom.Text <> "" And txtCCodeTo.Text <> "" Then
-                CCodeFrom1 = txtCCodeFrom.Text
-                CCodeTo1 = txtCCodeTo.Text
-                If txtCCodeFrom.Text = "" And txtCCodeTo.Text <> "" Then
-                    CCodeFrom1 = ""
-                    CCodeTo1 = txtCCodeTo.Text
-                ElseIf txtCCodeFrom.Text <> "" And txtCCodeTo.Text = "" Then
-                    CCodeFrom1 = txtCCodeFrom.Text
-                    CCodeTo1 = ""
-                End If
-            Else
-                CCodeFrom1 = ""
-                CCodeTo1 = ""
-            End If
-            If txtSlsCode.Text <> "" Then
-                slsCode1 = txtSlsCode.Text
-            Else
-                slsCode1 = ""
-            End If
-        End If
+        'If rbAll.Checked = True Then
+        '    dateFrom1 = ""
+        '    dateTo1 = ""
+        '    SNoFrom1 = ""
+        '    SNoTo1 = ""
+        '    CCodeFrom1 = ""
+        '    CCodeTo1 = ""
+        '    slsCode1 = ""
+        'Else
+        '    dtpFrom.Format = DateTimePickerFormat.Custom
+        '    dtpFrom.CustomFormat = "yyyy/MM/dd"
+        '    dtpTo.Format = DateTimePickerFormat.Custom
+        '    dtpTo.CustomFormat = "yyyy/MM/dd"
+        '    dateFrom1 = dtpFrom.Text
+        '    dateTo1 = dtpTo.Text
+        '    If txtSNoFrom.Text <> "" And txtSNoTo.Text <> "" Then
+        '        SNoFrom1 = txtCCodeFrom.Text
+        '        SNoTo1 = txtCCodeTo.Text
+        '        If txtSNoFrom.Text = "" And txtSNoTo.Text <> "" Then
+        '            SNoFrom1 = ""
+        '            SNoTo1 = txtSNoTo.Text
+        '        ElseIf txtSNoFrom.Text <> "" And txtSNoTo.Text = "" Then
+        '            SNoFrom1 = txtSNoFrom.Text
+        '            SNoTo1 = ""
+        '        End If
+        '    Else
+        '        SNoFrom1 = ""
+        '        SNoTo1 = ""
+        '    End If
+        '    If txtCCodeFrom.Text <> "" And txtCCodeTo.Text <> "" Then
+        '        CCodeFrom1 = txtCCodeFrom.Text
+        '        CCodeTo1 = txtCCodeTo.Text
+        '        If txtCCodeFrom.Text = "" And txtCCodeTo.Text <> "" Then
+        '            CCodeFrom1 = ""
+        '            CCodeTo1 = txtCCodeTo.Text
+        '        ElseIf txtCCodeFrom.Text <> "" And txtCCodeTo.Text = "" Then
+        '            CCodeFrom1 = txtCCodeFrom.Text
+        '            CCodeTo1 = ""
+        '        End If
+        '    Else
+        '        CCodeFrom1 = ""
+        '        CCodeTo1 = ""
+        '    End If
+        '    If txtSlsCode.Text <> "" Then
+        '        slsCode1 = txtSlsCode.Text
+        '    Else
+        '        slsCode1 = ""
+        '    End If
+        'End If
 
-        strSQL = "exec RPT_Sls_Del_Report '" & dateFrom1 & "' , '" & dateTo1 & "', '" & SNoFrom1 & "', '" & SNoTo1 & "', '" & CCodeFrom1 & "', '" & CCodeTo1 & "', '" & slsCode1 & "' "
+        'strSQL = "exec RPT_Sls_Del_Report '" & dateFrom1 & "' , '" & dateTo1 & "', '" & SNoFrom1 & "', '" & SNoTo1 & "', '" & CCodeFrom1 & "', '" & CCodeTo1 & "', '" & slsCode1 & "' "
 
-        Dim DA As New SqlDataAdapter(strSQL, Connection)
-        '---------------Start export excel-----------------------------
-        Dim dt As New DataTable
+        'Dim DA As New SqlDataAdapter(strSQL, Connection)
+        ''---------------Start export excel-----------------------------
+        'Dim dt As New DataTable
 
-        DA.Fill(dt)
+        'DA.Fill(dt)
 
-        If dt.Rows.Count = 0 Then
-            MessageBox.Show("This reports has no data!")
-            Exit Sub
-        End If
+        'If dt.Rows.Count = 0 Then
+        '    MessageBox.Show("This reports has no data!")
+        '    Exit Sub
+        'End If
 
-        For i = 0 To dt.Columns.Count - 1
+        'For i = 0 To dt.Columns.Count - 1
 
-            xlWorkSheet.Cells(1, i + 1) = dt.Columns(i).ColumnName()
-        Next
+        '    xlWorkSheet.Cells(1, i + 1) = dt.Columns(i).ColumnName()
+        'Next
 
-        For i = 0 To dt.Rows.Count - 1
-            BW1.ReportProgress(percent, "")
-            For j = 0 To dt.Columns.Count - 1
-                xlWorkSheet.Cells(2 + i, j + 1) = dt.Rows.Item(i).Item(dt.Columns(j).Caption)
+        'For i = 0 To dt.Rows.Count - 1
+        '    BW1.ReportProgress(percent, "")
+        '    For j = 0 To dt.Columns.Count - 1
+        '        xlWorkSheet.Cells(2 + i, j + 1) = dt.Rows.Item(i).Item(dt.Columns(j).Caption)
 
-            Next
-            percent = i / dt.Rows.Count * 100
-        Next
+        '    Next
+        '    percent = i / dt.Rows.Count * 100
+        'Next
 
-        path = "D:\SalesDelivery.xlsx"
+        'path = "D:\SalesDelivery.xlsx"
 
-        If System.IO.File.Exists(path) = True Then
-            System.IO.File.Delete(path)
-        End If
+        'If System.IO.File.Exists(path) = True Then
+        '    System.IO.File.Delete(path)
+        'End If
 
-        xlWorkSheet.SaveAs(path)
-        xlWorkBook.Close()
-        xlApp.Quit()
+        'xlWorkSheet.SaveAs(path)
+        'xlWorkBook.Close()
+        'xlApp.Quit()
 
-        releaseObject(xlApp)
-        releaseObject(xlWorkBook)
-        releaseObject(xlWorkSheet)
+        'releaseObject(xlApp)
+        'releaseObject(xlWorkBook)
+        'releaseObject(xlWorkSheet)
 
-        MessageBox.Show("Success " & path, "Information", MessageBoxButtons.OK)
-        '----------------------END EXPORT EXCEL---------------------------
+        'MessageBox.Show("Success " & path, "Information", MessageBoxButtons.OK)
+        ''----------------------END EXPORT EXCEL---------------------------
     End Sub
 
     Private Sub releaseObject(ByVal obj As Object)
