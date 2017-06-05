@@ -148,6 +148,18 @@
     <Compile Include="Forms\LvtAboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategorySub.Designer.vb">
+      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategorySub.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Master\frmAccount.Designer.vb">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </Compile>
@@ -484,6 +496,12 @@
     <Compile Include="Forms\Report\rptWorkOrderSummary.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Setting\frmRegis.Designer.vb">
+      <DependentUpon>frmRegis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting\frmRegis.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Setting\frmSYSPeriod.Designer.vb">
       <DependentUpon>frmSYSPeriod.vb</DependentUpon>
     </Compile>
@@ -554,6 +572,12 @@
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\fdlSKUCat2.Designer.vb">
+      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\fdlSKUCat2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\fdlJournal.Designer.vb">
@@ -1301,6 +1325,12 @@
     <Compile Include="Forms\Master\frmSKU.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\frmSKUCategory.Designer.vb">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Master\frmCustomer.Designer.vb">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </Compile>
@@ -1552,6 +1582,12 @@
     <EmbeddedResource Include="Forms\LvtAboutBox.resx">
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUCategorySub.resx">
+      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -1720,6 +1756,9 @@
     <EmbeddedResource Include="Forms\Report\rptWorkOrderSummary.resx">
       <DependentUpon>rptWorkOrderSummary.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting\frmRegis.resx">
+      <DependentUpon>frmRegis.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSPeriod.resx">
       <DependentUpon>frmSYSPeriod.vb</DependentUpon>
     </EmbeddedResource>
@@ -1737,6 +1776,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKU.resx">
       <DependentUpon>frmSKU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUCategory.resx">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmCustomer.resx">
       <DependentUpon>frmCustomer.vb</DependentUpon>
@@ -1767,6 +1809,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\fdlSKUCat2.resx">
+      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlJournal.resx">
       <DependentUpon>fdlJournal.vb</DependentUpon>
