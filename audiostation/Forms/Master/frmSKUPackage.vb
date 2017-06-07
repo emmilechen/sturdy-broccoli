@@ -21,10 +21,10 @@ Public Class frmSKUPackage
         ToolTip1.SetToolTip(btnDeleteD, "Delete Line")
         ToolTip1.SetToolTip(btnAddD, "Add Line")
 
-        cmd = New SqlCommand("sp_mt_sku_cat_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_category_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int, 50)
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@category_id", SqlDbType.Int, 50)
         prm1.Value = 0
 
         cn.Open()
