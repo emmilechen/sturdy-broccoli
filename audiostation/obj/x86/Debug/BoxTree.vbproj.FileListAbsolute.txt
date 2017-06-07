@@ -448,3 +448,4 @@ D:\Aplikasi\vbnet\BoxTreeProject\sturdy-broccoli\trunk\audiostation\obj\x86\Debu
 D:\Aplikasi\vbnet\BoxTreeProject\sturdy-broccoli\trunk\audiostation\obj\x86\Debug\boxtree.fdlSKUCat2.resources
 D:\Aplikasi\vbnet\BoxTreeProject\sturdy-broccoli\trunk\audiostation\obj\x86\Debug\boxtree.FTR_Induction.resources
 D:\Aplikasi\vbnet\BoxTreeProject\sturdy-broccoli\trunk\audiostation\obj\x86\Debug\boxtree.FDLSearch.resources
+D:\Aplikasi\vbnet\BoxTreeProject\sturdy-broccoli\trunk\audiostation\obj\x86\Debug\BoxTree.vbprojResolveAssemblyReference.cache
