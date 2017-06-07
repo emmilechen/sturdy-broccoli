@@ -65,7 +65,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Levate_Icon.ico</ApplicationIcon>
+    <ApplicationIcon>BoxTree_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -2307,6 +2307,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BoxTree_Icon.ico" />
     <Content Include="Levate_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
