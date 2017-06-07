@@ -97,11 +97,13 @@ Partial Class fdlLogin
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox1.ErrorImage = Nothing
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 15)
+        Me.PictureBox1.Location = New System.Drawing.Point(14, 36)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(132, 102)
+        Me.PictureBox1.Size = New System.Drawing.Size(83, 73)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
@@ -109,9 +111,10 @@ Partial Class fdlLogin
         '
         Me.PictureBox2.ErrorImage = Nothing
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 123)
+        Me.PictureBox2.Location = New System.Drawing.Point(16, 113)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(219, 65)
+        Me.PictureBox2.Size = New System.Drawing.Size(213, 43)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 7
         Me.PictureBox2.TabStop = False
         '
@@ -123,7 +126,7 @@ Partial Class fdlLogin
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(43, 11)
         Me.Label3.TabIndex = 8
-        Me.Label3.Text = "App 3.37"
+        Me.Label3.Text = "App 1.00"
         '
         'Label4
         '
@@ -153,6 +156,7 @@ Partial Class fdlLogin
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.txtUserName)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "fdlLogin"
