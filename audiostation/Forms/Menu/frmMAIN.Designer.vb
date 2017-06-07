@@ -82,6 +82,8 @@ Partial Class frmMAIN
         Me.SalesCodeStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockPriceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.FormInductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalesOrderToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.WorkOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesDeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -168,8 +170,6 @@ Partial Class frmMAIN
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FormInductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -522,6 +522,17 @@ Partial Class frmMAIN
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(158, 6)
+        '
+        'FormInductionToolStripMenuItem
+        '
+        Me.FormInductionToolStripMenuItem.Name = "FormInductionToolStripMenuItem"
+        Me.FormInductionToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.FormInductionToolStripMenuItem.Text = "Form Induction"
+        '
+        'ToolStripSeparator16
+        '
+        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(158, 6)
         '
         'SalesOrderToolStripMenuItem1
         '
@@ -1057,17 +1068,6 @@ Partial Class frmMAIN
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
         Me.ToolStripStatusLabel.Text = "User"
-        '
-        'FormInductionToolStripMenuItem
-        '
-        Me.FormInductionToolStripMenuItem.Name = "FormInductionToolStripMenuItem"
-        Me.FormInductionToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.FormInductionToolStripMenuItem.Text = "Form Induction"
-        '
-        'ToolStripSeparator16
-        '
-        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(158, 6)
         '
         'frmMAIN
         '
