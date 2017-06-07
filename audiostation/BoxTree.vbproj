@@ -151,11 +151,7 @@
     <Compile Include="Forms\Master\frmMesin.Designer.vb">
       <DependentUpon>frmMesin.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Master\frmMesin.vb" />
-    <Compile Include="Forms\Master\frmSKUCategorySub.Designer.vb">
-      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUCategorySub.vb">
+    <Compile Include="Forms\Master\frmMesin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Master\frmAccount.Designer.vb">
@@ -570,12 +566,6 @@
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Transaction\fdlSKUCat2.Designer.vb">
-      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\fdlSKUCat2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\fdlJournal.Designer.vb">
@@ -1323,12 +1313,6 @@
     <Compile Include="Forms\Master\frmSKU.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Master\frmSKUCategory.Designer.vb">
-      <DependentUpon>frmSKUCategory.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUCategory.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Master\frmCustomer.Designer.vb">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </Compile>
@@ -1583,9 +1567,6 @@
     <EmbeddedResource Include="Forms\Master\frmMesin.resx">
       <DependentUpon>frmMesin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUCategorySub.resx">
-      <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -1775,9 +1756,6 @@
     <EmbeddedResource Include="Forms\Master\frmSKU.resx">
       <DependentUpon>frmSKU.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUCategory.resx">
-      <DependentUpon>frmSKUCategory.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmCustomer.resx">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </EmbeddedResource>
@@ -1807,9 +1785,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\fdlSKUCat2.resx">
-      <DependentUpon>fdlSKUCat2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlJournal.resx">
       <DependentUpon>fdlJournal.vb</DependentUpon>
