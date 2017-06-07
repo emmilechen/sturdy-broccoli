@@ -214,7 +214,7 @@ Public Class fdlSKUPO
         Dim i As Integer = 0
         Try
             cn.Open()
-            cmd = New SqlCommand("sp_mt_sku_cat_SEL", cn)
+            cmd = New SqlCommand("usp_mt_sku_category_SEL", cn)
             cmd.CommandType = CommandType.StoredProcedure
 
             adapter.SelectCommand = cmd
@@ -223,8 +223,8 @@ Public Class fdlSKUPO
             cmd.Dispose()
             cn.Close()
             cbCategory.DataSource = ds.Tables(0)
-            cbCategory.ValueMember = "sku_cat_id"
-            cbCategory.DisplayMember = "sku_category"
+            cbCategory.ValueMember = "category_id"
+            cbCategory.DisplayMember = "category_name"
         Catch ex As Exception
             MsgBox(ex.Message)
             If ConnectionState.Open = 1 Then cn.Close()
