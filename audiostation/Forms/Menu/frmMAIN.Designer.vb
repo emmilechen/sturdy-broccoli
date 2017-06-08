@@ -169,6 +169,8 @@ Partial Class frmMAIN
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MachineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormInductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
@@ -179,7 +181,7 @@ Partial Class frmMAIN
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.PurchaseToolStripMenuItem, Me.MasterToolStripMenuItem, Me.SalesToolStripMenuItem1, Me.BankToolStripMenuItem, Me.LedgerToolStripMenuItem, Me.PostingToolStripMenuItem, Me.OtherToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.WindowToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileMenu, Me.PurchaseToolStripMenuItem, Me.MasterToolStripMenuItem, Me.SalesToolStripMenuItem1, Me.ProductionToolStripMenuItem, Me.BankToolStripMenuItem, Me.LedgerToolStripMenuItem, Me.PostingToolStripMenuItem, Me.OtherToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.WindowToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowToolStripMenuItem
         Me.MenuStrip.Name = "MenuStrip"
@@ -1074,6 +1076,19 @@ Partial Class frmMAIN
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
         Me.ToolStripStatusLabel.Text = "User"
         '
+        'ProductionToolStripMenuItem
+        '
+        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem})
+        Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
+        Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
+        Me.ProductionToolStripMenuItem.Text = "Production"
+        '
+        'MachineToolStripMenuItem
+        '
+        Me.MachineToolStripMenuItem.Name = "MachineToolStripMenuItem"
+        Me.MachineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MachineToolStripMenuItem.Text = "Machine"
+        '
         'WindowToolStripMenuItem
         '
         Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
@@ -1263,4 +1278,6 @@ Partial Class frmMAIN
     Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FormInductionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator16 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ProductionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MachineToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
