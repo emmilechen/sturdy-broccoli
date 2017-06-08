@@ -6,30 +6,105 @@ Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
 Public Class frmMAIN
+    Dim strConnection As String = My.Settings.ConnStr
+    Dim cn As SqlConnection = New SqlConnection(strConnection)
+    Dim cmd As SqlCommand
+
     Sub DefineToolstrip()
-        Dim menu As New MenuStrip()
-        For i As Integer = 0 To 2
-            Dim item As New ToolStripMenuItem(String.Format("Main Item{0}", i.ToString()))
-            For j As Integer = 0 To 7
-                Dim innerItem As New ToolStripMenuItem(String.Format("Inner Menu Item {0}", j.ToString()))
+        Dim myReader As SqlDataReader
+        Dim prm1, prm2 As SqlParameter
 
-                'Give the DropDown Item a name so it can be identified in the handler sub
-                innerItem.Name = item.Text & "_" & j.ToString
+        cmd = New SqlCommand("usp_mt_user_access_SEL", cn)
+        cmd.CommandType = CommandType.StoredProcedure
 
-                'Add a Click handler to the DropDown Item
-                AddHandler innerItem.Click, AddressOf ToolStripMenuItem1_Click
+        prm1 = cmd.Parameters.Add("@user_level_id", SqlDbType.Int)
+        prm1.Value = p_UserLevel
 
-                item.DropDownItems.Add(innerItem)
+        prm2 = cmd.Parameters.Add("@is_menu", SqlDbType.Bit)
+        prm2.Value = 1
+
+        cn.Open()
+        myReader = cmd.ExecuteReader
+
+        'Dim dt As New DataTable
+        'dt.Load(myReader)
+        'Dim values(myReader.FieldCount - 1) As Object
+        'Dim fieldCount As Integer = myReader.GetValues(values)
+
+        Dim al1 As New ArrayList()
+        Dim al2 As New ArrayList()
+
+        While myReader.Read
+            Dim dict1 As New Dictionary(Of String, Object)
+            For count As Integer = 0 To (myReader.FieldCount - 1)
+                dict1.Add(myReader.GetName(count), myReader(count))
             Next
-            'menu.Items.Add(item)
-            MenuStrip.Items.Add(item)
+            al1.Add(dict1)
+        End While
+
+        myReader.NextResult()
+
+        While myReader.Read
+            Dim dict2 As New Dictionary(Of String, Object)
+            For count As Integer = 0 To (myReader.FieldCount - 1)
+                dict2.Add(myReader.GetName(count), myReader(count))
+            Next
+            al2.Add(dict2)
+        End While
+
+        myReader.Close()
+        cn.Close()
+
+        Dim menu As New MenuStrip()
+
+        For Each i As Dictionary(Of String, Object) In al1
+            'Console.Write(dat("menustrip_name"))
+            Dim item As New ToolStripMenuItem(String.Format(i.Item("menustrip_name")))
+            For Each j As Dictionary(Of String, Object) In al2
+                If j("parent_id") = i("menu_id") Then
+                    'Console.Write(dat("toolstrip_name"))
+                    Dim innerItem As New ToolStripMenuItem(String.Format(j.Item("toolstrip_name")))
+
+                    'Give the DropDown Item a name so it can be identified in the handler sub
+                    'innerItem.Name = item.Text & "_" & j.ToString
+                    innerItem.Name = j.Item("form_name")
+
+                    'Add a Click handler to the DropDown Item
+                    AddHandler innerItem.Click, AddressOf ToolStripMenuItem1_Click
+
+                    item.DropDownItems.Add(innerItem)
+                End If
+            Next
+            Menu.Items.Add(item)
         Next
-        'Me.Controls.Add(menu)
+        'Dim windowMenu As New ToolStripMenuItem("Window")
+        'Dim windowNewMenu As New ToolStripMenuItem("New", Nothing, New EventHandler(AddressOf windowNewMenu_Click))
+        'windowMenu.DropDownItems.Add(windowNewMenu)
+
+        'menu.MdiWindowListItem = windowMenu
+        'menu.Items.Add(windowMenu)
+
+        'For i As Integer = 0 To 2
+        '    Dim item As New ToolStripMenuItem(String.Format("Main Item{0}", i.ToString()))
+        '    For j As Integer = 0 To 7
+        '        Dim innerItem As New ToolStripMenuItem(String.Format("Inner Menu Item {0}", j.ToString()))
+
+        '        'Give the DropDown Item a name so it can be identified in the handler sub
+        '        innerItem.Name = item.Text & "_" & j.ToString
+
+        '        'Add a Click handler to the DropDown Item
+        '        AddHandler innerItem.Click, AddressOf ToolStripMenuItem1_Click
+
+        '        item.DropDownItems.Add(innerItem)
+        '    Next
+        '    menu.Items.Add(item)
+        '    'MenuStrip.Items.Add(item)
+        'Next
+        Me.Controls.Add(menu)
     End Sub
 
     Private Sub frmMAIN_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'MenuStrip.Visible = False
-        DefineToolstrip()
         Try
             Dim fileReader As System.IO.StreamReader
             fileReader = My.Computer.FileSystem.OpenTextFileReader("C:\ProgramData\kbh.txt")
@@ -38,9 +113,7 @@ Public Class frmMAIN
             stringReader = fileReader.ReadLine()
             ' "k0t4r0m1n4m1" '
             If stringReader = "k0t4r0m1n4m1" Then
-                Dim strConnection As String = My.Settings.ConnStr
-                Dim cn As SqlConnection = New SqlConnection(strConnection)
-                Dim cmd As SqlCommand
+
                 Dim userCount As Integer
                 Dim userEncrypt As String
                 Dim userVal As Integer
@@ -178,12 +251,16 @@ Public Class frmMAIN
         End If
     End Sub
 
+    Private Sub windowNewMenu_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
     Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'Dim DropDownName As String = DirectCast(sender, ToolStripItem).Name
         'MessageBox.Show(DropDownName)
 
-        Dim strCreatedFromButton As String = "frmPOList"
-        If Not GetPermission(strCreatedFromButton) = True Then
+        Dim strCreatedFromButton As String = DirectCast(sender, ToolStripItem).Name
+        If Not GetPermission(strCreatedFromButton) = False Then
             Dim frm1 As New Form
             frm1 = DirectCast(CreateObjectInstance(strCreatedFromButton), Form)
             frm1.MdiParent = Me
