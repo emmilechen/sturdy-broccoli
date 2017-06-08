@@ -1298,4 +1298,12 @@ Public Class frmMAIN
         FTR_Induction.BringToFront()
         'End If
     End Sub
+
+    Private Sub MachineToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MachineToolStripMenuItem.Click
+        'If Not GetPermission("frmSOList") = False Then
+        frmMesin.MdiParent = Me
+        frmMesin.Show()
+        frmMesin.BringToFront()
+        'End If
+    End Sub
 End Class
