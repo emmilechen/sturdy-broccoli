@@ -92,7 +92,7 @@ Partial Class frmSupplier
         '
         Me.txtSAdvanceBalance.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSAdvanceBalance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSAdvanceBalance.Location = New System.Drawing.Point(141, 341)
+        Me.txtSAdvanceBalance.Location = New System.Drawing.Point(138, 341)
         Me.txtSAdvanceBalance.Name = "txtSAdvanceBalance"
         Me.txtSAdvanceBalance.ReadOnly = True
         Me.txtSAdvanceBalance.Size = New System.Drawing.Size(131, 21)
@@ -113,8 +113,8 @@ Partial Class frmSupplier
         'ListView1
         '
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
@@ -498,7 +498,7 @@ Partial Class frmSupplier
         '
         Me.txtSRemarks.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSRemarks.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSRemarks.Location = New System.Drawing.Point(140, 368)
+        Me.txtSRemarks.Location = New System.Drawing.Point(138, 371)
         Me.txtSRemarks.MaxLength = 255
         Me.txtSRemarks.Multiline = True
         Me.txtSRemarks.Name = "txtSRemarks"
@@ -572,7 +572,7 @@ Partial Class frmSupplier
         'TabControl1
         '
         Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(653, 43)
@@ -628,7 +628,7 @@ Partial Class frmSupplier
         'txtFilter
         '
         Me.txtFilter.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFilter.Location = New System.Drawing.Point(206, 13)
         Me.txtFilter.Name = "txtFilter"
