@@ -31,19 +31,13 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
             Case Is = 1
-                opensearchform("kodemember", "namamember", "kodekomsel+' ~'+namapa+'/'+namapks", "m_member", "kodemember<>''", "kodemember desc", Me.txtopenargs.Text)
+                opensearchform("idmesin", "namamesin", "merekmesin+' ~'+tipemesin+'/'+katmesin", "mt_mesin", "idmesin<>''", "idmesin desc", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
-                Me.ComboBox2.Items.Add("Nama_PA")
-                Me.ComboBox2.Items.Add("Nama_PKS")
-                Me.ComboBox2.Items.Add("Jenis_Kelamin")
-                Me.ComboBox2.Items.Add("Gol_Darah")
-                Me.ComboBox2.Items.Add("Alamat_Tinggal")
-                Me.ComboBox2.Items.Add("Alamat_Komsel")
-                Me.ComboBox2.Items.Add("Status_Pernikahan")
-                Me.ComboBox2.Items.Add("Status_Kejemaatan")
-                Me.ComboBox2.Items.Add("Fungsi_Keluarga")
-                Me.ComboBox2.Items.Add("Pendidikan_Terakhir")
+                Me.ComboBox2.Items.Add("Nama_Mesin")
+                Me.ComboBox2.Items.Add("Merek")
+                Me.ComboBox2.Items.Add("Tipe_Mesin")
+                Me.ComboBox2.Items.Add("Kategori_Mesin")
                 Me.ComboBox2.Text = "<--ALL-->"
             Case Is = 2
                 opensearchform("username", "usercode", "levelname", "M_UserLogin inner join M_UserLevel on M_UserLogin.levelsecurity=M_UserLevel.Levelid", "userid<>0", "username", Me.txtopenargs.Text)
@@ -64,38 +58,7 @@ Public Class FDLSearch
             Case Is = 0
                 opensearchform("ind_no", "CONVERT(VARCHAR(11),ind_tgl,106)", "(select c_name from mt_customer where c_id=ind_c_id)+'/'+ind_keterangan", "tr_induction", "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
             Case Is = 1
-                If Me.ComboBox2.Text = "<--ALL-->" Then
-                    opensearchform("kodemember", "namamember", "kodekomsel+' ~'+namapa+'/'+namapks", "m_member", "kodemember<>'' and (kodemember like '%" & Me.TextBox1.Text & "%' OR namamember like '%" & Me.TextBox1.Text & "%' OR kodekomsel like '%" & Me.TextBox1.Text & "%' OR telpmember like '%" & Me.TextBox1.Text & "%' OR wano like '%" & Me.TextBox1.Text & "%')", "kodemember desc", Me.txtopenargs.Text)
-                    'Me.txttelp.Text = dr.Item("telpmember").ToString()
-                    'Me.TextBox31.Text = dr.Item("telprumah").ToString()
-                    'Me.TextBox3.Text = dr.Item("hape").ToString()
-                    'Me.TextBox51.Text = dr.Item("hape2").ToString()
-                    'Me.TextBox27.Text = dr.Item("wano").ToString()
-                    'Me.TextBox52.Text = dr.Item("telpkantor").ToString()
-                Else
-                    Select Case Me.ComboBox2.Text
-                        Case Is = "Nama_PA"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join m_member b on a.namapa=b.namapa", "(b.kodemember like '%" & Me.TextBox1.Text & "%' OR b.namamember like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Nama_PKS"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join m_member b on a.namapks=b.namapks", "(b.kodemember like '%" & Me.TextBox1.Text & "%' OR b.namamember like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Jenis_Kelamin"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.jeniskelamin=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Gol_Darah"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.goldarah=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Alamat_Tinggal"
-                            opensearchform("kodemember", "namamember", "kodekomsel+' ~'+namapa+'/'+namapks", "m_member", "(alamatrumah like '%" & Me.TextBox1.Text & "%')", "kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Alamat_Komsel"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.komselid=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Status_Pernikahan"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.statuspernikahan=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Status_Kejemaatan"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.statusmember=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Fungsi_Keluarga"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.fungsidalamkel=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        Case Is = "Pendidikan_Terakhir"
-                            opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.pendidikanterakhir=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                    End Select
-                End If
+                opensearchform("idmesin", "namamesin", "merekmesin+' ~'+tipemesin+'/'+katmesin", "mt_mesin", "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
             Case Is = 2
                 opensearchform("username", "usercode", "levelname", "M_UserLogin inner join M_UserLevel on M_UserLogin.levelsecurity=M_UserLevel.Levelid", "(username+levelname) like '%" & Me.TextBox1.Text & "%'", "username", Me.txtopenargs.Text)
             Case Is = 3
@@ -166,32 +129,7 @@ Public Class FDLSearch
                 Case Is = 0
                     opensearchform("ind_no", "CONVERT(VARCHAR(11),ind_tgl,106)", "(select c_name from mt_customer where c_id=ind_c_id)+'/'+ind_keterangan", "tr_induction", "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
                 Case Is = 1
-                    If Me.ComboBox2.Text = "<--ALL-->" Then
-                        opensearchform("kodemember", "namamember", "kodekomsel+' ~'+namapa+'/'+namapks", "m_member", "kodemember<>'' and (kodemember like '%" & Me.TextBox1.Text & "%' OR namamember like '%" & Me.TextBox1.Text & "%' OR kodekomsel like '%" & Me.TextBox1.Text & "%' OR telpmember like '%" & Me.TextBox1.Text & "%')", "kodemember desc", Me.txtopenargs.Text)
-                    Else
-                        Select Case Me.ComboBox2.Text
-                            Case Is = "Nama_PA"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join m_member b on a.namapa=b.namapa", "(b.kodemember like '%" & Me.TextBox1.Text & "%' OR b.namamember like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Nama_PKS"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join m_member b on a.namapks=b.namapks", "(b.kodemember like '%" & Me.TextBox1.Text & "%' OR b.namamember like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Jenis_Kelamin"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.jeniskelamin=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Gol_Darah"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.goldarah=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Alamat_Tinggal"
-                                opensearchform("kodemember", "namamember", "kodekomsel+' ~'+namapa+'/'+namapks", "m_member", "(alamatrumah like '%" & Me.TextBox1.Text & "%')", "kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Alamat_Komsel"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.komselid=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Status_Pernikahan"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.statuspernikahan=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Status_Kejemaatan"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.statusmember=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Fungsi_Keluarga"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.fungsidalamkel=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                            Case Is = "Pendidikan_Terakhir"
-                                opensearchform("a.kodemember", "a.namamember", "a.kodekomsel+' ~'+a.namapa+'/'+a.namapks", "m_member a inner join M_Event_Category b on a.pendidikanterakhir=b.catid", "(b.catcode like '%" & Me.TextBox1.Text & "%' OR b.catname like '%" & Me.TextBox1.Text & "%')", "a.kodemember desc", Me.txtopenargs.Text)
-                        End Select
-                    End If
+                    opensearchform("idmesin", "namamesin", "merekmesin+' ~'+tipemesin+'/'+katmesin", "mt_mesin", "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
                 Case Is = 2
                     opensearchform("username", "usercode", "levelname", "M_UserLogin inner join M_UserLevel on M_UserLogin.levelsecurity=M_UserLevel.Levelid", "(username+levelname) like '%" & Me.TextBox1.Text & "%'", "username", Me.txtopenargs.Text)
                 Case Is = 3

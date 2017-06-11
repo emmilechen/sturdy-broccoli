@@ -221,6 +221,7 @@ Partial Class FTR_Induction
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Panel14 = New System.Windows.Forms.Panel()
+        Me.cmddel = New System.Windows.Forms.Button()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.cmdprint = New System.Windows.Forms.Button()
         Me.cmdexit = New System.Windows.Forms.Button()
@@ -240,7 +241,6 @@ Partial Class FTR_Induction
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.cmddel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -2331,6 +2331,17 @@ Partial Class FTR_Induction
         Me.Panel14.Size = New System.Drawing.Size(156, 617)
         Me.Panel14.TabIndex = 26
         '
+        'cmddel
+        '
+        Me.cmddel.BackColor = System.Drawing.Color.Red
+        Me.cmddel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmddel.Location = New System.Drawing.Point(18, 482)
+        Me.cmddel.Name = "cmddel"
+        Me.cmddel.Size = New System.Drawing.Size(125, 37)
+        Me.cmddel.TabIndex = 34
+        Me.cmddel.Text = "Delete"
+        Me.cmddel.UseVisualStyleBackColor = False
+        '
         'txtguid
         '
         Me.txtguid.Location = New System.Drawing.Point(18, 5)
@@ -2338,6 +2349,7 @@ Partial Class FTR_Induction
         Me.txtguid.ReadOnly = True
         Me.txtguid.Size = New System.Drawing.Size(125, 20)
         Me.txtguid.TabIndex = 33
+        Me.txtguid.Visible = False
         '
         'cmdprint
         '
@@ -2514,17 +2526,6 @@ Partial Class FTR_Induction
         Me.Label11.Size = New System.Drawing.Size(68, 13)
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Kompetitor 1"
-        '
-        'cmddel
-        '
-        Me.cmddel.BackColor = System.Drawing.Color.Red
-        Me.cmddel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmddel.Location = New System.Drawing.Point(18, 482)
-        Me.cmddel.Name = "cmddel"
-        Me.cmddel.Size = New System.Drawing.Size(125, 37)
-        Me.cmddel.TabIndex = 34
-        Me.cmddel.Text = "Delete"
-        Me.cmddel.UseVisualStyleBackColor = False
         '
         'FTR_Induction
         '
