@@ -148,6 +148,12 @@
     <Compile Include="Forms\LvtAboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Master\frmMesin.Designer.vb">
       <DependentUpon>frmMesin.vb</DependentUpon>
     </Compile>
@@ -207,9 +213,6 @@
     </Compile>
     <Compile Include="Forms\Master\Form2.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUCategory.Designer.vb">
-      <DependentUpon>frmSKUCategory.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Master\frmSKUCategory.vb">
       <SubType>Form</SubType>
@@ -568,6 +571,18 @@
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\frmPPitching.Designer.vb">
+      <DependentUpon>frmPPitching.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmPPitching.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmPPitchingList.Designer.vb">
+      <DependentUpon>frmPPitchingList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmPPitchingList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\fdlJournal.Designer.vb">
       <DependentUpon>fdlJournal.vb</DependentUpon>
     </Compile>
@@ -584,12 +599,6 @@
       <DependentUpon>fdlSKUCat2.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\fdlSKUCat2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Transaction\Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\Form3.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmBankPaymentPostList.Designer.vb">
@@ -1313,6 +1322,9 @@
     <Compile Include="Forms\Master\frmSKU.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\frmSKUCategory.Designer.vb">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master\frmCustomer.Designer.vb">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </Compile>
@@ -1473,12 +1485,6 @@
     <Compile Include="ReportDocs\frmDocViewer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\RPT_Induction_Form.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPT_Induction_Form.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reports\RPT_Pch_Invoice_Form.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1564,8 +1570,8 @@
     <EmbeddedResource Include="Forms\LvtAboutBox.resx">
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmMesin.resx">
-      <DependentUpon>frmMesin.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Master\Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
@@ -1575,6 +1581,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmCurrencyRevaluation.resx">
       <DependentUpon>frmCurrencyRevaluation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmMesin.resx">
+      <DependentUpon>frmMesin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSalesCode.resx">
       <DependentUpon>frmSalesCode.vb</DependentUpon>
@@ -1593,9 +1602,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUCategory.resx">
-      <DependentUpon>frmSKUCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKUCategorySub.resx">
       <DependentUpon>frmSKUCategorySub.vb</DependentUpon>
@@ -1756,6 +1762,10 @@
     <EmbeddedResource Include="Forms\Master\frmSKU.resx">
       <DependentUpon>frmSKU.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUCategory.resx">
+      <DependentUpon>frmSKUCategory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmCustomer.resx">
       <DependentUpon>frmCustomer.vb</DependentUpon>
     </EmbeddedResource>
@@ -1785,6 +1795,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmPPitching.resx">
+      <DependentUpon>frmPPitching.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmPPitchingList.resx">
+      <DependentUpon>frmPPitchingList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlJournal.resx">
       <DependentUpon>fdlJournal.vb</DependentUpon>
@@ -2218,10 +2234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportDocs\frmDocViewer.resx">
       <DependentUpon>frmDocViewer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RPT_Induction_Form.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPT_Induction_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Pch_Invoice_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
