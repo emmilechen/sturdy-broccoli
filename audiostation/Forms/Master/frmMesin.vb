@@ -109,39 +109,7 @@ Public Class frmMesin
         End If
         Me.txtguid.Tag = ""
         Me.txtkode.Text = IIf(Me.txtguid.Text = "", GETGeneralcode("", namatable, namafieldPK, "", Me.txtnama.Text, True, 3, 1, "", ""), Me.txtkode.Text)
-        'If cn.State = ConnectionState.Closed Then cn.Open()
         If ExecSP(Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_mesin", "") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
-        'ExecSP(Me.TabPage1, "insert", "sp_mt_mesin")
-        'Dim namaSP As String = "sp_mt_mesin"
-
-        'Dim strobject As String = "'" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & _
-        '                          "', '" & Me.txtkode.Text & "', '" & Me.cmbkat.SelectedValue & "', '" & Me.cmbsubkat.SelectedValue & "', '" & Me.txttype.Text & _
-        '                          "', '" & Me.txtnama.Text & "', '" & Me.txtmerek.Text & "', '" & Me.txtnomesin.Text & "', '" & Me.txttahun.Text & _
-        '                          "', '" & Me.txtdayalistrik.Text & "', '" & Me.cmbdayalistrik.SelectedValue & "', '" & Me.txtkwh.Text & "', '" & Me.cmbkwh.SelectedValue & _
-        '                          "', '" & Me.txttegangan.Text & "', '" & Me.cmbtegangan.SelectedValue & "', '" & Me.txtfrekuensi.Text & "', '" & Me.cmbfrekuensi.SelectedValue & _
-        '                          "', '" & Me.txtcolour.Text & "', '" & Me.cmbcolour.SelectedValue & "', '" & Me.txtimgmin.Text & "', '" & Me.cmbimgmin.SelectedValue & _
-        '                          "', '" & Me.txtsizemin.Text & "', '" & Me.cmbsizemin.SelectedValue & "', '" & Me.txtsizemax.Text & "', '" & Me.cmbsizemax.SelectedValue & _
-        '                          "', '" & Me.txtspeedmin.Text & "', '" & Me.cmbspeedmin.SelectedValue & "', '" & Me.txtspeedmax.Text & "', '" & Me.cmbspeedmax.SelectedValue & _
-        '                          "', '" & Me.txttgtmin.Text & "', '" & Me.cmbtgtmin.SelectedValue & "', '" & Me.txttgtmax.Text & "', '" & Me.cmbtgtmax.SelectedValue & _
-        '                          "','0'"
-
-
-        'Dim sqlstr As String = "EXEC " & namaSP & IIf(Me.txtkode.Text = "", " 'insert', ", " 'update', ") & strobject
-        'Dim cmd As New SqlCommand(sqlstr, cn)
-        ' ''If m_CId = 0 Then
-        ' ''    prm1.Direction = ParameterDirection.Output
-        ' ''    cn.Open()
-        ' ''    cmd.ExecuteReader()
-        ' ''    m_CId = prm1.Value
-        ' ''    cn.Close()
-        ' ''Else
-        ' ''    prm1.Value = m_CId
-        ' ''    cn.Open()
-        ' ''    cmd.ExecuteReader()
-        ' ''    cn.Close()
-        ' ''End If
-        ' ''clear_lvw()
-        ' ''lock_obj(True)
 
 exit_btnSave_Click:
         If ConnectionState.Open = 1 Then cn.Close()
