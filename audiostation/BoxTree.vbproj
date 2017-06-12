@@ -2282,6 +2282,16 @@
   <ItemGroup>
     <Content Include="BoxTree_Icon.ico" />
     <Content Include="Levate_Icon.ico" />
+    <None Include="Resources\up24.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\ok.png" />
+    <None Include="Resources\new_rec.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\exit.gif" />
+    <None Include="Resources\down24.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\cancel.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
