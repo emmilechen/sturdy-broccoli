@@ -22,6 +22,7 @@ Partial Class frmMesin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMesin))
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -475,7 +476,7 @@ Partial Class frmMesin
         Me.txttahun.Name = "txttahun"
         Me.txttahun.Size = New System.Drawing.Size(85, 21)
         Me.txttahun.TabIndex = 7
-        Me.txttahun.Tag = "tahun"
+        Me.txttahun.Tag = "tahunval"
         '
         'txtnomesin
         '
@@ -673,7 +674,7 @@ Partial Class frmMesin
         'Btndown
         '
         Me.Btndown.BackColor = System.Drawing.Color.White
-        Me.Btndown.Image = Global.boxtree.My.Resources.Resources.down24
+        Me.Btndown.Image = CType(resources.GetObject("Btndown.Image"), System.Drawing.Image)
         Me.Btndown.Location = New System.Drawing.Point(202, 207)
         Me.Btndown.Name = "Btndown"
         Me.Btndown.Size = New System.Drawing.Size(86, 45)
@@ -683,7 +684,7 @@ Partial Class frmMesin
         'Btnup
         '
         Me.Btnup.BackColor = System.Drawing.Color.White
-        Me.Btnup.Image = Global.boxtree.My.Resources.Resources.up24
+        Me.Btnup.Image = CType(resources.GetObject("Btnup.Image"), System.Drawing.Image)
         Me.Btnup.Location = New System.Drawing.Point(110, 207)
         Me.Btnup.Name = "Btnup"
         Me.Btnup.Size = New System.Drawing.Size(86, 45)

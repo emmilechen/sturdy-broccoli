@@ -155,7 +155,12 @@ err_btnSave_Click:
                         While (sqlReader.Read())
                             For Each ctrl As Control In root.Controls
                                 If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
-                                    ctrl.Text = sqlReader.Item(ctrl.Tag).ToString
+                                    If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
+                                        ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString), Decimal.ToInt32(sqlReader.Item(ctrl.Tag).ToString).ToString(), sqlReader.Item(ctrl.Tag).ToString)
+                                    Else
+                                        ctrl.Text = sqlReader.Item(ctrl.Tag).ToString
+                                    End If
+
                                 Else
                                 End If
                             Next ctrl
