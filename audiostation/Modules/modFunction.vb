@@ -72,7 +72,6 @@ Module modFunction
         myReader.Close()
         cn.Close()
     End Function
-
     Function GetSysInit(ByVal sysInitId As String) As String
         GetSysInit = ""
         cmd = New SqlCommand("usp_sys_init_SEL", cn)
@@ -89,7 +88,6 @@ Module modFunction
         myReader.Close()
         cn.Close()
     End Function
-
     Function GetPermission(ByVal FormName As String) As Boolean
         GetPermission = False
         cmd = New SqlCommand("usp_mt_user_access_SEL", cn)
@@ -360,6 +358,50 @@ Module modFunction
             checkisnumber = False
         Else
             checkisnumber = True
+        End If
+    End Function
+    Function GETGeneralcode(ByVal kodetrx As String, ByVal namatable As String, ByVal NamaField As String, ByVal strtgl As String, ByVal requestcode As Object, ByVal masterno As Boolean, Optional panjangangka As Integer = 1, Optional ambilangka As Integer = 1, Optional pembatas As String = "", Optional kondisi As String = "") As String
+        Dim cmd As SqlCommand
+        Dim dr As SqlDataReader
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+
+        If masterno Then
+            'mst only
+            If kondisi = "" Then
+                cmd = New SqlCommand("Select Max(Right([" & NamaField & "]," & panjangangka & ")) as mstcode from " & namatable & " where Left(" & NamaField & "," & ambilangka & ")='" & Left(requestcode, ambilangka) & "'", cn)
+                dr = cmd.ExecuteReader()
+                If dr.Read() Then
+                    GETGeneralcode = Left(UCase(requestcode), ambilangka) & pembatas & Right("000" & Right(IIf(IsDBNull(dr.Item("mstcode").ToString()) Or dr.Item("mstcode").ToString() = "", 0, dr.Item("mstcode").ToString()), panjangangka) + 1, panjangangka)
+                Else
+                    GETGeneralcode = Left(UCase(requestcode), ambilangka) & pembatas & "001"
+                End If
+                dr.Close()
+                cmd.Dispose()
+            Else
+                cmd = New SqlCommand("Select Max(Right([" & NamaField & "]," & panjangangka & ")) as mstcode from " & namatable & " where " & kondisi, cn)
+                dr = cmd.ExecuteReader()
+                If dr.Read() Then
+                    GETGeneralcode = Right("000000000" & Right(IIf(IsDBNull(dr.Item("mstcode").ToString()) Or dr.Item("mstcode").ToString() = "", 0, Trim(System.Text.RegularExpressions.Regex.Replace(dr.Item("mstcode").ToString(), "[^\d]", " "))), panjangangka) + 1, panjangangka)
+                Else
+                    GETGeneralcode = "000000001"
+                End If
+                dr.Close()
+                cmd.Dispose()
+            End If
+        Else
+            'trx only
+            cmd = New SqlCommand("SELECT Max(Right([" & NamaField & "]," & panjangangka & ")) AS LastBatch, SUBSTRING(CONVERT(varchar, " & strtgl & ", 112), 1, 6) AS Expr1  " & _
+                                 " FROM " & namatable & " GROUP BY SUBSTRING(CONVERT(varchar, " & strtgl & ", 112), 1, 6) Having SUBSTRING(CONVERT(varchar, " & strtgl & ", 112), 1, 6) ='" & Format(requestcode, "yyyyMM") & "'", cn)
+            dr = cmd.ExecuteReader()
+            If dr.Read() Then
+                GETGeneralcode = kodetrx & Format(requestcode, "yyMM") & Right("0000" & Right(dr.Item("LastBatch").ToString, panjangangka) + 1, panjangangka)
+            Else
+                GETGeneralcode = kodetrx & Format(requestcode, "yyMM") & "0001"
+            End If
+            dr.Close()
+            cmd.Dispose()
         End If
     End Function
 End Module
