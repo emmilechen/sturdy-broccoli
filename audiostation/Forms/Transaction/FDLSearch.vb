@@ -6,6 +6,10 @@ Public Class FDLSearch
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Public Sub New()
         InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        ListView1Sorter = New lvColumnSorter()
+        ListView1.ListViewItemSorter = ListView1Sorter
     End Sub
     ' Custom property we are adding to the child form
     ' Notice it is public and communicates with the txtChildText control on this form.
@@ -138,20 +142,20 @@ Public Class FDLSearch
         End If
     End Sub
     Private Sub ListView1_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnClick
-        'If (e.Column = ListView1Sorter.SortColumn) Then
-        '    ' Reverse the current sort direction for this column.
-        '    If (ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending) Then
-        '        ListView1Sorter.Order = Windows.Forms.SortOrder.Descending
-        '    Else
-        '        ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
-        '    End If
-        'Else
-        '    ' Set the column number that is to be sorted; default to ascending.
-        '    ListView1Sorter.SortColumn = e.Column
-        '    ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
-        'End If
+        If (e.Column = ListView1Sorter.SortColumn) Then
+            ' Reverse the current sort direction for this column.
+            If (ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending) Then
+                ListView1Sorter.Order = Windows.Forms.SortOrder.Descending
+            Else
+                ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
+            End If
+        Else
+            ' Set the column number that is to be sorted; default to ascending.
+            ListView1Sorter.SortColumn = e.Column
+            ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
+        End If
 
-        '' Perform the sort with these new sort options.
-        'ListView1.Sort()
+        ' Perform the sort with these new sort options.
+        ListView1.Sort()
     End Sub
 End Class
