@@ -81,6 +81,15 @@ Public Class fdlSKUPO
                         .SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(4).Text
                     End With
 
+                Case "frmPPitching"
+                    With frmPPitching
+                        .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                        .SKUCode = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                        .SKUName = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text
+                        .SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(4).Text
+                        .UnitPrice = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(5).Text) / .ntbPOCurrRate.DecimalValue)
+                    End With
+
                 Case "frmPO"
                     With frmPO
                         .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)

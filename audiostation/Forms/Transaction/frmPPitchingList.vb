@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
-Public Class frmPOList
+Public Class frmPPitchingList
     Private ListView1Sorter As lvColumnSorter
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -9,7 +9,8 @@ Public Class frmPOList
     Dim isShowAll As Boolean = False
 
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        With frmPO
+        With frmPPitching
+            .FrmCallerId = Me.Name
             .POId = 0
             'frmPO.ShowDialog()
             .MdiParent = frmMAIN
@@ -23,7 +24,7 @@ Public Class frmPOList
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
-        prm1.Value = "po_status"
+        prm1.Value = "ppitching_status"
 
         cn.Open()
         Dim myReader = cmd.ExecuteReader
@@ -73,7 +74,7 @@ Public Class frmPOList
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
         prm1.Value = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
-        prm2.Value = "po"
+        prm2.Value = "ppitching"
 
         cn.Open()
 
@@ -88,9 +89,10 @@ Public Class frmPOList
 
         If Not isDeletedRecord = False Then
             btnFilter_Click(sender, e)
-        ElseIf Not Application.OpenForms().OfType(Of frmPO).Any Then
-            With frmPO
+        ElseIf Not Application.OpenForms().OfType(Of frmPPitching).Any Then
+            With frmPPitching
                 .POId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                .FrmCallerId = Me.Name
                 .MdiParent = frmMAIN
                 .AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
                 .Show()
@@ -161,13 +163,13 @@ Public Class frmPOList
         With ListView1
             .Clear()
             .View = View.Details
-            .Columns.Add("Purchase Order No.", 120)
+            .Columns.Add("Purchase Pitching No.", 120)
             .Columns.Add("Date", 90)
             .Columns.Add("s_id", 0)
             .Columns.Add("Supplier Code", 90)
             .Columns.Add("Supplier Name", 300)
             .Columns.Add("po_type", 0)
-            .Columns.Add("po_status", 0)
+            .Columns.Add("pitching_status", 0)
             .Columns.Add("Status", 90)
             '.Columns.Add("DeliveryDate", 0)
             '.Columns.Add("ShipVia", 0)
@@ -200,21 +202,37 @@ Public Class frmPOList
             prm6.Value = cmbStatus.Items(cmbStatus.SelectedIndex).ItemData
         End If
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
-        prm7.Value = "po"
+        prm7.Value = "ppitching"
 
         cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
+        Dim lvItem As ListViewItem
+        Dim intCurrRow As Integer
 
-        Call FillList(myReader, Me.ListView1, 8, 1)
-        'While myReader.Read
-        '    Dim lvw As ListViewItem
-        '    lvw = ListView1.Items.Add(myReader.GetString(1))
-        '    lvw.SubItems.Add(myReader.GetDateTime(2))
-        '    lvw.SubItems.Add(myReader.GetInt32(3))
-        '    lvw.SubItems.Add(myReader.GetString(4))
-        '    lvw.SubItems.Add(myReader.GetString(5))
-        'End While
+        'Call FillList(myReader, Me.ListView1, 8, 1)
+        While myReader.Read
+            lvItem = New ListViewItem(CStr(myReader.Item(30)))
+            lvItem.Tag = CStr(myReader.Item(0)) & "*~~~~~*" & intCurrRow 'ID
+            'lvItem.Tag = "v" & CStr(DR.Item(0))
+            lvItem.SubItems.Add(myReader.Item(31))
+            lvItem.SubItems.Add(myReader.GetInt32(3))
+            lvItem.SubItems.Add(myReader.GetString(4))
+            lvItem.SubItems.Add(myReader.GetString(5))
+            lvItem.SubItems.Add(myReader.GetString(6))
+            lvItem.SubItems.Add(myReader.GetString(32))
+            lvItem.SubItems.Add(myReader.GetString(8))
+
+            If intCurrRow Mod 2 = 0 Then
+                lvItem.BackColor = Color.Lavender
+            Else
+                lvItem.BackColor = Color.White
+            End If
+            lvItem.UseItemStyleForSubItems = True
+
+            ListView1.Items.Add(lvItem)
+            intCurrRow += 1
+        End While
         myReader.Close()
         cn.Close()
     End Sub
@@ -240,7 +258,7 @@ Public Class frmPOList
         cmbStatus.SelectedIndex = 0
     End Sub
 
-    Public Sub frmPOListShow(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Public Sub frmPPitchingListShow(ByVal sender As System.Object, ByVal e As System.EventArgs)
         btnFilter_Click(sender, e)
     End Sub
 End Class

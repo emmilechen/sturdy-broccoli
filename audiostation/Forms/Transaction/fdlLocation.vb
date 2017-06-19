@@ -136,6 +136,11 @@ Public Class fdlLocation
                     .LocationId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                     .LocationCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
                 End With
+            Case "frmPPitching"
+                With frmPPitching
+                    .LocationId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .LocationCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
+                End With
             Case "frmPO"
                 With frmPO
                     .LocationId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)

@@ -95,6 +95,21 @@ Public Class fdlSupplier
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
+            Case "frmPPitching"
+                With frmPPitching
+                    .SId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .SCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
+                    .SName = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                    .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(13).Text
+                    .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(14).Text
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(14).Text = "IDR" Then
+                    '    .ntbPOCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbPOCurrRate.ReadOnly = False
+                    'End If
+                    .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(15).Text)
+                    .PaymentTerms = ListView1.SelectedItems.Item(0).SubItems.Item(8).Text
+                End With
             Case "frmPO"
                 With frmPO
                     .SId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)

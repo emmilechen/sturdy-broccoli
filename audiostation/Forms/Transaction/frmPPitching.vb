@@ -3,7 +3,7 @@ Imports System.Data.OleDb
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 
-Public Class frmPO
+Public Class frmPPitching
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
@@ -26,6 +26,7 @@ Public Class frmPO
     Dim m_POQtyBefore As Double
     Dim m_SumPReceiveQty As Double
     Dim m_POCurrRateBefore As Double
+    Dim m_FrmCallerId As String
     Dim isGetNum As Boolean
     Dim isAllowDelete As Boolean
     Private docPO As ReportDocument
@@ -96,7 +97,7 @@ Public Class frmPO
         cmd.CommandType = CommandType.StoredProcedure
 
         prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
-        prm1.Value = "po_status"
+        prm1.Value = "ppitching_status"
 
         cn.Open()
         myReader = cmd.ExecuteReader
@@ -149,13 +150,26 @@ Public Class frmPO
         myReader.Close()
         cn.Close()
 
+        Select Case m_FrmCallerId
+            Case "frmPPitchingList"
+                btnSubmitApproval.Visible = True
+                'btnVoid.Visible = True
+                btnApprove.Visible = False
+                btnReject.Visible = False
+            Case "frmPPitchingApprovalList"
+                btnSubmitApproval.Visible = False
+                'btnVoid.Visible = False
+                btnApprove.Visible = True
+                btnReject.Visible = True
+        End Select
+
         If m_POId = 0 Then
             btnAdd_Click(sender, e)
         Else
             m_PODId = 0
             view_record()
-            'clear_lvw()
-            bindGrid()
+            clear_lvw()
+            'bindGrid()
             'btnEdit_Click(sender, e)
             clear_objD()
             lock_obj(True)
@@ -168,6 +182,15 @@ Public Class frmPO
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
+
+    Public Property FrmCallerId() As String
+        Get
+            Return m_FrmCallerId
+        End Get
+        Set(ByVal Value As String)
+            m_FrmCallerId = Value
+        End Set
+    End Property
 
     Public Property POId() As Integer
         Get
@@ -382,8 +405,8 @@ Public Class frmPO
         m_SId = 0
         m_CurrId = 0
         m_POCurrRateBefore = 0
-        txtPONo.Text = ""
-        dtpPODate.Value = FormatDateTime(Now, DateFormat.ShortDate)
+        txtPPitchingNo.Text = ""
+        dtpPPitchingDate.Value = FormatDateTime(Now, DateFormat.ShortDate)
         txtSCode.Text = ""
         txtPchCode.Text = ""
         txtSName.Text = ""
@@ -396,7 +419,7 @@ Public Class frmPO
         cmbPOType.SelectedIndex = 0
         cmbPaymentMethod.SelectedIndex = 0
         m_POStatus = m_POStatusArr(0, 0)
-        txtPOStatus.Text = m_POStatusArr(0, 1)
+        txtPitchingStatus.Text = m_POStatusArr(0, 1)
         txtPOSubtotal.Text = FormatNumber("0")
         txtPOTax.Text = FormatNumber("0")
         txtPOTotal.Text = FormatNumber("0")
@@ -448,7 +471,7 @@ Public Class frmPO
     End Sub
 
     Sub lock_obj(ByVal isLock As Boolean)
-        dtpPODate.Enabled = Not isLock
+        dtpPPitchingDate.Enabled = Not isLock
         dtpDeliveryDate.Enabled = Not isLock
         txtShipVia.ReadOnly = isLock
         txtRefNo.ReadOnly = isLock
@@ -459,11 +482,15 @@ Public Class frmPO
         cmbPOType.Enabled = Not isLock
         btnSupplier.Enabled = Not isLock
         btnPchCode.Enabled = Not isLock
+        'If m_POStatus = "A" And isClosed = False Then btnCloseRequest.Enabled = isLock Else btnCloseRequest.Enabled = False
+        If m_POStatus = "D" Or m_POStatus = "R" Or (m_FrmCallerId = "frmPPitchingApprovalList" And m_POStatus = "W") Then btnEdit.Enabled = isLock Else btnEdit.Enabled = False
+        btnPchCode.Enabled = Not isLock
+        If m_FrmCallerId = "frmPPitchingApprovalList" Then btnAdd.Enabled = False Else btnAdd.Enabled = isLock
         'txtPOSubtotal.ReadOnly = isLock
         'txtPOTax.ReadOnly = isLock
         'txtPOTotal.ReadOnly = isLock
 
-        If m_POStatus = "FR" Or m_POStatus = "I" Or m_POStatus = "P" Then btnEdit.Enabled = False Else btnEdit.Enabled = isLock
+        'If m_POStatus = "FR" Or m_POStatus = "I" Or m_POStatus = "P" Then btnEdit.Enabled = False Else btnEdit.Enabled = isLock
         btnAdd.Enabled = isLock
         btnSave.Enabled = Not isLock
         btnCancel.Enabled = Not isLock
@@ -477,12 +504,18 @@ Public Class frmPO
         'End If
 
         If m_POId = 0 Then
-            txtPONo.ReadOnly = False
+            txtPPitchingNo.ReadOnly = False
             btnDelete.Enabled = isLock
+            btnSubmitApproval.Enabled = isLock
+            btnReject.Enabled = isLock
+            btnApprove.Enabled = isLock
         Else
-            txtPONo.ReadOnly = True
+            txtPPitchingNo.ReadOnly = True
             'If p_UserLevel = 1 Then btnDelete.Enabled = Not isLock Else btnDelete.Enabled = False
             'If canDelete(p_UserLevel, Me.Name + "List") = True Then
+            btnSubmitApproval.Enabled = Not isLock
+            btnReject.Enabled = Not isLock
+            btnApprove.Enabled = Not isLock
             If isAllowDelete = True Then btnDelete.Enabled = Not isLock Else btnDelete.Enabled = False
         End If
     End Sub
@@ -542,7 +575,7 @@ Public Class frmPO
             cn.Open()
 
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
-            
+
             'Call FillList(myReader, Me.ListView1, 12, 1)
             Dim lvItem As ListViewItem
             Dim i As Integer, intCurrRow As Integer
@@ -691,8 +724,8 @@ Public Class frmPO
 
     Private Sub setColumnProperties()
 
-        Dim fruitNameColumn As DataGridViewTextBoxColumn = DirectCast(DataGridView1.Columns("Column1"), DataGridViewTextBoxColumn)
-        fruitNameColumn.DataPropertyName = "po_dtl_type"
+        Dim fruitNameColumn As DataGridViewTextBoxColumn = DirectCast(DataGridView1.Columns("po_dtl_id"), DataGridViewTextBoxColumn)
+        fruitNameColumn.DataPropertyName = "po_dtl_id"
 
         'Dim fruitColorColumn As DataGridViewTextBoxColumn = DirectCast(FruitGridView.Columns("colFruitColor"), DataGridViewTextBoxColumn)
         'fruitColorColumn.DataPropertyName = "FruitColor"
@@ -712,20 +745,20 @@ Public Class frmPO
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
         prm1.Value = m_POId
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
-        prm2.Value = "po"
+        prm2.Value = "ppitching"
 
         cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
         While myReader.Read
-            txtPONo.Text = myReader.GetString(1)
-            dtpPODate.Value = myReader.GetDateTime(2)
+            txtPPitchingNo.Text = myReader.GetString(30)
+            dtpPPitchingDate.Value = myReader.GetDateTime(31)
             m_SId = myReader.GetInt32(3)
             txtSCode.Text = myReader.GetString(4)
             txtSName.Text = myReader.GetString(5)
             m_POType = myReader.GetString(6)
-            m_POStatus = myReader.GetString(7)
+            m_POStatus = myReader.GetString(32)
             dtpDeliveryDate.Value = myReader.GetDateTime(9)
             If Not myReader.IsDBNull(myReader.GetOrdinal("ship_via")) Then
                 txtShipVia.Text = myReader.GetString(myReader.GetOrdinal("ship_via"))
@@ -777,7 +810,7 @@ Public Class frmPO
 
         For i = 0 To m_POStatusArr.GetUpperBound(0)
             If m_POStatus = m_POStatusArr(i, 0) Then
-                txtPOStatus.Text = m_POStatusArr(i, 1)
+                txtPitchingStatus.Text = m_POStatusArr(i, 1)
                 Exit For
             End If
         Next
@@ -854,8 +887,8 @@ Public Class frmPO
             End If
 
             If m_POId = 0 Then
-                If txtPONo.Text = "" Then
-                    txtPONo.Text = GetSysNumber("pord", Now.Date)
+                If txtPPitchingNo.Text = "" Then
+                    txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
                     isGetNum = True
                 Else
                     isGetNum = False
@@ -865,10 +898,10 @@ Public Class frmPO
             cmd = New SqlCommand(IIf(m_POId = 0, "usp_tr_po_INS", "usp_tr_po_UPD"), cn)
             cmd.CommandType = CommandType.StoredProcedure
 
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
-            prm1.Value = txtPONo.Text
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
-            prm2.Value = dtpPODate.Value.Date
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+            prm1.Value = txtPPitchingNo.Text
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
+            prm2.Value = dtpPPitchingDate.Value.Date
             Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
             prm3.Value = m_SId
             Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
@@ -904,7 +937,7 @@ Public Class frmPO
                 m_POId = prm16.Value
                 'MessageBox.Show(m_POId)
                 cn.Close()
-                If isGetNum = True Then UpdSysNumber("pord")
+                If isGetNum = True Then UpdSysNumber("ppit")
             Else
                 prm16.Value = m_POId
                 If CInt(txtPrinted.Text) > 0 Then txtRevise.Text = CInt(txtRevise.Text) + 1 : txtPrinted.Text = "0"
@@ -956,23 +989,23 @@ Public Class frmPO
     End Sub
 
     Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
-            If m_POStatus = "O" Then
-                If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
+        If m_POStatus = "O" Then
+            If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
                 cmd = New SqlCommand("usp_tr_po_DEL", cn)
-                    cmd.CommandType = CommandType.StoredProcedure
+                cmd.CommandType = CommandType.StoredProcedure
 
-                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-                    prm1.Value = m_POId
-                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                    prm2.Value = My.Settings.UserName
+                Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+                prm1.Value = m_POId
+                Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+                prm2.Value = My.Settings.UserName
 
-                    cn.Open()
-                    cmd.ExecuteReader()
-                    cn.Close()
-                    btnAdd_Click(sender, e)
-                End If
-            Else
-                MsgBox("You can't delete this transaction record", vbCritical, Me.Text)
+                cn.Open()
+                cmd.ExecuteReader()
+                cn.Close()
+                btnAdd_Click(sender, e)
+            End If
+        Else
+            MsgBox("You can't delete this transaction record", vbCritical, Me.Text)
         End If
         autoRefresh()
     End Sub
@@ -1054,8 +1087,8 @@ Public Class frmPO
 
     Sub SavePOHeader()
         Try
-            If txtPONo.Text = "" Then
-                txtPONo.Text = GetSysNumber("pord", Now.Date)
+            If txtPPitchingNo.Text = "" Then
+                txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
                 isGetNum = True
             Else
                 isGetNum = False
@@ -1064,10 +1097,10 @@ Public Class frmPO
             cmd = New SqlCommand("usp_tr_po_INS", cn)
             cmd.CommandType = CommandType.StoredProcedure
 
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
-            prm1.Value = txtPONo.Text
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
-            prm2.Value = dtpPODate.Value.Date
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+            prm1.Value = txtPPitchingNo.Text
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
+            prm2.Value = dtpPPitchingDate.Value.Date
             Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
             prm3.Value = m_SId
             Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
@@ -1099,8 +1132,8 @@ Public Class frmPO
             cmd.ExecuteReader()
             m_POId = prm16.Value
             cn.Close()
-            If isGetNum = True Then UpdSysNumber("pord")
-            txtPONo.ReadOnly = True
+            If isGetNum = True Then UpdSysNumber("ppit")
+            txtPPitchingNo.ReadOnly = True
             m_POCurrRateBefore = CDbl(ntbPOCurrRate.Text)
 
         Catch ex As Exception
@@ -1245,7 +1278,7 @@ Public Class frmPO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPONo.Text & "'"
+        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1323,7 +1356,7 @@ Public Class frmPO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPONo.Text & "'"
+        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1357,7 +1390,75 @@ Public Class frmPO
     Sub autoRefresh()
         'Set autorefresh form 
         If Application.OpenForms().OfType(Of frmPOList).Any Then
-            Call frmPOList.frmPOListShow(Nothing, EventArgs.Empty)
+            Call frmPPitchingList.frmPPitchingListShow(Nothing, EventArgs.Empty)
         End If
+    End Sub
+
+    Private Sub btnApprove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApprove.Click
+        btnSave_Click(sender, e)
+        m_POStatus = "A"
+
+        exec_sp_Approval("usp_tr_po_APPROVAL", "po_id", m_POId, "ppitching_status", m_POStatus)
+
+        'Me.Close()
+        For i = 0 To m_POStatusArr.GetUpperBound(0)
+            If m_POStatus = m_POStatusArr(i, 0) Then
+                txtPitchingStatus.Text = m_POStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+
+        lock_obj(True)
+        autoRefresh()
+    End Sub
+
+    Private Sub btnReject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReject.Click
+        btnSave_Click(sender, e)
+        m_POStatus = "R"
+
+        exec_sp_Approval("usp_tr_po_APPROVAL", "po_id", m_POId, "ppitching_status", m_POStatus)
+
+        'Me.Close()
+        For i = 0 To m_POStatusArr.GetUpperBound(0)
+            If m_POStatus = m_POStatusArr(i, 0) Then
+                txtPitchingStatus.Text = m_POStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+
+        lock_obj(True)
+        autoRefresh()
+    End Sub
+
+    Private Sub btnSubmitApproval_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSubmitApproval.Click
+        btnSave_Click(sender, e)
+        m_POStatus = "W"
+
+        exec_sp_Approval("usp_tr_po_APPROVAL", "po_id", m_POId, "ppitching_status", m_POStatus)
+
+        For i = 0 To m_POStatusArr.GetUpperBound(0)
+            If m_POStatus = m_POStatusArr(i, 0) Then
+                txtPitchingStatus.Text = m_POStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+        lock_obj(True)
+        autoRefresh()
+    End Sub
+
+    Sub exec_sp_Approval(ByVal sp_name As String, ByVal trx_field_id As String, ByVal trx_id As Integer, ByVal trx_field_status As String, ByVal trx_status As String)
+        cmd = New SqlCommand(sp_name, cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@" & trx_field_id, SqlDbType.Int)
+        prm1.Value = trx_id
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@" & trx_field_status, SqlDbType.NVarChar, 50)
+        prm2.Value = trx_status
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+        prm3.Value = My.Settings.UserName
+
+        cn.Open()
+        cmd.ExecuteReader()
+        cn.Close()
     End Sub
 End Class

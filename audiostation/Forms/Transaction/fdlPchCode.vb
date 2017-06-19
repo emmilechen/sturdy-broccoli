@@ -70,6 +70,11 @@ Public Class fdlPchCode
                     .PchCodeId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                     .PchCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
                 End With
+            Case "frmPPitching"
+                With frmPPitching
+                    .PchCodeId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .PchCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
+                End With
             Case "frmPO"
                 With frmPO
                     .PchCodeId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)

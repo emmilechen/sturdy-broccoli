@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmPO
+Partial Class frmPPitching
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,9 +23,9 @@ Partial Class frmPO
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPO))
-        Me.txtPONo = New System.Windows.Forms.TextBox()
-        Me.dtpPODate = New System.Windows.Forms.DateTimePicker()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPPitching))
+        Me.txtPPitchingNo = New System.Windows.Forms.TextBox()
+        Me.dtpPPitchingDate = New System.Windows.Forms.DateTimePicker()
         Me.dtpDeliveryDate = New System.Windows.Forms.DateTimePicker()
         Me.txtShipVia = New System.Windows.Forms.TextBox()
         Me.txtRefNo = New System.Windows.Forms.TextBox()
@@ -80,7 +80,7 @@ Partial Class frmPO
         Me.Label25 = New System.Windows.Forms.Label()
         Me.txtSKUUoM = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.txtPOStatus = New System.Windows.Forms.TextBox()
+        Me.txtPitchingStatus = New System.Windows.Forms.TextBox()
         Me.txtPOGrossAmt = New System.Windows.Forms.TextBox()
         Me.txtPOTaxAmt = New System.Windows.Forms.TextBox()
         Me.txtPONetAmt = New System.Windows.Forms.TextBox()
@@ -109,38 +109,39 @@ Partial Class frmPO
         Me.Label37 = New System.Windows.Forms.Label()
         Me.btnPreview = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.po_dtl_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ntbPOCurrRate = New boxtree.NumericTextBox()
         Me.ntbPOTaxPercent = New boxtree.NumericTextBox()
         Me.ntbPaymentTerms = New boxtree.NumericTextBox()
         Me.ntbPOPrice = New boxtree.NumericTextBox()
         Me.ntbPOQty = New boxtree.NumericTextBox()
-        Me.txtPPitchingNo = New System.Windows.Forms.TextBox()
-        Me.Label30 = New System.Windows.Forms.Label()
+        Me.btnSubmitApproval = New System.Windows.Forms.Button()
+        Me.btnReject = New System.Windows.Forms.Button()
+        Me.btnApprove = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txtPONo
+        'txtPPitchingNo
         '
-        Me.txtPONo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPONo.Location = New System.Drawing.Point(139, 12)
-        Me.txtPONo.MaxLength = 12
-        Me.txtPONo.Name = "txtPONo"
-        Me.txtPONo.Size = New System.Drawing.Size(127, 21)
-        Me.txtPONo.TabIndex = 0
+        Me.txtPPitchingNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPPitchingNo.Location = New System.Drawing.Point(152, 15)
+        Me.txtPPitchingNo.MaxLength = 12
+        Me.txtPPitchingNo.Name = "txtPPitchingNo"
+        Me.txtPPitchingNo.Size = New System.Drawing.Size(127, 21)
+        Me.txtPPitchingNo.TabIndex = 0
         '
-        'dtpPODate
+        'dtpPPitchingDate
         '
-        Me.dtpPODate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpPODate.Location = New System.Drawing.Point(139, 40)
-        Me.dtpPODate.Name = "dtpPODate"
-        Me.dtpPODate.Size = New System.Drawing.Size(97, 21)
-        Me.dtpPODate.TabIndex = 2
+        Me.dtpPPitchingDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpPPitchingDate.Location = New System.Drawing.Point(152, 43)
+        Me.dtpPPitchingDate.Name = "dtpPPitchingDate"
+        Me.dtpPPitchingDate.Size = New System.Drawing.Size(97, 21)
+        Me.dtpPPitchingDate.TabIndex = 2
         '
         'dtpDeliveryDate
         '
         Me.dtpDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDeliveryDate.Location = New System.Drawing.Point(139, 95)
+        Me.dtpDeliveryDate.Location = New System.Drawing.Point(152, 98)
         Me.dtpDeliveryDate.Name = "dtpDeliveryDate"
         Me.dtpDeliveryDate.Size = New System.Drawing.Size(97, 21)
         Me.dtpDeliveryDate.TabIndex = 4
@@ -184,7 +185,7 @@ Partial Class frmPO
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 240)
+        Me.ListView1.Location = New System.Drawing.Point(12, 235)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(1151, 205)
@@ -195,7 +196,7 @@ Partial Class frmPO
         '
         'txtPORemarks
         '
-        Me.txtPORemarks.Location = New System.Drawing.Point(75, 454)
+        Me.txtPORemarks.Location = New System.Drawing.Point(75, 449)
         Me.txtPORemarks.MaxLength = 255
         Me.txtPORemarks.Multiline = True
         Me.txtPORemarks.Name = "txtPORemarks"
@@ -204,7 +205,7 @@ Partial Class frmPO
         '
         'txtPOSubtotal
         '
-        Me.txtPOSubtotal.Location = New System.Drawing.Point(1014, 451)
+        Me.txtPOSubtotal.Location = New System.Drawing.Point(1014, 446)
         Me.txtPOSubtotal.Name = "txtPOSubtotal"
         Me.txtPOSubtotal.ReadOnly = True
         Me.txtPOSubtotal.Size = New System.Drawing.Size(118, 21)
@@ -214,7 +215,7 @@ Partial Class frmPO
         '
         'txtPOTax
         '
-        Me.txtPOTax.Location = New System.Drawing.Point(1014, 478)
+        Me.txtPOTax.Location = New System.Drawing.Point(1014, 473)
         Me.txtPOTax.Name = "txtPOTax"
         Me.txtPOTax.ReadOnly = True
         Me.txtPOTax.Size = New System.Drawing.Size(118, 21)
@@ -224,7 +225,7 @@ Partial Class frmPO
         '
         'txtPOTotal
         '
-        Me.txtPOTotal.Location = New System.Drawing.Point(1014, 507)
+        Me.txtPOTotal.Location = New System.Drawing.Point(1014, 502)
         Me.txtPOTotal.Name = "txtPOTotal"
         Me.txtPOTotal.ReadOnly = True
         Me.txtPOTotal.Size = New System.Drawing.Size(118, 21)
@@ -235,7 +236,7 @@ Partial Class frmPO
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(899, 561)
+        Me.btnCancel.Location = New System.Drawing.Point(899, 556)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(84, 26)
         Me.btnCancel.TabIndex = 48
@@ -245,7 +246,7 @@ Partial Class frmPO
         'btnEdit
         '
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(629, 561)
+        Me.btnEdit.Location = New System.Drawing.Point(629, 556)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 45
@@ -255,7 +256,7 @@ Partial Class frmPO
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(719, 561)
+        Me.btnAdd.Location = New System.Drawing.Point(719, 556)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 46
@@ -265,7 +266,7 @@ Partial Class frmPO
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(539, 561)
+        Me.btnDelete.Location = New System.Drawing.Point(539, 556)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(84, 26)
         Me.btnDelete.TabIndex = 44
@@ -275,7 +276,7 @@ Partial Class frmPO
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(809, 561)
+        Me.btnSave.Location = New System.Drawing.Point(809, 556)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(84, 26)
         Me.btnSave.TabIndex = 47
@@ -303,7 +304,7 @@ Partial Class frmPO
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(949, 454)
+        Me.Label3.Location = New System.Drawing.Point(949, 449)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 26
@@ -312,7 +313,7 @@ Partial Class frmPO
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(949, 482)
+        Me.Label4.Location = New System.Drawing.Point(949, 477)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(25, 13)
         Me.Label4.TabIndex = 27
@@ -321,7 +322,7 @@ Partial Class frmPO
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(949, 510)
+        Me.Label5.Location = New System.Drawing.Point(949, 505)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 28
@@ -333,9 +334,9 @@ Partial Class frmPO
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(12, 16)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 13)
+        Me.Label6.Size = New System.Drawing.Size(134, 13)
         Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Purchase Order No.*"
+        Me.Label6.Text = "Purchase Pitching No.*"
         '
         'Label7
         '
@@ -376,7 +377,7 @@ Partial Class frmPO
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(15, 454)
+        Me.Label12.Location = New System.Drawing.Point(15, 449)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(48, 13)
         Me.Label12.TabIndex = 35
@@ -387,7 +388,7 @@ Partial Class frmPO
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeleteD.ImageIndex = 2
         Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(1101, 169)
+        Me.btnDeleteD.Location = New System.Drawing.Point(1101, 164)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD.TabIndex = 34
@@ -408,7 +409,7 @@ Partial Class frmPO
         Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveD.ImageIndex = 3
         Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(1070, 169)
+        Me.btnSaveD.Location = New System.Drawing.Point(1070, 164)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
         Me.btnSaveD.TabIndex = 33
@@ -419,7 +420,7 @@ Partial Class frmPO
         Me.btnSKU.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSKU.ImageIndex = 1
         Me.btnSKU.ImageList = Me.ImageList1
-        Me.btnSKU.Location = New System.Drawing.Point(190, 211)
+        Me.btnSKU.Location = New System.Drawing.Point(190, 206)
         Me.btnSKU.Name = "btnSKU"
         Me.btnSKU.Size = New System.Drawing.Size(29, 25)
         Me.btnSKU.TabIndex = 22
@@ -440,14 +441,14 @@ Partial Class frmPO
         '
         Me.cmbPODtlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPODtlType.FormattingEnabled = True
-        Me.cmbPODtlType.Location = New System.Drawing.Point(15, 213)
+        Me.cmbPODtlType.Location = New System.Drawing.Point(15, 208)
         Me.cmbPODtlType.Name = "cmbPODtlType"
         Me.cmbPODtlType.Size = New System.Drawing.Size(88, 21)
         Me.cmbPODtlType.TabIndex = 20
         '
         'txtSKUCode
         '
-        Me.txtSKUCode.Location = New System.Drawing.Point(108, 213)
+        Me.txtSKUCode.Location = New System.Drawing.Point(108, 208)
         Me.txtSKUCode.MaxLength = 50
         Me.txtSKUCode.Name = "txtSKUCode"
         Me.txtSKUCode.ReadOnly = True
@@ -457,7 +458,7 @@ Partial Class frmPO
         '
         'txtPODtlDesc
         '
-        Me.txtPODtlDesc.Location = New System.Drawing.Point(222, 213)
+        Me.txtPODtlDesc.Location = New System.Drawing.Point(222, 208)
         Me.txtPODtlDesc.MaxLength = 100
         Me.txtPODtlDesc.Name = "txtPODtlDesc"
         Me.txtPODtlDesc.Size = New System.Drawing.Size(209, 21)
@@ -486,7 +487,7 @@ Partial Class frmPO
         '
         Me.cmbPOType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPOType.FormattingEnabled = True
-        Me.cmbPOType.Location = New System.Drawing.Point(139, 67)
+        Me.cmbPOType.Location = New System.Drawing.Point(152, 70)
         Me.cmbPOType.Name = "cmbPOType"
         Me.cmbPOType.Size = New System.Drawing.Size(112, 21)
         Me.cmbPOType.TabIndex = 3
@@ -496,9 +497,9 @@ Partial Class frmPO
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(12, 70)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(109, 13)
+        Me.Label13.Size = New System.Drawing.Size(118, 13)
         Me.Label13.TabIndex = 49
-        Me.Label13.Text = "Purchase Order Type"
+        Me.Label13.Text = "Purchase Pitching Type"
         '
         'Label14
         '
@@ -521,7 +522,7 @@ Partial Class frmPO
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(14, 196)
+        Me.Label16.Location = New System.Drawing.Point(14, 191)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 13)
         Me.Label16.TabIndex = 57
@@ -530,7 +531,7 @@ Partial Class frmPO
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(109, 197)
+        Me.Label17.Location = New System.Drawing.Point(109, 192)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(38, 13)
         Me.Label17.TabIndex = 58
@@ -539,7 +540,7 @@ Partial Class frmPO
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(226, 196)
+        Me.Label18.Location = New System.Drawing.Point(226, 191)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(82, 13)
         Me.Label18.TabIndex = 59
@@ -548,7 +549,7 @@ Partial Class frmPO
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(580, 194)
+        Me.Label19.Location = New System.Drawing.Point(580, 189)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(29, 13)
         Me.Label19.TabIndex = 60
@@ -557,7 +558,7 @@ Partial Class frmPO
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(722, 194)
+        Me.Label20.Location = New System.Drawing.Point(722, 189)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(52, 13)
         Me.Label20.TabIndex = 61
@@ -575,7 +576,7 @@ Partial Class frmPO
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(904, 194)
+        Me.Label22.Location = New System.Drawing.Point(904, 189)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(39, 13)
         Me.Label22.TabIndex = 64
@@ -586,7 +587,7 @@ Partial Class frmPO
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddD.ImageIndex = 4
         Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(1133, 169)
+        Me.btnAddD.Location = New System.Drawing.Point(1132, 164)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD.TabIndex = 35
@@ -595,7 +596,7 @@ Partial Class frmPO
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(978, 194)
+        Me.Label23.Location = New System.Drawing.Point(978, 189)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(65, 13)
         Me.Label23.TabIndex = 67
@@ -604,7 +605,7 @@ Partial Class frmPO
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(819, 194)
+        Me.Label24.Location = New System.Drawing.Point(819, 189)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(74, 13)
         Me.Label24.TabIndex = 69
@@ -613,7 +614,7 @@ Partial Class frmPO
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(1098, 194)
+        Me.Label25.Location = New System.Drawing.Point(1097, 189)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(64, 13)
         Me.Label25.TabIndex = 71
@@ -621,7 +622,7 @@ Partial Class frmPO
         '
         'txtSKUUoM
         '
-        Me.txtSKUUoM.Location = New System.Drawing.Point(615, 213)
+        Me.txtSKUUoM.Location = New System.Drawing.Point(615, 208)
         Me.txtSKUUoM.Name = "txtSKUUoM"
         Me.txtSKUUoM.ReadOnly = True
         Me.txtSKUUoM.Size = New System.Drawing.Size(53, 21)
@@ -631,23 +632,23 @@ Partial Class frmPO
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(615, 194)
+        Me.Label26.Location = New System.Drawing.Point(615, 189)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(28, 13)
         Me.Label26.TabIndex = 73
         Me.Label26.Text = "UoM"
         '
-        'txtPOStatus
+        'txtPitchingStatus
         '
-        Me.txtPOStatus.Location = New System.Drawing.Point(936, 121)
-        Me.txtPOStatus.Name = "txtPOStatus"
-        Me.txtPOStatus.ReadOnly = True
-        Me.txtPOStatus.Size = New System.Drawing.Size(153, 21)
-        Me.txtPOStatus.TabIndex = 17
+        Me.txtPitchingStatus.Location = New System.Drawing.Point(936, 121)
+        Me.txtPitchingStatus.Name = "txtPitchingStatus"
+        Me.txtPitchingStatus.ReadOnly = True
+        Me.txtPitchingStatus.Size = New System.Drawing.Size(153, 21)
+        Me.txtPitchingStatus.TabIndex = 17
         '
         'txtPOGrossAmt
         '
-        Me.txtPOGrossAmt.Location = New System.Drawing.Point(775, 213)
+        Me.txtPOGrossAmt.Location = New System.Drawing.Point(775, 208)
         Me.txtPOGrossAmt.Name = "txtPOGrossAmt"
         Me.txtPOGrossAmt.ReadOnly = True
         Me.txtPOGrossAmt.Size = New System.Drawing.Size(118, 21)
@@ -656,7 +657,7 @@ Partial Class frmPO
         '
         'txtPOTaxAmt
         '
-        Me.txtPOTaxAmt.Location = New System.Drawing.Point(946, 213)
+        Me.txtPOTaxAmt.Location = New System.Drawing.Point(946, 208)
         Me.txtPOTaxAmt.Name = "txtPOTaxAmt"
         Me.txtPOTaxAmt.ReadOnly = True
         Me.txtPOTaxAmt.Size = New System.Drawing.Size(97, 21)
@@ -665,7 +666,7 @@ Partial Class frmPO
         '
         'txtPONetAmt
         '
-        Me.txtPONetAmt.Location = New System.Drawing.Point(1049, 213)
+        Me.txtPONetAmt.Location = New System.Drawing.Point(1049, 208)
         Me.txtPONetAmt.Name = "txtPONetAmt"
         Me.txtPONetAmt.ReadOnly = True
         Me.txtPONetAmt.Size = New System.Drawing.Size(112, 21)
@@ -702,7 +703,7 @@ Partial Class frmPO
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(12, 154)
+        Me.Label29.Location = New System.Drawing.Point(12, 149)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(114, 13)
         Me.Label29.TabIndex = 83
@@ -710,7 +711,7 @@ Partial Class frmPO
         '
         'txtPRequestNo
         '
-        Me.txtPRequestNo.Location = New System.Drawing.Point(14, 173)
+        Me.txtPRequestNo.Location = New System.Drawing.Point(14, 168)
         Me.txtPRequestNo.Name = "txtPRequestNo"
         Me.txtPRequestNo.ReadOnly = True
         Me.txtPRequestNo.Size = New System.Drawing.Size(127, 21)
@@ -721,7 +722,7 @@ Partial Class frmPO
         Me.btnPRequest.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPRequest.ImageIndex = 0
         Me.btnPRequest.ImageList = Me.ImageList1
-        Me.btnPRequest.Location = New System.Drawing.Point(144, 171)
+        Me.btnPRequest.Location = New System.Drawing.Point(144, 166)
         Me.btnPRequest.Name = "btnPRequest"
         Me.btnPRequest.Size = New System.Drawing.Size(29, 25)
         Me.btnPRequest.TabIndex = 19
@@ -739,7 +740,7 @@ Partial Class frmPO
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(437, 194)
+        Me.Label31.Location = New System.Drawing.Point(437, 189)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(53, 13)
         Me.Label31.TabIndex = 91
@@ -747,7 +748,7 @@ Partial Class frmPO
         '
         'txtLocationCode
         '
-        Me.txtLocationCode.Location = New System.Drawing.Point(437, 213)
+        Me.txtLocationCode.Location = New System.Drawing.Point(437, 208)
         Me.txtLocationCode.Name = "txtLocationCode"
         Me.txtLocationCode.ReadOnly = True
         Me.txtLocationCode.Size = New System.Drawing.Size(80, 21)
@@ -759,7 +760,7 @@ Partial Class frmPO
         Me.btnLocation.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLocation.ImageIndex = 1
         Me.btnLocation.ImageList = Me.ImageList1
-        Me.btnLocation.Location = New System.Drawing.Point(519, 211)
+        Me.btnLocation.Location = New System.Drawing.Point(519, 206)
         Me.btnLocation.Name = "btnLocation"
         Me.btnLocation.Size = New System.Drawing.Size(29, 25)
         Me.btnLocation.TabIndex = 25
@@ -768,7 +769,7 @@ Partial Class frmPO
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(272, 16)
+        Me.Label32.Location = New System.Drawing.Point(285, 19)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(47, 13)
         Me.Label32.TabIndex = 94
@@ -786,7 +787,7 @@ Partial Class frmPO
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(667, 510)
+        Me.Label34.Location = New System.Drawing.Point(667, 505)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(58, 13)
         Me.Label34.TabIndex = 102
@@ -795,7 +796,7 @@ Partial Class frmPO
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(667, 482)
+        Me.Label35.Location = New System.Drawing.Point(667, 477)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(52, 13)
         Me.Label35.TabIndex = 101
@@ -804,7 +805,7 @@ Partial Class frmPO
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(667, 454)
+        Me.Label36.Location = New System.Drawing.Point(667, 449)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(74, 13)
         Me.Label36.TabIndex = 100
@@ -812,7 +813,7 @@ Partial Class frmPO
         '
         'txtLocalPOTotal
         '
-        Me.txtLocalPOTotal.Location = New System.Drawing.Point(761, 507)
+        Me.txtLocalPOTotal.Location = New System.Drawing.Point(761, 502)
         Me.txtLocalPOTotal.Name = "txtLocalPOTotal"
         Me.txtLocalPOTotal.ReadOnly = True
         Me.txtLocalPOTotal.Size = New System.Drawing.Size(118, 21)
@@ -822,7 +823,7 @@ Partial Class frmPO
         '
         'txtLocalPOTax
         '
-        Me.txtLocalPOTax.Location = New System.Drawing.Point(761, 478)
+        Me.txtLocalPOTax.Location = New System.Drawing.Point(761, 473)
         Me.txtLocalPOTax.Name = "txtLocalPOTax"
         Me.txtLocalPOTax.ReadOnly = True
         Me.txtLocalPOTax.Size = New System.Drawing.Size(118, 21)
@@ -832,7 +833,7 @@ Partial Class frmPO
         '
         'txtLocalPOSubTotal
         '
-        Me.txtLocalPOSubTotal.Location = New System.Drawing.Point(761, 451)
+        Me.txtLocalPOSubTotal.Location = New System.Drawing.Point(761, 446)
         Me.txtLocalPOSubTotal.Name = "txtLocalPOSubTotal"
         Me.txtLocalPOSubTotal.ReadOnly = True
         Me.txtLocalPOSubTotal.Size = New System.Drawing.Size(118, 21)
@@ -842,7 +843,7 @@ Partial Class frmPO
         '
         'txtRevise
         '
-        Me.txtRevise.Location = New System.Drawing.Point(325, 14)
+        Me.txtRevise.Location = New System.Drawing.Point(338, 17)
         Me.txtRevise.Name = "txtRevise"
         Me.txtRevise.ReadOnly = True
         Me.txtRevise.Size = New System.Drawing.Size(50, 21)
@@ -890,7 +891,7 @@ Partial Class frmPO
         'btnPreview
         '
         Me.btnPreview.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPreview.Location = New System.Drawing.Point(992, 561)
+        Me.btnPreview.Location = New System.Drawing.Point(992, 556)
         Me.btnPreview.Name = "btnPreview"
         Me.btnPreview.Size = New System.Drawing.Size(84, 26)
         Me.btnPreview.TabIndex = 49
@@ -900,17 +901,17 @@ Partial Class frmPO
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.DataGridView1.Location = New System.Drawing.Point(399, 454)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.po_dtl_id})
+        Me.DataGridView1.Location = New System.Drawing.Point(399, 446)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(249, 76)
+        Me.DataGridView1.Size = New System.Drawing.Size(253, 101)
         Me.DataGridView1.TabIndex = 108
         Me.DataGridView1.Visible = False
         '
-        'Column1
+        'po_dtl_id
         '
-        Me.Column1.HeaderText = "Column1"
-        Me.Column1.Name = "Column1"
+        Me.po_dtl_id.HeaderText = "Column1"
+        Me.po_dtl_id.Name = "po_dtl_id"
         '
         'ntbPOCurrRate
         '
@@ -925,7 +926,7 @@ Partial Class frmPO
         'ntbPOTaxPercent
         '
         Me.ntbPOTaxPercent.AllowSpace = False
-        Me.ntbPOTaxPercent.Location = New System.Drawing.Point(899, 213)
+        Me.ntbPOTaxPercent.Location = New System.Drawing.Point(899, 208)
         Me.ntbPOTaxPercent.MaxLength = 3
         Me.ntbPOTaxPercent.Name = "ntbPOTaxPercent"
         Me.ntbPOTaxPercent.Size = New System.Drawing.Size(41, 21)
@@ -945,7 +946,7 @@ Partial Class frmPO
         'ntbPOPrice
         '
         Me.ntbPOPrice.AllowSpace = False
-        Me.ntbPOPrice.Location = New System.Drawing.Point(672, 213)
+        Me.ntbPOPrice.Location = New System.Drawing.Point(672, 208)
         Me.ntbPOPrice.MaxLength = 18
         Me.ntbPOPrice.Name = "ntbPOPrice"
         Me.ntbPOPrice.Size = New System.Drawing.Size(97, 21)
@@ -955,38 +956,52 @@ Partial Class frmPO
         'ntbPOQty
         '
         Me.ntbPOQty.AllowSpace = False
-        Me.ntbPOQty.Location = New System.Drawing.Point(552, 213)
+        Me.ntbPOQty.Location = New System.Drawing.Point(552, 208)
         Me.ntbPOQty.MaxLength = 12
         Me.ntbPOQty.Name = "ntbPOQty"
         Me.ntbPOQty.Size = New System.Drawing.Size(57, 21)
         Me.ntbPOQty.TabIndex = 26
         Me.ntbPOQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtPPitchingNo
+        'btnSubmitApproval
         '
-        Me.txtPPitchingNo.Location = New System.Drawing.Point(139, 122)
-        Me.txtPPitchingNo.Name = "txtPPitchingNo"
-        Me.txtPPitchingNo.ReadOnly = True
-        Me.txtPPitchingNo.Size = New System.Drawing.Size(153, 21)
-        Me.txtPPitchingNo.TabIndex = 109
+        Me.btnSubmitApproval.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSubmitApproval.Location = New System.Drawing.Point(402, 556)
+        Me.btnSubmitApproval.Name = "btnSubmitApproval"
+        Me.btnSubmitApproval.Size = New System.Drawing.Size(131, 26)
+        Me.btnSubmitApproval.TabIndex = 109
+        Me.btnSubmitApproval.Text = "Submit for Approval"
+        Me.btnSubmitApproval.UseVisualStyleBackColor = True
         '
-        'Label30
+        'btnReject
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(14, 124)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(64, 13)
-        Me.Label30.TabIndex = 110
-        Me.Label30.Text = "Pitching No."
+        Me.btnReject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReject.Location = New System.Drawing.Point(312, 556)
+        Me.btnReject.Name = "btnReject"
+        Me.btnReject.Size = New System.Drawing.Size(84, 26)
+        Me.btnReject.TabIndex = 111
+        Me.btnReject.Text = "Reject"
+        Me.btnReject.UseVisualStyleBackColor = True
         '
-        'frmPO
+        'btnApprove
+        '
+        Me.btnApprove.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApprove.Location = New System.Drawing.Point(222, 556)
+        Me.btnApprove.Name = "btnApprove"
+        Me.btnApprove.Size = New System.Drawing.Size(84, 26)
+        Me.btnApprove.TabIndex = 110
+        Me.btnApprove.Text = "Approve"
+        Me.btnApprove.UseVisualStyleBackColor = True
+        '
+        'frmPPitching
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1178, 594)
-        Me.Controls.Add(Me.txtPPitchingNo)
-        Me.Controls.Add(Me.Label30)
+        Me.Controls.Add(Me.btnReject)
+        Me.Controls.Add(Me.btnApprove)
+        Me.Controls.Add(Me.btnSubmitApproval)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnPreview)
         Me.Controls.Add(Me.btnPchCode)
@@ -1015,7 +1030,7 @@ Partial Class frmPO
         Me.Controls.Add(Me.txtPONetAmt)
         Me.Controls.Add(Me.txtPOTaxAmt)
         Me.Controls.Add(Me.txtPOGrossAmt)
-        Me.Controls.Add(Me.txtPOStatus)
+        Me.Controls.Add(Me.txtPitchingStatus)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.txtSKUUoM)
         Me.Controls.Add(Me.Label25)
@@ -1073,20 +1088,20 @@ Partial Class frmPO
         Me.Controls.Add(Me.txtRefNo)
         Me.Controls.Add(Me.txtShipVia)
         Me.Controls.Add(Me.dtpDeliveryDate)
-        Me.Controls.Add(Me.dtpPODate)
-        Me.Controls.Add(Me.txtPONo)
+        Me.Controls.Add(Me.dtpPPitchingDate)
+        Me.Controls.Add(Me.txtPPitchingNo)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Name = "frmPO"
+        Me.Name = "frmPPitching"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Purchase Order"
+        Me.Text = "Purchase Pitching"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txtPONo As System.Windows.Forms.TextBox
-    Friend WithEvents dtpPODate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtPPitchingNo As System.Windows.Forms.TextBox
+    Friend WithEvents dtpPPitchingDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpDeliveryDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtShipVia As System.Windows.Forms.TextBox
     Friend WithEvents txtRefNo As System.Windows.Forms.TextBox
@@ -1144,7 +1159,7 @@ Partial Class frmPO
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents txtSKUUoM As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents txtPOStatus As System.Windows.Forms.TextBox
+    Friend WithEvents txtPitchingStatus As System.Windows.Forms.TextBox
     Friend WithEvents txtPOGrossAmt As System.Windows.Forms.TextBox
     Friend WithEvents txtPOTaxAmt As System.Windows.Forms.TextBox
     Friend WithEvents txtPONetAmt As System.Windows.Forms.TextBox
@@ -1175,8 +1190,9 @@ Partial Class frmPO
     Friend WithEvents Label37 As System.Windows.Forms.Label
     Friend WithEvents btnPreview As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents txtPPitchingNo As System.Windows.Forms.TextBox
-    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents po_dtl_id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnSubmitApproval As System.Windows.Forms.Button
+    Friend WithEvents btnReject As System.Windows.Forms.Button
+    Friend WithEvents btnApprove As System.Windows.Forms.Button
 
 End Class
