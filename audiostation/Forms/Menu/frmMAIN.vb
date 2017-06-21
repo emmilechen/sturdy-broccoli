@@ -1307,6 +1307,18 @@ Public Class frmMAIN
         'End If
     End Sub
 
+    Private Sub PurchasePitchingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchasePitchingToolStripMenuItem.Click
+        frmPPitchingList.MdiParent = Me
+        frmPPitchingList.Show()
+        frmPPitchingList.BringToFront()
+    End Sub
+
+    Private Sub PurchasePitchingApprovalToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchasePitchingApprovalToolStripMenuItem.Click
+        frmPPitchingApprovalList.MdiParent = Me
+        frmPPitchingApprovalList.Show()
+        frmPPitchingApprovalList.BringToFront()
+    End Sub
+
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
 
     End Sub
