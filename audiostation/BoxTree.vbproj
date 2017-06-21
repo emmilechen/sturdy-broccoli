@@ -241,6 +241,12 @@
     <Compile Include="Forms\Master\frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\frmUtility.Designer.vb">
+      <DependentUpon>frmUtility.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmUtility.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Report\frmStockLocationR.Designer.vb">
       <DependentUpon>frmStockLocationR.vb</DependentUpon>
     </Compile>
@@ -1620,6 +1626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmUser.resx">
       <DependentUpon>frmUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmUtility.resx">
+      <DependentUpon>frmUtility.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report\frmCurrencyR.resx">
       <DependentUpon>frmCurrencyR.vb</DependentUpon>

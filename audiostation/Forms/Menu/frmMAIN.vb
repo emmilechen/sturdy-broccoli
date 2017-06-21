@@ -1306,4 +1306,8 @@ Public Class frmMAIN
         frmMesin.BringToFront()
         'End If
     End Sub
+
+    Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
+
+    End Sub
 End Class

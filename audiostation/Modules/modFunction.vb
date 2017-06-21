@@ -404,5 +404,18 @@ Module modFunction
             cmd.Dispose()
         End If
     End Function
+    Public Function getpwd(ByVal pwd As String, ByVal parampwd As String, ByVal formathash As String) As String
+        Dim plainText As String = pwd
+        Dim password As String = parampwd
+
+        Dim wrapper As New Dencrypt(password)
+        If formathash = "enc" Then
+            getpwd = wrapper.EncryptData(plainText)
+        Else
+            getpwd = wrapper.DecryptData(plainText)
+        End If
+        Return getpwd
+
+    End Function
 End Module
 

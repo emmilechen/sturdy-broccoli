@@ -282,4 +282,9 @@ err_btnSave_Click:
         ' Perform the sort with these new sort options.
         ListView1.Sort()
     End Sub
+
+    Private Sub txtUserPassword_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles txtUserPassword.MouseDoubleClick
+        If txtUserPassword.Text <> "" Then MsgBox("Password : " & Me.txtUserPassword.Text, MsgBoxStyle.Information, "User")
+    End Sub
+
 End Class

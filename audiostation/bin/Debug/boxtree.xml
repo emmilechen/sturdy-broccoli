@@ -15,46 +15,6 @@ boxtree
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:boxtree.My.Resources.Resources._exit">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.cancel">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.Delete">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.down24">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.find">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.images">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.new_rec">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.ok">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.Save">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:boxtree.My.Resources.Resources.up24">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="T:boxtree.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
