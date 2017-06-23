@@ -201,9 +201,9 @@ Public Class frmPPitchingApprovalList
             lvItem.SubItems.Add(myReader.Item(31))
             lvItem.SubItems.Add(myReader.GetInt32(15))
             lvItem.SubItems.Add(myReader.GetString(16))
-            lvItem.SubItems.Add(myReader.GetString(34))
+            lvItem.SubItems.Add(myReader.GetString(33))
             lvItem.SubItems.Add(myReader.GetDateTime(9))
-            lvItem.SubItems.Add(IIf(myReader.Item(33) Is DBNull.Value, "", myReader.Item(33)))
+            lvItem.SubItems.Add(IIf(myReader.Item(14) Is DBNull.Value, "", myReader.Item(14)))
             lvItem.SubItems.Add(myReader.GetString(32))
             lvItem.SubItems.Add(myReader.GetString(8))
 

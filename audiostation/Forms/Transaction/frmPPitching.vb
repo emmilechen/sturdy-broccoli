@@ -504,6 +504,7 @@ Public Class frmPPitching
                 End If
             Case "R" 'Revised
                 btnEdit.Enabled = isLock
+                btnSubmitApproval.Visible = True
             Case "V" 'Void
         End Select
 
@@ -524,16 +525,16 @@ Public Class frmPPitching
         If m_POId = 0 Then
             txtPPitchingNo.ReadOnly = False
             btnDelete.Enabled = isLock
-            btnSubmitApproval.Enabled = isLock
+            'btnSubmitApproval.Enabled = isLock
             btnReject.Enabled = isLock
             btnApprove.Enabled = isLock
         Else
             txtPPitchingNo.ReadOnly = True
             'If p_UserLevel = 1 Then btnDelete.Enabled = Not isLock Else btnDelete.Enabled = False
             'If canDelete(p_UserLevel, Me.Name + "List") = True Then
-            btnSubmitApproval.Enabled = Not isLock
-            btnReject.Enabled = Not isLock
-            btnApprove.Enabled = Not isLock
+            btnSubmitApproval.Enabled = isLock
+            btnReject.Enabled = isLock
+            btnApprove.Enabled = isLock
             If isAllowDelete = True Then btnDelete.Enabled = Not isLock Else btnDelete.Enabled = False
         End If
     End Sub
