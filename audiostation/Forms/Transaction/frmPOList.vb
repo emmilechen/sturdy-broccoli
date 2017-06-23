@@ -114,10 +114,6 @@ Public Class frmPOList
         End If
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-
-    End Sub
-
     Public Sub New()
 
         ' This call is required by the designer.

@@ -154,8 +154,8 @@ Public Class frmPO
         Else
             m_PODId = 0
             view_record()
-            'clear_lvw()
-            bindGrid()
+            clear_lvw()
+            'bindGrid()
             'btnEdit_Click(sender, e)
             clear_objD()
             lock_obj(True)
@@ -758,7 +758,7 @@ Public Class frmPO
             txtLocalPOTotal.Text = FormatNumber(myReader.GetValue(27))
             txtRevise.Text = myReader.GetValue(28)
             txtPrinted.Text = myReader.GetValue(29)
-
+            txtPPitchingNo.Text = IIf(myReader.Item(30) Is DBNull.Value, "", myReader.Item(30))
         End While
 
         myReader.Close()
@@ -797,6 +797,8 @@ Public Class frmPO
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
         prm1.Value = m_POId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "po"
 
         cn.Open()
 

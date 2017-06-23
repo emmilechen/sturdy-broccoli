@@ -8,6 +8,7 @@ Public Class frmPPitching
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
     Dim m_POId As Integer
+    Dim m_PONo As String
     Dim m_SId As Integer
     Dim m_CurrBaseId As Integer
     Dim m_POType As String
@@ -29,6 +30,7 @@ Public Class frmPPitching
     Dim m_FrmCallerId As String
     Dim isGetNum As Boolean
     Dim isAllowDelete As Boolean
+    Dim isConvertToPO As Boolean
     Private docPO As ReportDocument
     Dim Dec As Integer = GetSysInit("decimal_digit")
 
@@ -149,19 +151,6 @@ Public Class frmPPitching
 
         myReader.Close()
         cn.Close()
-
-        Select Case m_FrmCallerId
-            Case "frmPPitchingList"
-                btnSubmitApproval.Visible = True
-                'btnVoid.Visible = True
-                btnApprove.Visible = False
-                btnReject.Visible = False
-            Case "frmPPitchingApprovalList"
-                btnSubmitApproval.Visible = False
-                'btnVoid.Visible = False
-                btnApprove.Visible = True
-                btnReject.Visible = True
-        End Select
 
         If m_POId = 0 Then
             btnAdd_Click(sender, e)
@@ -405,6 +394,7 @@ Public Class frmPPitching
         m_SId = 0
         m_CurrId = 0
         m_POCurrRateBefore = 0
+        m_PONo = ""
         txtPPitchingNo.Text = ""
         dtpPPitchingDate.Value = FormatDateTime(Now, DateFormat.ShortDate)
         txtSCode.Text = ""
@@ -482,16 +472,44 @@ Public Class frmPPitching
         cmbPOType.Enabled = Not isLock
         btnSupplier.Enabled = Not isLock
         btnPchCode.Enabled = Not isLock
+
+        btnAdd.Enabled = isLock
+        btnEdit.Enabled = False
+        btnSubmitApproval.Visible = False
+        btnApprove.Visible = False
+        btnReject.Visible = False
+        btnConvertToPO.Visible = False
+
+        Select Case m_FrmCallerId
+            Case "frmPPitchingList"
+                'btnVoid.Visible = True
+            Case "frmPPitchingApprovalList"
+                'btnVoid.Visible = False
+                btnApprove.Visible = True
+                btnReject.Visible = True
+                btnAdd.Enabled = False
+        End Select
+
         'If m_POStatus = "A" And isClosed = False Then btnCloseRequest.Enabled = isLock Else btnCloseRequest.Enabled = False
-        If m_POStatus = "D" Or m_POStatus = "R" Or (m_FrmCallerId = "frmPPitchingApprovalList" And m_POStatus = "W") Then btnEdit.Enabled = isLock Else btnEdit.Enabled = False
-        btnPchCode.Enabled = Not isLock
-        If m_FrmCallerId = "frmPPitchingApprovalList" Then btnAdd.Enabled = False Else btnAdd.Enabled = isLock
-        'txtPOSubtotal.ReadOnly = isLock
-        'txtPOTax.ReadOnly = isLock
-        'txtPOTotal.ReadOnly = isLock
+        Select Case m_POStatus
+            Case "D" 'Draft
+                btnEdit.Enabled = isLock
+                btnSubmitApproval.Visible = True
+            Case "W" 'Waiting for Approval
+                If m_FrmCallerId = "frmPPitchingApprovalList" Then btnEdit.Enabled = isLock
+            Case "A" 'Approved
+                If m_PONo = "" Then
+                    btnConvertToPO.Visible = True
+                    btnConvertToPO.Enabled = isLock
+                End If
+            Case "R" 'Revised
+                btnEdit.Enabled = isLock
+            Case "V" 'Void
+        End Select
 
         'If m_POStatus = "FR" Or m_POStatus = "I" Or m_POStatus = "P" Then btnEdit.Enabled = False Else btnEdit.Enabled = isLock
-        btnAdd.Enabled = isLock
+
+        'btnAdd.Enabled = isLock
         btnSave.Enabled = Not isLock
         btnCancel.Enabled = Not isLock
         btnPrint.Enabled = isLock
@@ -752,6 +770,7 @@ Public Class frmPPitching
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
         While myReader.Read
+            m_PONo = IIf(myReader.Item(1) Is DBNull.Value, "", myReader.Item(1))
             txtPPitchingNo.Text = myReader.GetString(30)
             dtpPPitchingDate.Value = myReader.GetDateTime(31)
             m_SId = myReader.GetInt32(3)
@@ -830,6 +849,8 @@ Public Class frmPPitching
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
         prm1.Value = m_POId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "ppitching"
 
         cn.Open()
 
@@ -924,6 +945,16 @@ Public Class frmPPitching
             prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
             Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
             prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+
+            If isConvertToPO = True Then
+                m_PONo = GetSysNumber("pord", Now.Date)
+                Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
+                prm21.Value = m_PONo
+                Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
+                prm22.Value = Now.Date
+                Dim prm23 As SqlParameter = cmd.Parameters.Add("@po_status", SqlDbType.NVarChar, 50)
+                prm23.Value = "O"
+            End If
 
             Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
             prm15.Value = My.Settings.UserName
@@ -1460,5 +1491,21 @@ Public Class frmPPitching
         cn.Open()
         cmd.ExecuteReader()
         cn.Close()
+    End Sub
+
+    Private Sub btnConvertToPO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConvertToPO.Click
+        isConvertToPO = True
+        btnSave_Click(sender, e)
+        UpdSysNumber("pord")
+        isConvertToPO = False
+
+        Dim frm1 As New frmPO
+        With frm1
+            .POId = m_POId
+            .MdiParent = frmMAIN
+            .AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+            .Show()
+            .BringToFront()
+        End With
     End Sub
 End Class

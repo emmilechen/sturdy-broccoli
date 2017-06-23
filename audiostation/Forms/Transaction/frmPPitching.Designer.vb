@@ -110,14 +110,15 @@ Partial Class frmPPitching
         Me.btnPreview = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.po_dtl_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnSubmitApproval = New System.Windows.Forms.Button()
+        Me.btnReject = New System.Windows.Forms.Button()
+        Me.btnApprove = New System.Windows.Forms.Button()
+        Me.btnConvertToPO = New System.Windows.Forms.Button()
         Me.ntbPOCurrRate = New boxtree.NumericTextBox()
         Me.ntbPOTaxPercent = New boxtree.NumericTextBox()
         Me.ntbPaymentTerms = New boxtree.NumericTextBox()
         Me.ntbPOPrice = New boxtree.NumericTextBox()
         Me.ntbPOQty = New boxtree.NumericTextBox()
-        Me.btnSubmitApproval = New System.Windows.Forms.Button()
-        Me.btnReject = New System.Windows.Forms.Button()
-        Me.btnApprove = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -913,6 +914,46 @@ Partial Class frmPPitching
         Me.po_dtl_id.HeaderText = "Column1"
         Me.po_dtl_id.Name = "po_dtl_id"
         '
+        'btnSubmitApproval
+        '
+        Me.btnSubmitApproval.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSubmitApproval.Location = New System.Drawing.Point(402, 556)
+        Me.btnSubmitApproval.Name = "btnSubmitApproval"
+        Me.btnSubmitApproval.Size = New System.Drawing.Size(131, 26)
+        Me.btnSubmitApproval.TabIndex = 109
+        Me.btnSubmitApproval.Text = "Submit for Approval"
+        Me.btnSubmitApproval.UseVisualStyleBackColor = True
+        '
+        'btnReject
+        '
+        Me.btnReject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReject.Location = New System.Drawing.Point(312, 556)
+        Me.btnReject.Name = "btnReject"
+        Me.btnReject.Size = New System.Drawing.Size(84, 26)
+        Me.btnReject.TabIndex = 111
+        Me.btnReject.Text = "Reject"
+        Me.btnReject.UseVisualStyleBackColor = True
+        '
+        'btnApprove
+        '
+        Me.btnApprove.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnApprove.Location = New System.Drawing.Point(222, 556)
+        Me.btnApprove.Name = "btnApprove"
+        Me.btnApprove.Size = New System.Drawing.Size(84, 26)
+        Me.btnApprove.TabIndex = 110
+        Me.btnApprove.Text = "Approve"
+        Me.btnApprove.UseVisualStyleBackColor = True
+        '
+        'btnConvertToPO
+        '
+        Me.btnConvertToPO.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConvertToPO.Location = New System.Drawing.Point(122, 556)
+        Me.btnConvertToPO.Name = "btnConvertToPO"
+        Me.btnConvertToPO.Size = New System.Drawing.Size(94, 26)
+        Me.btnConvertToPO.TabIndex = 112
+        Me.btnConvertToPO.Text = "Convert to PO"
+        Me.btnConvertToPO.UseVisualStyleBackColor = True
+        '
         'ntbPOCurrRate
         '
         Me.ntbPOCurrRate.AllowSpace = False
@@ -963,42 +1004,13 @@ Partial Class frmPPitching
         Me.ntbPOQty.TabIndex = 26
         Me.ntbPOQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'btnSubmitApproval
-        '
-        Me.btnSubmitApproval.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmitApproval.Location = New System.Drawing.Point(402, 556)
-        Me.btnSubmitApproval.Name = "btnSubmitApproval"
-        Me.btnSubmitApproval.Size = New System.Drawing.Size(131, 26)
-        Me.btnSubmitApproval.TabIndex = 109
-        Me.btnSubmitApproval.Text = "Submit for Approval"
-        Me.btnSubmitApproval.UseVisualStyleBackColor = True
-        '
-        'btnReject
-        '
-        Me.btnReject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReject.Location = New System.Drawing.Point(312, 556)
-        Me.btnReject.Name = "btnReject"
-        Me.btnReject.Size = New System.Drawing.Size(84, 26)
-        Me.btnReject.TabIndex = 111
-        Me.btnReject.Text = "Reject"
-        Me.btnReject.UseVisualStyleBackColor = True
-        '
-        'btnApprove
-        '
-        Me.btnApprove.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnApprove.Location = New System.Drawing.Point(222, 556)
-        Me.btnApprove.Name = "btnApprove"
-        Me.btnApprove.Size = New System.Drawing.Size(84, 26)
-        Me.btnApprove.TabIndex = 110
-        Me.btnApprove.Text = "Approve"
-        Me.btnApprove.UseVisualStyleBackColor = True
-        '
         'frmPPitching
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1178, 594)
+        Me.Controls.Add(Me.btnConvertToPO)
         Me.Controls.Add(Me.btnReject)
         Me.Controls.Add(Me.btnApprove)
         Me.Controls.Add(Me.btnSubmitApproval)
@@ -1194,5 +1206,6 @@ Partial Class frmPPitching
     Friend WithEvents btnSubmitApproval As System.Windows.Forms.Button
     Friend WithEvents btnReject As System.Windows.Forms.Button
     Friend WithEvents btnApprove As System.Windows.Forms.Button
+    Friend WithEvents btnConvertToPO As System.Windows.Forms.Button
 
 End Class
