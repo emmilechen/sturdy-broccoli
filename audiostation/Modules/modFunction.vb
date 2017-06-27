@@ -415,7 +415,115 @@ Module modFunction
             getpwd = wrapper.DecryptData(plainText)
         End If
         Return getpwd
+    End Function
+    Public Function Fillobject(ByVal txtid As TextBox, ByVal root As Control, ByVal action As String, ByVal namasp As String, Optional filterby As String = "") As Boolean
+        Dim sqlComm As New SqlCommand()
+        Dim strConn As String = My.Settings.ConnStr
+        Try
+            'If cn.State = ConnectionState.Closed Then cn.Open()
+            Dim sqlCon = New SqlConnection(strConn)
 
+            Using (sqlCon)
+                sqlCon.Open()
+                sqlComm = New SqlCommand(namasp, sqlCon)
+
+                sqlComm.CommandType = CommandType.StoredProcedure
+                For Each ctrl As Control In root.Controls
+                    If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
+                        If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
+                        If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
+                    Else
+                    End If
+                Next ctrl
+                sqlComm.Parameters.AddWithValue("@action", action)
+                sqlComm.Parameters.AddWithValue("@c_id", 0)
+                sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
+                sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
+
+                If action = "insert" Or action = "update" Then
+                    sqlComm.ExecuteNonQuery()
+                    txtid.Text = sqlComm.Parameters("@idmesin").SqlValue.ToString
+                ElseIf action = "select" Then
+                    Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
+                    If sqlReader.HasRows Then
+                        While (sqlReader.Read())
+                            For Each ctrl As Control In root.Controls
+                                If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
+                                    If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
+                                        ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString), Decimal.ToInt32(sqlReader.Item(ctrl.Tag).ToString).ToString(), sqlReader.Item(ctrl.Tag).ToString)
+                                    Else
+                                        If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = sqlReader.Item(ctrl.Tag).ToString
+                                        If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(ctrl.Tag).ToString
+                                    End If
+                                Else
+                                End If
+                            Next ctrl
+                        End While
+                    End If
+                    sqlReader.Close()
+                Else
+                    'delete
+                End If
+
+                sqlCon.Close()
+            End Using
+            Fillobject = True
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Information, "Machine")
+            Fillobject = False
+            Exit Function
+        End Try
+    End Function
+    Public Function AssignValuetoCombo(ByVal namacombo As ComboBox, strunion As String, fieldkey As String, fieldteks As String, namatabel As String, kondisi As String, sortby As String)
+        '==========================================Fill Combo Template=========================================
+        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by guidstr", cn)
+        Dim DS As New DataSet
+
+        DA.Fill(DS, "event")
+
+        Dim dt As New DataTable
+        dt.Columns.Add("nama", GetType(System.String))
+        dt.Columns.Add("guidstr", GetType(System.String))
+        '
+        ' Populate the DataTable to bind to the Combobox.
+        '
+        Dim drDSRow As DataRow
+        Dim drNewRow As DataRow
+
+        For Each drDSRow In DS.Tables("event").Rows()
+            drNewRow = dt.NewRow()
+            drNewRow("nama") = drDSRow("nama")
+            drNewRow("guidstr") = drDSRow("guidstr")
+            dt.Rows.Add(drNewRow)
+        Next
+
+        namacombo.DropDownStyle = ComboBoxStyle.DropDownList
+        With namacombo
+            .DataSource = dt
+            .DisplayMember = "nama"
+            .ValueMember = "guidstr"
+            .SelectedIndex = 0
+        End With
+        namacombo.SelectedValue = ""
+
+        DA.Dispose()
+        DS.Dispose()
+        '==========================================END Fill combo Combo1=========================================
+    End Function
+    Public Function ClearObjectonForm(ByVal root As Control)
+        On Error Resume Next
+        Dim ctrlstr As String = ""
+        For Each ctrl As Control In root.Controls
+            If TypeOf ctrl Is TextBox Or (TypeOf ctrl Is ComboBox) Then ctrlstr &= "," & ctrl.Name
+            ClearObjectonForm(ctrl)
+            If TypeOf ctrl Is TextBox Then
+                CType(ctrl, TextBox).Text = String.Empty
+            End If
+            If TypeOf ctrl Is DateTimePicker Then
+                CType(ctrl, DateTimePicker).Format = DateTimePickerFormat.Custom : CType(ctrl, DateTimePicker).CustomFormat = "yyyy-MM-dd" : CType(ctrl, DateTimePicker).Text = Now.Date
+            End If
+        Next ctrl
     End Function
 End Module
 
