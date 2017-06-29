@@ -109,7 +109,7 @@ Public Class frmUser
                 clear_obj()
                 lock_obj(False)
             Else
-                MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@integralindo.com(Er:03)", MsgBoxStyle.Critical)
+                MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@mybrightsolution.com(Er:03)", MsgBoxStyle.Critical)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
