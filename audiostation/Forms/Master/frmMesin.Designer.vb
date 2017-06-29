@@ -95,7 +95,7 @@ Partial Class frmMesin
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(427, 428)
+        Me.btnSave.Location = New System.Drawing.Point(505, 410)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 6
@@ -105,7 +105,7 @@ Partial Class frmMesin
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(427, 486)
+        Me.btnDelete.Location = New System.Drawing.Point(505, 468)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 3
@@ -115,7 +115,7 @@ Partial Class frmMesin
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(427, 457)
+        Me.btnAdd.Location = New System.Drawing.Point(505, 439)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 5
@@ -125,7 +125,7 @@ Partial Class frmMesin
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(427, 515)
+        Me.btnCancel.Location = New System.Drawing.Point(505, 497)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 7
@@ -140,7 +140,7 @@ Partial Class frmMesin
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(409, 530)
+        Me.TabControl1.Size = New System.Drawing.Size(477, 508)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -198,7 +198,7 @@ Partial Class frmMesin
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(401, 504)
+        Me.TabPage1.Size = New System.Drawing.Size(469, 482)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detil"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -243,9 +243,9 @@ Partial Class frmMesin
         'cmbfrekuensi
         '
         Me.cmbfrekuensi.FormattingEnabled = True
-        Me.cmbfrekuensi.Location = New System.Drawing.Point(200, 314)
+        Me.cmbfrekuensi.Location = New System.Drawing.Point(201, 315)
         Me.cmbfrekuensi.Name = "cmbfrekuensi"
-        Me.cmbfrekuensi.Size = New System.Drawing.Size(46, 21)
+        Me.cmbfrekuensi.Size = New System.Drawing.Size(85, 21)
         Me.cmbfrekuensi.TabIndex = 15
         Me.cmbfrekuensi.Tag = "frekuensiuom"
         '
@@ -260,9 +260,9 @@ Partial Class frmMesin
         'cmbdayalistrik
         '
         Me.cmbdayalistrik.FormattingEnabled = True
-        Me.cmbdayalistrik.Location = New System.Drawing.Point(200, 233)
+        Me.cmbdayalistrik.Location = New System.Drawing.Point(201, 234)
         Me.cmbdayalistrik.Name = "cmbdayalistrik"
-        Me.cmbdayalistrik.Size = New System.Drawing.Size(46, 21)
+        Me.cmbdayalistrik.Size = New System.Drawing.Size(85, 21)
         Me.cmbdayalistrik.TabIndex = 9
         Me.cmbdayalistrik.Tag = "dayalistrikuom"
         '
@@ -286,9 +286,9 @@ Partial Class frmMesin
         'cmbkwh
         '
         Me.cmbkwh.FormattingEnabled = True
-        Me.cmbkwh.Location = New System.Drawing.Point(200, 260)
+        Me.cmbkwh.Location = New System.Drawing.Point(201, 261)
         Me.cmbkwh.Name = "cmbkwh"
-        Me.cmbkwh.Size = New System.Drawing.Size(46, 21)
+        Me.cmbkwh.Size = New System.Drawing.Size(85, 21)
         Me.cmbkwh.TabIndex = 11
         Me.cmbkwh.Tag = "kwhuom"
         '
@@ -312,87 +312,87 @@ Partial Class frmMesin
         'cmbtgtmax
         '
         Me.cmbtgtmax.FormattingEnabled = True
-        Me.cmbtgtmax.Location = New System.Drawing.Point(341, 449)
+        Me.cmbtgtmax.Location = New System.Drawing.Point(377, 450)
         Me.cmbtgtmax.Name = "cmbtgtmax"
-        Me.cmbtgtmax.Size = New System.Drawing.Size(46, 21)
+        Me.cmbtgtmax.Size = New System.Drawing.Size(85, 21)
         Me.cmbtgtmax.TabIndex = 31
         Me.cmbtgtmax.Tag = "targetmaxuom"
         '
         'cmbtgtmin
         '
         Me.cmbtgtmin.FormattingEnabled = True
-        Me.cmbtgtmin.Location = New System.Drawing.Point(200, 449)
+        Me.cmbtgtmin.Location = New System.Drawing.Point(201, 450)
         Me.cmbtgtmin.Name = "cmbtgtmin"
-        Me.cmbtgtmin.Size = New System.Drawing.Size(46, 21)
+        Me.cmbtgtmin.Size = New System.Drawing.Size(85, 21)
         Me.cmbtgtmin.TabIndex = 29
         Me.cmbtgtmin.Tag = "targetminuom"
         '
         'cmbspeedmax
         '
         Me.cmbspeedmax.FormattingEnabled = True
-        Me.cmbspeedmax.Location = New System.Drawing.Point(341, 422)
+        Me.cmbspeedmax.Location = New System.Drawing.Point(377, 423)
         Me.cmbspeedmax.Name = "cmbspeedmax"
-        Me.cmbspeedmax.Size = New System.Drawing.Size(46, 21)
+        Me.cmbspeedmax.Size = New System.Drawing.Size(85, 21)
         Me.cmbspeedmax.TabIndex = 27
         Me.cmbspeedmax.Tag = "speedmaxuom"
         '
         'cmbspeedmin
         '
         Me.cmbspeedmin.FormattingEnabled = True
-        Me.cmbspeedmin.Location = New System.Drawing.Point(200, 422)
+        Me.cmbspeedmin.Location = New System.Drawing.Point(201, 423)
         Me.cmbspeedmin.Name = "cmbspeedmin"
-        Me.cmbspeedmin.Size = New System.Drawing.Size(46, 21)
+        Me.cmbspeedmin.Size = New System.Drawing.Size(85, 21)
         Me.cmbspeedmin.TabIndex = 25
         Me.cmbspeedmin.Tag = "speedminuom"
         '
         'cmbsizemax
         '
         Me.cmbsizemax.FormattingEnabled = True
-        Me.cmbsizemax.Location = New System.Drawing.Point(341, 395)
+        Me.cmbsizemax.Location = New System.Drawing.Point(377, 396)
         Me.cmbsizemax.Name = "cmbsizemax"
-        Me.cmbsizemax.Size = New System.Drawing.Size(46, 21)
+        Me.cmbsizemax.Size = New System.Drawing.Size(85, 21)
         Me.cmbsizemax.TabIndex = 23
         Me.cmbsizemax.Tag = "sizemaxuom"
         '
         'cmbsizemin
         '
         Me.cmbsizemin.FormattingEnabled = True
-        Me.cmbsizemin.Location = New System.Drawing.Point(200, 395)
+        Me.cmbsizemin.Location = New System.Drawing.Point(201, 396)
         Me.cmbsizemin.Name = "cmbsizemin"
-        Me.cmbsizemin.Size = New System.Drawing.Size(46, 21)
+        Me.cmbsizemin.Size = New System.Drawing.Size(85, 21)
         Me.cmbsizemin.TabIndex = 21
         Me.cmbsizemin.Tag = "sizeminuom"
         '
         'cmbimgmin
         '
         Me.cmbimgmin.FormattingEnabled = True
-        Me.cmbimgmin.Location = New System.Drawing.Point(200, 368)
+        Me.cmbimgmin.Location = New System.Drawing.Point(201, 369)
         Me.cmbimgmin.Name = "cmbimgmin"
-        Me.cmbimgmin.Size = New System.Drawing.Size(46, 21)
+        Me.cmbimgmin.Size = New System.Drawing.Size(85, 21)
         Me.cmbimgmin.TabIndex = 19
         Me.cmbimgmin.Tag = "imageareauom"
         '
         'cmbcolour
         '
         Me.cmbcolour.FormattingEnabled = True
-        Me.cmbcolour.Location = New System.Drawing.Point(200, 341)
+        Me.cmbcolour.Location = New System.Drawing.Point(201, 342)
         Me.cmbcolour.Name = "cmbcolour"
-        Me.cmbcolour.Size = New System.Drawing.Size(46, 21)
+        Me.cmbcolour.Size = New System.Drawing.Size(85, 21)
         Me.cmbcolour.TabIndex = 17
         Me.cmbcolour.Tag = "colourmesinuom"
         '
         'cmbtegangan
         '
         Me.cmbtegangan.FormattingEnabled = True
-        Me.cmbtegangan.Location = New System.Drawing.Point(200, 287)
+        Me.cmbtegangan.Location = New System.Drawing.Point(201, 288)
         Me.cmbtegangan.Name = "cmbtegangan"
-        Me.cmbtegangan.Size = New System.Drawing.Size(46, 21)
+        Me.cmbtegangan.Size = New System.Drawing.Size(85, 21)
         Me.cmbtegangan.TabIndex = 13
         Me.cmbtegangan.Tag = "teganganuom"
         '
         'txttgtmax
         '
-        Me.txttgtmax.Location = New System.Drawing.Point(252, 449)
+        Me.txttgtmax.Location = New System.Drawing.Point(289, 450)
         Me.txttgtmax.Name = "txttgtmax"
         Me.txttgtmax.Size = New System.Drawing.Size(85, 21)
         Me.txttgtmax.TabIndex = 30
@@ -416,7 +416,7 @@ Partial Class frmMesin
         '
         'txtspeedmax
         '
-        Me.txtspeedmax.Location = New System.Drawing.Point(252, 422)
+        Me.txtspeedmax.Location = New System.Drawing.Point(289, 423)
         Me.txtspeedmax.Name = "txtspeedmax"
         Me.txtspeedmax.Size = New System.Drawing.Size(85, 21)
         Me.txtspeedmax.TabIndex = 26
@@ -432,7 +432,7 @@ Partial Class frmMesin
         '
         'txtsizemax
         '
-        Me.txtsizemax.Location = New System.Drawing.Point(252, 395)
+        Me.txtsizemax.Location = New System.Drawing.Point(289, 396)
         Me.txtsizemax.Name = "txtsizemax"
         Me.txtsizemax.Size = New System.Drawing.Size(85, 21)
         Me.txtsizemax.TabIndex = 22
@@ -516,6 +516,7 @@ Partial Class frmMesin
         Me.txtkode.BackColor = System.Drawing.Color.Chartreuse
         Me.txtkode.Location = New System.Drawing.Point(113, 16)
         Me.txtkode.Name = "txtkode"
+        Me.txtkode.ReadOnly = True
         Me.txtkode.Size = New System.Drawing.Size(85, 21)
         Me.txtkode.TabIndex = 0
         Me.txtkode.Tag = "idmesin"
@@ -648,7 +649,7 @@ Partial Class frmMesin
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(401, 504)
+        Me.TabPage2.Size = New System.Drawing.Size(469, 482)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Penggunaan"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -656,7 +657,7 @@ Partial Class frmMesin
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 239)
+        Me.Label20.Location = New System.Drawing.Point(15, 239)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(80, 13)
         Me.Label20.TabIndex = 5
@@ -665,7 +666,7 @@ Partial Class frmMesin
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 12)
+        Me.Label19.Location = New System.Drawing.Point(15, 12)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(76, 13)
         Me.Label19.TabIndex = 4
@@ -675,7 +676,7 @@ Partial Class frmMesin
         '
         Me.Btndown.BackColor = System.Drawing.Color.White
         Me.Btndown.Image = CType(resources.GetObject("Btndown.Image"), System.Drawing.Image)
-        Me.Btndown.Location = New System.Drawing.Point(202, 207)
+        Me.Btndown.Location = New System.Drawing.Point(245, 207)
         Me.Btndown.Name = "Btndown"
         Me.Btndown.Size = New System.Drawing.Size(86, 45)
         Me.Btndown.TabIndex = 3
@@ -685,7 +686,7 @@ Partial Class frmMesin
         '
         Me.Btnup.BackColor = System.Drawing.Color.White
         Me.Btnup.Image = CType(resources.GetObject("Btnup.Image"), System.Drawing.Image)
-        Me.Btnup.Location = New System.Drawing.Point(110, 207)
+        Me.Btnup.Location = New System.Drawing.Point(153, 207)
         Me.Btnup.Name = "Btnup"
         Me.Btnup.Size = New System.Drawing.Size(86, 45)
         Me.Btnup.TabIndex = 2
@@ -693,18 +694,18 @@ Partial Class frmMesin
         '
         'ListViewb
         '
-        Me.ListViewb.Location = New System.Drawing.Point(6, 258)
+        Me.ListViewb.Location = New System.Drawing.Point(15, 258)
         Me.ListViewb.Name = "ListViewb"
-        Me.ListViewb.Size = New System.Drawing.Size(389, 173)
+        Me.ListViewb.Size = New System.Drawing.Size(437, 173)
         Me.ListViewb.TabIndex = 1
         Me.ListViewb.UseCompatibleStateImageBehavior = False
         Me.ListViewb.View = System.Windows.Forms.View.Details
         '
         'ListViewa
         '
-        Me.ListViewa.Location = New System.Drawing.Point(6, 28)
+        Me.ListViewa.Location = New System.Drawing.Point(15, 28)
         Me.ListViewa.Name = "ListViewa"
-        Me.ListViewa.Size = New System.Drawing.Size(389, 173)
+        Me.ListViewa.Size = New System.Drawing.Size(437, 173)
         Me.ListViewa.TabIndex = 0
         Me.ListViewa.UseCompatibleStateImageBehavior = False
         Me.ListViewa.View = System.Windows.Forms.View.Details
@@ -712,7 +713,7 @@ Partial Class frmMesin
         'btnfind
         '
         Me.btnfind.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfind.Location = New System.Drawing.Point(427, 400)
+        Me.btnfind.Location = New System.Drawing.Point(505, 382)
         Me.btnfind.Name = "btnfind"
         Me.btnfind.Size = New System.Drawing.Size(75, 23)
         Me.btnfind.TabIndex = 117
@@ -723,7 +724,7 @@ Partial Class frmMesin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(513, 551)
+        Me.ClientSize = New System.Drawing.Size(592, 532)
         Me.Controls.Add(Me.btnfind)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.btnSave)
