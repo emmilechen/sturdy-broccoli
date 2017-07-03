@@ -27,7 +27,6 @@ Partial Class frmPRequestList
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.chbDate = New System.Windows.Forms.CheckBox()
         Me.dtpPRequestDateTo = New System.Windows.Forms.DateTimePicker()
@@ -40,6 +39,8 @@ Partial Class frmPRequestList
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnFilter = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
+        Me.cmbPRequestPriority = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,10 +52,10 @@ Partial Class frmPRequestList
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(11, 141)
+        Me.ListView1.Location = New System.Drawing.Point(11, 115)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(711, 421)
+        Me.ListView1.Size = New System.Drawing.Size(744, 447)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -63,7 +64,7 @@ Partial Class frmPRequestList
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(638, 573)
+        Me.btnEdit.Location = New System.Drawing.Point(671, 573)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 5
@@ -74,7 +75,7 @@ Partial Class frmPRequestList
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(548, 573)
+        Me.btnAdd.Location = New System.Drawing.Point(581, 573)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 4
@@ -96,9 +97,12 @@ Partial Class frmPRequestList
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
+        Me.GroupBox1.Controls.Add(Me.cmbPRequestPriority)
+        Me.GroupBox1.Controls.Add(Me.Label21)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.chbDate)
+        Me.GroupBox1.Controls.Add(Me.btnFilter)
         Me.GroupBox1.Controls.Add(Me.dtpPRequestDateTo)
         Me.GroupBox1.Controls.Add(Me.txtPRequester)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -109,22 +113,10 @@ Partial Class frmPRequestList
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(710, 103)
+        Me.GroupBox1.Size = New System.Drawing.Size(743, 103)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter By"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(505, 12)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(199, 25)
-        Me.Label6.TabIndex = 71
-        Me.Label6.Text = "Purchase Request"
         '
         'Label3
         '
@@ -220,7 +212,7 @@ Partial Class frmPRequestList
         '
         Me.btnFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(638, 112)
+        Me.btnFilter.Location = New System.Drawing.Point(649, 68)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(84, 26)
         Me.btnFilter.TabIndex = 2
@@ -231,24 +223,40 @@ Partial Class frmPRequestList
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(548, 112)
+        Me.btnClear.Location = New System.Drawing.Point(559, 68)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(84, 26)
         Me.btnClear.TabIndex = 1
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
+        'cmbPRequestPriority
+        '
+        Me.cmbPRequestPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPRequestPriority.FormattingEnabled = True
+        Me.cmbPRequestPriority.Location = New System.Drawing.Point(401, 42)
+        Me.cmbPRequestPriority.Name = "cmbPRequestPriority"
+        Me.cmbPRequestPriority.Size = New System.Drawing.Size(136, 21)
+        Me.cmbPRequestPriority.TabIndex = 124
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(357, 45)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(41, 13)
+        Me.Label21.TabIndex = 123
+        Me.Label21.Text = "Priority"
+        '
         'frmPRequestList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(734, 608)
-        Me.Controls.Add(Me.btnClear)
+        Me.ClientSize = New System.Drawing.Size(767, 608)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnFilter)
         Me.Controls.Add(Me.ListView1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "frmPRequestList"
@@ -266,7 +274,6 @@ Partial Class frmPRequestList
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents dtpPRequestDateTo As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpPRequestDateFrom As System.Windows.Forms.DateTimePicker
@@ -279,4 +286,6 @@ Partial Class frmPRequestList
     Friend WithEvents txtPRequester As System.Windows.Forms.TextBox
     Friend WithEvents chbDate As System.Windows.Forms.CheckBox
     Friend WithEvents btnClear As System.Windows.Forms.Button
+    Friend WithEvents cmbPRequestPriority As System.Windows.Forms.ComboBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
 End Class

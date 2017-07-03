@@ -475,7 +475,7 @@ Partial Class frmPO
         'btnPrint
         '
         Me.btnPrint.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrint.Location = New System.Drawing.Point(1082, 556)
+        Me.btnPrint.Location = New System.Drawing.Point(1082, 561)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(84, 26)
         Me.btnPrint.TabIndex = 50

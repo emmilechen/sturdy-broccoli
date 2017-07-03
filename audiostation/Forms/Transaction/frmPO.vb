@@ -1316,10 +1316,6 @@ Public Class frmPO
         ntbPOCurrRate.Text = FormatNumber(ntbPOCurrRate.Text)
     End Sub
 
-    Private Sub ntbPOQty_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ntbPOQty.TextChanged
-
-    End Sub
-
     Private Sub btnPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPreview.Click
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)

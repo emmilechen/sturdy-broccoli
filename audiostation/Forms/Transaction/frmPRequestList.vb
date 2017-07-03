@@ -40,9 +40,29 @@ Public Class frmPRequestList
         myReader.Close()
         cn.Close()
 
-        btnFilter_Click(sender, e)
+        'Add item cmbPRequestPriority
+        cmd = New SqlCommand("sp_sys_dropdown_SEL", cn)
+        cmd.CommandType = CommandType.StoredProcedure
 
+        prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
+        prm1.Value = "prequest_priority"
+
+        cn.Open()
+        myReader = cmd.ExecuteReader()
+
+        cmbPRequestPriority.Items.Add(New clsMyListStr("All", ""))
+        While myReader.Read
+            cmbPRequestPriority.Items.Add(New clsMyListStr(myReader.GetString(1), myReader.GetString(0)))
+        End While
+
+        myReader.Close()
+        cn.Close()
+
+        cmbPRequestPriority.SelectedIndex = 0
         cmbStatus.SelectedIndex = 0
+
+        btnFilter_Click(sender, e)
+        
     End Sub
 
     Private Sub ListView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.Click
@@ -150,7 +170,7 @@ Public Class frmPRequestList
             .Columns.Add("Date", 90)
             .Columns.Add("pch_code_id", 0)
             .Columns.Add("purchase_code", 0)
-            .Columns.Add("Requester", 300)
+            .Columns.Add("Priority", 90)
             .Columns.Add("DeliveryDate", 0)
             .Columns.Add("Remarks", 0)
             .Columns.Add("prequest_status", 0)
@@ -176,6 +196,12 @@ Public Class frmPRequestList
         Else
             prm6.Value = cmbStatus.Items(cmbStatus.SelectedIndex).ItemData
         End If
+        Dim prm7 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
+        If cmbPRequestPriority.SelectedIndex = 0 Then
+            prm7.Value = DBNull.Value
+        Else
+            prm7.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
+        End If
 
         cn.Open()
 
@@ -199,6 +225,7 @@ Public Class frmPRequestList
         txtPRequestNo.Text = ""
         txtPRequester.Text = ""
         cmbStatus.SelectedIndex = 0
+        cmbPRequestPriority.SelectedIndex = 0
     End Sub
 
     Private Sub chbDate_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chbDate.CheckedChanged
@@ -216,6 +243,13 @@ Public Class frmPRequestList
     End Sub
     'Autorefresh---Hendra
     Public Sub frmPRequestListShow(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        btnFilter_Click(sender, e)
+    End Sub
+
+    Private Sub cmbPRequestPriority_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbPRequestPriority.SelectedIndexChanged
+        If cmbPRequestPriority.SelectedIndex = -1 Then
+            cmbPRequestPriority.Text = "All"
+        End If
         btnFilter_Click(sender, e)
     End Sub
 End Class

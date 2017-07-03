@@ -34,8 +34,29 @@ Public Class frmPRequestApprovalList
     End Sub
 
     Private Sub frmPRequestApprovalList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Add item cmbPRequestPriority
+        cmd = New SqlCommand("sp_sys_dropdown_SEL", cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
+        prm1.Value = "prequest_priority"
+
+        cn.Open()
+        Dim myReader = cmd.ExecuteReader()
+
+        cmbPRequestPriority.Items.Add(New clsMyListStr("All", ""))
+        While myReader.Read
+            cmbPRequestPriority.Items.Add(New clsMyListStr(myReader.GetString(1), myReader.GetString(0)))
+        End While
+
+        myReader.Close()
+        cn.Close()
+
+
         chbDate.Checked = False
         chbDate_CheckedChanged(sender, e)
+
+        cmbPRequestPriority.SelectedIndex = 0
 
         btnFilter_Click(sender, e)
     End Sub
@@ -142,7 +163,7 @@ Public Class frmPRequestApprovalList
             .Columns.Add("Date", 90)
             .Columns.Add("pch_code_id", 0)
             .Columns.Add("purchase_code", 0)
-            .Columns.Add("Requester", 300)
+            .Columns.Add("Priority", 90)
             .Columns.Add("DeliveryDate", 0)
             .Columns.Add("Remarks", 0)
             .Columns.Add("prequest_status", 0)
@@ -164,12 +185,18 @@ Public Class frmPRequestApprovalList
         prm5.Value = IIf(txtPRequester.Text = "", DBNull.Value, txtPRequester.Text)
         Dim prm6 As SqlParameter = cmd.Parameters.Add("@prequest_status", SqlDbType.NVarChar, 50)
         prm6.Value = "W"
+        Dim prm7 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
+        If cmbPRequestPriority.SelectedIndex = 0 Then
+            prm7.Value = DBNull.Value
+        Else
+            prm7.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
+        End If
 
         cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
-        Call FillList(myReader, Me.ListView1, 7, 1)
+        Call FillList(myReader, Me.ListView1, 9, 1)
         'While myReader.Read
         '    Dim lvw As ListViewItem
         '    lvw = ListView1.Items.Add(myReader.GetString(1))

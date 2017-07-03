@@ -62,15 +62,13 @@ Partial Class frmPRequest
         Me.btnPchCode = New System.Windows.Forms.Button()
         Me.txtPchCode = New System.Windows.Forms.TextBox()
         Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.txtLocationCode = New System.Windows.Forms.TextBox()
-        Me.btnLocation = New System.Windows.Forms.Button()
         Me.cmbPRequester = New System.Windows.Forms.ComboBox()
         Me.btnCloseRequest = New System.Windows.Forms.Button()
         Me.lblClosedDescription = New System.Windows.Forms.Label()
         Me.btnReject = New System.Windows.Forms.Button()
         Me.btnApprove = New System.Windows.Forms.Button()
         Me.ntbPRequestQty = New boxtree.NumericTextBox()
+        Me.cmbPRequestPriority = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'txtPRequestNo
@@ -275,7 +273,7 @@ Partial Class frmPRequest
         Me.txtPRequestDtlDesc.Location = New System.Drawing.Point(219, 171)
         Me.txtPRequestDtlDesc.MaxLength = 100
         Me.txtPRequestDtlDesc.Name = "txtPRequestDtlDesc"
-        Me.txtPRequestDtlDesc.Size = New System.Drawing.Size(246, 21)
+        Me.txtPRequestDtlDesc.Size = New System.Drawing.Size(363, 21)
         Me.txtPRequestDtlDesc.TabIndex = 10
         '
         'btnPrint
@@ -338,9 +336,9 @@ Partial Class frmPRequest
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(360, 41)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(63, 13)
+        Me.Label21.Size = New System.Drawing.Size(47, 13)
         Me.Label21.TabIndex = 62
-        Me.Label21.Text = "Requester*"
+        Me.Label21.Text = "Priority*"
         '
         'btnAddD
         '
@@ -428,43 +426,15 @@ Partial Class frmPRequest
         Me.Label37.TabIndex = 110
         Me.Label37.Text = "Purchase Code*"
         '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(471, 152)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(53, 13)
-        Me.Label38.TabIndex = 118
-        Me.Label38.Text = "Location*"
-        '
-        'txtLocationCode
-        '
-        Me.txtLocationCode.Location = New System.Drawing.Point(471, 171)
-        Me.txtLocationCode.Name = "txtLocationCode"
-        Me.txtLocationCode.ReadOnly = True
-        Me.txtLocationCode.Size = New System.Drawing.Size(80, 21)
-        Me.txtLocationCode.TabIndex = 11
-        Me.txtLocationCode.TabStop = False
-        '
-        'btnLocation
-        '
-        Me.btnLocation.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLocation.ImageIndex = 1
-        Me.btnLocation.ImageList = Me.ImageList1
-        Me.btnLocation.Location = New System.Drawing.Point(553, 169)
-        Me.btnLocation.Name = "btnLocation"
-        Me.btnLocation.Size = New System.Drawing.Size(29, 25)
-        Me.btnLocation.TabIndex = 12
-        Me.btnLocation.UseVisualStyleBackColor = True
-        '
         'cmbPRequester
         '
         Me.cmbPRequester.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbPRequester.FormattingEnabled = True
-        Me.cmbPRequester.Location = New System.Drawing.Point(457, 39)
+        Me.cmbPRequester.Location = New System.Drawing.Point(694, 38)
         Me.cmbPRequester.Name = "cmbPRequester"
-        Me.cmbPRequester.Size = New System.Drawing.Size(217, 21)
+        Me.cmbPRequester.Size = New System.Drawing.Size(86, 21)
         Me.cmbPRequester.TabIndex = 5
+        Me.cmbPRequester.Visible = False
         '
         'btnCloseRequest
         '
@@ -516,19 +486,27 @@ Partial Class frmPRequest
         Me.ntbPRequestQty.TabIndex = 13
         Me.ntbPRequestQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
+        'cmbPRequestPriority
+        '
+        Me.cmbPRequestPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbPRequestPriority.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbPRequestPriority.FormattingEnabled = True
+        Me.cmbPRequestPriority.Location = New System.Drawing.Point(457, 40)
+        Me.cmbPRequestPriority.Name = "cmbPRequestPriority"
+        Me.cmbPRequestPriority.Size = New System.Drawing.Size(80, 21)
+        Me.cmbPRequestPriority.TabIndex = 122
+        '
         'frmPRequest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(814, 578)
+        Me.Controls.Add(Me.cmbPRequestPriority)
         Me.Controls.Add(Me.btnReject)
         Me.Controls.Add(Me.btnApprove)
         Me.Controls.Add(Me.lblClosedDescription)
         Me.Controls.Add(Me.btnCloseRequest)
         Me.Controls.Add(Me.cmbPRequester)
-        Me.Controls.Add(Me.Label38)
-        Me.Controls.Add(Me.txtLocationCode)
-        Me.Controls.Add(Me.btnLocation)
         Me.Controls.Add(Me.btnPchCode)
         Me.Controls.Add(Me.txtPchCode)
         Me.Controls.Add(Me.Label37)
@@ -614,13 +592,11 @@ Partial Class frmPRequest
     Friend WithEvents btnPchCode As System.Windows.Forms.Button
     Friend WithEvents txtPchCode As System.Windows.Forms.TextBox
     Friend WithEvents Label37 As System.Windows.Forms.Label
-    Friend WithEvents Label38 As System.Windows.Forms.Label
-    Friend WithEvents txtLocationCode As System.Windows.Forms.TextBox
-    Friend WithEvents btnLocation As System.Windows.Forms.Button
     Friend WithEvents cmbPRequester As System.Windows.Forms.ComboBox
     Friend WithEvents btnCloseRequest As System.Windows.Forms.Button
     Friend WithEvents lblClosedDescription As System.Windows.Forms.Label
     Friend WithEvents btnReject As System.Windows.Forms.Button
     Friend WithEvents btnApprove As System.Windows.Forms.Button
+    Friend WithEvents cmbPRequestPriority As System.Windows.Forms.ComboBox
 
 End Class

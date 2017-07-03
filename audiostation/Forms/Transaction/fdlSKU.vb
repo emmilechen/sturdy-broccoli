@@ -42,12 +42,12 @@ Public Class fdlSKU
             .Columns.Add("Stock Name", 250)
         End With
 
-        cmd = New SqlCommand("sp_mt_sku_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 50)
         prm1.Value = IIf(txtFilter.Text = "", DBNull.Value, txtFilter.Text)
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@is_package", SqlDbType.Bit)
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@is_finished_goods", SqlDbType.Bit)
         prm2.Value = 0
         cn.Open()
 
@@ -78,8 +78,8 @@ Public Class fdlSKU
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
-            Case "frmSKUPackage"
-                With frmSKUPackage
+            Case "frmSKU"
+                With frmSKU
                     .SKUId2 = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                     .SKUCode2 = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
                     .SKUName2 = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text

@@ -37,16 +37,33 @@ Public Class frmPRequest
 
         isAllowDelete = canDelete(Me.Name + "List")
 
-        'Add item cmbRequester
-        cmbPRequester.Items.Clear()
-        cmd = New SqlCommand("usp_tr_prequest_SEL_ByRequester", cn)
+        ''Add item cmbRequester
+        'cmbPRequester.Items.Clear()
+        'cmd = New SqlCommand("usp_tr_prequest_SEL_ByRequester", cn)
+        'cmd.CommandType = CommandType.StoredProcedure
+
+        'cn.Open()
+        'myReader = cmd.ExecuteReader()
+
+        'While myReader.Read
+        '    cmbPRequester.Items.Add(myReader.GetString(0))
+        'End While
+
+        'myReader.Close()
+        'cn.Close()
+
+        'Add item cmbPRequestPriority
+        cmd = New SqlCommand("sp_sys_dropdown_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
+
+        prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
+        prm1.Value = "prequest_priority"
 
         cn.Open()
         myReader = cmd.ExecuteReader()
 
         While myReader.Read
-            cmbPRequester.Items.Add(myReader.GetString(0))
+            cmbPRequestPriority.Items.Add(New clsMyListStr(myReader.GetString(1), myReader.GetString(0)))
         End While
 
         myReader.Close()
@@ -212,24 +229,6 @@ Public Class frmPRequest
         End Set
     End Property
 
-    Public Property LocationId() As Integer
-        Get
-            Return m_LocationId
-        End Get
-        Set(ByVal Value As Integer)
-            m_LocationId = Value
-        End Set
-    End Property
-
-    Public Property LocationCode() As String
-        Get
-            Return txtLocationCode.Text
-        End Get
-        Set(ByVal Value As String)
-            txtLocationCode.Text = Value
-        End Set
-    End Property
-
     Public Property SKUPackageCheck() As Boolean
         Get
             Return isSKUPackage
@@ -258,7 +257,8 @@ Public Class frmPRequest
         m_PchCodeId = 0
         txtPRequestNo.Text = ""
         dtpPRequestDate.Value = FormatDateTime(Now, DateFormat.ShortDate)
-        cmbPRequester.SelectedIndex = -1
+        'cmbPRequester.SelectedIndex = -1
+        cmbPRequestPriority.SelectedIndex = -1
         txtPchCode.Text = ""
         txtPORemarks.Text = ""
         m_PRequestStatus = m_PRequestStatusArr(0, 0)
@@ -275,7 +275,6 @@ Public Class frmPRequest
         cmbPRequestDtlType.SelectedIndex = 0
         txtSKUCode.Text = ""
         txtPRequestDtlDesc.Text = ""
-        txtLocationCode.Text = ""
         ntbPRequestQty.Text = FormatNumber(1)
         txtSKUUoM.Text = ""
     End Sub
@@ -283,7 +282,8 @@ Public Class frmPRequest
     Sub lock_obj(ByVal isLock As Boolean)
         dtpPRequestDate.Enabled = Not isLock
         dtpDeliveryDate.Enabled = Not isLock
-        cmbPRequester.Enabled = Not isLock
+        'cmbPRequester.Enabled = Not isLock
+        cmbPRequestPriority.Enabled = Not isLock
         txtPORemarks.ReadOnly = isLock
         If m_PRequestStatus = "A" And isClosed = False Then btnCloseRequest.Enabled = isLock Else btnCloseRequest.Enabled = False
         If m_PRequestStatus = "D" Or m_PRequestStatus = "R" Or (m_FrmCallerId = "frmPRequestApprovalList" And m_PRequestStatus = "W") Then btnEdit.Enabled = isLock Else btnEdit.Enabled = False
@@ -317,7 +317,6 @@ Public Class frmPRequest
         ntbPRequestQty.ReadOnly = isLock
 
         btnSKU.Enabled = Not isLock
-        btnLocation.Enabled = Not isLock
         btnSaveD.Enabled = Not isLock
         btnDeleteD.Enabled = Not isLock
         btnAddD.Enabled = Not isLock
@@ -333,8 +332,6 @@ Public Class frmPRequest
             .Columns.Add("SKU Id", 0)
             .Columns.Add("Stock Code", 90)
             .Columns.Add("Line Description", 250)
-            .Columns.Add("location_id", 0)
-            .Columns.Add("Location", 90)
             .Columns.Add("Qty", 60, HorizontalAlignment.Right)
             .Columns.Add("UoM", 60)
         End With
@@ -379,15 +376,8 @@ Public Class frmPRequest
                         lvItem.SubItems.Add("")
                 End Select
                 lvItem.SubItems.Add(myReader.GetString(6)) 'line_description
-                For i = 16 To 17 'location_id, location
-                    If myReader.Item(i) Is System.DBNull.Value Then
-                        lvItem.SubItems.Add("")
-                    Else
-                        lvItem.SubItems.Add(myReader.Item(i))
-                    End If
-                Next
                 lvItem.SubItems.Add(myReader.GetValue(7)) 'prequest_qty
-                If myReader.Item(8) Is System.DBNull.Value Then 'sku_uom
+                If myReader.Item(8) Is System.DBNull.Value Then 'uom
                     lvItem.SubItems.Add("")
                 Else
                     lvItem.SubItems.Add(myReader.Item(8))
@@ -425,9 +415,17 @@ Public Class frmPRequest
             dtpPRequestDate.Value = myReader.GetDateTime(2)
             m_PchCodeId = myReader.GetInt32(3)
             txtPchCode.Text = myReader.GetString(4)
-            For i = 1 To cmbPRequester.Items.Count
-                If cmbPRequester.Items(i - 1) = myReader.GetString(5) Then
-                    cmbPRequester.SelectedIndex = i - 1
+            'For i = 1 To cmbPRequester.Items.Count
+            '    If cmbPRequester.Items(i - 1) = myReader.GetString(5) Then
+            '        cmbPRequester.SelectedIndex = i - 1
+            '        Exit For
+            '    End If
+            'Next
+            Dim mList As clsMyListStr
+            For i = 1 To cmbPRequestPriority.Items.Count
+                mList = cmbPRequestPriority.Items(i - 1)
+                If myReader.GetString(5) = mList.ItemData Then
+                    cmbPRequestPriority.SelectedIndex = i - 1
                     Exit For
                 End If
             Next
@@ -594,8 +592,8 @@ Public Class frmPRequest
                 prm1.Value = txtPRequestNo.Text
                 Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_date", SqlDbType.SmallDateTime)
                 prm2.Value = dtpPRequestDate.Value.Date
-                Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequester", SqlDbType.NVarChar, 50)
-                prm3.Value = IIf(cmbPRequester.Text = "", DBNull.Value, cmbPRequester.Text)
+                Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
+                prm3.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
                 Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
                 prm5.Value = dtpDeliveryDate.Value.Date
                 Dim prm10 As SqlParameter = cmd.Parameters.Add("@prequest_remarks", SqlDbType.NVarChar, 255)
@@ -621,8 +619,8 @@ Public Class frmPRequest
                 Exit Sub
             End If
 
-            If cmbPRequestDtlType.Items(cmbPRequestDtlType.SelectedIndex).ItemData = "S" And (m_SKUId = 0 Or m_LocationId = 0) Then
-                MsgBox("Stock and Location are primary fields that should be entered. Please select before you save it.", vbCritical + vbOKOnly, Me.Text)
+            If cmbPRequestDtlType.Items(cmbPRequestDtlType.SelectedIndex).ItemData = "S" And m_SKUId = 0 Then
+                MsgBox("Product are primary fields that should be entered. Please select before you save it.", vbCritical + vbOKOnly, Me.Text)
                 txtPRequestDtlDesc.Focus()
                 Exit Sub
             End If
@@ -642,8 +640,6 @@ Public Class frmPRequest
             prm21.Value = IIf(ntbPRequestQty.Text = "", 0, CDbl(ntbPRequestQty.Text))
             Dim prm22 As SqlParameter = cmd.Parameters.Add("@expense_id", SqlDbType.Int)
             prm22.Value = IIf(cmbPRequestDtlType.Items(cmbPRequestDtlType.SelectedIndex).ItemData = "E", m_SKUId, 0)
-            Dim prm23 As SqlParameter = cmd.Parameters.Add("@location_id", SqlDbType.Int)
-            prm23.Value = m_LocationId
 
             If m_PRequestDId <> 0 Then
                 Dim prm24 As SqlParameter = cmd.Parameters.Add("@prequest_dtl_id", SqlDbType.Int)
@@ -703,8 +699,6 @@ Public Class frmPRequest
             m_SKUId = .SubItems.Item(3).Text
             txtSKUCode.Text = .SubItems.Item(4).Text
             txtPRequestDtlDesc.Text = .SubItems.Item(5).Text
-            m_LocationId = .SubItems.Item(6).Text
-            txtLocationCode.Text = .SubItems.Item(7).Text
             ntbPRequestQty.Text = .SubItems.Item(8).Text
             txtSKUUoM.Text = .SubItems.Item(9).Text
         End With
@@ -725,7 +719,6 @@ Public Class frmPRequest
                 If Not btnCancel.Enabled = False Then
                     'txtSKUCode.ReadOnly = False
                     btnSKU.Enabled = True
-                    btnLocation.Enabled = True
                     If cmbPRequestDtlType.Items(cmbPRequestDtlType.SelectedIndex).ItemData = "E" Then ntbPRequestQty.ReadOnly = True Else ntbPRequestQty.ReadOnly = False
                     If cmbPRequestDtlType.Items(cmbPRequestDtlType.SelectedIndex).ItemData = "E" Then ntbPRequestQty.Text = "1" Else ntbPRequestQty.Text = "0"
                 End If
@@ -830,19 +823,6 @@ Public Class frmPRequest
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
-
-    Private Sub btnLocation_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocation.Click
-        If m_SKUId = 0 Then
-            MsgBox("Stock information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-            btnSKU.Focus()
-            Exit Sub
-        End If
-        Dim NewFormDialog As New fdlLocation
-        NewFormDialog.FrmCallerId = Me.Name
-        NewFormDialog.SKUId = m_SKUId
-        NewFormDialog.ShowDialog()
-    End Sub
-
 
     Private Sub btnCloseRequest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCloseRequest.Click
         If MsgBox("Are you sure you want to close this Request?", vbYesNo + vbCritical, Me.Text) = vbYes Then

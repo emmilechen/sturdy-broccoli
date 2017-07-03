@@ -78,7 +78,7 @@ Public Class fdlSKUTo
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
             Case "frmSKUPackage"
-                With frmSKUPackage
+                With frmSKURaw
                     .SKUId2 = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                     .SKUCode2 = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
                     .SKUName2 = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text

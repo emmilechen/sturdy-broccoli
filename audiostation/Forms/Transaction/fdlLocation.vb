@@ -131,11 +131,6 @@ Public Class fdlLocation
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
-            Case "frmPRequest"
-                With frmPRequest
-                    .LocationId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
-                    .LocationCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
-                End With
             Case "frmPPitching"
                 With frmPPitching
                     .LocationId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
