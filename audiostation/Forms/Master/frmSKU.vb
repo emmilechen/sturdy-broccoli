@@ -6,10 +6,37 @@ Public Class frmSKU
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
-    Dim m_SKUId As Integer
+    Dim m_SKUId As Integer, m_SKUId2 As Integer, m_SKURawId As Integer
     Dim isAllowDelete As Boolean
     Dim Dec As Integer = GetSysInit("decimal_digit")
     Dim m_loadFlag As Boolean = False
+
+    Public Property SKUId2() As Integer
+        Get
+            Return m_SKUId2
+        End Get
+        Set(ByVal Value As Integer)
+            m_SKUId2 = Value
+        End Set
+    End Property
+
+    Public Property SKUCode2() As String
+        Get
+            Return txtSKUCode2.Text
+        End Get
+        Set(ByVal Value As String)
+            txtSKUCode2.Text = Value
+        End Set
+    End Property
+
+    Public Property SKUName2() As String
+        Get
+            Return txtSKUName2.Text
+        End Get
+        Set(ByVal Value As String)
+            txtSKUName2.Text = Value
+        End Set
+    End Property
 
     Private Sub frmSKU_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         isAllowDelete = canDelete(Me.Name)
@@ -17,28 +44,53 @@ Public Class frmSKU
         clear_obj()
 
         cmbFilterBy.Items.Add("<All>")
-        cmbFilterBy.Items.Add("Stock Code")
-        cmbFilterBy.Items.Add("Stock Name")
+        cmbFilterBy.Items.Add("Product Code")
+        cmbFilterBy.Items.Add("Product Name")
 
-        cmd = New SqlCommand("sp_mt_sku_cat_SEL", cn)
+        Dim prm1 As SqlParameter, prm2 As SqlParameter
+        Dim myReader As SqlDataReader
+
+        'Populate Sub-Category
+        cmd = New SqlCommand("usp_mt_sku_category_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int)
+        prm1 = cmd.Parameters.Add("@category_id", SqlDbType.Int)
         prm1.Value = 0
+        prm2 = cmd.Parameters.Add("@is_sub_category", SqlDbType.Bit)
+        prm2.Value = 1
 
         cn.Open()
-        Dim myReader As SqlDataReader = cmd.ExecuteReader
+        myReader = cmd.ExecuteReader
 
+        cbCategory.Items.Add(New clsMyListInt("All", 0))
         Do While myReader.Read
-            cmbSKUCatID.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
+            cmbCategoryID.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
+            cbCategory.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
         Loop
         myReader.Close()
         cn.Close()
 
+        'Populate UoM
+        cmd = New SqlCommand("usp_mt_sku_uom", cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        prm1 = cmd.Parameters.Add("@action", SqlDbType.NVarChar, 50)
+        prm1.Value = "READ"
+
+        cn.Open()
+        myReader = cmd.ExecuteReader
+
+        Do While myReader.Read
+            cmbUomID.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
+        Loop
+        myReader.Close()
+        cn.Close()
+
+        cbCategory.SelectedIndex = 0
         cmbFilterBy.SelectedIndex = 0
 
-        populateCbCategory()
-        clear_lvw()
+        'populateCbCategory()
+        'clear_lvw()
         m_loadFlag = True
         'If ListView1.Items.Count > 0 Then
         '    ListView1.Items.Item(0).Selected = True
@@ -57,10 +109,10 @@ Public Class frmSKU
 
             Dim mList As clsMyListInt
             Dim i As Integer
-            For i = 1 To cmbSKUCatID.Items.Count
-                mList = cmbSKUCatID.Items(i - 1)
+            For i = 1 To cmbCategoryID.Items.Count
+                mList = cmbCategoryID.Items(i - 1)
                 If CInt(.SubItems.Item(0).Text) = mList.ItemData Then
-                    cmbSKUCatID.SelectedIndex = i - 1
+                    cmbCategoryID.SelectedIndex = i - 1
                     Exit For
                 End If
             Next
@@ -68,7 +120,15 @@ Public Class frmSKU
             txtSKUCode.Text = .SubItems.Item(1).Text
             txtSKUName.Text = .SubItems.Item(2).Text
             txtSKUBarcode.Text = .SubItems.Item(3).Text
-            txtSKUUoM.Text = .SubItems.Item(4).Text
+
+            For i = 1 To cmbUomID.Items.Count
+                mList = cmbUomID.Items(i - 1)
+                If CInt(.SubItems.Item(4).Text) = mList.ItemData Then
+                    cmbUomID.SelectedIndex = i - 1
+                    Exit For
+                End If
+            Next
+
             ntbSalesDiscPercent.Text = FormatNumber(.SubItems.Item(5).Text) * 100
             ntbSalesPrice.Text = FormatNumber(.SubItems.Item(6).Text, Dec)
             NumericTextBox1.Text = FormatNumber(.SubItems.Item(7).Text)
@@ -83,8 +143,10 @@ Public Class frmSKU
             txtSKUInfo1.Text = .SubItems.Item(16).Text
             txtSKUInfo2.Text = .SubItems.Item(17).Text
             txtSKUInfo3.Text = .SubItems.Item(18).Text
+            chbIsFinishedGoods.Checked = .SubItems.Item(19).Text
 
             clear_lvw2()
+            clear_lvw3()
         End With
     End Sub
 
@@ -95,11 +157,13 @@ Public Class frmSKU
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         clear_obj()
         lock_obj(False)
-        clear_lvw2()
+        clear_lvw3()
     End Sub
 
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
         lock_obj(False)
+        lock_objD(False)
+        clear_objD()
         If m_SKUId <> 0 Then txtSKUCode.ReadOnly = True
     End Sub
 
@@ -109,71 +173,23 @@ Public Class frmSKU
             ListView1_Click(sender, e)
         End If
         lock_obj(True)
+        lock_objD(True)
+        clear_objD()
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         On Error GoTo err_btnSave_Click
 
-        If txtSKUCode.Text = "" Or txtSKUName.Text = "" Or cmbSKUCatID.SelectedIndex = -1 Then
+        If txtSKUCode.Text = "" Or txtSKUName.Text = "" Or cmbCategoryID.SelectedIndex = -1 Then
             MsgBox("Stock Code, Stock Name and Stock Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             txtSKUCode.Focus()
             Exit Sub
         End If
 
-        cmd = New SqlCommand(IIf(m_SKUId = 0, "sp_mt_sku_INS", "sp_mt_sku_UPD"), cn)
-        cmd.CommandType = CommandType.StoredProcedure
-
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int)
-        prm2.Value = cmbSKUCatID.Items(cmbSKUCatID.SelectedIndex).ItemData
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@sku_code", SqlDbType.NVarChar, 50)
-        prm3.Value = txtSKUCode.Text
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 255)
-        prm4.Value = txtSKUName.Text
-        Dim prm5 As SqlParameter = cmd.Parameters.Add("@sku_barcode", SqlDbType.NVarChar, 255)
-        prm5.Value = IIf(txtSKUBarcode.Text = "", DBNull.Value, txtSKUBarcode.Text)
-        Dim prm6 As SqlParameter = cmd.Parameters.Add("@sku_uom", SqlDbType.NVarChar, 50)
-        prm6.Value = IIf(txtSKUUoM.Text = "", DBNull.Value, txtSKUUoM.Text)
-        Dim prm7 As SqlParameter = cmd.Parameters.Add("@sales_discount", SqlDbType.Decimal)
-        prm7.Value = IIf(ntbSalesDiscPercent.Text = "", 0, ntbSalesDiscPercent.Text)
-        Dim prm8 As SqlParameter = cmd.Parameters.Add("@sales_price", SqlDbType.Decimal)
-        prm8.Value = IIf(ntbSalesPrice.Text = "", 0, ntbSalesPrice.Text)
-        Dim prm9 As SqlParameter = cmd.Parameters.Add("@pack_qty", SqlDbType.Decimal)
-        prm9.Value = CDbl(NumericTextBox1.Text)
-        Dim prm10 As SqlParameter = cmd.Parameters.Add("@sku_volume", SqlDbType.Decimal)
-        prm10.Value = CDbl(NumericTextBox2.Text)
-        Dim prm11 As SqlParameter = cmd.Parameters.Add("@gross_weight", SqlDbType.Decimal)
-        prm11.Value = CDbl(NumericTextBox3.Text)
-        Dim prm12 As SqlParameter = cmd.Parameters.Add("@net_weight", SqlDbType.Decimal)
-        prm12.Value = CDbl(NumericTextBox4.Text)
-
-        Dim prm13 As SqlParameter = cmd.Parameters.Add("@sku_remarks", SqlDbType.NVarChar, 255)
-        prm13.Value = IIf(txtSKURemarks.Text = "", DBNull.Value, txtSKURemarks.Text)
-        Dim prm14 As SqlParameter = cmd.Parameters.Add("@sku_info1", SqlDbType.NVarChar, 255)
-        prm14.Value = IIf(txtSKUInfo1.Text = "", DBNull.Value, txtSKUInfo1.Text)
-        Dim prm15 As SqlParameter = cmd.Parameters.Add("@sku_info2", SqlDbType.NVarChar, 255)
-        prm15.Value = IIf(txtSKUInfo2.Text = "", DBNull.Value, txtSKUInfo2.Text)
-        Dim prm16 As SqlParameter = cmd.Parameters.Add("@sku_info3", SqlDbType.NVarChar, 255)
-        prm16.Value = IIf(txtSKUInfo3.Text = "", DBNull.Value, txtSKUInfo3.Text)
-        Dim prm17 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-        prm17.Value = My.Settings.UserName
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int, 255)
-        prm1.Value = m_SKUId
-
-        If m_SKUId = 0 Then
-            prm1.Direction = ParameterDirection.Output
-            cn.Open()
-            cmd.ExecuteReader()
-            m_SKUId = prm1.Value
-            cn.Close()
-        Else
-            prm1.Value = m_SKUId
-            cn.Open()
-            cmd.ExecuteReader()
-            cn.Close()
-            'clear_lvw()
-        End If
+        SaveSKUHeader()
         clear_lvw()
         lock_obj(True)
+        lock_objD(True)
 
 exit_btnSave_Click:
         If ConnectionState.Open = 1 Then cn.Close()
@@ -188,13 +204,81 @@ err_btnSave_Click:
         Resume exit_btnSave_Click
     End Sub
 
+    Sub SaveSKUHeader()
+        Try
+            cmd = New SqlCommand(IIf(m_SKUId = 0, "usp_mt_sku_INS", "usp_mt_sku_UPD"), cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@category_id", SqlDbType.Int)
+            prm2.Value = cmbCategoryID.Items(cmbCategoryID.SelectedIndex).ItemData
+            Dim prm3 As SqlParameter = cmd.Parameters.Add("@sku_code", SqlDbType.NVarChar, 50)
+            prm3.Value = txtSKUCode.Text
+            Dim prm4 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 255)
+            prm4.Value = txtSKUName.Text
+            Dim prm5 As SqlParameter = cmd.Parameters.Add("@sku_barcode", SqlDbType.NVarChar, 255)
+            prm5.Value = IIf(txtSKUBarcode.Text = "", DBNull.Value, txtSKUBarcode.Text)
+            Dim prm6 As SqlParameter = cmd.Parameters.Add("@uom_id", SqlDbType.Int)
+            prm6.Value = cmbUomID.Items(cmbUomID.SelectedIndex).ItemData
+            Dim prm7 As SqlParameter = cmd.Parameters.Add("@sales_discount", SqlDbType.Decimal)
+            prm7.Value = IIf(ntbSalesDiscPercent.Text = "", 0, ntbSalesDiscPercent.Text)
+            Dim prm8 As SqlParameter = cmd.Parameters.Add("@sales_price", SqlDbType.Decimal)
+            prm8.Value = IIf(ntbSalesPrice.Text = "", 0, ntbSalesPrice.Text)
+            Dim prm9 As SqlParameter = cmd.Parameters.Add("@pack_qty", SqlDbType.Decimal)
+            prm9.Value = CDbl(NumericTextBox1.Text)
+            Dim prm10 As SqlParameter = cmd.Parameters.Add("@sku_volume", SqlDbType.Decimal)
+            prm10.Value = CDbl(NumericTextBox2.Text)
+            Dim prm11 As SqlParameter = cmd.Parameters.Add("@gross_weight", SqlDbType.Decimal)
+            prm11.Value = CDbl(NumericTextBox3.Text)
+            Dim prm12 As SqlParameter = cmd.Parameters.Add("@net_weight", SqlDbType.Decimal)
+            prm12.Value = CDbl(NumericTextBox4.Text)
+
+            Dim prm13 As SqlParameter = cmd.Parameters.Add("@sku_remarks", SqlDbType.NVarChar, 255)
+            prm13.Value = IIf(txtSKURemarks.Text = "", DBNull.Value, txtSKURemarks.Text)
+            Dim prm14 As SqlParameter = cmd.Parameters.Add("@sku_info1", SqlDbType.NVarChar, 255)
+            prm14.Value = IIf(txtSKUInfo1.Text = "", DBNull.Value, txtSKUInfo1.Text)
+            Dim prm15 As SqlParameter = cmd.Parameters.Add("@sku_info2", SqlDbType.NVarChar, 255)
+            prm15.Value = IIf(txtSKUInfo2.Text = "", DBNull.Value, txtSKUInfo2.Text)
+            Dim prm16 As SqlParameter = cmd.Parameters.Add("@sku_info3", SqlDbType.NVarChar, 255)
+            prm16.Value = IIf(txtSKUInfo3.Text = "", DBNull.Value, txtSKUInfo3.Text)
+            Dim prm17 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            prm17.Value = My.Settings.UserName
+            Dim prm18 As SqlParameter = cmd.Parameters.Add("@is_finished_goods", SqlDbType.Bit)
+            prm18.Value = chbIsFinishedGoods.Checked
+
+            Dim prm21 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
+
+            If m_SKUId = 0 Then
+                prm21.Direction = ParameterDirection.Output
+
+                cn.Open()
+                cmd.ExecuteReader()
+                m_SKUId = prm21.Value
+                cn.Close()
+                txtSKUCode.ReadOnly = True
+            Else
+                prm21.Value = m_SKUId
+                cn.Open()
+                cmd.ExecuteReader()
+                cn.Close()
+            End If
+
+        Catch ex As Exception
+            'If Err.Number = 5 Then
+            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
+            'Else
+            MsgBox(ex.Message)
+            'End If
+            If ConnectionState.Open = 1 Then cn.Close()
+        End Try
+    End Sub
+
     Sub clear_lvw()
         With ListView1
             .Clear()
             .View = View.Details
             .Columns.Add("Category", 0)
-            .Columns.Add("Stock Code", 90)
-            .Columns.Add("Stock Name", 300)
+            .Columns.Add("Code", 90)
+            .Columns.Add("Name", 300)
             .Columns.Add("Barcode", 0)
             .Columns.Add("UoM", 0)
             .Columns.Add("Sales Disc", 0).TextAlign = HorizontalAlignment.Right
@@ -205,66 +289,39 @@ err_btnSave_Click:
             .Columns.Add("net_weight", 0).TextAlign = HorizontalAlignment.Right
             .Columns.Add("Last Cost", 0).TextAlign = HorizontalAlignment.Right
             .Columns.Add("Stock Val", 0).TextAlign = HorizontalAlignment.Right
-            .Columns.Add("Stock Bal", 90).TextAlign = HorizontalAlignment.Right
+            .Columns.Add("Balance", 90).TextAlign = HorizontalAlignment.Right
             .Columns.Add("Avg Cost", 0).TextAlign = HorizontalAlignment.Right
             .Columns.Add("Remarks", 0)
             .Columns.Add("Info1", 0)
             .Columns.Add("Info2", 0)
             .Columns.Add("Info3", 0)
+            .Columns.Add("is_finished_goods", 0)
         End With
 
-        With DataGridView1
-            .ColumnCount = 20
-            .Columns(0).Name = "sku_id"
-            .Columns(1).Name = "category"
-            .Columns(2).Name = "sku_code"
-            .Columns(3).Name = "sku_name"
-            .Columns(4).Name = "barcode"
-            .Columns(5).Name = "uom"
-            .Columns(6).Name = "sales_disc"
-            .Columns(7).Name = "sales_price"
-            .Columns(8).Name = "pack_qty"
-            .Columns(9).Name = "sku_volume"
-            .Columns(10).Name = "gross_weight"
-            .Columns(11).Name = "net_weight"
-            .Columns(12).Name = "last_cost"
-            .Columns(13).Name = "stock_value"
-            .Columns(14).Name = "stock_balance"
-            .Columns(15).Name = "sku_avg_cost"
-            .Columns(16).Name = "remarks"
-            .Columns(17).Name = "info1"
-            .Columns(18).Name = "info2"
-            .Columns(19).Name = "info3"
 
-            .AllowUserToAddRows = False
-            .AllowUserToDeleteRows = False
-            .ReadOnly = True
-            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            .MultiSelect = False
-        End With
-
-        cmd = New SqlCommand("sp_mt_sku_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
         prm1.Value = 0
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@sku_code", SqlDbType.NVarChar, 50)
-        prm2.Value = IIf(cmbFilterBy.Text = "Stock Code", txtFilter.Text, DBNull.Value)
+        prm2.Value = IIf(cmbFilterBy.Text = "Product Code", txtFilter.Text, DBNull.Value)
         Dim prm3 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 50)
-        prm3.Value = IIf(cmbFilterBy.Text = "Stock Name", txtFilter.Text, DBNull.Value)
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@is_package", SqlDbType.Bit)
-        prm4.Value = 0
-        Dim prm5 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int)
-        prm5.Value = cbCategory.SelectedValue
+        prm3.Value = IIf(cmbFilterBy.Text = "Product Name", txtFilter.Text, DBNull.Value)
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@is_finished_goods", SqlDbType.Bit)
+        prm4.Value = chbIsFinishedGoods2.Checked
+        Dim prm5 As SqlParameter = cmd.Parameters.Add("@category_id", SqlDbType.Int)
+        If cbCategory.SelectedIndex = 0 Then
+            prm5.Value = DBNull.Value
+        Else
+            prm5.Value = cbCategory.Items(cbCategory.SelectedIndex).ItemData
+        End If
+
         cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
-        'Call FillList(myReader, Me.ListView1, 19, 1)
-
-        While myReader.Read
-            Me.DataGridView1.Rows.Add(myReader.Item(0), myReader.Item(1), myReader.Item(2), myReader.Item(3), myReader.Item(4), myReader.Item(5), myReader.Item(6), myReader.Item(7), myReader.Item(8), myReader.Item(9), myReader.Item(10), myReader.Item(11), myReader.Item(12), myReader.Item(13), myReader.Item(14), myReader.Item(15), myReader.Item(16), myReader.Item(17), myReader.Item(18), myReader.Item(19))
-        End While
+        Call FillList(myReader, Me.ListView1, 20, 1)
 
         myReader.Close()
         cn.Close()
@@ -272,6 +329,36 @@ err_btnSave_Click:
 
     Sub clear_lvw2()
         With ListView2
+            .Clear()
+            .View = View.Details
+            .Columns.Add("sku_id1", 0)
+            .Columns.Add("sku_id2", 0)
+            .Columns.Add("Product Code", 90)
+            .Columns.Add("Product Name", 150)
+            .Columns.Add("Qty", 90, HorizontalAlignment.Right)
+        End With
+
+        If m_SKUId <> 0 Then
+            cmd = New SqlCommand("usp_mt_sku_raw", cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@action", SqlDbType.NVarChar)
+            prm1.Value = "READ"
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@sku_id1", SqlDbType.Int)
+            prm2.Value = m_SKUId
+
+            cn.Open()
+
+            Dim myReader As SqlDataReader = cmd.ExecuteReader()
+
+            Call FillList(myReader, Me.ListView2, 5, 1)
+            myReader.Close()
+            cn.Close()
+        End If
+    End Sub
+
+    Sub clear_lvw3()
+        With ListView3
             .Clear()
             .View = View.Details
             .Columns.Add("period_id", 0)
@@ -284,7 +371,7 @@ err_btnSave_Click:
             .Columns.Add("Outgoing Value", 120, HorizontalAlignment.Right)
         End With
 
-        cmd = New SqlCommand("sp_mt_sku_balance_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_balance_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int, 255)
@@ -316,7 +403,7 @@ err_btnSave_Click:
             End If
             lvItem.UseItemStyleForSubItems = True
 
-            ListView2.Items.Add(lvItem)
+            ListView3.Items.Add(lvItem)
             intCurrRow += 1
         End While
 
@@ -328,9 +415,9 @@ err_btnSave_Click:
         m_SKUId = 0
         txtSKUCode.Text = ""
         txtSKUName.Text = ""
-        cmbSKUCatID.SelectedIndex = -1
+        cmbCategoryID.SelectedIndex = -1
+        cmbUomID.SelectedIndex = -1
         txtSKUBarcode.Text = ""
-        txtSKUUoM.Text = ""
         ntbSalesDiscPercent.Text = 0
         ntbSalesPrice.Text = FormatNumber(0)
         NumericTextBox1.Text = FormatNumber(0)
@@ -345,14 +432,27 @@ err_btnSave_Click:
         txtSKUInfo1.Text = ""
         txtSKUInfo2.Text = ""
         txtSKUInfo3.Text = ""
+        chbIsFinishedGoods.Checked = False
+    End Sub
+
+    Sub clear_objD()
+        For Each ctrl As Control In TabPage3.Controls
+            If TypeOf ctrl Is TextBox Then ctrl.Text = ""
+        Next
+
+        m_SKURawId = 0
+        m_SKUId2 = 0
+        'txtSKUCode2.Text = ""
+        'txtSKUName2.Text = ""
+        'ntbSKUPackageQty.Text = ""
     End Sub
 
     Sub lock_obj(ByVal isLock As Boolean)
         txtSKUCode.ReadOnly = isLock
         txtSKUName.ReadOnly = isLock
-        cmbSKUCatID.Enabled = Not isLock
+        cmbCategoryID.Enabled = Not isLock
+        cmbUomID.Enabled = Not isLock
         txtSKUBarcode.ReadOnly = isLock
-        txtSKUUoM.ReadOnly = isLock
         ntbSalesDiscPercent.ReadOnly = isLock
         ntbSalesPrice.ReadOnly = isLock
         NumericTextBox1.ReadOnly = isLock
@@ -365,6 +465,8 @@ err_btnSave_Click:
         txtSKUInfo2.ReadOnly = isLock
         txtSKUInfo3.ReadOnly = isLock
 
+        chbIsFinishedGoods.Enabled = Not isLock
+
         If m_SKUId = 0 Then
             btnDelete.Enabled = isLock
         Else
@@ -376,7 +478,15 @@ err_btnSave_Click:
         btnCancel.Enabled = Not isLock
     End Sub
 
-    Private Sub cmbSKUCatID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbSKUCatID.SelectedIndexChanged
+    Sub lock_objD(ByVal isLock As Boolean)
+        btnSKU.Enabled = Not isLock
+        ntbRawQty.ReadOnly = isLock
+        btnSaveD.Enabled = Not isLock
+        btnDeleteD.Enabled = Not isLock
+        btnAddD.Enabled = Not isLock
+    End Sub
+
+    Private Sub cmbSKUCatID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCategoryID.SelectedIndexChanged
         'Dim mList As clsMyList
         'mList = cmbSKUCatID.Items(cmbSKUCatID.SelectedIndex)
         'In the following statement, you can either use mList.ToString or
@@ -402,7 +512,7 @@ err_btnSave_Click:
 
     Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
         If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
-            cmd = New SqlCommand("sp_mt_sku_DEL", cn)
+            cmd = New SqlCommand("usp_mt_sku_DEL", cn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
@@ -475,7 +585,7 @@ err_btnSave_Click:
         If NumericTextBox4.Text = "" Then NumericTextBox4.Text = FormatNumber(0)
         NumericTextBox4.Text = FormatNumber(NumericTextBox4.Text)
     End Sub
-    
+
     Private Sub btnFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilter.Click
         clear_lvw()
     End Sub
@@ -486,7 +596,7 @@ err_btnSave_Click:
         Dim i As Integer = 0
         Try
             cn.Open()
-            cmd = New SqlCommand("sp_mt_sku_cat_SEL", cn)
+            cmd = New SqlCommand("usp_mt_sku_category_SEL", cn)
             cmd.CommandType = CommandType.StoredProcedure
 
             adapter.SelectCommand = cmd
@@ -494,63 +604,155 @@ err_btnSave_Click:
             adapter.Dispose()
             cmd.Dispose()
             cn.Close()
+
+            cbCategory.Items.Add(New clsMyListStr("All", ""))
+
             cbCategory.DataSource = ds.Tables(0)
-            cbCategory.ValueMember = "sku_cat_id"
-            cbCategory.DisplayMember = "sku_category"
+            cbCategory.ValueMember = "category_id"
+            cbCategory.DisplayMember = "category_code"
         Catch ex As Exception
             MsgBox(ex.Message)
             If ConnectionState.Open = 1 Then cn.Close()
         End Try
     End Sub
 
-    Private Sub Label22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label22.Click
+    Private Sub Label22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
-    Private Sub cbCategory_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCategory.SelectedIndexChanged
-        If m_loadFlag = True Then
-            clear_lvw()
-        End If
+    Private Sub cbCategory_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'If m_loadFlag = True Then
+        '    clear_lvw()
+        'End If
     End Sub
 
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
 
     End Sub
 
-    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim i As Integer
-        i = DataGridView1.CurrentRow.Index
-        m_SKUId = DataGridView1.Item(0, i).Value
+    'Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
+    '    Dim i As Integer
+    '    i = DataGridView1.CurrentRow.Index
+    '    m_SKUId = DataGridView1.Item(0, i).Value
 
-        With DataGridView1
-            Dim mList As clsMyListInt
-            Dim j As Integer
-            For j = 1 To cmbSKUCatID.Items.Count
-                mList = cmbSKUCatID.Items(j - 1)
-                If CInt(.Item(1, i).Value) = mList.ItemData Then
-                    cmbSKUCatID.SelectedIndex = j - 1
-                    Exit For
+    '    With DataGridView1
+    '        Dim mList As clsMyListInt
+    '        Dim j As Integer
+    '        For j = 1 To cmbSKUCatID.Items.Count
+    '            mList = cmbSKUCatID.Items(j - 1)
+    '            If CInt(.Item(1, i).Value) = mList.ItemData Then
+    '                cmbSKUCatID.SelectedIndex = j - 1
+    '                Exit For
+    '            End If
+    '        Next
+
+    '        txtSKUCode.Text = .Item(2, i).Value
+    '        txtSKUName.Text = .Item(3, i).Value
+    '        txtSKUBarcode.Text = IIf(IsDBNull(.Item(4, i).Value), "", .Item(4, i).Value)
+    '        txtSKUUoM.Text = IIf(IsDBNull(.Item(5, i).Value), "", .Item(5, i).Value)
+    '        ntbSalesDiscPercent.Text = FormatNumber(.Item(6, i).Value) * 100
+    '        ntbSalesPrice.Text = FormatNumber(.Item(7, i).Value, Dec)
+    '        NumericTextBox1.Text = FormatNumber(.Item(8, i).Value)
+    '        NumericTextBox2.Text = FormatNumber(.Item(9, i).Value)
+    '        NumericTextBox3.Text = FormatNumber(.Item(10, i).Value)
+    '        NumericTextBox4.Text = FormatNumber(.Item(11, i).Value)
+    '        txtLastCost.Text = FormatNumber(.Item(12, i).Value)
+    '        txtStockValue.Text = FormatNumber(.Item(13, i).Value)
+    '        txtStockBalance.Text = .Item(14, i).Value
+    '        txtAvgCost.Text = FormatNumber(.Item(15, i).Value)
+    '        txtSKURemarks.Text = IIf(IsDBNull(.Item(16, i).Value), "", .Item(16, i).Value)
+    '        txtSKUInfo1.Text = IIf(IsDBNull(.Item(17, i).Value), "", .Item(17, i).Value)
+    '        txtSKUInfo2.Text = IIf(IsDBNull(.Item(18, i).Value), "", .Item(18, i).Value)
+    '        txtSKUInfo3.Text = IIf(IsDBNull(.Item(19, i).Value), "", .Item(19, i).Value)
+    '    End With
+    'End Sub
+
+    Private Sub btnSKU_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSKU.Click
+        Dim NewFormDialog As New fdlSKU
+        NewFormDialog.FrmCallerId = Me.Name
+        NewFormDialog.ShowDialog()
+    End Sub
+
+    Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
+        Try
+            If m_SKUId = 0 Then
+                If txtSKUCode.Text = "" Or txtSKUName.Text = "" Or cmbCategoryID.SelectedIndex = -1 Then
+                    MsgBox("Product Code, Product Name & Sub Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+                    txtSKUCode.Focus()
+                    Exit Sub
                 End If
-            Next
+                SaveSKUHeader()
+            End If
 
-            txtSKUCode.Text = .Item(2, i).Value
-            txtSKUName.Text = .Item(3, i).Value
-            txtSKUBarcode.Text = IIf(IsDBNull(.Item(4, i).Value), "", .Item(4, i).Value)
-            txtSKUUoM.Text = IIf(IsDBNull(.Item(5, i).Value), "", .Item(5, i).Value)
-            ntbSalesDiscPercent.Text = FormatNumber(.Item(6, i).Value) * 100
-            ntbSalesPrice.Text = FormatNumber(.Item(7, i).Value, Dec)
-            NumericTextBox1.Text = FormatNumber(.Item(8, i).Value)
-            NumericTextBox2.Text = FormatNumber(.Item(9, i).Value)
-            NumericTextBox3.Text = FormatNumber(.Item(10, i).Value)
-            NumericTextBox4.Text = FormatNumber(.Item(11, i).Value)
-            txtLastCost.Text = FormatNumber(.Item(12, i).Value)
-            txtStockValue.Text = FormatNumber(.Item(13, i).Value)
-            txtStockBalance.Text = .Item(14, i).Value
-            txtAvgCost.Text = FormatNumber(.Item(15, i).Value)
-            txtSKURemarks.Text = IIf(IsDBNull(.Item(16, i).Value), "", .Item(16, i).Value)
-            txtSKUInfo1.Text = IIf(IsDBNull(.Item(17, i).Value), "", .Item(17, i).Value)
-            txtSKUInfo2.Text = IIf(IsDBNull(.Item(18, i).Value), "", .Item(18, i).Value)
-            txtSKUInfo3.Text = IIf(IsDBNull(.Item(19, i).Value), "", .Item(19, i).Value)
+            cmd = New SqlCommand("usp_mt_sku_raw", cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm11 As SqlParameter = cmd.Parameters.Add("@action", SqlDbType.NVarChar)
+            prm11.Value = IIf(m_SKURawId = 0, "CREATE", "UPDATE")
+            Dim prm17 As SqlParameter = cmd.Parameters.Add("@sku_id1", SqlDbType.Int)
+            prm17.Value = m_SKUId
+            Dim prm18 As SqlParameter = cmd.Parameters.Add("@sku_id2", SqlDbType.Int)
+            prm18.Value = m_SKUId2
+            Dim prm19 As SqlParameter = cmd.Parameters.Add("@raw_qty", SqlDbType.Decimal)
+            prm19.Value = IIf(ntbRawQty.Text = "", 0, CDbl(ntbRawQty.Text))
+
+            If m_SKURawId <> 0 Then
+                Dim prm24 As SqlParameter = cmd.Parameters.Add("@raw_id", SqlDbType.Int, 255)
+                prm24.Value = m_SKURawId
+            End If
+            cn.Open()
+            cmd.ExecuteReader()
+            cn.Close()
+
+            clear_lvw2()
+            clear_objD()
+
+        Catch ex As Exception
+            'If Err.Number = 5 Then
+            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
+            'Else
+            MsgBox(ex.Message)
+            'End If
+            If ConnectionState.Open = 1 Then cn.Close()
+        End Try
+    End Sub
+
+    Private Sub ntbRawQty_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles ntbRawQty.LostFocus
+        If ntbRawQty.Text = "" Then ntbRawQty.Text = FormatNumber(0)
+        ntbRawQty.Text = FormatNumber(ntbRawQty.Text)
+    End Sub
+
+    Private Sub btnDeleteD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD.Click
+        If m_SKURawId = 0 Then Exit Sub
+        If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
+            cmd = New SqlCommand("usp_mt_sku_raw", cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@action", SqlDbType.NVarChar)
+            prm1.Value = "DELETE"
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@raw_id", SqlDbType.Int)
+            prm2.Value = m_SKURawId
+
+            cn.Open()
+            cmd.ExecuteReader()
+            cn.Close()
+
+            clear_lvw2()
+            clear_objD()
+        End If
+    End Sub
+
+    Private Sub ListView2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView2.Click
+        With ListView2.SelectedItems.Item(0)
+            m_SKURawId = LeftSplitUF(.Tag)
+            m_SKUId2 = .SubItems.Item(1).Text
+            txtSKUCode2.Text = .SubItems.Item(2).Text
+            txtSKUName2.Text = .SubItems.Item(3).Text
+            ntbRawQty.Text = .SubItems.Item(4).Text
         End With
+    End Sub
+
+    Private Sub btnAddD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddD.Click
+        clear_objD()
     End Sub
 End Class
