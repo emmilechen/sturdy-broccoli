@@ -36,6 +36,8 @@ Partial Class frmMAIN
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.PurchaseRequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseRequestApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchasePitchingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchasePitchingApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseOrderToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseReceiptToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,7 +59,6 @@ Partial Class frmMAIN
         Me.PurchaseAPAgingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockSetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockSubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,6 +78,7 @@ Partial Class frmMAIN
         Me.StockMovementReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockControlReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnitOfMeasurementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesCodeStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -146,6 +148,7 @@ Partial Class frmMAIN
         Me.CurrencyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyRevaluationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExpenseIncomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExpenseIncomeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -172,9 +175,6 @@ Partial Class frmMAIN
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.PurchasePitchingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PurchasePitchingApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -202,21 +202,18 @@ Partial Class frmMAIN
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'SignOutToolStripMenuItem
         '
         Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
         Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SignOutToolStripMenuItem.Text = "Sign Out"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'PurchaseToolStripMenuItem
@@ -254,6 +251,18 @@ Partial Class frmMAIN
         Me.PurchaseRequestApprovalToolStripMenuItem.Name = "PurchaseRequestApprovalToolStripMenuItem"
         Me.PurchaseRequestApprovalToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
         Me.PurchaseRequestApprovalToolStripMenuItem.Text = "Purchase Request Approval"
+        '
+        'PurchasePitchingToolStripMenuItem
+        '
+        Me.PurchasePitchingToolStripMenuItem.Name = "PurchasePitchingToolStripMenuItem"
+        Me.PurchasePitchingToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.PurchasePitchingToolStripMenuItem.Text = "Purchase Pitching"
+        '
+        'PurchasePitchingApprovalToolStripMenuItem
+        '
+        Me.PurchasePitchingApprovalToolStripMenuItem.Name = "PurchasePitchingApprovalToolStripMenuItem"
+        Me.PurchasePitchingApprovalToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
+        Me.PurchasePitchingApprovalToolStripMenuItem.Text = "Purchase Pitching Approval"
         '
         'PurchaseOrderToolStripMenuItem1
         '
@@ -371,7 +380,7 @@ Partial Class frmMAIN
         '
         'MasterToolStripMenuItem
         '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockMasterToolStripMenuItem, Me.StockSetToolStripMenuItem, Me.StockCategoryToolStripMenuItem, Me.StockSubCategoryToolStripMenuItem, Me.LocationToolStripMenuItem, Me.ToolStripSeparator5, Me.StockAdjToolStripMenuItem, Me.StockMovementToolStripMenuItem, Me.StockCostAdjustmentToolStripMenuItem, Me.ToolStripSeparator8, Me.StockLocationToolStripMenuItem, Me.ReportsToolStripMenuItem1})
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockMasterToolStripMenuItem, Me.StockCategoryToolStripMenuItem, Me.StockSubCategoryToolStripMenuItem, Me.UnitOfMeasurementToolStripMenuItem, Me.LocationToolStripMenuItem, Me.ToolStripSeparator5, Me.StockAdjToolStripMenuItem, Me.StockMovementToolStripMenuItem, Me.StockCostAdjustmentToolStripMenuItem, Me.ToolStripSeparator8, Me.StockLocationToolStripMenuItem, Me.ReportsToolStripMenuItem1})
         Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
         Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.MasterToolStripMenuItem.Text = "Inventory"
@@ -380,25 +389,19 @@ Partial Class frmMAIN
         '
         Me.StockMasterToolStripMenuItem.Name = "StockMasterToolStripMenuItem"
         Me.StockMasterToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.StockMasterToolStripMenuItem.Text = "Stock Card"
-        '
-        'StockSetToolStripMenuItem
-        '
-        Me.StockSetToolStripMenuItem.Name = "StockSetToolStripMenuItem"
-        Me.StockSetToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.StockSetToolStripMenuItem.Text = "Stock Set"
+        Me.StockMasterToolStripMenuItem.Text = "Product Card"
         '
         'StockCategoryToolStripMenuItem
         '
         Me.StockCategoryToolStripMenuItem.Name = "StockCategoryToolStripMenuItem"
         Me.StockCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.StockCategoryToolStripMenuItem.Text = "Stock Category"
+        Me.StockCategoryToolStripMenuItem.Text = "Product Category"
         '
         'StockSubCategoryToolStripMenuItem
         '
         Me.StockSubCategoryToolStripMenuItem.Name = "StockSubCategoryToolStripMenuItem"
         Me.StockSubCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.StockSubCategoryToolStripMenuItem.Text = "Stock Sub Category"
+        Me.StockSubCategoryToolStripMenuItem.Text = "Product Sub Category"
         '
         'LocationToolStripMenuItem
         '
@@ -500,6 +503,12 @@ Partial Class frmMAIN
         Me.StockControlReportToolStripMenuItem.Name = "StockControlReportToolStripMenuItem"
         Me.StockControlReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.StockControlReportToolStripMenuItem.Text = "Stock Control Report"
+        '
+        'UnitOfMeasurementToolStripMenuItem
+        '
+        Me.UnitOfMeasurementToolStripMenuItem.Name = "UnitOfMeasurementToolStripMenuItem"
+        Me.UnitOfMeasurementToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.UnitOfMeasurementToolStripMenuItem.Text = "Unit of Measurement"
         '
         'SalesToolStripMenuItem1
         '
@@ -698,19 +707,6 @@ Partial Class frmMAIN
         '
         Me.MachineToolStripMenuItem.Name = "MachineToolStripMenuItem"
         Me.MachineToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
-        Me.MachineToolStripMenuItem.Text = "Machine"
-        '
-        'ProductionToolStripMenuItem
-        '
-        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem})
-        Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
-        Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
-        Me.ProductionToolStripMenuItem.Text = "Production"
-        '
-        'MachineToolStripMenuItem
-        '
-        Me.MachineToolStripMenuItem.Name = "MachineToolStripMenuItem"
-        Me.MachineToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.MachineToolStripMenuItem.Text = "Machine"
         '
         'BankToolStripMenuItem
@@ -929,6 +925,12 @@ Partial Class frmMAIN
         Me.ExpenseIncomeToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.ExpenseIncomeToolStripMenuItem.Text = "Expense/Income"
         '
+        'UtilityFormToolStripMenuItem
+        '
+        Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
+        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
+        '
         'ReportToolStripMenuItem
         '
         Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CurrencyToolStripMenuItem, Me.ExpenseIncomeToolStripMenuItem1, Me.ExpenseIncomeReportToolStripMenuItem})
@@ -1103,22 +1105,6 @@ Partial Class frmMAIN
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(29, 17)
         Me.ToolStripStatusLabel.Text = "User"
         '
-        'PurchasePitchingToolStripMenuItem
-        'UtilityFormToolStripMenuItem
-        '
-        Me.PurchasePitchingToolStripMenuItem.Name = "PurchasePitchingToolStripMenuItem"
-        Me.PurchasePitchingToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.PurchasePitchingToolStripMenuItem.Text = "Purchase Pitching"
-        Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
-        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
-        '
-        'PurchasePitchingApprovalToolStripMenuItem
-        '
-        Me.PurchasePitchingApprovalToolStripMenuItem.Name = "PurchasePitchingApprovalToolStripMenuItem"
-        Me.PurchasePitchingApprovalToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.PurchasePitchingApprovalToolStripMenuItem.Text = "Purchase Pitching Approval"
-        '
         'frmMAIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1197,7 +1183,6 @@ Partial Class frmMAIN
     Friend WithEvents LocationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchaseRequestApprovalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExpenseIncomeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents StockSetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchaseInvoiceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents PurchaseReceiptToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StockLocationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1296,4 +1281,5 @@ Partial Class frmMAIN
     Friend WithEvents PurchasePitchingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchasePitchingApprovalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UtilityFormToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UnitOfMeasurementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

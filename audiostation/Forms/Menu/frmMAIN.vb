@@ -338,11 +338,11 @@ Public Class frmMAIN
     End Sub
 
     Private Sub StockCategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockCategoryToolStripMenuItem.Click
-        If Not GetPermission("frmSKUCategory") = False Then
-            frmSKUCategory.MdiParent = Me
-            frmSKUCategory.Show()
-            frmSKUCategory.BringToFront()
-        End If
+        'If Not GetPermission("frmSKUCategory") = False Then
+        frmSKUCategory.MdiParent = Me
+        frmSKUCategory.Show()
+        frmSKUCategory.BringToFront()
+        'End If
     End Sub
 
     Private Sub CustomerMasterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerMasterToolStripMenuItem.Click
@@ -483,9 +483,9 @@ Public Class frmMAIN
         End If
     End Sub
 
-    Private Sub StockSetToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockSetToolStripMenuItem.Click
+    Private Sub StockSetToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If Not GetPermission("frmSKUPackageList") = False Then
-            With frmSKUPackageList
+            With frmSKURawList
                 .MdiParent = Me
                 .Show()
                 .BringToFront()
@@ -1284,11 +1284,11 @@ Public Class frmMAIN
     End Sub
 
     Private Sub StockSubCategoryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StockSubCategoryToolStripMenuItem.Click
-        If Not GetPermission("frmSKUCategorySub") = False Then
-            frmSKUCategorySub.MdiParent = Me
-            frmSKUCategorySub.Show()
-            frmSKUCategorySub.BringToFront()
-        End If
+        'If Not GetPermission("frmSKUCategorySub") = False Then
+        frmSKUCategorySub.MdiParent = Me
+        frmSKUCategorySub.Show()
+        frmSKUCategorySub.BringToFront()
+        'End If
     End Sub
 
     Private Sub FormInductionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FormInductionToolStripMenuItem.Click
@@ -1321,5 +1321,19 @@ Public Class frmMAIN
 
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
 
+    End Sub
+
+    Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub MasterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MasterToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub UnitOfMeasurementToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UnitOfMeasurementToolStripMenuItem.Click
+        frmSKUUoM.MdiParent = Me
+        frmSKUUoM.Show()
+        frmSKUUoM.BringToFront()
     End Sub
 End Class
