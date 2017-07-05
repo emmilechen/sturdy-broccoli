@@ -56,7 +56,7 @@ Public Class frmMesin
         End If
         Me.txtguid.Tag = ""
         Me.txtkode.Text = IIf(Me.txtguid.Text = "", GETGeneralcode("", namatable, namafieldPK, "", Me.txtnama.Text, True, 3, 1, "", ""), Me.txtkode.Text)
-        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_mesin", "") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
+        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_mesin", "", "@idmesin") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
 
 exit_btnSave_Click:
         If ConnectionState.Open = 1 Then cn.Close()
@@ -69,7 +69,7 @@ err_btnSave_Click:
     
     Private Function isirecord(ByVal guidno As String)
         Me.txtguid.Text = guidno : Me.txtkode.Text = guidno
-        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_mesin", Me.txtguid.Text)
+        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_mesin", Me.txtguid.Text, "@idmesin")
     End Function
     Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
 
