@@ -12,31 +12,50 @@ Public Class frmUser
     Dim cmd As SqlCommand
     Dim m_UserId As Integer
     Dim isAllowDelete As Boolean
-
+    Private namatable As String, namafieldPK As String
+    Private Function kosong()
+        ClearObjectonForm(Me)
+        AssignValuetoCombo(Me.cmbUserLevelID, "", "user_level_id", "user_level_description", "mt_user_level", "AC=0", "user_level_id")
+        AssignValuetoCombo(Me.cmbdept, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_uom_machine_elec'", "sys_dropdown_sort")
+        AssignValuetoCombo(Me.cmbdiv, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_uom_machine_elec'", "sys_dropdown_sort")
+        Me.txtfname.Focus()
+    End Function
+    Private Function isirecord(ByVal guidno As String)
+        Me.txtguid.Text = guidno : Me.txtuserid.Text = guidno
+        Fillobject(Me.txtguid, Me.Panel1, "select", "sp_mt_user", Me.txtguid.Text, "@user_id")
+    End Function
     Private Sub frmUser_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         isAllowDelete = canDelete(Me.Name)
-
+        namatable = "mt_user" : namafieldPK = "user_id"
+        If Me.txtuserid.Text = "" Then
+            kosong()
+        Else
+            'isirec
+            'kosong()
+        End If
+        'kosong()
         'Add item cmbUserLevelID
-        cmd = New SqlCommand("usp_mt_user_level_SEL", cn)
-        cmd.CommandType = CommandType.StoredProcedure
+        'cmd = New SqlCommand("usp_mt_user_level_SEL", cn)
+        'cmd.CommandType = CommandType.StoredProcedure
 
-        cn.Open()
-        Dim myReader = cmd.ExecuteReader
+        'cn.Open()
+        'Dim myReader = cmd.ExecuteReader
 
-        cmbUserLevelID.Items.Clear()
-        While myReader.Read
-            cmbUserLevelID.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
-        End While
-        cmbUserLevelID.SelectedIndex = 0
+        'cmbUserLevelID.Items.Clear()
+        'While myReader.Read
+        '    cmbUserLevelID.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
+        'End While
+        'cmbUserLevelID.SelectedIndex = 0
 
-        myReader.Close()
-        cn.Close()
+        'myReader.Close()
+        'cn.Close()
 
-        clear_obj()
-        lock_obj(True)
-        clear_lvw()
-        ListView1.Items.Item(0).Selected = True
-        ListView1_Click(sender, e)
+        'clear_obj()
+        'lock_obj(True)
+        'clear_lvw()
+        'ListView1.Items.Item(0).Selected = True
+        
+        'ListView1_Click(sender, e)
     End Sub
 
     Private Sub ListView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.Click
@@ -47,21 +66,24 @@ Public Class frmUser
             Dim password As String = "1"
             Dim wrapper As New Dencrypt(password)
             Dim UserPassword As String = wrapper.DecryptData(cipherText)
+            Me.txtUserName.Text = cipherText
             '-------------------------END OF DECRYPT--------------------------------
             lblCurrentRecord.Text = "Selected record: " + CStr(CInt(RightSplitUF(ListView1.SelectedItems.Item(0).Tag) + 1))
             m_UserId = LeftSplitUF(.Tag)
-            txtUserName.Text = .SubItems.Item(0).Text
-            txtUserPassword.Text = UserPassword
+            'txtUserName.Text = .SubItems.Item(0).Text
+            'txtUserPassword.Text = UserPassword
 
-            Dim mList As clsMyListInt
-            Dim i As Integer
-            For i = 1 To cmbUserLevelID.Items.Count
-                mList = cmbUserLevelID.Items(i - 1)
-                If CInt(.SubItems.Item(2).Text) = mList.ItemData Then
-                    cmbUserLevelID.SelectedIndex = i - 1
-                    Exit For
-                End If
-            Next
+            Fillobject(Me.txtguid, Me.Panel1, "select", "sp_mt_user", Me.txtguid.Text, "@user_id")
+
+            'Dim mList As clsMyListInt
+            'Dim i As Integer
+            'For i = 1 To cmbUserLevelID.Items.Count
+            '    mList = cmbUserLevelID.Items(i - 1)
+            '    If CInt(.SubItems.Item(2).Text) = mList.ItemData Then
+            '        cmbUserLevelID.SelectedIndex = i - 1
+            '        Exit For
+            '    End If
+            'Next
         End With
     End Sub
 
@@ -205,6 +227,8 @@ err_btnSave_Click:
         cmd = New SqlCommand("usp_mt_user_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
+        Dim prm0 As SqlParameter = cmd.Parameters.Add("@action", SqlDbType.NVarChar)
+        prm0.Value = "select"
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar)
         prm1.Value = DBNull.Value
 
@@ -282,9 +306,23 @@ err_btnSave_Click:
         ' Perform the sort with these new sort options.
         ListView1.Sort()
     End Sub
-
-    Private Sub txtUserPassword_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles txtUserPassword.MouseDoubleClick
+    Private Sub txtUserPassword_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs)
         If txtUserPassword.Text <> "" Then MsgBox("Password : " & Me.txtUserPassword.Text, MsgBoxStyle.Information, "User")
     End Sub
+    Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
 
+    End Sub
+    Private Sub btnfind_Click(sender As System.Object, e As System.EventArgs) Handles btnfind.Click
+        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
+        Dim child As New FDLSearch()
+        child.txtopenargs.Text = "2"
+        If child.ShowDialog() = DialogResult.OK Then
+            kosong()
+            Me.txtguid.Text = child.txtChildText0.Text
+        End If
+    End Sub
+    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+        Dim xno As String
+        If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
+    End Sub
 End Class
