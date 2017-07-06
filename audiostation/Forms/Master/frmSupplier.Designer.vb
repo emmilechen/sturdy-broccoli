@@ -72,6 +72,7 @@ Partial Class frmSupplier
         Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbFilterBy = New System.Windows.Forms.ComboBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -113,8 +114,8 @@ Partial Class frmSupplier
         'ListView1
         '
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
@@ -572,8 +573,9 @@ Partial Class frmSupplier
         'TabControl1
         '
         Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(653, 43)
         Me.TabControl1.Name = "TabControl1"
@@ -628,7 +630,7 @@ Partial Class frmSupplier
         'txtFilter
         '
         Me.txtFilter.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFilter.Location = New System.Drawing.Point(206, 13)
         Me.txtFilter.Name = "txtFilter"
@@ -653,6 +655,16 @@ Partial Class frmSupplier
         Me.cmbFilterBy.Name = "cmbFilterBy"
         Me.cmbFilterBy.Size = New System.Drawing.Size(136, 21)
         Me.cmbFilterBy.TabIndex = 0
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(407, 505)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Product Category"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'frmSupplier
         '
@@ -734,4 +746,5 @@ Partial Class frmSupplier
     Friend WithEvents txtFilter As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbFilterBy As System.Windows.Forms.ComboBox
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
 End Class

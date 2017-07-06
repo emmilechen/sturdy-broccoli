@@ -16,8 +16,8 @@ Public Class frmSupplier
         clear_obj()
 
         cmbFilterBy.Items.Add("<All>")
-        cmbFilterBy.Items.Add("Supplier Code")
-        cmbFilterBy.Items.Add("Supplier Name")
+        cmbFilterBy.Items.Add("Code")
+        cmbFilterBy.Items.Add("Name")
         cmbFilterBy.SelectedIndex = 0
 
         'If ListView1.Items.Count > 0 Then

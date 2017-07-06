@@ -44,8 +44,8 @@ Public Class frmSKU
         clear_obj()
 
         cmbFilterBy.Items.Add("<All>")
-        cmbFilterBy.Items.Add("Product Code")
-        cmbFilterBy.Items.Add("Product Name")
+        cmbFilterBy.Items.Add("Code")
+        cmbFilterBy.Items.Add("Name")
 
         Dim prm1 As SqlParameter, prm2 As SqlParameter
         Dim myReader As SqlDataReader
