@@ -148,6 +148,15 @@
     <Compile Include="Forms\LvtAboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Master\frmSKUUoM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Master\frmMesin.Designer.vb">
       <DependentUpon>frmMesin.vb</DependentUpon>
     </Compile>
@@ -223,23 +232,14 @@
     <Compile Include="Forms\Master\frmSKUPrice.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Master\frmSKURaw.Designer.vb">
-      <DependentUpon>frmSKURaw.vb</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Master\frmSKURaw.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKURawList.Designer.vb">
-      <DependentUpon>frmSKURawList.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Master\frmSKURawList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Master\frmSKUUoM.Designer.vb">
       <DependentUpon>frmSKUUoM.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUUoM.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Master\frmUserAccess.Designer.vb">
       <DependentUpon>frmUserAccess.vb</DependentUpon>
@@ -553,17 +553,11 @@
     <Compile Include="Forms\Master\frmUserLevel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Master\frmSKUPackage.Designer.vb">
-      <DependentUpon>frmSKUPackage.vb</DependentUpon>
+    <Compile Include="Forms\Master\frmSKURaw.Designer.vb">
+      <DependentUpon>frmSKURaw.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Master\frmSKUPackage.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUPackageList.Designer.vb">
-      <DependentUpon>frmSKUPackageList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\frmSKUPackageList.vb">
-      <SubType>Form</SubType>
+    <Compile Include="Forms\Master\frmSKURawList.Designer.vb">
+      <DependentUpon>frmSKURawList.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Setting\frmSYSPeriodList.Designer.vb">
       <DependentUpon>frmSYSPeriodList.vb</DependentUpon>
@@ -1613,6 +1607,9 @@
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
     </EmbeddedResource>
@@ -1649,12 +1646,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKUPrice.resx">
       <DependentUpon>frmSKUPrice.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKURaw.resx">
-      <DependentUpon>frmSKURaw.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKURawList.resx">
-      <DependentUpon>frmSKURawList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKUUoM.resx">
       <DependentUpon>frmSKUUoM.vb</DependentUpon>
@@ -1831,11 +1822,11 @@
     <EmbeddedResource Include="Forms\Master\frmUserLevel.resx">
       <DependentUpon>frmUserLevel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUPackage.resx">
-      <DependentUpon>frmSKUPackage.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Master\frmSKURaw.resx">
+      <DependentUpon>frmSKURaw.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\frmSKUPackageList.resx">
-      <DependentUpon>frmSKUPackageList.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Master\frmSKURawList.resx">
+      <DependentUpon>frmSKURawList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSPeriodList.resx">
       <DependentUpon>frmSYSPeriodList.vb</DependentUpon>
