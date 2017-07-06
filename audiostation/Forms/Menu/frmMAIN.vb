@@ -9,7 +9,6 @@ Public Class frmMAIN
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
-
     Sub DefineToolstrip()
         Dim myReader As SqlDataReader
         Dim prm1, prm2 As SqlParameter
@@ -102,7 +101,19 @@ Public Class frmMAIN
         'Next
         Me.Controls.Add(menu)
     End Sub
-
+    Private Function openformutility(openargs As String, judul As String)
+        Me.Cursor = Cursors.AppStarting
+        'For Each f As Form In Application.OpenForms
+        '    If TypeOf f Is frmUtility Then
+        '        f.Activate() : Me.Cursor = Cursors.Default
+        '        Exit Function
+        '    End If
+        'Next
+        Dim MDIForm As New frmUtility(openargs, judul)
+        MDIForm.MdiParent = Me
+        MDIForm.Show()
+        Me.Cursor = Cursors.Default
+    End Function
     Private Sub frmMAIN_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'MenuStrip.Visible = False
         Try
@@ -152,12 +163,12 @@ Public Class frmMAIN
                 If userCount <= userVal Then
                     fdlLogin.ShowDialog()
                 Else
-                    MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@integralindo.com(Er:03)", MsgBoxStyle.Critical)
+                    MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@mybrightsolution.com(Er:03)", MsgBoxStyle.Critical)
                     End
                 End If
             End If
         Catch ex As Exception
-            MsgBox("Unable to start Levate, please check :" + vbCrLf + "1.License" + vbCrLf + "2.Connection to server" + vbCrLf + "3.Server database" + vbCrLf + "For help please contact us at support@integralindo.com" + vbCrLf + vbCrLf + "Error Message :" + vbCrLf + ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Unable to start Box Tree, please check :" + vbCrLf + "1.License" + vbCrLf + "2.Connection to server" + vbCrLf + "3.Server database" + vbCrLf + "For help please contact us at support@mybrightsolution.com" + vbCrLf + vbCrLf + "Error Message :" + vbCrLf + ex.Message, MsgBoxStyle.Critical)
             End
         End Try
     End Sub
@@ -1321,6 +1332,26 @@ Public Class frmMAIN
 
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
 
+    End Sub
+
+    Private Sub DepartementToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DepartementToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub DivisionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DivisionToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub UnitOfMeasurementElectricalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementElectricalToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub UnitOfMeasurementSizeToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementSizeToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub UnitOfMeasurementSpeedToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementSpeedToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
 
     Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseToolStripMenuItem.Click
