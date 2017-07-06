@@ -148,12 +148,6 @@
     <Compile Include="Forms\LvtAboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Master\Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Master\Form3.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Master\frmMesin.Designer.vb">
       <DependentUpon>frmMesin.vb</DependentUpon>
     </Compile>
@@ -227,6 +221,24 @@
       <DependentUpon>frmSKUPrice.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Master\frmSKUPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKURaw.Designer.vb">
+      <DependentUpon>frmSKURaw.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKURaw.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKURawList.Designer.vb">
+      <DependentUpon>frmSKURawList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKURawList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUUoM.Designer.vb">
+      <DependentUpon>frmSKUUoM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Master\frmSKUUoM.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Master\frmUserAccess.Designer.vb">
@@ -1409,10 +1421,28 @@
     <Compile Include="Forms\Transaction\frmWorkOrderList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\ftr_scosting.Designer.vb">
+      <DependentUpon>ftr_scosting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_scosting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\FTR_Induction.Designer.vb">
       <DependentUpon>FTR_Induction.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\FTR_Induction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mp.Designer.vb">
+      <DependentUpon>ftr_mp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mrq.Designer.vb">
+      <DependentUpon>ftr_mrq.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mrq.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\clsLvwCompare.vb" />
@@ -1581,9 +1611,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LvtAboutBox.resx">
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master\Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmAccount.resx">
       <DependentUpon>frmAccount.vb</DependentUpon>
@@ -1596,6 +1624,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmMesin.resx">
       <DependentUpon>frmMesin.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSalesCode.resx">
       <DependentUpon>frmSalesCode.vb</DependentUpon>
@@ -1620,6 +1649,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmSKUPrice.resx">
       <DependentUpon>frmSKUPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKURaw.resx">
+      <DependentUpon>frmSKURaw.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKURawList.resx">
+      <DependentUpon>frmSKURawList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Master\frmSKUUoM.resx">
+      <DependentUpon>frmSKUUoM.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master\frmUserAccess.resx">
       <DependentUpon>frmUserAccess.vb</DependentUpon>
