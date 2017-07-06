@@ -416,7 +416,7 @@ Module modFunction
         End If
         Return getpwd
     End Function
-    Public Function Fillobject(ByVal txtid As TextBox, ByVal root As Control, ByVal action As String, ByVal namasp As String, Optional filterby As String = "") As Boolean
+    Public Function Fillobject(ByVal txtid As TextBox, ByVal root As Control, ByVal action As String, ByVal namasp As String, Optional filterby As String = "", Optional outputid As String = "") As Boolean
         Dim sqlComm As New SqlCommand()
         Dim strConn As String = My.Settings.ConnStr
         Try
@@ -442,7 +442,7 @@ Module modFunction
 
                 If action = "insert" Or action = "update" Then
                     sqlComm.ExecuteNonQuery()
-                    txtid.Text = sqlComm.Parameters("@idmesin").SqlValue.ToString
+                    txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 ElseIf action = "select" Then
                     Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
                     If sqlReader.HasRows Then
@@ -470,7 +470,7 @@ Module modFunction
             Fillobject = True
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Information, "Machine")
+            MsgBox(ex.Message, MsgBoxStyle.Information, "-")
             Fillobject = False
             Exit Function
         End Try
@@ -522,6 +522,16 @@ Module modFunction
             End If
             If TypeOf ctrl Is DateTimePicker Then
                 CType(ctrl, DateTimePicker).Format = DateTimePickerFormat.Custom : CType(ctrl, DateTimePicker).CustomFormat = "yyyy-MM-dd" : CType(ctrl, DateTimePicker).Text = Now.Date
+            End If
+        Next ctrl
+    End Function
+    Public Function ClearCheckBoxonForm(ByVal root As Control)
+        On Error Resume Next
+        For Each ctrl As Control In root.Controls
+            ClearCheckBoxonForm(ctrl)
+            If TypeOf ctrl Is CheckBox Then
+                CType(ctrl, CheckBox).Checked = False
+                CType(ctrl, CheckBox).Text = ""
             End If
         Next ctrl
     End Function
