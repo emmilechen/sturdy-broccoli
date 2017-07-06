@@ -35,7 +35,6 @@ Partial Class frmSKUCategory
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.btnAccount = New System.Windows.Forms.Button()
         Me.txtAccountCode = New System.Windows.Forms.TextBox()
@@ -85,9 +84,9 @@ Partial Class frmSKUCategory
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(415, 68)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(88, 13)
+        Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Category Name*"
+        Me.Label1.Text = "Name*"
         '
         'Label2
         '
@@ -166,18 +165,6 @@ Partial Class frmSKUCategory
         Me.lblCurrentRecord.TabIndex = 37
         Me.lblCurrentRecord.Text = "Selected record:"
         '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(636, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(172, 25)
-        Me.Label6.TabIndex = 62
-        Me.Label6.Text = "Stock Category"
-        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -196,6 +183,7 @@ Partial Class frmSKUCategory
         Me.btnAccount.Size = New System.Drawing.Size(29, 25)
         Me.btnAccount.TabIndex = 4
         Me.btnAccount.UseVisualStyleBackColor = True
+        Me.btnAccount.Visible = False
         '
         'txtAccountCode
         '
@@ -207,6 +195,7 @@ Partial Class frmSKUCategory
         Me.txtAccountCode.ReadOnly = True
         Me.txtAccountCode.Size = New System.Drawing.Size(100, 21)
         Me.txtAccountCode.TabIndex = 3
+        Me.txtAccountCode.Visible = False
         '
         'Label3
         '
@@ -218,6 +207,7 @@ Partial Class frmSKUCategory
         Me.Label3.Size = New System.Drawing.Size(46, 13)
         Me.Label3.TabIndex = 112
         Me.Label3.Text = "Account"
+        Me.Label3.Visible = False
         '
         'Label5
         '
@@ -226,9 +216,9 @@ Partial Class frmSKUCategory
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(415, 41)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 13)
+        Me.Label5.Size = New System.Drawing.Size(38, 13)
         Me.Label5.TabIndex = 119
-        Me.Label5.Text = "Category Code*"
+        Me.Label5.Text = "Code*"
         '
         'txtCategoryCode
         '
@@ -249,7 +239,6 @@ Partial Class frmSKUCategory
         Me.Controls.Add(Me.btnAccount)
         Me.Controls.Add(Me.txtAccountCode)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnEdit)
@@ -265,7 +254,7 @@ Partial Class frmSKUCategory
         Me.Name = "frmSKUCategory"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Stock Category"
+        Me.Text = "Product Category"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -281,7 +270,6 @@ Partial Class frmSKUCategory
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents btnAccount As System.Windows.Forms.Button
     Friend WithEvents txtAccountCode As System.Windows.Forms.TextBox

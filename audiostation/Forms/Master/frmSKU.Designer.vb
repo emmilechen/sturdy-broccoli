@@ -66,6 +66,12 @@ Partial Class frmSKU
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.cmbUomID = New System.Windows.Forms.ComboBox()
         Me.chbIsFinishedGoods = New System.Windows.Forms.CheckBox()
+        Me.NumericTextBox4 = New boxtree.NumericTextBox()
+        Me.NumericTextBox3 = New boxtree.NumericTextBox()
+        Me.NumericTextBox2 = New boxtree.NumericTextBox()
+        Me.NumericTextBox1 = New boxtree.NumericTextBox()
+        Me.ntbSalesPrice = New boxtree.NumericTextBox()
+        Me.ntbSalesDiscPercent = New boxtree.NumericTextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.btnAddD = New System.Windows.Forms.Button()
@@ -77,7 +83,9 @@ Partial Class frmSKU
         Me.btnSKU = New System.Windows.Forms.Button()
         Me.btnDeleteD = New System.Windows.Forms.Button()
         Me.btnSaveD = New System.Windows.Forms.Button()
+        Me.ntbRawQty = New boxtree.NumericTextBox()
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ListView3 = New System.Windows.Forms.ListView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -88,14 +96,6 @@ Partial Class frmSKU
         Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbFilterBy = New System.Windows.Forms.ComboBox()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.NumericTextBox4 = New boxtree.NumericTextBox()
-        Me.NumericTextBox3 = New boxtree.NumericTextBox()
-        Me.NumericTextBox2 = New boxtree.NumericTextBox()
-        Me.NumericTextBox1 = New boxtree.NumericTextBox()
-        Me.ntbSalesPrice = New boxtree.NumericTextBox()
-        Me.ntbSalesDiscPercent = New boxtree.NumericTextBox()
-        Me.ntbRawQty = New boxtree.NumericTextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
@@ -602,6 +602,79 @@ Partial Class frmSKU
         Me.chbIsFinishedGoods.Text = "Finished Goods"
         Me.chbIsFinishedGoods.UseVisualStyleBackColor = True
         '
+        'NumericTextBox4
+        '
+        Me.NumericTextBox4.AllowSpace = False
+        Me.NumericTextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumericTextBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericTextBox4.Location = New System.Drawing.Point(134, 223)
+        Me.NumericTextBox4.MaxLength = 10
+        Me.NumericTextBox4.Name = "NumericTextBox4"
+        Me.NumericTextBox4.Size = New System.Drawing.Size(131, 21)
+        Me.NumericTextBox4.TabIndex = 8
+        Me.NumericTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NumericTextBox3
+        '
+        Me.NumericTextBox3.AllowSpace = False
+        Me.NumericTextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumericTextBox3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericTextBox3.Location = New System.Drawing.Point(134, 196)
+        Me.NumericTextBox3.MaxLength = 10
+        Me.NumericTextBox3.Name = "NumericTextBox3"
+        Me.NumericTextBox3.Size = New System.Drawing.Size(131, 21)
+        Me.NumericTextBox3.TabIndex = 7
+        Me.NumericTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NumericTextBox2
+        '
+        Me.NumericTextBox2.AllowSpace = False
+        Me.NumericTextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumericTextBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericTextBox2.Location = New System.Drawing.Point(134, 169)
+        Me.NumericTextBox2.MaxLength = 10
+        Me.NumericTextBox2.Name = "NumericTextBox2"
+        Me.NumericTextBox2.Size = New System.Drawing.Size(131, 21)
+        Me.NumericTextBox2.TabIndex = 6
+        Me.NumericTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'NumericTextBox1
+        '
+        Me.NumericTextBox1.AllowSpace = False
+        Me.NumericTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumericTextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericTextBox1.Location = New System.Drawing.Point(134, 142)
+        Me.NumericTextBox1.MaxLength = 10
+        Me.NumericTextBox1.Name = "NumericTextBox1"
+        Me.NumericTextBox1.Size = New System.Drawing.Size(131, 21)
+        Me.NumericTextBox1.TabIndex = 5
+        Me.NumericTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ntbSalesPrice
+        '
+        Me.ntbSalesPrice.AllowSpace = False
+        Me.ntbSalesPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ntbSalesPrice.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ntbSalesPrice.Location = New System.Drawing.Point(134, 493)
+        Me.ntbSalesPrice.Name = "ntbSalesPrice"
+        Me.ntbSalesPrice.Size = New System.Drawing.Size(131, 21)
+        Me.ntbSalesPrice.TabIndex = 18
+        Me.ntbSalesPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ntbSalesPrice.Visible = False
+        '
+        'ntbSalesDiscPercent
+        '
+        Me.ntbSalesDiscPercent.AllowSpace = False
+        Me.ntbSalesDiscPercent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ntbSalesDiscPercent.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ntbSalesDiscPercent.Location = New System.Drawing.Point(134, 467)
+        Me.ntbSalesDiscPercent.MaxLength = 3
+        Me.ntbSalesDiscPercent.Name = "ntbSalesDiscPercent"
+        Me.ntbSalesDiscPercent.Size = New System.Drawing.Size(131, 21)
+        Me.ntbSalesDiscPercent.TabIndex = 17
+        Me.ntbSalesDiscPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.ntbSalesDiscPercent.Visible = False
+        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.Label23)
@@ -723,6 +796,16 @@ Partial Class frmSKU
         Me.btnSaveD.TabIndex = 130
         Me.btnSaveD.UseVisualStyleBackColor = True
         '
+        'ntbRawQty
+        '
+        Me.ntbRawQty.AllowSpace = False
+        Me.ntbRawQty.Location = New System.Drawing.Point(365, 29)
+        Me.ntbRawQty.MaxLength = 3
+        Me.ntbRawQty.Name = "ntbRawQty"
+        Me.ntbRawQty.Size = New System.Drawing.Size(40, 21)
+        Me.ntbRawQty.TabIndex = 129
+        Me.ntbRawQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'ListView2
         '
         Me.ListView2.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -736,6 +819,16 @@ Partial Class frmSKU
         Me.ListView2.TabIndex = 5
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.List
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(515, 541)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Sales Price"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'TabPage2
         '
@@ -785,7 +878,7 @@ Partial Class frmSKU
         Me.chbIsFinishedGoods2.AutoSize = True
         Me.chbIsFinishedGoods2.Location = New System.Drawing.Point(226, 50)
         Me.chbIsFinishedGoods2.Name = "chbIsFinishedGoods2"
-        Me.chbIsFinishedGoods2.Size = New System.Drawing.Size(98, 17)
+        Me.chbIsFinishedGoods2.Size = New System.Drawing.Size(99, 17)
         Me.chbIsFinishedGoods2.TabIndex = 80
         Me.chbIsFinishedGoods2.Text = "Finished Goods"
         Me.chbIsFinishedGoods2.UseVisualStyleBackColor = True
@@ -846,99 +939,6 @@ Partial Class frmSKU
         Me.cmbFilterBy.Name = "cmbFilterBy"
         Me.cmbFilterBy.Size = New System.Drawing.Size(136, 21)
         Me.cmbFilterBy.TabIndex = 74
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(515, 541)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Sales Price"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'NumericTextBox4
-        '
-        Me.NumericTextBox4.AllowSpace = False
-        Me.NumericTextBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericTextBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericTextBox4.Location = New System.Drawing.Point(134, 223)
-        Me.NumericTextBox4.MaxLength = 10
-        Me.NumericTextBox4.Name = "NumericTextBox4"
-        Me.NumericTextBox4.Size = New System.Drawing.Size(131, 21)
-        Me.NumericTextBox4.TabIndex = 8
-        Me.NumericTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NumericTextBox3
-        '
-        Me.NumericTextBox3.AllowSpace = False
-        Me.NumericTextBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericTextBox3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericTextBox3.Location = New System.Drawing.Point(134, 196)
-        Me.NumericTextBox3.MaxLength = 10
-        Me.NumericTextBox3.Name = "NumericTextBox3"
-        Me.NumericTextBox3.Size = New System.Drawing.Size(131, 21)
-        Me.NumericTextBox3.TabIndex = 7
-        Me.NumericTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NumericTextBox2
-        '
-        Me.NumericTextBox2.AllowSpace = False
-        Me.NumericTextBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericTextBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericTextBox2.Location = New System.Drawing.Point(134, 169)
-        Me.NumericTextBox2.MaxLength = 10
-        Me.NumericTextBox2.Name = "NumericTextBox2"
-        Me.NumericTextBox2.Size = New System.Drawing.Size(131, 21)
-        Me.NumericTextBox2.TabIndex = 6
-        Me.NumericTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'NumericTextBox1
-        '
-        Me.NumericTextBox1.AllowSpace = False
-        Me.NumericTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NumericTextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericTextBox1.Location = New System.Drawing.Point(134, 142)
-        Me.NumericTextBox1.MaxLength = 10
-        Me.NumericTextBox1.Name = "NumericTextBox1"
-        Me.NumericTextBox1.Size = New System.Drawing.Size(131, 21)
-        Me.NumericTextBox1.TabIndex = 5
-        Me.NumericTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ntbSalesPrice
-        '
-        Me.ntbSalesPrice.AllowSpace = False
-        Me.ntbSalesPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ntbSalesPrice.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ntbSalesPrice.Location = New System.Drawing.Point(134, 493)
-        Me.ntbSalesPrice.Name = "ntbSalesPrice"
-        Me.ntbSalesPrice.Size = New System.Drawing.Size(131, 21)
-        Me.ntbSalesPrice.TabIndex = 18
-        Me.ntbSalesPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ntbSalesPrice.Visible = False
-        '
-        'ntbSalesDiscPercent
-        '
-        Me.ntbSalesDiscPercent.AllowSpace = False
-        Me.ntbSalesDiscPercent.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ntbSalesDiscPercent.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ntbSalesDiscPercent.Location = New System.Drawing.Point(134, 467)
-        Me.ntbSalesDiscPercent.MaxLength = 3
-        Me.ntbSalesDiscPercent.Name = "ntbSalesDiscPercent"
-        Me.ntbSalesDiscPercent.Size = New System.Drawing.Size(131, 21)
-        Me.ntbSalesDiscPercent.TabIndex = 17
-        Me.ntbSalesDiscPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.ntbSalesDiscPercent.Visible = False
-        '
-        'ntbRawQty
-        '
-        Me.ntbRawQty.AllowSpace = False
-        Me.ntbRawQty.Location = New System.Drawing.Point(365, 29)
-        Me.ntbRawQty.MaxLength = 3
-        Me.ntbRawQty.Name = "ntbRawQty"
-        Me.ntbRawQty.Size = New System.Drawing.Size(40, 21)
-        Me.ntbRawQty.TabIndex = 129
-        Me.ntbRawQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmSKU
         '
