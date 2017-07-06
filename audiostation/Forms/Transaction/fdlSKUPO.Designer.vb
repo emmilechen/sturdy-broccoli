@@ -95,9 +95,9 @@ Partial Class fdlSKUPO
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(12, 344)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(63, 13)
+        Me.Label21.Size = New System.Drawing.Size(74, 13)
         Me.Label21.TabIndex = 63
-        Me.Label21.Text = "Stock Name"
+        Me.Label21.Text = "Product Name"
         '
         'cmbSKUType
         '
@@ -126,9 +126,9 @@ Partial Class fdlSKUPO
         Me.Label22.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.Location = New System.Drawing.Point(299, 344)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(52, 13)
+        Me.Label22.Size = New System.Drawing.Size(73, 13)
         Me.Label22.TabIndex = 119
-        Me.Label22.Text = "Category"
+        Me.Label22.Text = "Sub Category"
         '
         'cbCategory
         '
@@ -159,7 +159,7 @@ Partial Class fdlSKUPO
         Me.Name = "fdlSKUPO"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Stock"
+        Me.Text = "Product"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()

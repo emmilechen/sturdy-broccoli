@@ -326,11 +326,11 @@ Public Class frmPRequest
         With ListView1
             .Clear()
             .View = View.Details
-            .Columns.Add("PRequestId", 0)
+            .Columns.Add("prequest_id", 0)
             .Columns.Add("Type", 0)
             .Columns.Add("Line Type", 90)
-            .Columns.Add("SKU Id", 0)
-            .Columns.Add("Stock Code", 90)
+            .Columns.Add("sku_id", 0)
+            .Columns.Add("Code", 90)
             .Columns.Add("Line Description", 250)
             .Columns.Add("Qty", 60, HorizontalAlignment.Right)
             .Columns.Add("UoM", 60)

@@ -464,6 +464,8 @@ Public Class frmPO
         'txtPOTotal.ReadOnly = isLock
 
         If m_POStatus = "FR" Or m_POStatus = "I" Or m_POStatus = "P" Then btnEdit.Enabled = False Else btnEdit.Enabled = isLock
+        If m_POStatus = "PR" Then btnClosePO.Enabled = Not isLock Else btnClosePO.Enabled = False
+
         btnAdd.Enabled = isLock
         btnSave.Enabled = Not isLock
         btnCancel.Enabled = Not isLock
@@ -1356,6 +1358,23 @@ Public Class frmPO
         'Set autorefresh form 
         If Application.OpenForms().OfType(Of frmPOList).Any Then
             Call frmPOList.frmPOListShow(Nothing, EventArgs.Empty)
+        End If
+    End Sub
+
+    Private Sub btnClosePO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClosePO.Click
+        If MsgBox("Are you sure you want to close this Purchase Order?", vbYesNo + vbCritical, Me.Text) = vbYes Then
+            cmd = New SqlCommand("usp_tr_po_CLOSE", cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+            prm1.Value = m_POId
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            prm2.Value = My.Settings.UserName
+
+            cn.Open()
+            cmd.ExecuteReader()
+            cn.Close()
+            btnAdd_Click(sender, e)
         End If
     End Sub
 End Class

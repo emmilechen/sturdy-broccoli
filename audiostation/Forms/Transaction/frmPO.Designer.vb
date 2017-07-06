@@ -117,6 +117,7 @@ Partial Class frmPO
         Me.ntbPOQty = New boxtree.NumericTextBox()
         Me.txtPPitchingNo = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.btnClosePO = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -979,12 +980,23 @@ Partial Class frmPO
         Me.Label30.TabIndex = 110
         Me.Label30.Text = "Pitching No."
         '
+        'btnClosePO
+        '
+        Me.btnClosePO.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClosePO.Location = New System.Drawing.Point(449, 561)
+        Me.btnClosePO.Name = "btnClosePO"
+        Me.btnClosePO.Size = New System.Drawing.Size(84, 26)
+        Me.btnClosePO.TabIndex = 111
+        Me.btnClosePO.Text = "Close PO"
+        Me.btnClosePO.UseVisualStyleBackColor = True
+        '
         'frmPO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1178, 594)
+        Me.Controls.Add(Me.btnClosePO)
         Me.Controls.Add(Me.txtPPitchingNo)
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.DataGridView1)
@@ -1178,5 +1190,6 @@ Partial Class frmPO
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txtPPitchingNo As System.Windows.Forms.TextBox
     Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents btnClosePO As System.Windows.Forms.Button
 
 End Class
