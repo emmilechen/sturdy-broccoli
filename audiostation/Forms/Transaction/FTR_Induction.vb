@@ -14,75 +14,16 @@ Public Class FTR_Induction
             End If
         Next
     End Function
-    Private Sub ClearTextBox(ByVal root As Control)
-        On Error Resume Next
-        For Each ctrl As Control In root.Controls
-            ClearTextBox(ctrl)
-            If TypeOf ctrl Is TextBox Then
-                CType(ctrl, TextBox).Text = String.Empty
-            End If
-            If TypeOf ctrl Is DateTimePicker Then
-                CType(ctrl, DateTimePicker).Format = DateTimePickerFormat.Custom : CType(ctrl, DateTimePicker).CustomFormat = "yyyy-MM-dd" : CType(ctrl, DateTimePicker).Text = Now.Date
-            End If
-        Next ctrl
-    End Sub
-    Private Sub ClearCheckBox(ByVal root As Control)
-        On Error Resume Next
-        For Each ctrl As Control In root.Controls
-            ClearCheckBox(ctrl)
-            If TypeOf ctrl Is CheckBox Then
-                CType(ctrl, CheckBox).Checked = False
-                CType(ctrl, CheckBox).Text = ""
-            End If
-        Next ctrl
-    End Sub
     Private Function kosong()
-        ClearTextBox(Me) : ClearCheckBox(Me)
+        ClearObjectonForm(Me) : ClearCheckBoxonForm(Me)
         Me.DateTimePicker1.Focus() : Me.CheckBox37.Text = "&Semua" : Me.CheckBox41.Text = "&Semua" : Me.CheckBox42.Text = "&Semua" : Me.CheckBox43.Text = "&Semua" : Me.CheckBox44.Text = "&Semua" : Me.CheckBox45.Text = "&Semua" : Me.CheckBox46.Text = "&Semua"
-        assignvaltocombo(Me.ComboBox1, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
-        assignvaltocombo(Me.ComboBox2, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
-        assignvaltocombo(Me.ComboBox3, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
-        assignvaltocombo(Me.ComboBox4, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
-        assignvaltocombo(Me.ComboBox5, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
-        assignvaltocombo(Me.ComboBox11, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
+        AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
+        AssignValuetoCombo(Me.ComboBox2, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
+        AssignValuetoCombo(Me.ComboBox3, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
+        AssignValuetoCombo(Me.ComboBox4, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
+        AssignValuetoCombo(Me.ComboBox5, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
+        AssignValuetoCombo(Me.ComboBox11, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
         Me.cmdsave.Text = "&Save"
-        '  select sys_dropdown_id, sys_dropdown_val from sys_dropdown where sys_dropdown_whr='sid_status' order by sys_dropdown_sort
-    End Function
-    Private Function assignvaltocombo(ByVal namacombo As ComboBox, strunion As String, fieldkey As String, fieldteks As String, namatabel As String, kondisi As String, sortby As String)
-        '==========================================Fill Combo Template=========================================
-        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by guidstr", cn)
-        Dim DS As New DataSet
-
-        DA.Fill(DS, "event")
-
-        Dim dt As New DataTable
-        dt.Columns.Add("nama", GetType(System.String))
-        dt.Columns.Add("guidstr", GetType(System.String))
-        '
-        ' Populate the DataTable to bind to the Combobox.
-        '
-        Dim drDSRow As DataRow
-        Dim drNewRow As DataRow
-
-        For Each drDSRow In DS.Tables("event").Rows()
-            drNewRow = dt.NewRow()
-            drNewRow("nama") = drDSRow("nama")
-            drNewRow("guidstr") = drDSRow("guidstr")
-            dt.Rows.Add(drNewRow)
-        Next
-
-        namacombo.DropDownStyle = ComboBoxStyle.DropDownList
-        With namacombo
-            .DataSource = dt
-            .DisplayMember = "nama"
-            .ValueMember = "guidstr"
-            .SelectedIndex = 0
-        End With
-        namacombo.SelectedValue = ""
-
-        DA.Dispose()
-        DS.Dispose()
-        '==========================================END Fill combo Combo1=========================================
     End Function
     Private Function isirecord(ByVal guidno As String)
         If cn.State = ConnectionState.Closed Then cn.Open()
@@ -261,7 +202,6 @@ Public Class FTR_Induction
             'kosong()
         End If
     End Sub
-
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
         Dim strsql As String
         If ComboBox5.SelectedValue = "" Then Exit Sub
@@ -444,39 +384,30 @@ Public Class FTR_Induction
             End If
         End If
     End Sub
-
     Private Sub CheckBox37_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox37.CheckedChanged
         checkall(Me.Panel6, Me.CheckBox37)
     End Sub
-
     Private Sub CheckBox41_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox41.CheckedChanged
         checkall(Me.Panel8, Me.CheckBox41)
     End Sub
-
     Private Sub CheckBox42_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox42.CheckedChanged
         checkall(Me.Panel7, Me.CheckBox42)
     End Sub
-
     Private Sub CheckBox43_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox43.CheckedChanged
         checkall(Me.Panel12, Me.CheckBox43)
     End Sub
-
     Private Sub CheckBox44_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox44.CheckedChanged
         checkall(Me.Panel3, Me.CheckBox44)
     End Sub
-
     Private Sub CheckBox45_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox45.CheckedChanged
         checkall(Me.Panel4, Me.CheckBox45)
     End Sub
-
     Private Sub CheckBox46_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox46.CheckedChanged
         checkall(Me.Panel10, Me.CheckBox46)
     End Sub
-
     Private Sub TextBox2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox2.KeyPress
         If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
     End Sub
-
     Private Sub TextBox3_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox3.KeyPress
         If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
     End Sub
@@ -558,7 +489,6 @@ Public Class FTR_Induction
     Private Sub TextBox43_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox43.KeyPress
         If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
     End Sub
-
     Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
@@ -591,7 +521,6 @@ Public Class FTR_Induction
             .myCrystalReportViewer.ReportSource = cr
         End With
     End Sub
-
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles cmdfind.Click
         'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
         Dim child As New FDLSearch()
@@ -600,7 +529,6 @@ Public Class FTR_Induction
             Me.txtguid.Text = child.txtChildText0.Text
         End If
     End Sub
-
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         Dim xno As String
         If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
