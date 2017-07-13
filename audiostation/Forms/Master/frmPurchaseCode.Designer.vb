@@ -33,7 +33,6 @@ Partial Class frmPurchaseCode
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtPchCodeRemarks = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
@@ -159,18 +158,6 @@ Partial Class frmPurchaseCode
         Me.lblCurrentRecord.TabIndex = 37
         Me.lblCurrentRecord.Text = "Selected record:"
         '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(647, 12)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(166, 25)
-        Me.Label6.TabIndex = 62
-        Me.Label6.Text = "Purchase Code"
-        '
         'Label4
         '
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -200,7 +187,6 @@ Partial Class frmPurchaseCode
         Me.ClientSize = New System.Drawing.Size(813, 361)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtPchCodeRemarks)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnEdit)
@@ -233,7 +219,6 @@ Partial Class frmPurchaseCode
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtPchCodeRemarks As System.Windows.Forms.TextBox
 End Class

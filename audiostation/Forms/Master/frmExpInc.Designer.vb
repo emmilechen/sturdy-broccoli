@@ -35,7 +35,6 @@ Partial Class frmExpInc
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
@@ -167,18 +166,6 @@ Partial Class frmExpInc
         Me.lblCurrentRecord.TabIndex = 45
         Me.lblCurrentRecord.Text = "Selected record:"
         '
-        'Label14
-        '
-        Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(841, 6)
-        Me.Label14.Name = "Label14"
-        Me.Label14.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label14.Size = New System.Drawing.Size(190, 25)
-        Me.Label14.TabIndex = 62
-        Me.Label14.Text = "Expense/Income"
-        '
         'cmbItemType
         '
         Me.cmbItemType.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -251,7 +238,6 @@ Partial Class frmExpInc
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbItemType)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnEdit)
@@ -284,7 +270,6 @@ Partial Class frmExpInc
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents cmbItemType As System.Windows.Forms.ComboBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList

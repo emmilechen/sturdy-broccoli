@@ -139,11 +139,14 @@ err_btnSave_Click:
 
     Sub clear_obj()
         m_UoMId = 0
-        txtCode.Text = ""
-        txtName.Text = ""
-        txtUoMPch.Text = ""
-        txtUoMSls.Text = ""
-        ntbUoMConversionRate.Text = ""
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is TextBox Then ctrl.Text = ""
+        Next
+        'txtCode.Text = ""
+        'txtName.Text = ""
+        'txtUoMPch.Text = ""
+        'txtUoMSls.Text = ""
+        'ntbUoMConversionRate.Text = ""
     End Sub
 
     Sub lock_obj(ByVal isLock As Boolean)

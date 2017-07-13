@@ -60,7 +60,6 @@ Partial Class frmCustomer
         Me.Label15 = New System.Windows.Forms.Label()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
         Me.cmbCCategory = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.txtCBalance = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -488,18 +487,6 @@ Partial Class frmCustomer
         Me.cmbCCategory.Size = New System.Drawing.Size(136, 21)
         Me.cmbCCategory.TabIndex = 2
         '
-        'Label16
-        '
-        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(922, 6)
-        Me.Label16.Name = "Label16"
-        Me.Label16.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label16.Size = New System.Drawing.Size(113, 25)
-        Me.Label16.TabIndex = 62
-        Me.Label16.Text = "Customer"
-        '
         'txtCBalance
         '
         Me.txtCBalance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -735,7 +722,6 @@ Partial Class frmCustomer
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(1047, 672)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.txtFilter)
         Me.Controls.Add(Me.Label6)
@@ -798,7 +784,6 @@ Partial Class frmCustomer
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents cmbCCategory As System.Windows.Forms.ComboBox
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents txtCBalance As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label

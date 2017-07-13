@@ -35,7 +35,6 @@ Partial Class frmAccount
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.txtAccountBalance = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.cmbAccountCategory = New System.Windows.Forms.ComboBox()
@@ -43,10 +42,10 @@ Partial Class frmAccount
         Me.mtbAccountCode = New System.Windows.Forms.MaskedTextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.ListView2 = New System.Windows.Forms.ListView()
         Me.cmbAccountSubCategory = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.ListView2 = New System.Windows.Forms.ListView()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -194,18 +193,6 @@ Partial Class frmAccount
         Me.lblCurrentRecord.TabIndex = 38
         Me.lblCurrentRecord.Text = "Selected record:"
         '
-        'Label16
-        '
-        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(874, 6)
-        Me.Label16.Name = "Label16"
-        Me.Label16.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label16.Size = New System.Drawing.Size(187, 25)
-        Me.Label16.TabIndex = 62
-        Me.Label16.Text = "Chart of Account"
-        '
         'txtAccountBalance
         '
         Me.txtAccountBalance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -289,6 +276,27 @@ Partial Class frmAccount
         Me.TabPage1.Text = "Primary Information"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'cmbAccountSubCategory
+        '
+        Me.cmbAccountSubCategory.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbAccountSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAccountSubCategory.FormattingEnabled = True
+        Me.cmbAccountSubCategory.Location = New System.Drawing.Point(139, 97)
+        Me.cmbAccountSubCategory.Name = "cmbAccountSubCategory"
+        Me.cmbAccountSubCategory.Size = New System.Drawing.Size(233, 21)
+        Me.cmbAccountSubCategory.TabIndex = 105
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(15, 97)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(124, 13)
+        Me.Label3.TabIndex = 106
+        Me.Label3.Text = "Account Sub Category *"
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.ListView2)
@@ -314,34 +322,12 @@ Partial Class frmAccount
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.List
         '
-        'cmbAccountSubCategory
-        '
-        Me.cmbAccountSubCategory.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbAccountSubCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbAccountSubCategory.FormattingEnabled = True
-        Me.cmbAccountSubCategory.Location = New System.Drawing.Point(139, 97)
-        Me.cmbAccountSubCategory.Name = "cmbAccountSubCategory"
-        Me.cmbAccountSubCategory.Size = New System.Drawing.Size(233, 21)
-        Me.cmbAccountSubCategory.TabIndex = 105
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(15, 97)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(124, 13)
-        Me.Label3.TabIndex = 106
-        Me.Label3.Text = "Account Sub Category *"
-        '
         'frmAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1073, 587)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.txtFilter)
         Me.Controls.Add(Me.Label6)
@@ -379,7 +365,6 @@ Partial Class frmAccount
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtFilter As System.Windows.Forms.TextBox
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents txtAccountBalance As System.Windows.Forms.TextBox
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents cmbAccountCategory As System.Windows.Forms.ComboBox

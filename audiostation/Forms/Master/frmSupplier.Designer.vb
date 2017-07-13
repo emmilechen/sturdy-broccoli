@@ -65,14 +65,13 @@ Partial Class frmSupplier
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbFilterBy = New System.Windows.Forms.ComboBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -583,17 +582,15 @@ Partial Class frmSupplier
         Me.TabControl1.Size = New System.Drawing.Size(415, 531)
         Me.TabControl1.TabIndex = 3
         '
-        'Label15
+        'TabPage3
         '
-        Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(976, 13)
-        Me.Label15.Name = "Label15"
-        Me.Label15.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label15.Size = New System.Drawing.Size(97, 25)
-        Me.Label15.TabIndex = 106
-        Me.Label15.Text = "Supplier"
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(407, 505)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Product Category"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'lblCurrentRecord
         '
@@ -656,16 +653,6 @@ Partial Class frmSupplier
         Me.cmbFilterBy.Size = New System.Drawing.Size(136, 21)
         Me.cmbFilterBy.TabIndex = 0
         '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(407, 505)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Product Category"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
         'frmSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -676,7 +663,6 @@ Partial Class frmSupplier
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnCancel)
@@ -739,7 +725,6 @@ Partial Class frmSupplier
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button

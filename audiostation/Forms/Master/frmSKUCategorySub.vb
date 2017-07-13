@@ -182,11 +182,14 @@ err_btnSave_Click:
         m_CategorySubId = 0
         m_CategoryId = 0
         m_AccountId = 0
-        txtSubCategoryCode.Text = ""
-        txtSubCategoryName.Text = ""
-        txtSubCategoryRemarks.Text = ""
-        txtAccountCode.Text = ""
-        txtCategoryCode.Text = ""
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is TextBox Then ctrl.Text = ""
+        Next
+        'txtSubCategoryCode.Text = ""
+        'txtSubCategoryName.Text = ""
+        'txtSubCategoryRemarks.Text = ""
+        'txtAccountCode.Text = ""
+        'txtCategoryCode.Text = ""
     End Sub
 
     Sub lock_obj(ByVal isLock As Boolean)

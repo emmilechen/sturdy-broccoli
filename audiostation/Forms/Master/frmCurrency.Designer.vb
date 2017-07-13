@@ -33,7 +33,6 @@ Partial Class frmCurrency
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.chbBaseCurr = New System.Windows.Forms.CheckBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.dtpEffectiveDate = New System.Windows.Forms.DateTimePicker()
@@ -164,18 +163,6 @@ Partial Class frmCurrency
         Me.lblCurrentRecord.TabIndex = 37
         Me.lblCurrentRecord.Text = "Selected record:"
         '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(696, 12)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(105, 25)
-        Me.Label6.TabIndex = 62
-        Me.Label6.Text = "Currency"
-        '
         'chbBaseCurr
         '
         Me.chbBaseCurr.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -262,7 +249,6 @@ Partial Class frmCurrency
         Me.Controls.Add(Me.ntbCurrRate)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.chbBaseCurr)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnEdit)
@@ -295,7 +281,6 @@ Partial Class frmCurrency
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents chbBaseCurr As System.Windows.Forms.CheckBox
     Friend WithEvents ntbCurrRate As boxtree.NumericTextBox
     Friend WithEvents Label28 As System.Windows.Forms.Label

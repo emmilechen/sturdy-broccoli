@@ -214,7 +214,7 @@ Partial Class frmSKUUoM
         Me.txtUoMSls.Location = New System.Drawing.Point(641, 121)
         Me.txtUoMSls.Name = "txtUoMSls"
         Me.txtUoMSls.Size = New System.Drawing.Size(259, 21)
-        Me.txtUoMSls.TabIndex = 120
+        Me.txtUoMSls.TabIndex = 3
         Me.txtUoMSls.Tag = "uom_sls"
         '
         'ntbUoMConversionRate
@@ -226,7 +226,7 @@ Partial Class frmSKUUoM
         Me.ntbUoMConversionRate.MaxLength = 10
         Me.ntbUoMConversionRate.Name = "ntbUoMConversionRate"
         Me.ntbUoMConversionRate.Size = New System.Drawing.Size(104, 21)
-        Me.ntbUoMConversionRate.TabIndex = 122
+        Me.ntbUoMConversionRate.TabIndex = 4
         Me.ntbUoMConversionRate.Tag = "uom_conversion_rate"
         Me.ntbUoMConversionRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
