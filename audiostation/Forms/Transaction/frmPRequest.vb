@@ -26,7 +26,6 @@ Public Class frmPRequest
     Private docPO As ReportDocument
 
     Private Sub frmPRequest_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
         ToolTip1.SetToolTip(btnSKU, "Search Stock")
         ToolTip1.SetToolTip(btnSaveD, "Save Line")
         ToolTip1.SetToolTip(btnDeleteD, "Delete Line")
@@ -107,19 +106,6 @@ Public Class frmPRequest
 
         myReader.Close()
         cn.Close()
-
-        Select Case m_FrmCallerId
-            Case "frmPRequestList"
-                btnSubmitApproval.Visible = True
-                btnVoid.Visible = True
-                btnApprove.Visible = False
-                btnReject.Visible = False
-            Case "frmPRequestApprovalList"
-                btnSubmitApproval.Visible = False
-                btnVoid.Visible = False
-                btnApprove.Visible = True
-                btnReject.Visible = True
-        End Select
 
         If m_PRequestId = 0 Then
             btnAdd_Click(sender, e)
@@ -288,7 +274,21 @@ Public Class frmPRequest
         If m_PRequestStatus = "A" And isClosed = False Then btnCloseRequest.Enabled = isLock Else btnCloseRequest.Enabled = False
         If m_PRequestStatus = "D" Or m_PRequestStatus = "R" Or (m_FrmCallerId = "frmPRequestApprovalList" And m_PRequestStatus = "W") Then btnEdit.Enabled = isLock Else btnEdit.Enabled = False
         btnPchCode.Enabled = Not isLock
-        If m_FrmCallerId = "frmPRequestApprovalList" Then btnAdd.Enabled = False Else btnAdd.Enabled = isLock
+        Select Case m_FrmCallerId
+            Case "frmPRequestList"
+                btnSubmitApproval.Visible = True
+                btnVoid.Visible = True
+                btnApprove.Visible = False
+                btnReject.Visible = False
+                btnAdd.Enabled = isLock
+            Case "frmPRequestApprovalList"
+                btnSubmitApproval.Visible = False
+                btnVoid.Visible = False
+                btnApprove.Visible = True
+                btnReject.Visible = True
+                btnAdd.Enabled = False
+        End Select
+        'If m_FrmCallerId = "frmPRequestApprovalList" Then btnAdd.Enabled = False Else btnAdd.Enabled = isLock
         btnSave.Enabled = Not isLock
         btnCancel.Enabled = Not isLock
         btnPrint.Enabled = isLock

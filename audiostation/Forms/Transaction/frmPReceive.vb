@@ -349,7 +349,7 @@ Public Class frmPReceive
             .Columns.Add("po_dtl_type", 0)
             .Columns.Add("Line Type", 90)
             .Columns.Add("po_dtl_id", 0)
-            .Columns.Add("Stock Code", 90)
+            .Columns.Add("Code", 90)
             .Columns.Add("Line Description", 250)
             .Columns.Add("location_id", 0)
             .Columns.Add("Location Code", 90)

@@ -75,7 +75,23 @@ Public Class fdlCustomer
     End Sub
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
-        Select m_FrmCallerId
+        Select Case m_FrmCallerId
+            Case "frmSQuote"
+                With frmSQuote
+                    .CId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .CCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
+                    .CName = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                    .CContact = ListView1.SelectedItems.Item(0).SubItems.Item(5).Text
+                    .PaymentTerms = ListView1.SelectedItems.Item(0).SubItems.Item(11).Text
+                    .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
+                    .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
+                    '    .ntbSOCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbSOCurrRate.ReadOnly = False
+                    'End If
+                    .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
+                End With
             Case "frmSO"
                 With frmSO
                     .CId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
@@ -85,11 +101,11 @@ Public Class fdlCustomer
                     .PaymentTerms = ListView1.SelectedItems.Item(0).SubItems.Item(11).Text
                     .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
                     .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
-                    If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
-                        .ntbSOCurrRate.ReadOnly = True
-                    Else
-                        .ntbSOCurrRate.ReadOnly = False
-                    End If
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
+                    '    .ntbSOCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbSOCurrRate.ReadOnly = False
+                    'End If
                     .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
                 End With
             Case "frmSInvoice"
@@ -99,11 +115,11 @@ Public Class fdlCustomer
                     .CName = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
                     .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
                     .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
-                    If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
-                        .ntbSInvCurrRate.ReadOnly = True
-                    Else
-                        .ntbSInvCurrRate.ReadOnly = False
-                    End If
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
+                    '    .ntbSInvCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbSInvCurrRate.ReadOnly = False
+                    'End If
                     .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
                     .SOId = 0
                     .SONo = ""
@@ -116,11 +132,11 @@ Public Class fdlCustomer
                     .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
                     .CurrCustId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
                     .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
-                    If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
-                        .ntbSPaymentCurrRate.ReadOnly = True
-                    Else
-                        .ntbSPaymentCurrRate.ReadOnly = False
-                    End If
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
+                    '    .ntbSPaymentCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbSPaymentCurrRate.ReadOnly = False
+                    'End If
                     .CurrCustCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
                     .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
                     .CurrPaymentRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
@@ -142,11 +158,11 @@ Public Class fdlCustomer
                     .CName = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
                     .CurrId = ListView1.SelectedItems.Item(0).SubItems.Item(16).Text
                     .CurrCode = ListView1.SelectedItems.Item(0).SubItems.Item(17).Text
-                    If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
-                        .ntbSInvCurrRate.ReadOnly = True
-                    Else
-                        .ntbSInvCurrRate.ReadOnly = False
-                    End If
+                    'If ListView1.SelectedItems.Item(0).SubItems.Item(17).Text = "IDR" Then
+                    '    .ntbSInvCurrRate.ReadOnly = True
+                    'Else
+                    '    .ntbSInvCurrRate.ReadOnly = False
+                    'End If
                     .CurrRate = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(18).Text)
                 End With
         End Select

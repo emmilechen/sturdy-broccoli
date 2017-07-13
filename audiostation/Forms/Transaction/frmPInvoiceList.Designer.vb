@@ -29,7 +29,6 @@ Partial Class frmPInvoiceList
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chbDate = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.cmbStatus = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -53,10 +52,10 @@ Partial Class frmPInvoiceList
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(11, 141)
+        Me.ListView1.Location = New System.Drawing.Point(11, 110)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(711, 421)
+        Me.ListView1.Size = New System.Drawing.Size(719, 452)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -65,7 +64,7 @@ Partial Class frmPInvoiceList
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(638, 573)
+        Me.btnEdit.Location = New System.Drawing.Point(646, 573)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 5
@@ -76,7 +75,7 @@ Partial Class frmPInvoiceList
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(548, 573)
+        Me.btnAdd.Location = New System.Drawing.Point(556, 573)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 4
@@ -98,9 +97,10 @@ Partial Class frmPInvoiceList
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.chbDate)
+        Me.GroupBox1.Controls.Add(Me.btnFilter)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.cmbStatus)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -113,7 +113,7 @@ Partial Class frmPInvoiceList
         Me.GroupBox1.Controls.Add(Me.txtPInvoiceNo)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(710, 98)
+        Me.GroupBox1.Size = New System.Drawing.Size(718, 98)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter By"
@@ -137,18 +137,6 @@ Partial Class frmPInvoiceList
         Me.Label7.Size = New System.Drawing.Size(38, 13)
         Me.Label7.TabIndex = 79
         Me.Label7.Text = "Status"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(513, 10)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(191, 25)
-        Me.Label6.TabIndex = 71
-        Me.Label6.Text = "Purchase Invoice"
         '
         'cmbStatus
         '
@@ -245,7 +233,7 @@ Partial Class frmPInvoiceList
         '
         Me.btnFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(638, 110)
+        Me.btnFilter.Location = New System.Drawing.Point(628, 67)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(84, 26)
         Me.btnFilter.TabIndex = 2
@@ -256,7 +244,7 @@ Partial Class frmPInvoiceList
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(548, 110)
+        Me.btnClear.Location = New System.Drawing.Point(538, 67)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(84, 26)
         Me.btnClear.TabIndex = 1
@@ -267,9 +255,7 @@ Partial Class frmPInvoiceList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(734, 608)
-        Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.btnFilter)
+        Me.ClientSize = New System.Drawing.Size(742, 608)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblCurrentRecord)
         Me.Controls.Add(Me.btnEdit)
@@ -291,7 +277,6 @@ Partial Class frmPInvoiceList
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents dtpPInvoiceDateTo As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpPInvoiceDateFrom As System.Windows.Forms.DateTimePicker

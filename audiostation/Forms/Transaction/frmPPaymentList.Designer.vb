@@ -33,7 +33,6 @@ Partial Class frmPPaymentList
         Me.lblCurrentRecord = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chbDate = New System.Windows.Forms.CheckBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtpAPDateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtpAPDateTo = New System.Windows.Forms.DateTimePicker()
@@ -49,10 +48,10 @@ Partial Class frmPPaymentList
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 148)
+        Me.ListView1.Location = New System.Drawing.Point(12, 116)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(647, 417)
+        Me.ListView1.Size = New System.Drawing.Size(671, 449)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -76,7 +75,7 @@ Partial Class frmPPaymentList
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(574, 571)
+        Me.btnEdit.Location = New System.Drawing.Point(598, 571)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 5
@@ -87,7 +86,7 @@ Partial Class frmPPaymentList
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(484, 571)
+        Me.btnAdd.Location = New System.Drawing.Point(508, 571)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 4
@@ -118,7 +117,7 @@ Partial Class frmPPaymentList
         '
         Me.btnFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(574, 116)
+        Me.btnFilter.Location = New System.Drawing.Point(581, 66)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(84, 26)
         Me.btnFilter.TabIndex = 2
@@ -140,10 +139,11 @@ Partial Class frmPPaymentList
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.chbDate)
-        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.dtpAPDateFrom)
+        Me.GroupBox1.Controls.Add(Me.btnFilter)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.dtpAPDateTo)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -151,7 +151,7 @@ Partial Class frmPPaymentList
         Me.GroupBox1.Controls.Add(Me.txtAPNo)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(647, 98)
+        Me.GroupBox1.Size = New System.Drawing.Size(671, 98)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter By"
@@ -165,18 +165,6 @@ Partial Class frmPPaymentList
         Me.chbDate.TabIndex = 0
         Me.chbDate.Text = "From Date"
         Me.chbDate.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(434, 12)
-        Me.Label5.Name = "Label5"
-        Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(207, 25)
-        Me.Label5.TabIndex = 71
-        Me.Label5.Text = "Purchase Payment"
         '
         'Label7
         '
@@ -208,7 +196,7 @@ Partial Class frmPPaymentList
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(484, 116)
+        Me.btnClear.Location = New System.Drawing.Point(491, 66)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(84, 26)
         Me.btnClear.TabIndex = 1
@@ -219,11 +207,9 @@ Partial Class frmPPaymentList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(670, 609)
-        Me.Controls.Add(Me.btnClear)
+        Me.ClientSize = New System.Drawing.Size(694, 609)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblCurrentRecord)
-        Me.Controls.Add(Me.btnFilter)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.ListView1)
@@ -248,7 +234,6 @@ Partial Class frmPPaymentList
     Friend WithEvents btnFilter As System.Windows.Forms.Button
     Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents dtpAPDateFrom As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpAPDateTo As System.Windows.Forms.DateTimePicker

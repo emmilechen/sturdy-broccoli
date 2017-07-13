@@ -37,19 +37,20 @@ Public Class fdlSKUSO
     Private Sub fdlSKUSO_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         cmbSKUType.Items.Clear()
         cmbSKUType.Items.Add("Stock")
-        cmbSKUType.Items.Add("Stock Set")
+        'cmbSKUType.Items.Add("Stock Set")
 
-        cmd = New SqlCommand("sp_mt_sku_cat_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_category_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int)
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@category_id", SqlDbType.Int)
         prm1.Value = 0
+        Dim prm2 = cmd.Parameters.Add("@is_sub_category", SqlDbType.Bit)
+        prm2.Value = 1
 
         cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader
 
-        'cmbSKUCategory.Items.Add(New clsMyListInt("", 0))
-
+        cmbSKUCategory.Items.Add(New clsMyListInt("All", 0))
         Do While myReader.Read
             cmbSKUCategory.Items.Add(New clsMyListInt(myReader.GetString(1), myReader.GetInt32(0)))
         Loop
@@ -81,16 +82,30 @@ Public Class fdlSKUSO
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         'If cmbSKUType.SelectedIndex = 0 Then
-        With frmSO
-            .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
-            .SKUCode = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
-            .SKUName = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text
-            .SalesDiscount = ListView1.SelectedItems.Item(0).SubItems.Item(5).Text * 100
-            '.SalesPrice = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text) / .ntbSOCurrRate.DecimalValue, Dec)
-            .SalesPrice = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text, Dec)
-            .SKUPackageCheck = ListView1.SelectedItems.Item(0).SubItems.Item(10).Text
-        End With
-
+        Select m_FrmCallerId
+            Case "frmSQuote"
+                With frmSQuote
+                    .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .SKUCode = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                    .SKUName = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text
+                    .SalesDiscount = ListView1.SelectedItems.Item(0).SubItems.Item(5).Text * 100
+                    '.SalesPrice = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text) / .ntbSOCurrRate.DecimalValue, Dec)
+                    .SalesPrice = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text, Dec)
+                    '.SKUPackageCheck = ListView1.SelectedItems.Item(0).SubItems.Item(10).Text
+                    '.SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(13).Text
+                End With
+            Case "frmSO"
+                With frmSO
+                    .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .SKUCode = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                    .SKUName = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text
+                    .SalesDiscount = ListView1.SelectedItems.Item(0).SubItems.Item(5).Text * 100
+                    '.SalesPrice = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text) / .ntbSOCurrRate.DecimalValue, Dec)
+                    .SalesPrice = FormatNumber(ListView1.SelectedItems.Item(0).SubItems.Item(6).Text, Dec)
+                    '.SKUPackageCheck = ListView1.SelectedItems.Item(0).SubItems.Item(10).Text
+                    '.SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(13).Text
+                End With
+        End Select
         'Else
         'Insert Stock Set
         'Try
@@ -138,10 +153,13 @@ Public Class fdlSKUSO
             .Columns.Add("last_cost", 0, HorizontalAlignment.Right)
             .Columns.Add("stock_value", 0, HorizontalAlignment.Right)
             .Columns.Add("Stock Balance", 90, HorizontalAlignment.Right)
-            .Columns.Add("is_package", 0)
+            .Columns.Add("is_finished_goods", 0)
+            .Columns.Add("uom_code", 0)
+            .Columns.Add("uom_pch", 0)
+            .Columns.Add("uom_sls", 0)
         End With
 
-        cmd = New SqlCommand("sp_mt_sku_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
@@ -149,11 +167,12 @@ Public Class fdlSKUSO
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 50)
         prm2.Value = IIf(txtFilter.Text = "", DBNull.Value, txtFilter.Text)
         If cmbSKUCategory.SelectedIndex > -1 Then
-            Dim prm3 As SqlParameter = cmd.Parameters.Add("@sku_cat_id", SqlDbType.Int)
+            Dim prm3 As SqlParameter = cmd.Parameters.Add("@category_id", SqlDbType.Int)
             prm3.Value = cmbSKUCategory.Items(cmbSKUCategory.SelectedIndex).ItemData
         End If
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@is_package", SqlDbType.Bit)
-        prm4.Value = IIf(cmbSKUType.SelectedIndex = 0, 0, 1)
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@is_finished_goods", SqlDbType.Bit)
+        prm4.Value = 1
+        'prm4.Value = IIf(cmbSKUType.SelectedIndex = 0, 0, 1)
         'Dim prm2 As SqlParameter = cmd.Parameters.Add(IIf(cmbSKUType.Text = "Barcode", "@sku_barcode", "@sku_name"), SqlDbType.NVarChar, 50)
         'prm2.Value = IIf(txtFilter.Text = "", DBNull.Value, txtFilter.Text)
 
@@ -181,7 +200,10 @@ Public Class fdlSKUSO
             lvItem.SubItems.Add(FormatNumber(myReader.Item(12))) 'last_cost
             lvItem.SubItems.Add(FormatNumber(myReader.Item(13))) 'stock_value
             lvItem.SubItems.Add(myReader.Item(14)) 'stock_balance
-            lvItem.SubItems.Add(myReader.GetBoolean(20)) 'is_package
+            lvItem.SubItems.Add(myReader.GetBoolean(20)) 'is_finished_goods
+            lvItem.SubItems.Add(myReader.Item(myReader.GetOrdinal("uom_code")))
+            lvItem.SubItems.Add(myReader.Item(myReader.GetOrdinal("uom_pch")))
+            lvItem.SubItems.Add(myReader.Item(myReader.GetOrdinal("uom_sls")))
             If intCurrRow Mod 2 = 0 Then
                 lvItem.BackColor = Color.Lavender
             Else

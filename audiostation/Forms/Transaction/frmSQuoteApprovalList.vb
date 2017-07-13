@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
-Public Class frmPPitchingApprovalList
+Public Class frmSQuoteApprovalList
     Private ListView1Sorter As lvColumnSorter
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -12,12 +12,12 @@ Public Class frmPPitchingApprovalList
         If ListView1.CheckedItems.Count > 0 Then
             For i = 1 To ListView1.Items.Count
                 If ListView1.Items(i - 1).Checked = True Then
-                    cmd = New SqlCommand("usp_tr_po_APPROVAL", cn)
+                    cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
                     cmd.CommandType = CommandType.StoredProcedure
 
-                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int, 255)
+                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
                     prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_status", SqlDbType.NVarChar)
+                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
                     prm2.Value = "A"
                     Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
                     prm3.Value = My.Settings.UserName
@@ -64,13 +64,13 @@ Public Class frmPPitchingApprovalList
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Dim isDeletedRecord As Boolean = False
-        cmd = New SqlCommand("usp_tr_po_SEL", cn)
+        cmd = New SqlCommand("usp_tr_so_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
         prm1.Value = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
-        prm2.Value = "ppitching"
+        prm2.Value = "squote"
 
         cn.Open()
 
@@ -85,9 +85,9 @@ Public Class frmPPitchingApprovalList
 
         If Not isDeletedRecord = False Then
             btnFilter_Click(sender, e)
-        ElseIf Not Application.OpenForms().OfType(Of frmPPitching).Any Then
-            With frmPPitching
-                .POId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+        ElseIf Not Application.OpenForms().OfType(Of frmSQuote).Any Then
+            With frmSQuote
+                .SOId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                 .FrmCallerId = Me.Name
                 .MdiParent = frmMAIN
                 .Show()
@@ -158,34 +158,34 @@ Public Class frmPPitchingApprovalList
         With ListView1
             .Clear()
             .View = View.Details
-            .Columns.Add("Purchase Pitching No.", 120)
+            .Columns.Add("Quotation No.", 120)
             .Columns.Add("Date", 90)
-            .Columns.Add("pch_code_id", 0)
-            .Columns.Add("purchase_code", 0)
+            .Columns.Add("sls_code_id", 0)
+            .Columns.Add("sales_code", 0)
             .Columns.Add("Requester", 300)
             .Columns.Add("DeliveryDate", 0)
             .Columns.Add("Remarks", 0)
-            .Columns.Add("ppitching_status", 0)
+            .Columns.Add("squote_status", 0)
             .Columns.Add("Status", 120)
         End With
 
-        cmd = New SqlCommand("usp_tr_po_SEL", cn)
+        cmd = New SqlCommand("usp_tr_so_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int, 255)
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
         prm1.Value = 0
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_no", SqlDbType.NVarChar, 50)
         prm2.Value = IIf(txtPRequestNo.Text = "", DBNull.Value, txtPRequestNo.Text)
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@ppitching_date1", SqlDbType.SmallDateTime)
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@squote_date1", SqlDbType.SmallDateTime)
         prm3.Value = IIf(isShowAll = False, dtpPRequestDateFrom.Value.Date, DBNull.Value)
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@ppitching_date2", SqlDbType.SmallDateTime)
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@squote_date2", SqlDbType.SmallDateTime)
         prm4.Value = IIf(isShowAll = False, dtpPRequestDateTo.Value.Date, DBNull.Value)
-        Dim prm5 As SqlParameter = cmd.Parameters.Add("@prequester", SqlDbType.NVarChar, 50)
+        Dim prm5 As SqlParameter = cmd.Parameters.Add("@srequester", SqlDbType.NVarChar, 50)
         prm5.Value = IIf(txtPRequester.Text = "", DBNull.Value, txtPRequester.Text)
-        Dim prm6 As SqlParameter = cmd.Parameters.Add("@ppitching_status", SqlDbType.NVarChar, 50)
+        Dim prm6 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar, 50)
         prm6.Value = "W"
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
-        prm7.Value = "ppitching"
+        prm7.Value = "squote"
 
         cn.Open()
 
@@ -226,12 +226,12 @@ Public Class frmPPitchingApprovalList
             cn.Open()
             For i = 1 To ListView1.Items.Count
                 If ListView1.Items(i - 1).Checked = True Then
-                    cmd = New SqlCommand("usp_tr_po_APPROVAL", cn)
+                    cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
                     cmd.CommandType = CommandType.StoredProcedure
 
-                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int, 255)
+                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
                     prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_status", SqlDbType.NVarChar)
+                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
                     prm2.Value = "R"
                     Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
                     prm3.Value = My.Settings.UserName

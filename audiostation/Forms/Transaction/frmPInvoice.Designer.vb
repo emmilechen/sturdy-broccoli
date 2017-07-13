@@ -106,6 +106,11 @@ Partial Class frmPInvoice
         Me.dtpPInvoiceDueDate = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPeriodId = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtPInvoiceNo
@@ -148,10 +153,10 @@ Partial Class frmPInvoice
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 235)
+        Me.ListView1.Location = New System.Drawing.Point(13, 80)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1120, 198)
+        Me.ListView1.Size = New System.Drawing.Size(1120, 136)
         Me.ListView1.TabIndex = 30
         Me.ListView1.TabStop = False
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -315,7 +320,7 @@ Partial Class frmPInvoice
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeleteD.ImageIndex = 2
         Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(1068, 161)
+        Me.btnDeleteD.Location = New System.Drawing.Point(1069, 6)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD.TabIndex = 19
@@ -336,7 +341,7 @@ Partial Class frmPInvoice
         Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveD.ImageIndex = 3
         Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(1037, 161)
+        Me.btnSaveD.Location = New System.Drawing.Point(1038, 6)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
         Me.btnSaveD.TabIndex = 18
@@ -347,7 +352,7 @@ Partial Class frmPInvoice
         Me.btnSKU.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSKU.ImageIndex = 1
         Me.btnSKU.ImageList = Me.ImageList1
-        Me.btnSKU.Location = New System.Drawing.Point(190, 206)
+        Me.btnSKU.Location = New System.Drawing.Point(191, 51)
         Me.btnSKU.Name = "btnSKU"
         Me.btnSKU.Size = New System.Drawing.Size(29, 25)
         Me.btnSKU.TabIndex = 20
@@ -368,14 +373,14 @@ Partial Class frmPInvoice
         '
         Me.cmbPODtlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPODtlType.FormattingEnabled = True
-        Me.cmbPODtlType.Location = New System.Drawing.Point(15, 208)
+        Me.cmbPODtlType.Location = New System.Drawing.Point(16, 53)
         Me.cmbPODtlType.Name = "cmbPODtlType"
         Me.cmbPODtlType.Size = New System.Drawing.Size(88, 21)
         Me.cmbPODtlType.TabIndex = 18
         '
         'txtSKUCode
         '
-        Me.txtSKUCode.Location = New System.Drawing.Point(108, 208)
+        Me.txtSKUCode.Location = New System.Drawing.Point(109, 53)
         Me.txtSKUCode.MaxLength = 50
         Me.txtSKUCode.Name = "txtSKUCode"
         Me.txtSKUCode.ReadOnly = True
@@ -385,7 +390,7 @@ Partial Class frmPInvoice
         '
         'txtPInvoiceDtlDesc
         '
-        Me.txtPInvoiceDtlDesc.Location = New System.Drawing.Point(222, 208)
+        Me.txtPInvoiceDtlDesc.Location = New System.Drawing.Point(223, 53)
         Me.txtPInvoiceDtlDesc.MaxLength = 100
         Me.txtPInvoiceDtlDesc.Name = "txtPInvoiceDtlDesc"
         Me.txtPInvoiceDtlDesc.Size = New System.Drawing.Size(209, 21)
@@ -404,7 +409,7 @@ Partial Class frmPInvoice
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(12, 189)
+        Me.Label16.Location = New System.Drawing.Point(13, 34)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 13)
         Me.Label16.TabIndex = 57
@@ -413,7 +418,7 @@ Partial Class frmPInvoice
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(109, 189)
+        Me.Label17.Location = New System.Drawing.Point(110, 34)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(32, 13)
         Me.Label17.TabIndex = 58
@@ -422,7 +427,7 @@ Partial Class frmPInvoice
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(219, 189)
+        Me.Label18.Location = New System.Drawing.Point(220, 34)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(82, 13)
         Me.Label18.TabIndex = 59
@@ -431,7 +436,7 @@ Partial Class frmPInvoice
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(550, 189)
+        Me.Label19.Location = New System.Drawing.Point(551, 34)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(29, 13)
         Me.Label19.TabIndex = 60
@@ -440,7 +445,7 @@ Partial Class frmPInvoice
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(692, 189)
+        Me.Label20.Location = New System.Drawing.Point(693, 34)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(52, 13)
         Me.Label20.TabIndex = 61
@@ -458,7 +463,7 @@ Partial Class frmPInvoice
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(874, 189)
+        Me.Label22.Location = New System.Drawing.Point(875, 34)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(39, 13)
         Me.Label22.TabIndex = 64
@@ -469,7 +474,7 @@ Partial Class frmPInvoice
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddD.ImageIndex = 4
         Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(1099, 161)
+        Me.btnAddD.Location = New System.Drawing.Point(1100, 6)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD.TabIndex = 20
@@ -478,7 +483,7 @@ Partial Class frmPInvoice
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(948, 189)
+        Me.Label23.Location = New System.Drawing.Point(949, 34)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(65, 13)
         Me.Label23.TabIndex = 67
@@ -487,7 +492,7 @@ Partial Class frmPInvoice
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(789, 189)
+        Me.Label24.Location = New System.Drawing.Point(790, 34)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(74, 13)
         Me.Label24.TabIndex = 69
@@ -496,7 +501,7 @@ Partial Class frmPInvoice
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(1067, 189)
+        Me.Label25.Location = New System.Drawing.Point(1068, 34)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(64, 13)
         Me.Label25.TabIndex = 71
@@ -504,7 +509,7 @@ Partial Class frmPInvoice
         '
         'txtSKUUoM
         '
-        Me.txtSKUUoM.Location = New System.Drawing.Point(585, 208)
+        Me.txtSKUUoM.Location = New System.Drawing.Point(586, 53)
         Me.txtSKUUoM.Name = "txtSKUUoM"
         Me.txtSKUUoM.ReadOnly = True
         Me.txtSKUUoM.Size = New System.Drawing.Size(53, 21)
@@ -514,7 +519,7 @@ Partial Class frmPInvoice
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(585, 189)
+        Me.Label26.Location = New System.Drawing.Point(586, 34)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(28, 13)
         Me.Label26.TabIndex = 73
@@ -522,7 +527,7 @@ Partial Class frmPInvoice
         '
         'txtPInvoiceGrossAmt
         '
-        Me.txtPInvoiceGrossAmt.Location = New System.Drawing.Point(745, 208)
+        Me.txtPInvoiceGrossAmt.Location = New System.Drawing.Point(746, 53)
         Me.txtPInvoiceGrossAmt.Name = "txtPInvoiceGrossAmt"
         Me.txtPInvoiceGrossAmt.ReadOnly = True
         Me.txtPInvoiceGrossAmt.Size = New System.Drawing.Size(118, 21)
@@ -531,7 +536,7 @@ Partial Class frmPInvoice
         '
         'txtPInvoiceTaxAmt
         '
-        Me.txtPInvoiceTaxAmt.Location = New System.Drawing.Point(916, 208)
+        Me.txtPInvoiceTaxAmt.Location = New System.Drawing.Point(917, 53)
         Me.txtPInvoiceTaxAmt.Name = "txtPInvoiceTaxAmt"
         Me.txtPInvoiceTaxAmt.ReadOnly = True
         Me.txtPInvoiceTaxAmt.Size = New System.Drawing.Size(97, 21)
@@ -540,7 +545,7 @@ Partial Class frmPInvoice
         '
         'txtPInvoiceNetAmt
         '
-        Me.txtPInvoiceNetAmt.Location = New System.Drawing.Point(1019, 208)
+        Me.txtPInvoiceNetAmt.Location = New System.Drawing.Point(1020, 53)
         Me.txtPInvoiceNetAmt.Name = "txtPInvoiceNetAmt"
         Me.txtPInvoiceNetAmt.ReadOnly = True
         Me.txtPInvoiceNetAmt.Size = New System.Drawing.Size(112, 21)
@@ -605,7 +610,7 @@ Partial Class frmPInvoice
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(437, 189)
+        Me.Label31.Location = New System.Drawing.Point(438, 34)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(47, 13)
         Me.Label31.TabIndex = 91
@@ -613,7 +618,7 @@ Partial Class frmPInvoice
         '
         'txtLocationCode
         '
-        Me.txtLocationCode.Location = New System.Drawing.Point(437, 208)
+        Me.txtLocationCode.Location = New System.Drawing.Point(438, 53)
         Me.txtLocationCode.Name = "txtLocationCode"
         Me.txtLocationCode.ReadOnly = True
         Me.txtLocationCode.Size = New System.Drawing.Size(80, 21)
@@ -781,7 +786,7 @@ Partial Class frmPInvoice
         'ntbPInvoiceTaxPercent
         '
         Me.ntbPInvoiceTaxPercent.AllowSpace = False
-        Me.ntbPInvoiceTaxPercent.Location = New System.Drawing.Point(869, 208)
+        Me.ntbPInvoiceTaxPercent.Location = New System.Drawing.Point(870, 53)
         Me.ntbPInvoiceTaxPercent.MaxLength = 3
         Me.ntbPInvoiceTaxPercent.Name = "ntbPInvoiceTaxPercent"
         Me.ntbPInvoiceTaxPercent.Size = New System.Drawing.Size(41, 21)
@@ -791,7 +796,7 @@ Partial Class frmPInvoice
         'ntbPInvoicePrice
         '
         Me.ntbPInvoicePrice.AllowSpace = False
-        Me.ntbPInvoicePrice.Location = New System.Drawing.Point(642, 208)
+        Me.ntbPInvoicePrice.Location = New System.Drawing.Point(643, 53)
         Me.ntbPInvoicePrice.MaxLength = 18
         Me.ntbPInvoicePrice.Name = "ntbPInvoicePrice"
         Me.ntbPInvoicePrice.Size = New System.Drawing.Size(97, 21)
@@ -801,7 +806,7 @@ Partial Class frmPInvoice
         'ntbPInvoiceQty
         '
         Me.ntbPInvoiceQty.AllowSpace = False
-        Me.ntbPInvoiceQty.Location = New System.Drawing.Point(522, 208)
+        Me.ntbPInvoiceQty.Location = New System.Drawing.Point(523, 53)
         Me.ntbPInvoiceQty.MaxLength = 8
         Me.ntbPInvoiceQty.Name = "ntbPInvoiceQty"
         Me.ntbPInvoiceQty.Size = New System.Drawing.Size(57, 21)
@@ -870,12 +875,70 @@ Partial Class frmPInvoice
         Me.txtPeriodId.Size = New System.Drawing.Size(97, 21)
         Me.txtPeriodId.TabIndex = 2
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 192)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1151, 248)
+        Me.TabControl1.TabIndex = 125
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.txtPInvoiceDtlDesc)
+        Me.TabPage1.Controls.Add(Me.ListView1)
+        Me.TabPage1.Controls.Add(Me.btnSaveD)
+        Me.TabPage1.Controls.Add(Me.btnDeleteD)
+        Me.TabPage1.Controls.Add(Me.btnSKU)
+        Me.TabPage1.Controls.Add(Me.cmbPODtlType)
+        Me.TabPage1.Controls.Add(Me.txtSKUCode)
+        Me.TabPage1.Controls.Add(Me.ntbPInvoiceQty)
+        Me.TabPage1.Controls.Add(Me.ntbPInvoicePrice)
+        Me.TabPage1.Controls.Add(Me.Label16)
+        Me.TabPage1.Controls.Add(Me.Label17)
+        Me.TabPage1.Controls.Add(Me.Label18)
+        Me.TabPage1.Controls.Add(Me.Label19)
+        Me.TabPage1.Controls.Add(Me.Label20)
+        Me.TabPage1.Controls.Add(Me.ntbPInvoiceTaxPercent)
+        Me.TabPage1.Controls.Add(Me.Label22)
+        Me.TabPage1.Controls.Add(Me.btnAddD)
+        Me.TabPage1.Controls.Add(Me.Label23)
+        Me.TabPage1.Controls.Add(Me.Label24)
+        Me.TabPage1.Controls.Add(Me.Label25)
+        Me.TabPage1.Controls.Add(Me.txtSKUUoM)
+        Me.TabPage1.Controls.Add(Me.Label26)
+        Me.TabPage1.Controls.Add(Me.Label31)
+        Me.TabPage1.Controls.Add(Me.txtPInvoiceGrossAmt)
+        Me.TabPage1.Controls.Add(Me.txtLocationCode)
+        Me.TabPage1.Controls.Add(Me.txtPInvoiceTaxAmt)
+        Me.TabPage1.Controls.Add(Me.txtPInvoiceNetAmt)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1143, 222)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Detail"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1143, 222)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Documents"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
         'frmPInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1140, 594)
+        Me.ClientSize = New System.Drawing.Size(1165, 594)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.txtPeriodId)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label2)
@@ -897,8 +960,6 @@ Partial Class frmPInvoice
         Me.Controls.Add(Me.txtLocalPInvoiceTotal)
         Me.Controls.Add(Me.txtLocalPInvoiceTax)
         Me.Controls.Add(Me.txtLocalPInvoiceSubTotal)
-        Me.Controls.Add(Me.Label31)
-        Me.Controls.Add(Me.txtLocationCode)
         Me.Controls.Add(Me.txtCurrCode)
         Me.Controls.Add(Me.btnPReceive)
         Me.Controls.Add(Me.Label29)
@@ -906,33 +967,9 @@ Partial Class frmPInvoice
         Me.Controls.Add(Me.ntbPInvCurrRate)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.txtPInvoiceNetAmt)
-        Me.Controls.Add(Me.txtPInvoiceTaxAmt)
-        Me.Controls.Add(Me.txtPInvoiceGrossAmt)
-        Me.Controls.Add(Me.Label26)
-        Me.Controls.Add(Me.txtSKUUoM)
-        Me.Controls.Add(Me.Label25)
-        Me.Controls.Add(Me.Label24)
-        Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.btnAddD)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.ntbPInvoiceTaxPercent)
         Me.Controls.Add(Me.Label21)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.ntbPInvoicePrice)
-        Me.Controls.Add(Me.ntbPInvoiceQty)
         Me.Controls.Add(Me.btnPrint)
-        Me.Controls.Add(Me.txtPInvoiceDtlDesc)
-        Me.Controls.Add(Me.txtSKUCode)
-        Me.Controls.Add(Me.cmbPODtlType)
-        Me.Controls.Add(Me.btnSKU)
         Me.Controls.Add(Me.btnSupplier)
-        Me.Controls.Add(Me.btnDeleteD)
-        Me.Controls.Add(Me.btnSaveD)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label7)
@@ -950,7 +987,6 @@ Partial Class frmPInvoice
         Me.Controls.Add(Me.txtPInvoiceTax)
         Me.Controls.Add(Me.txtPInvoiceSubtotal)
         Me.Controls.Add(Me.txtPInvoiceRemarks)
-        Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.txtSCode)
         Me.Controls.Add(Me.txtSName)
         Me.Controls.Add(Me.txtRefNo)
@@ -961,6 +997,9 @@ Partial Class frmPInvoice
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Purchase Invoice"
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1047,5 +1086,8 @@ Partial Class frmPInvoice
     Friend WithEvents dtpPInvoiceDueDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents txtPeriodId As System.Windows.Forms.TextBox
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
 
 End Class

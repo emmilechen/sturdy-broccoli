@@ -25,7 +25,6 @@ Partial Class frmPReceivePostList
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.btnPost = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpPReceiveDateTo = New System.Windows.Forms.DateTimePicker()
@@ -50,10 +49,10 @@ Partial Class frmPReceivePostList
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(11, 141)
+        Me.ListView1.Location = New System.Drawing.Point(11, 131)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(711, 421)
+        Me.ListView1.Size = New System.Drawing.Size(734, 431)
         Me.ListView1.TabIndex = 4
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -62,7 +61,7 @@ Partial Class frmPReceivePostList
         '
         Me.btnPost.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnPost.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPost.Location = New System.Drawing.Point(638, 573)
+        Me.btnPost.Location = New System.Drawing.Point(661, 573)
         Me.btnPost.Name = "btnPost"
         Me.btnPost.Size = New System.Drawing.Size(84, 26)
         Me.btnPost.TabIndex = 5
@@ -73,31 +72,23 @@ Partial Class frmPReceivePostList
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.btnFilter)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.dtpPReceiveDateTo)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.dtpPReceiveDateFrom)
+        Me.GroupBox1.Controls.Add(Me.txtPReceiveNo)
+        Me.GroupBox1.Controls.Add(Me.txtSName)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 6)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(710, 74)
+        Me.GroupBox1.Size = New System.Drawing.Size(733, 119)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter By"
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(406, 12)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(298, 25)
-        Me.Label6.TabIndex = 71
-        Me.Label6.Text = "Purchase Incoming Posting"
         '
         'Label3
         '
@@ -163,7 +154,7 @@ Partial Class frmPReceivePostList
         '
         Me.btnFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(638, 110)
+        Me.btnFilter.Location = New System.Drawing.Point(643, 79)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(84, 26)
         Me.btnFilter.TabIndex = 3
@@ -174,7 +165,7 @@ Partial Class frmPReceivePostList
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(144, 90)
+        Me.Label4.Location = New System.Drawing.Point(143, 67)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 74
@@ -184,7 +175,7 @@ Partial Class frmPReceivePostList
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 90)
+        Me.Label2.Location = New System.Drawing.Point(10, 67)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(117, 13)
         Me.Label2.TabIndex = 73
@@ -192,7 +183,7 @@ Partial Class frmPReceivePostList
         '
         'txtPReceiveNo
         '
-        Me.txtPReceiveNo.Location = New System.Drawing.Point(11, 106)
+        Me.txtPReceiveNo.Location = New System.Drawing.Point(10, 83)
         Me.txtPReceiveNo.Name = "txtPReceiveNo"
         Me.txtPReceiveNo.Size = New System.Drawing.Size(130, 21)
         Me.txtPReceiveNo.TabIndex = 1
@@ -200,7 +191,7 @@ Partial Class frmPReceivePostList
         'txtSName
         '
         Me.txtSName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSName.Location = New System.Drawing.Point(147, 106)
+        Me.txtSName.Location = New System.Drawing.Point(146, 83)
         Me.txtSName.Name = "txtSName"
         Me.txtSName.Size = New System.Drawing.Size(216, 21)
         Me.txtSName.TabIndex = 2
@@ -219,13 +210,8 @@ Partial Class frmPReceivePostList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(734, 608)
+        Me.ClientSize = New System.Drawing.Size(757, 608)
         Me.Controls.Add(Me.chbSelectAll)
-        Me.Controls.Add(Me.btnFilter)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtPReceiveNo)
-        Me.Controls.Add(Me.txtSName)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnPost)
         Me.Controls.Add(Me.ListView1)
@@ -243,7 +229,6 @@ Partial Class frmPReceivePostList
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents btnPost As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents dtpPReceiveDateTo As System.Windows.Forms.DateTimePicker

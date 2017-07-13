@@ -66,17 +66,17 @@ Public Class fdlSKUPOOut
         With ListView1
             .Clear()
             .View = View.Details
-            .Columns.Add("Stock Code", 90)
-            .Columns.Add("Stock Name", 250)
+            .Columns.Add("Code", 90)
+            .Columns.Add("Name", 250)
             .Columns.Add("locationId", 0)
             .Columns.Add("Location Code", 90)
             .Columns.Add("Stock Balance", 90, HorizontalAlignment.Right)
-            .Columns.Add("sku_uom", 0)
+            .Columns.Add("uom_pch", 0)
             .Columns.Add("po_qty", 0)
             .Columns.Add("sum_preceive_qty", 0)
         End With
 
-        cmd = New SqlCommand("sp_tr_po_dtl_SEL", cn)
+        cmd = New SqlCommand("usp_tr_po_dtl_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
