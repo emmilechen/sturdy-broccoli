@@ -32,7 +32,6 @@ Partial Class frmSYSAccount
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtAccountCode = New System.Windows.Forms.TextBox()
         Me.btnAccount = New System.Windows.Forms.Button()
@@ -132,18 +131,6 @@ Partial Class frmSYSAccount
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'Label16
-        '
-        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(586, 9)
-        Me.Label16.Name = "Label16"
-        Me.Label16.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label16.Size = New System.Drawing.Size(256, 25)
-        Me.Label16.TabIndex = 62
-        Me.Label16.Text = "Ledger Account Default"
-        '
         'Label15
         '
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -196,7 +183,6 @@ Partial Class frmSYSAccount
         Me.Controls.Add(Me.btnAccount)
         Me.Controls.Add(Me.txtAccountCode)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.Label2)
@@ -223,7 +209,6 @@ Partial Class frmSYSAccount
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents txtAccountCode As System.Windows.Forms.TextBox
     Friend WithEvents btnAccount As System.Windows.Forms.Button

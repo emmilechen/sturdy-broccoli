@@ -22,7 +22,6 @@ Partial Class frmSYSPeriodLockList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.btnLockAP = New System.Windows.Forms.Button()
@@ -66,18 +65,6 @@ Partial Class frmSYSPeriodLockList
         Me.TabPage4.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(467, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label6.Size = New System.Drawing.Size(271, 25)
-        Me.Label6.TabIndex = 78
-        Me.Label6.Text = "Close Transaction Period"
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
@@ -85,10 +72,10 @@ Partial Class frmSYSPeriodLockList
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 106)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 72)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(719, 395)
+        Me.TabControl1.Size = New System.Drawing.Size(719, 444)
         Me.TabControl1.TabIndex = 3
         '
         'TabPage1
@@ -101,7 +88,7 @@ Partial Class frmSYSPeriodLockList
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(711, 369)
+        Me.TabPage1.Size = New System.Drawing.Size(711, 418)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Purchase Transaction"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -158,7 +145,7 @@ Partial Class frmSYSPeriodLockList
         Me.ListView1.Location = New System.Drawing.Point(6, 82)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(699, 281)
+        Me.ListView1.Size = New System.Drawing.Size(699, 330)
         Me.ListView1.TabIndex = 2
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -426,7 +413,7 @@ Partial Class frmSYSPeriodLockList
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(501, 82)
+        Me.Label4.Location = New System.Drawing.Point(501, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(51, 13)
         Me.Label4.TabIndex = 100
@@ -435,7 +422,7 @@ Partial Class frmSYSPeriodLockList
         'txtEndDate
         '
         Me.txtEndDate.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEndDate.Location = New System.Drawing.Point(606, 79)
+        Me.txtEndDate.Location = New System.Drawing.Point(606, 45)
         Me.txtEndDate.MaxLength = 50
         Me.txtEndDate.Name = "txtEndDate"
         Me.txtEndDate.ReadOnly = True
@@ -446,7 +433,7 @@ Partial Class frmSYSPeriodLockList
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(501, 55)
+        Me.Label3.Location = New System.Drawing.Point(501, 21)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(57, 13)
         Me.Label3.TabIndex = 98
@@ -455,7 +442,7 @@ Partial Class frmSYSPeriodLockList
         'txtStartDate
         '
         Me.txtStartDate.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStartDate.Location = New System.Drawing.Point(606, 52)
+        Me.txtStartDate.Location = New System.Drawing.Point(606, 18)
         Me.txtStartDate.MaxLength = 50
         Me.txtStartDate.Name = "txtStartDate"
         Me.txtStartDate.ReadOnly = True
@@ -466,7 +453,7 @@ Partial Class frmSYSPeriodLockList
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(15, 55)
+        Me.Label1.Location = New System.Drawing.Point(15, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 13)
         Me.Label1.TabIndex = 96
@@ -475,7 +462,7 @@ Partial Class frmSYSPeriodLockList
         'txtPeriodName
         '
         Me.txtPeriodName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPeriodName.Location = New System.Drawing.Point(120, 52)
+        Me.txtPeriodName.Location = New System.Drawing.Point(120, 18)
         Me.txtPeriodName.MaxLength = 50
         Me.txtPeriodName.Name = "txtPeriodName"
         Me.txtPeriodName.ReadOnly = True
@@ -494,7 +481,6 @@ Partial Class frmSYSPeriodLockList
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPeriodName)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label6)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "frmSYSPeriodLockList"
         Me.ShowIcon = False
@@ -515,7 +501,6 @@ Partial Class frmSYSPeriodLockList
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
