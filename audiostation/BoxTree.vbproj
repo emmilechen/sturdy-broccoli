@@ -583,6 +583,24 @@
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteApprovalList.Designer.vb">
+      <DependentUpon>frmSQuoteApprovalList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteApprovalList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuote.Designer.vb">
+      <DependentUpon>frmSQuote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteList.Designer.vb">
+      <DependentUpon>frmSQuoteList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
     </Compile>
@@ -1839,6 +1857,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuoteApprovalList.resx">
+      <DependentUpon>frmSQuoteApprovalList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuote.resx">
+      <DependentUpon>frmSQuote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuoteList.resx">
+      <DependentUpon>frmSQuoteList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
