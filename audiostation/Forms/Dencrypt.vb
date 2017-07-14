@@ -48,7 +48,7 @@ Public Class Dencrypt
 
     Public Function DecryptData(
     ByVal encryptedtext As String) As String
-
+        On Error Resume Next
         ' Convert the encrypted text string to a byte array. 
         Dim encryptedBytes() As Byte = Convert.FromBase64String(encryptedtext)
 
