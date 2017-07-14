@@ -477,57 +477,13 @@ Public Class frmPRequest
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Try
-            If m_PchCodeId = 0 Or cmbPRequester.Text = "" Then
+            If m_PchCodeId = 0 Then
                 MsgBox("Purchase Code & Requester information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
                 cmbPRequester.Focus()
                 Exit Sub
             End If
 
-            If m_PRequestId = 0 Then
-                If txtPRequestNo.Text = "" Then
-                    txtPRequestNo.Text = GetSysNumber("preq", Now.Date)
-                    isGetNum = True
-                Else
-                    isGetNum = False
-                End If
-            End If
-
-            cmd = New SqlCommand(IIf(m_PRequestId = 0, "usp_tr_prequest_INS", "usp_tr_prequest_UPD"), cn)
-            cmd.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@prequest_no", SqlDbType.NVarChar, 50)
-            prm1.Value = txtPRequestNo.Text
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_date", SqlDbType.SmallDateTime)
-            prm2.Value = dtpPRequestDate.Value.Date
-            Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequester", SqlDbType.NVarChar, 50)
-            prm3.Value = IIf(cmbPRequester.Text = "", DBNull.Value, cmbPRequester.Text)
-            Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
-            prm5.Value = dtpDeliveryDate.Value.Date
-            Dim prm10 As SqlParameter = cmd.Parameters.Add("@prequest_remarks", SqlDbType.NVarChar, 255)
-            prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
-            Dim prm11 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
-            prm11.Value = m_PchCodeId
-            Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-            prm15.Value = My.Settings.UserName
-            Dim prm16 As SqlParameter = cmd.Parameters.Add("@prequest_id", SqlDbType.Int)
-
-            If m_PRequestId = 0 Then
-                prm16.Direction = ParameterDirection.Output
-
-                cn.Open()
-                cmd.ExecuteReader()
-                m_PRequestId = prm16.Value
-                'MessageBox.Show(m_PRequestId)
-                cn.Close()
-                If isGetNum = True Then UpdSysNumber("preq")
-            Else
-                prm16.Value = m_PRequestId
-                cn.Open()
-                cmd.ExecuteReader()
-                cn.Close()
-                'clear_lvw()
-            End If
-
+            SavePRequestHeader()
             lock_obj(True)
             lock_objD(True)
 
@@ -542,6 +498,52 @@ Public Class frmPRequest
         autoRefresh()
     End Sub
 
+    Sub SavePRequestHeader()
+        If m_PRequestId = 0 Then
+            If txtPRequestNo.Text = "" Then
+                txtPRequestNo.Text = GetSysNumber("preq", Now.Date)
+                isGetNum = True
+            Else
+                isGetNum = False
+            End If
+        End If
+
+        cmd = New SqlCommand(IIf(m_PRequestId = 0, "usp_tr_prequest_INS", "usp_tr_prequest_UPD"), cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@prequest_no", SqlDbType.NVarChar, 50)
+        prm1.Value = txtPRequestNo.Text
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_date", SqlDbType.SmallDateTime)
+        prm2.Value = dtpPRequestDate.Value.Date
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
+        prm3.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).itemdata
+        Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
+        prm5.Value = dtpDeliveryDate.Value.Date
+        Dim prm10 As SqlParameter = cmd.Parameters.Add("@prequest_remarks", SqlDbType.NVarChar, 255)
+        prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+        Dim prm11 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+        prm11.Value = m_PchCodeId
+        Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+        prm15.Value = My.Settings.UserName
+        Dim prm16 As SqlParameter = cmd.Parameters.Add("@prequest_id", SqlDbType.Int)
+
+        If m_PRequestId = 0 Then
+            prm16.Direction = ParameterDirection.Output
+
+            cn.Open()
+            cmd.ExecuteReader()
+            m_PRequestId = prm16.Value
+            'MessageBox.Show(m_PRequestId)
+            cn.Close()
+            If isGetNum = True Then UpdSysNumber("preq")
+        Else
+            prm16.Value = m_PRequestId
+            cn.Open()
+            cmd.ExecuteReader()
+            cn.Close()
+            'clear_lvw()
+        End If
+    End Sub
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
         clear_objD()
         lock_obj(False)
@@ -573,43 +575,44 @@ Public Class frmPRequest
     Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
         Try
             If m_PRequestId = 0 Then
-                If m_PchCodeId = 0 Or cmbPRequester.Text = "" Then
-                    MsgBox("Purchase Code & Requester information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+                If m_PchCodeId = 0 Then
+                    MsgBox("Purchase Code information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
                     cmbPRequester.Focus()
                     Exit Sub
                 End If
-                If txtPRequestNo.Text = "" Then
-                    txtPRequestNo.Text = GetSysNumber("preq", Now.Date)
-                    isGetNum = True
-                Else
-                    isGetNum = False
-                End If
+                'If txtPRequestNo.Text = "" Then
+                '    txtPRequestNo.Text = GetSysNumber("preq", Now.Date)
+                '    isGetNum = True
+                'Else
+                '    isGetNum = False
+                'End If
 
-                cmd = New SqlCommand("usp_tr_prequest_INS", cn)
-                cmd.CommandType = CommandType.StoredProcedure
+                'cmd = New SqlCommand("usp_tr_prequest_INS", cn)
+                'cmd.CommandType = CommandType.StoredProcedure
 
-                Dim prm1 As SqlParameter = cmd.Parameters.Add("@prequest_no", SqlDbType.NVarChar, 50)
-                prm1.Value = txtPRequestNo.Text
-                Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_date", SqlDbType.SmallDateTime)
-                prm2.Value = dtpPRequestDate.Value.Date
-                Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
-                prm3.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
-                Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
-                prm5.Value = dtpDeliveryDate.Value.Date
-                Dim prm10 As SqlParameter = cmd.Parameters.Add("@prequest_remarks", SqlDbType.NVarChar, 255)
-                prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
-                Dim prm11 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
-                prm11.Value = m_PchCodeId
-                Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                prm15.Value = My.Settings.UserName
-                Dim prm16 As SqlParameter = cmd.Parameters.Add("@prequest_id", SqlDbType.Int)
-                prm16.Direction = ParameterDirection.Output
+                'Dim prm1 As SqlParameter = cmd.Parameters.Add("@prequest_no", SqlDbType.NVarChar, 50)
+                'prm1.Value = txtPRequestNo.Text
+                'Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_date", SqlDbType.SmallDateTime)
+                'prm2.Value = dtpPRequestDate.Value.Date
+                'Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_priority", SqlDbType.NVarChar, 50)
+                'prm3.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
+                'Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
+                'prm5.Value = dtpDeliveryDate.Value.Date
+                'Dim prm10 As SqlParameter = cmd.Parameters.Add("@prequest_remarks", SqlDbType.NVarChar, 255)
+                'prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+                'Dim prm11 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+                'prm11.Value = m_PchCodeId
+                'Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+                'prm15.Value = My.Settings.UserName
+                'Dim prm16 As SqlParameter = cmd.Parameters.Add("@prequest_id", SqlDbType.Int)
+                'prm16.Direction = ParameterDirection.Output
 
-                cn.Open()
-                cmd.ExecuteReader()
-                m_PRequestId = prm16.Value
-                cn.Close()
-                If isGetNum = True Then UpdSysNumber("preq")
+                'cn.Open()
+                'cmd.ExecuteReader()
+                'm_PRequestId = prm16.Value
+                'cn.Close()
+                'If isGetNum = True Then UpdSysNumber("preq")
+                SavePRequestHeader()
                 txtPRequestNo.ReadOnly = True
             End If
 
