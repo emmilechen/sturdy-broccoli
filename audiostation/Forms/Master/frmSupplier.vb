@@ -11,6 +11,7 @@ Public Class frmSupplier
     Dim isAllowDelete As Boolean
 
     Private Sub frmSupplier_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If cn.State = ConnectionState.Closed Then cn.Open()
         isAllowDelete = canDelete(Me.Name)
 
         clear_obj()
@@ -212,8 +213,7 @@ err_cmdSave_Click:
         Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_name", SqlDbType.NVarChar, 50)
         prm3.Value = IIf(cmbFilterBy.Text = "Supplier Name", txtFilter.Text, DBNull.Value)
 
-        cn.Open()
-
+        If cn.State = ConnectionState.Closed Then cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
         Call FillList(myReader, Me.ListView1, 19, 1)

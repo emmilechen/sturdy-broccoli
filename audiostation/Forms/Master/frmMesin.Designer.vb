@@ -23,10 +23,6 @@ Partial Class frmMesin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMesin))
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.txtguid = New System.Windows.Forms.TextBox()
@@ -86,58 +82,25 @@ Partial Class frmMesin
         Me.Btnup = New System.Windows.Forms.Button()
         Me.ListViewb = New System.Windows.Forms.ListView()
         Me.ListViewa = New System.Windows.Forms.ListView()
-        Me.btnfind = New System.Windows.Forms.Button()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.btnsave = New System.Windows.Forms.ToolStripButton()
+        Me.btnfind = New System.Windows.Forms.ToolStripButton()
+        Me.btncancel = New System.Windows.Forms.ToolStripButton()
+        Me.btndelete = New System.Windows.Forms.ToolStripButton()
+        Me.btnnew = New System.Windows.Forms.ToolStripButton()
+        Me.btnexit = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnSave
-        '
-        Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(505, 410)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 6
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(505, 468)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelete.TabIndex = 3
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(505, 439)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
-        Me.btnAdd.TabIndex = 5
-        Me.btnAdd.Text = "New"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(505, 497)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 7
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 28)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(477, 508)
@@ -694,6 +657,8 @@ Partial Class frmMesin
         '
         'ListViewb
         '
+        Me.ListViewb.FullRowSelect = True
+        Me.ListViewb.GridLines = True
         Me.ListViewb.Location = New System.Drawing.Point(15, 258)
         Me.ListViewb.Name = "ListViewb"
         Me.ListViewb.Size = New System.Drawing.Size(437, 173)
@@ -703,6 +668,8 @@ Partial Class frmMesin
         '
         'ListViewa
         '
+        Me.ListViewa.FullRowSelect = True
+        Me.ListViewa.GridLines = True
         Me.ListViewa.Location = New System.Drawing.Point(15, 28)
         Me.ListViewa.Name = "ListViewa"
         Me.ListViewa.Size = New System.Drawing.Size(437, 173)
@@ -710,27 +677,71 @@ Partial Class frmMesin
         Me.ListViewa.UseCompatibleStateImageBehavior = False
         Me.ListViewa.View = System.Windows.Forms.View.Details
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnsave, Me.btnfind, Me.btncancel, Me.btndelete, Me.btnnew, Me.btnexit})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(498, 25)
+        Me.ToolStrip1.TabIndex = 118
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'btnsave
+        '
+        Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
+        Me.btnsave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnsave.Name = "btnsave"
+        Me.btnsave.Size = New System.Drawing.Size(60, 22)
+        Me.btnsave.Text = "&Save"
+        '
         'btnfind
         '
-        Me.btnfind.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfind.Location = New System.Drawing.Point(505, 382)
+        Me.btnfind.Image = CType(resources.GetObject("btnfind.Image"), System.Drawing.Image)
+        Me.btnfind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnfind.Name = "btnfind"
-        Me.btnfind.Size = New System.Drawing.Size(75, 23)
-        Me.btnfind.TabIndex = 117
-        Me.btnfind.Text = "Find"
-        Me.btnfind.UseVisualStyleBackColor = True
+        Me.btnfind.Size = New System.Drawing.Size(53, 22)
+        Me.btnfind.Text = "&Find"
+        '
+        'btncancel
+        '
+        Me.btncancel.Image = CType(resources.GetObject("btncancel.Image"), System.Drawing.Image)
+        Me.btncancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 22)
+        Me.btncancel.Text = "&Cancel"
+        '
+        'btndelete
+        '
+        Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
+        Me.btndelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(70, 22)
+        Me.btndelete.Text = "&Delete"
+        '
+        'btnnew
+        '
+        Me.btnnew.Image = CType(resources.GetObject("btnnew.Image"), System.Drawing.Image)
+        Me.btnnew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnnew.Name = "btnnew"
+        Me.btnnew.Size = New System.Drawing.Size(55, 22)
+        Me.btnnew.Text = "&New"
+        '
+        'btnexit
+        '
+        Me.btnexit.Image = CType(resources.GetObject("btnexit.Image"), System.Drawing.Image)
+        Me.btnexit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnexit.Name = "btnexit"
+        Me.btnexit.Size = New System.Drawing.Size(51, 22)
+        Me.btnexit.Text = "&Exit"
         '
         'frmMesin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(592, 532)
-        Me.Controls.Add(Me.btnfind)
+        Me.ClientSize = New System.Drawing.Size(498, 546)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnCancel)
         Me.Name = "frmMesin"
         Me.Text = "Machine"
         Me.TabControl1.ResumeLayout(False)
@@ -738,13 +749,12 @@ Partial Class frmMesin
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Btndown As System.Windows.Forms.Button
@@ -804,5 +814,11 @@ Partial Class frmMesin
     Friend WithEvents cmbsubkat As System.Windows.Forms.ComboBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
-    Friend WithEvents btnfind As System.Windows.Forms.Button
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents btnsave As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnfind As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btncancel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btndelete As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnnew As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnexit As System.Windows.Forms.ToolStripButton
 End Class

@@ -22,11 +22,7 @@ Partial Class frmUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUser))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.txtac = New System.Windows.Forms.TextBox()
@@ -57,61 +53,16 @@ Partial Class frmUser
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtUserPassword = New System.Windows.Forms.TextBox()
         Me.txtUserName = New System.Windows.Forms.TextBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.lblCurrentRecord = New System.Windows.Forms.Label()
-        Me.btnfind = New System.Windows.Forms.Button()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.btnsave = New System.Windows.Forms.ToolStripButton()
+        Me.btnfind = New System.Windows.Forms.ToolStripButton()
+        Me.btncancel = New System.Windows.Forms.ToolStripButton()
+        Me.btndelete = New System.Windows.Forms.ToolStripButton()
+        Me.btnnew = New System.Windows.Forms.ToolStripButton()
+        Me.btnexit = New System.Windows.Forms.ToolStripButton()
         Me.Panel1.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(780, 420)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(60, 23)
-        Me.btnCancel.TabIndex = 8
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'btnEdit
-        '
-        Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(495, 420)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(60, 23)
-        Me.btnEdit.TabIndex = 5
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(561, 420)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(60, 23)
-        Me.btnAdd.TabIndex = 6
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(429, 420)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(60, 23)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(714, 420)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(60, 23)
-        Me.btnSave.TabIndex = 7
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
         '
         'Panel1
         '
@@ -144,7 +95,7 @@ Partial Class frmUser
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtUserPassword)
         Me.Panel1.Controls.Add(Me.txtUserName)
-        Me.Panel1.Location = New System.Drawing.Point(429, 12)
+        Me.Panel1.Location = New System.Drawing.Point(14, 42)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(411, 395)
         Me.Panel1.TabIndex = 88
@@ -157,7 +108,8 @@ Partial Class frmUser
         Me.txtguid.MaxLength = 50
         Me.txtguid.Name = "txtguid"
         Me.txtguid.Size = New System.Drawing.Size(68, 21)
-        Me.txtguid.TabIndex = 121
+        Me.txtguid.TabIndex = 15
+        Me.txtguid.Visible = False
         '
         'txtac
         '
@@ -166,9 +118,10 @@ Partial Class frmUser
         Me.txtac.MaxLength = 50
         Me.txtac.Name = "txtac"
         Me.txtac.Size = New System.Drawing.Size(68, 21)
-        Me.txtac.TabIndex = 120
+        Me.txtac.TabIndex = 13
         Me.txtac.Tag = "ac"
         Me.txtac.Text = "0"
+        Me.txtac.Visible = False
         '
         'txtuserid
         '
@@ -177,8 +130,9 @@ Partial Class frmUser
         Me.txtuserid.MaxLength = 50
         Me.txtuserid.Name = "txtuserid"
         Me.txtuserid.Size = New System.Drawing.Size(68, 21)
-        Me.txtuserid.TabIndex = 119
+        Me.txtuserid.TabIndex = 14
         Me.txtuserid.Tag = "user_id"
+        Me.txtuserid.Visible = False
         '
         'TextBox6
         '
@@ -187,7 +141,7 @@ Partial Class frmUser
         Me.TextBox6.MaxLength = 50
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(273, 21)
-        Me.TextBox6.TabIndex = 113
+        Me.TextBox6.TabIndex = 9
         Me.TextBox6.Tag = "user_phone2"
         '
         'TextBox5
@@ -197,7 +151,7 @@ Partial Class frmUser
         Me.TextBox5.MaxLength = 50
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(273, 21)
-        Me.TextBox5.TabIndex = 112
+        Me.TextBox5.TabIndex = 8
         Me.TextBox5.Tag = "user_phone1"
         '
         'Label12
@@ -223,11 +177,11 @@ Partial Class frmUser
         'txtfname
         '
         Me.txtfname.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtfname.Location = New System.Drawing.Point(125, 40)
+        Me.txtfname.Location = New System.Drawing.Point(125, 66)
         Me.txtfname.MaxLength = 50
         Me.txtfname.Name = "txtfname"
         Me.txtfname.Size = New System.Drawing.Size(273, 21)
-        Me.txtfname.TabIndex = 109
+        Me.txtfname.TabIndex = 2
         Me.txtfname.Tag = "user_fname"
         '
         'TextBox3
@@ -237,7 +191,7 @@ Partial Class frmUser
         Me.TextBox3.MaxLength = 50
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(273, 21)
-        Me.TextBox3.TabIndex = 108
+        Me.TextBox3.TabIndex = 7
         Me.TextBox3.Tag = "user_email"
         '
         'Label11
@@ -254,7 +208,7 @@ Partial Class frmUser
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(12, 16)
+        Me.Label10.Location = New System.Drawing.Point(12, 42)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(33, 13)
         Me.Label10.TabIndex = 106
@@ -263,11 +217,11 @@ Partial Class frmUser
         'txtnip
         '
         Me.txtnip.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnip.Location = New System.Drawing.Point(125, 13)
+        Me.txtnip.Location = New System.Drawing.Point(125, 39)
         Me.txtnip.MaxLength = 50
         Me.txtnip.Name = "txtnip"
         Me.txtnip.Size = New System.Drawing.Size(273, 21)
-        Me.txtnip.TabIndex = 105
+        Me.txtnip.TabIndex = 1
         Me.txtnip.Tag = "user_nip"
         '
         'DateTimePicker2
@@ -275,7 +229,7 @@ Partial Class frmUser
         Me.DateTimePicker2.Location = New System.Drawing.Point(125, 309)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(118, 21)
-        Me.DateTimePicker2.TabIndex = 104
+        Me.DateTimePicker2.TabIndex = 11
         Me.DateTimePicker2.Tag = "user_memberdate"
         '
         'Label9
@@ -293,7 +247,7 @@ Partial Class frmUser
         Me.DateTimePicker1.Location = New System.Drawing.Point(125, 281)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(118, 21)
-        Me.DateTimePicker1.TabIndex = 102
+        Me.DateTimePicker1.TabIndex = 10
         Me.DateTimePicker1.Tag = "user_bday"
         '
         'Label8
@@ -315,7 +269,7 @@ Partial Class frmUser
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(273, 44)
-        Me.TextBox2.TabIndex = 100
+        Me.TextBox2.TabIndex = 12
         Me.TextBox2.Tag = "user_notes"
         '
         'Label7
@@ -334,7 +288,7 @@ Partial Class frmUser
         Me.cmbdept.Location = New System.Drawing.Point(125, 147)
         Me.cmbdept.Name = "cmbdept"
         Me.cmbdept.Size = New System.Drawing.Size(273, 21)
-        Me.cmbdept.TabIndex = 97
+        Me.cmbdept.TabIndex = 5
         Me.cmbdept.Tag = "user_dept"
         '
         'Label5
@@ -353,7 +307,7 @@ Partial Class frmUser
         Me.cmbdiv.Location = New System.Drawing.Point(125, 174)
         Me.cmbdiv.Name = "cmbdiv"
         Me.cmbdiv.Size = New System.Drawing.Size(273, 21)
-        Me.cmbdiv.TabIndex = 95
+        Me.cmbdiv.TabIndex = 6
         Me.cmbdiv.Tag = "user_divisi"
         '
         'Label4
@@ -370,7 +324,7 @@ Partial Class frmUser
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 43)
+        Me.Label3.Location = New System.Drawing.Point(11, 69)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(62, 13)
         Me.Label3.TabIndex = 94
@@ -382,7 +336,7 @@ Partial Class frmUser
         Me.cmbUserLevelID.Location = New System.Drawing.Point(125, 120)
         Me.cmbUserLevelID.Name = "cmbUserLevelID"
         Me.cmbUserLevelID.Size = New System.Drawing.Size(273, 21)
-        Me.cmbUserLevelID.TabIndex = 90
+        Me.cmbUserLevelID.TabIndex = 4
         Me.cmbUserLevelID.Tag = "user_level_id"
         '
         'Label15
@@ -409,7 +363,7 @@ Partial Class frmUser
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 70)
+        Me.Label1.Location = New System.Drawing.Point(11, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(68, 13)
         Me.Label1.TabIndex = 91
@@ -423,66 +377,85 @@ Partial Class frmUser
         Me.txtUserPassword.Name = "txtUserPassword"
         Me.txtUserPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtUserPassword.Size = New System.Drawing.Size(273, 21)
-        Me.txtUserPassword.TabIndex = 89
+        Me.txtUserPassword.TabIndex = 3
         Me.txtUserPassword.Tag = "user_password"
         '
         'txtUserName
         '
         Me.txtUserName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserName.Location = New System.Drawing.Point(125, 67)
+        Me.txtUserName.Location = New System.Drawing.Point(125, 12)
         Me.txtUserName.MaxLength = 50
         Me.txtUserName.Name = "txtUserName"
+        Me.txtUserName.ReadOnly = True
         Me.txtUserName.Size = New System.Drawing.Size(273, 21)
-        Me.txtUserName.TabIndex = 88
+        Me.txtUserName.TabIndex = 0
         Me.txtUserName.Tag = "user_name"
         '
-        'ListView1
+        'ToolStrip1
         '
-        Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 12)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(411, 395)
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.List
+        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnsave, Me.btnfind, Me.btncancel, Me.btndelete, Me.btnnew, Me.btnexit})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(439, 25)
+        Me.ToolStrip1.TabIndex = 89
+        Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'lblCurrentRecord
+        'btnsave
         '
-        Me.lblCurrentRecord.AutoSize = True
-        Me.lblCurrentRecord.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentRecord.Location = New System.Drawing.Point(9, 410)
-        Me.lblCurrentRecord.Name = "lblCurrentRecord"
-        Me.lblCurrentRecord.Size = New System.Drawing.Size(86, 13)
-        Me.lblCurrentRecord.TabIndex = 37
-        Me.lblCurrentRecord.Text = "Selected record:"
+        Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
+        Me.btnsave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnsave.Name = "btnsave"
+        Me.btnsave.Size = New System.Drawing.Size(60, 22)
+        Me.btnsave.Text = "&Save"
         '
         'btnfind
         '
-        Me.btnfind.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfind.Location = New System.Drawing.Point(648, 420)
+        Me.btnfind.Image = CType(resources.GetObject("btnfind.Image"), System.Drawing.Image)
+        Me.btnfind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnfind.Name = "btnfind"
-        Me.btnfind.Size = New System.Drawing.Size(60, 23)
-        Me.btnfind.TabIndex = 89
-        Me.btnfind.Text = "Find"
-        Me.btnfind.UseVisualStyleBackColor = True
+        Me.btnfind.Size = New System.Drawing.Size(53, 22)
+        Me.btnfind.Text = "&Find"
+        '
+        'btncancel
+        '
+        Me.btncancel.Image = CType(resources.GetObject("btncancel.Image"), System.Drawing.Image)
+        Me.btncancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 22)
+        Me.btncancel.Text = "&Cancel"
+        '
+        'btndelete
+        '
+        Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
+        Me.btndelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(70, 22)
+        Me.btndelete.Text = "&Delete"
+        '
+        'btnnew
+        '
+        Me.btnnew.Image = CType(resources.GetObject("btnnew.Image"), System.Drawing.Image)
+        Me.btnnew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnnew.Name = "btnnew"
+        Me.btnnew.Size = New System.Drawing.Size(55, 22)
+        Me.btnnew.Text = "&New"
+        '
+        'btnexit
+        '
+        Me.btnexit.Image = CType(resources.GetObject("btnexit.Image"), System.Drawing.Image)
+        Me.btnexit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnexit.Name = "btnexit"
+        Me.btnexit.Size = New System.Drawing.Size(51, 22)
+        Me.btnexit.Text = "Exit"
         '
         'frmUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(852, 455)
-        Me.Controls.Add(Me.btnfind)
+        Me.ClientSize = New System.Drawing.Size(439, 452)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.lblCurrentRecord)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnEdit)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.ListView1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "frmUser"
         Me.ShowIcon = False
@@ -490,15 +463,12 @@ Partial Class frmUser
         Me.Text = "User"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
@@ -529,7 +499,11 @@ Partial Class frmUser
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents txtac As System.Windows.Forms.TextBox
     Friend WithEvents txtuserid As System.Windows.Forms.TextBox
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
-    Friend WithEvents btnfind As System.Windows.Forms.Button
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents btnsave As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnfind As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btncancel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btndelete As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnnew As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnexit As System.Windows.Forms.ToolStripButton
 End Class
