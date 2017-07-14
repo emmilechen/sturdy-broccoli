@@ -179,7 +179,13 @@ Public Class frmPRequestList
 
         cmd = New SqlCommand("usp_tr_prequest_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
-
+        '       @prequest_id int = 0,
+        '@prequest_no nvarchar(50) = null,
+        '@prequest_date1 smalldatetime = null,
+        '@prequest_date2 smalldatetime = null,
+        '@prequester nvarchar(50) = null,
+        '@prequest_status nvarchar(50) = null,
+        '@prequest_priority nvarchar(50) = null
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@prequest_id", SqlDbType.Int, 255)
         prm1.Value = 0
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@prequest_no", SqlDbType.NVarChar, 50)
@@ -202,8 +208,7 @@ Public Class frmPRequestList
         Else
             prm7.Value = cmbPRequestPriority.Items(cmbPRequestPriority.SelectedIndex).ItemData
         End If
-
-        cn.Open()
+        If cn.State = ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
