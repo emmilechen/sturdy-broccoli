@@ -3,6 +3,9 @@ Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
 Public Class fdlPRequestOut
+    Dim m_FrmCallerId As String
+    Dim m_POId As Integer
+    Dim m_PchCodeId As Integer
     Private ListView1Sorter As lvColumnSorter
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -10,50 +13,33 @@ Public Class fdlPRequestOut
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         If ListView1.CheckedItems.Count > 0 Then
-            With frmPO
-                If .POId = 0 Then .SavePOHeader()
-                If .POId > 0 Then
-                    Try
-                        For i = 1 To ListView1.Items.Count
-                            If ListView1.Items(i - 1).Checked = True Then
-                                cmd = New SqlCommand("sp_tr_po_dtl_INS", cn)
-                                cmd.CommandType = CommandType.StoredProcedure
+            Select Case m_FrmCallerId
+                Case "frmPPitching"
+                    With frmPPitching
+                        If .POId = 0 Then .SavePOHeader()
+                        If .POId > 0 Then
+                            m_POId = .POId
+                            FillUpPO()
+                            .clear_lvw()
+                            .refresh_total()
+                        Else
+                            MessageBox.Show("Can't insert to line items because error was happened before", Me.Text)
+                        End If
+                    End With
 
-                                Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-                                prm1.Value = .POId
-                                Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_dtl_type", SqlDbType.NVarChar)
-                                prm2.Value = ListView1.Items(i - 1).SubItems.Item(3).Text
-                                Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_dtl_id", SqlDbType.Int)
-                                prm3.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                                Dim prm4 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
-                                prm4.Value = IIf(ListView1.Items(i - 1).SubItems.Item(3).Text = "S", ListView1.Items(i - 1).SubItems.Item(4).Text, 0)
-                                Dim prm5 As SqlParameter = cmd.Parameters.Add("@po_dtl_desc", SqlDbType.NVarChar)
-                                prm5.Value = ListView1.Items(i - 1).SubItems.Item(6).Text
-                                Dim prm6 As SqlParameter = cmd.Parameters.Add("@po_qty", SqlDbType.Decimal)
-                                prm6.Value = ListView1.Items(i - 1).SubItems.Item(7).Text
-                                Dim prm7 As SqlParameter = cmd.Parameters.Add("@po_price", SqlDbType.Money)
-                                prm7.Value = FormatNumber(ListView1.Items(i - 1).SubItems.Item(8).Text)
-                                Dim prm8 As SqlParameter = cmd.Parameters.Add("@tax_percent", SqlDbType.Decimal)
-                                prm8.Value = GetSysInit("tax_percent")
-                                Dim prm9 As SqlParameter = cmd.Parameters.Add("@expense_id", SqlDbType.Int, 255)
-                                prm9.Value = IIf(ListView1.Items(i - 1).SubItems.Item(3).Text = "E", ListView1.Items(i - 1).SubItems.Item(4).Text, 0)
-                                Dim prm10 As SqlParameter = cmd.Parameters.Add("@location_id", SqlDbType.Int)
-                                prm10.Value = ListView1.Items(i - 1).SubItems.Item(9).Text
-                                cn.Open()
-                                cmd.ExecuteReader()
-                                cn.Close()
-                            End If
-                        Next
-                        .clear_lvw()
-                        .refresh_total()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                        If cn.State = ConnectionState.Open Then cn.Close()
-                    End Try
-                Else
-                    MessageBox.Show("Can't insert to line items because error was happened before", Me.Text)
-                End If
-            End With
+                Case "frmPO"
+                    With frmPO
+                        If .POId = 0 Then .SavePOHeader()
+                        If .POId > 0 Then
+                            m_POId = .POId
+                            FillUpPO()
+                            .clear_lvw()
+                            .refresh_total()
+                        Else
+                            MessageBox.Show("Can't insert to line items because error was happened before", Me.Text)
+                        End If
+                    End With
+            End Select
             Me.Close()
         Else
             MessageBox.Show("You didn't select any item yet. Please select an item.", Me.Text)
@@ -67,18 +53,66 @@ Public Class fdlPRequestOut
         'End If
     End Sub
 
+    Public Property FrmCallerId() As String
+        Get
+            Return m_FrmCallerId
+        End Get
+        Set(ByVal Value As String)
+            m_FrmCallerId = Value
+        End Set
+    End Property
+
+    Public Property PchCodeId() As Integer
+        Get
+            Return m_PchCodeId
+        End Get
+        Set(ByVal Value As Integer)
+            m_PchCodeId = Value
+        End Set
+    End Property
+
+    Sub FillUpPO()
+        Try
+            For i = 1 To ListView1.Items.Count
+                If ListView1.Items(i - 1).Checked = True Then
+                    cmd = New SqlCommand("usp_tr_po_dtl_INS", cn)
+                    cmd.CommandType = CommandType.StoredProcedure
+
+                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+                    prm1.Value = m_POId
+                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_dtl_type", SqlDbType.NVarChar)
+                    prm2.Value = ListView1.Items(i - 1).SubItems.Item(3).Text
+                    Dim prm3 As SqlParameter = cmd.Parameters.Add("@prequest_dtl_id", SqlDbType.Int)
+                    prm3.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
+                    Dim prm4 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
+                    prm4.Value = IIf(ListView1.Items(i - 1).SubItems.Item(3).Text = "S", ListView1.Items(i - 1).SubItems.Item(4).Text, 0)
+                    Dim prm5 As SqlParameter = cmd.Parameters.Add("@po_dtl_desc", SqlDbType.NVarChar)
+                    prm5.Value = ListView1.Items(i - 1).SubItems.Item(6).Text
+                    Dim prm6 As SqlParameter = cmd.Parameters.Add("@po_qty", SqlDbType.Decimal)
+                    prm6.Value = ListView1.Items(i - 1).SubItems.Item(7).Text
+                    Dim prm7 As SqlParameter = cmd.Parameters.Add("@po_price", SqlDbType.Money)
+                    prm7.Value = FormatNumber(ListView1.Items(i - 1).SubItems.Item(8).Text)
+                    Dim prm8 As SqlParameter = cmd.Parameters.Add("@tax_percent", SqlDbType.Decimal)
+                    prm8.Value = GetSysInit("tax_percent")
+                    Dim prm9 As SqlParameter = cmd.Parameters.Add("@expense_id", SqlDbType.Int, 255)
+                    prm9.Value = IIf(ListView1.Items(i - 1).SubItems.Item(3).Text = "E", ListView1.Items(i - 1).SubItems.Item(4).Text, 0)
+                    cn.Open()
+                    cmd.ExecuteReader()
+                    cn.Close()
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            If cn.State = ConnectionState.Open Then cn.Close()
+        End Try
+    End Sub
+
     Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
         'Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
 
     Private Sub fdlPRequest_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim PurchaseCode As String
-        If txtPurchaseCode.Text = "" Then
-            PurchaseCode = frmPO.txtPchCode.Text
-        Else
-            PurchaseCode = txtPurchaseCode.Text
-        End If
         With ListView1
             .Clear()
             .View = View.Details
@@ -91,8 +125,6 @@ Public Class fdlPRequestOut
             .Columns.Add("Stock Name", 200)
             .Columns.Add("Qty", 90, HorizontalAlignment.Right)
             .Columns.Add("last_cost", 0)
-            .Columns.Add("location_id", 0)
-            .Columns.Add("Purchase Code", 100)
         End With
 
         cmd = New SqlCommand("usp_tr_prequest_dtl_SEL", cn)
@@ -104,8 +136,8 @@ Public Class fdlPRequestOut
         prm2.Value = IIf(txtPRequestNo.Text = "", DBNull.Value, txtPRequestNo.Text)
         Dim prm3 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 50)
         prm3.Value = IIf(txtFilter.Text = "", DBNull.Value, txtFilter.Text)
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@purchase_code", SqlDbType.NVarChar, 50)
-        prm4.Value = PurchaseCode
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+        prm4.Value = m_PchCodeId
 
         cn.Open()
 
@@ -134,10 +166,8 @@ Public Class fdlPRequestOut
                     lvItem.SubItems.Add("")
             End Select
             lvItem.SubItems.Add(myReader.Item(6)) 'sku_name
-            lvItem.SubItems.Add(myReader.GetValue(9)) 'prequest_qty
+            lvItem.SubItems.Add(myReader.GetValue(7)) 'prequest_qty
             lvItem.SubItems.Add(myReader.Item(15)) 'last_cost
-            lvItem.SubItems.Add(IIf(myReader.Item(16) Is DBNull.Value, 0, myReader.Item(16))) 'location_id
-            lvItem.SubItems.Add(IIf(myReader.Item(18) Is DBNull.Value, 0, myReader.Item(18))) 'Purchase Code
             If intCurrRow Mod 2 = 0 Then
                 lvItem.BackColor = Color.Lavender
             Else
@@ -223,12 +253,6 @@ Public Class fdlPRequestOut
                     .Items.Item(i - 1).Checked = False
                 Next
             End With
-        End If
-    End Sub
-
-    Private Sub txtPurchaseCode_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPurchaseCode.KeyPress
-        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
-            fdlPRequest_Load(sender, e)
         End If
     End Sub
 End Class

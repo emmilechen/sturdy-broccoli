@@ -31,8 +31,6 @@ Partial Class fdlPRequestOut
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtPRequestNo = New System.Windows.Forms.TextBox()
         Me.chbSelectAll = New System.Windows.Forms.CheckBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtPurchaseCode = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -86,7 +84,7 @@ Partial Class fdlPRequestOut
         'txtFilter
         '
         Me.txtFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFilter.Location = New System.Drawing.Point(140, 363)
+        Me.txtFilter.Location = New System.Drawing.Point(141, 355)
         Me.txtFilter.MaxLength = 50
         Me.txtFilter.Name = "txtFilter"
         Me.txtFilter.Size = New System.Drawing.Size(220, 21)
@@ -95,7 +93,7 @@ Partial Class fdlPRequestOut
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(137, 347)
+        Me.Label21.Location = New System.Drawing.Point(138, 339)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(63, 13)
         Me.Label21.TabIndex = 63
@@ -104,7 +102,7 @@ Partial Class fdlPRequestOut
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 347)
+        Me.Label1.Location = New System.Drawing.Point(13, 339)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(114, 13)
         Me.Label1.TabIndex = 65
@@ -113,7 +111,7 @@ Partial Class fdlPRequestOut
         'txtPRequestNo
         '
         Me.txtPRequestNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPRequestNo.Location = New System.Drawing.Point(12, 363)
+        Me.txtPRequestNo.Location = New System.Drawing.Point(13, 355)
         Me.txtPRequestNo.MaxLength = 50
         Me.txtPRequestNo.Name = "txtPRequestNo"
         Me.txtPRequestNo.Size = New System.Drawing.Size(122, 21)
@@ -129,31 +127,11 @@ Partial Class fdlPRequestOut
         Me.chbSelectAll.Text = "Select All"
         Me.chbSelectAll.UseVisualStyleBackColor = True
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(363, 347)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 13)
-        Me.Label2.TabIndex = 68
-        Me.Label2.Text = "Purchase Code"
-        '
-        'txtPurchaseCode
-        '
-        Me.txtPurchaseCode.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPurchaseCode.Location = New System.Drawing.Point(366, 363)
-        Me.txtPurchaseCode.MaxLength = 50
-        Me.txtPurchaseCode.Name = "txtPurchaseCode"
-        Me.txtPurchaseCode.Size = New System.Drawing.Size(128, 21)
-        Me.txtPurchaseCode.TabIndex = 67
-        '
         'fdlPRequestOut
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(793, 388)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtPurchaseCode)
         Me.Controls.Add(Me.chbSelectAll)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtPRequestNo)
@@ -183,7 +161,5 @@ Partial Class fdlPRequestOut
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtPRequestNo As System.Windows.Forms.TextBox
     Friend WithEvents chbSelectAll As System.Windows.Forms.CheckBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents txtPurchaseCode As System.Windows.Forms.TextBox
 
 End Class

@@ -1355,6 +1355,7 @@ Public Class frmPO
             Exit Sub
         End If
         Dim NewFormDialog As New fdlPRequestOut
+        NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
 

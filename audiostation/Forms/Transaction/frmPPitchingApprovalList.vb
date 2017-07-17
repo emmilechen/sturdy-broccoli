@@ -174,15 +174,15 @@ Public Class frmPPitchingApprovalList
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int, 255)
         prm1.Value = 0
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
         prm2.Value = IIf(txtPRequestNo.Text = "", DBNull.Value, txtPRequestNo.Text)
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@ppitching_date1", SqlDbType.SmallDateTime)
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@po_date1", SqlDbType.SmallDateTime)
         prm3.Value = IIf(isShowAll = False, dtpPRequestDateFrom.Value.Date, DBNull.Value)
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@ppitching_date2", SqlDbType.SmallDateTime)
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_date2", SqlDbType.SmallDateTime)
         prm4.Value = IIf(isShowAll = False, dtpPRequestDateTo.Value.Date, DBNull.Value)
         Dim prm5 As SqlParameter = cmd.Parameters.Add("@prequester", SqlDbType.NVarChar, 50)
         prm5.Value = IIf(txtPRequester.Text = "", DBNull.Value, txtPRequester.Text)
-        Dim prm6 As SqlParameter = cmd.Parameters.Add("@ppitching_status", SqlDbType.NVarChar, 50)
+        Dim prm6 As SqlParameter = cmd.Parameters.Add("@po_stat1", SqlDbType.NVarChar, 50)
         prm6.Value = "W"
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
         prm7.Value = "ppitching"

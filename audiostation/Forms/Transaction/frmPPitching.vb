@@ -1290,22 +1290,6 @@ Public Class frmPPitching
     End Sub
 
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
-        'EJ=========================================BEGIN==================================EJ
-        cmd = New SqlCommand("usp_tr_po_PRINT", cn)
-        cmd.CommandType = CommandType.StoredProcedure
-
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-        prm1.Value = m_POId
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-        prm2.Value = My.Settings.UserName
-
-        cn.Open()
-        cmd.ExecuteReader()
-        cn.Close()
-
-        txtPrinted.Text = txtPrinted.Text + 1
-        'EJ=========================================END====================================EJ
-
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
@@ -1325,7 +1309,7 @@ Public Class frmPPitching
 
         Dim cr As New ReportDocument
         Dim NewMDIChild As New frmDocViewer()
-        NewMDIChild.Text = "Purchase Order"
+        NewMDIChild.Text = "Purchase Pitching"
         NewMDIChild.Show()
 
         cr.Load(strReportPath)
@@ -1345,6 +1329,8 @@ Public Class frmPPitching
             Exit Sub
         End If
         Dim NewFormDialog As New fdlPRequestOut
+        NewFormDialog.FrmCallerId = Me.Name
+        NewFormDialog.PchCodeId = m_PchCodeId
         NewFormDialog.ShowDialog()
     End Sub
 
