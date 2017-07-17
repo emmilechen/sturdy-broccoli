@@ -244,7 +244,7 @@ Public Class frmPRequest
         txtPRequestNo.Text = ""
         dtpPRequestDate.Value = FormatDateTime(Now, DateFormat.ShortDate)
         'cmbPRequester.SelectedIndex = -1
-        cmbPRequestPriority.SelectedIndex = -1
+        cmbPRequestPriority.SelectedIndex = 0
         txtPchCode.Text = ""
         txtPORemarks.Text = ""
         m_PRequestStatus = m_PRequestStatusArr(0, 0)
@@ -478,8 +478,8 @@ Public Class frmPRequest
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Try
             If m_PchCodeId = 0 Then
-                MsgBox("Purchase Code & Requester information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-                cmbPRequester.Focus()
+                MsgBox("Purchase Code information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+                txtPchCode.Focus()
                 Exit Sub
             End If
 
@@ -577,7 +577,7 @@ Public Class frmPRequest
             If m_PRequestId = 0 Then
                 If m_PchCodeId = 0 Then
                     MsgBox("Purchase Code information are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-                    cmbPRequester.Focus()
+                    txtPchCode.Focus()
                     Exit Sub
                 End If
                 'If txtPRequestNo.Text = "" Then
@@ -702,8 +702,8 @@ Public Class frmPRequest
             m_SKUId = .SubItems.Item(3).Text
             txtSKUCode.Text = .SubItems.Item(4).Text
             txtPRequestDtlDesc.Text = .SubItems.Item(5).Text
-            ntbPRequestQty.Text = .SubItems.Item(8).Text
-            txtSKUUoM.Text = .SubItems.Item(9).Text
+            ntbPRequestQty.Text = .SubItems.Item(6).Text
+            txtSKUUoM.Text = .SubItems.Item(7).Text
         End With
     End Sub
 
