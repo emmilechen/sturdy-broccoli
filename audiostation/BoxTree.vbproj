@@ -259,6 +259,12 @@
     <Compile Include="Forms\Master\frmUtility.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Menu\frmdashboard.Designer.vb">
+      <DependentUpon>frmdashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu\frmdashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Report\frmStockLocationR.Designer.vb">
       <DependentUpon>frmStockLocationR.vb</DependentUpon>
     </Compile>
@@ -647,6 +653,24 @@
       <DependentUpon>frmBankReceiptPostList.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\frmBankReceiptPostList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuote.Designer.vb">
+      <DependentUpon>frmSQuote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteApprovalList.Designer.vb">
+      <DependentUpon>frmSQuoteApprovalList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteApprovalList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteList.Designer.vb">
+      <DependentUpon>frmSQuoteList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSQuoteList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmStockAdjPostList.Designer.vb">
@@ -1677,6 +1701,9 @@
     <EmbeddedResource Include="Forms\Master\frmUtility.resx">
       <DependentUpon>frmUtility.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menu\frmdashboard.resx">
+      <DependentUpon>frmdashboard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report\frmCurrencyR.resx">
       <DependentUpon>frmCurrencyR.vb</DependentUpon>
     </EmbeddedResource>
@@ -1890,6 +1917,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmBankReceiptPostList.resx">
       <DependentUpon>frmBankReceiptPostList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuote.resx">
+      <DependentUpon>frmSQuote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuoteApprovalList.resx">
+      <DependentUpon>frmSQuoteApprovalList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSQuoteList.resx">
+      <DependentUpon>frmSQuoteList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmStockAdjPostList.resx">
       <DependentUpon>frmStockAdjPostList.vb</DependentUpon>
