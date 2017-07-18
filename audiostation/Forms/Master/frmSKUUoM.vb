@@ -10,7 +10,7 @@ Public Class frmSKUUoM
     Dim isAllowDelete As Boolean
 
     Private Sub frmSKUUoM_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'isAllowDelete = canDelete(Me.Name)
+        isAllowDelete = canDelete(Me.Name)
 
         clear_obj()
         'lock_obj(True)
