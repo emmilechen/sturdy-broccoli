@@ -591,7 +591,7 @@ Public Class frmPPitching
             Dim prm2 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
             prm2.Value = m_POId
 
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
 
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
