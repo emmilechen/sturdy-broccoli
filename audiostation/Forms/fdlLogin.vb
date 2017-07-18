@@ -58,6 +58,7 @@ Public Class fdlLogin
                     p_CompanyName = myReader.GetString(2)
                 End While
                 frmMAIN.Text = frmMAIN.Text & " - " & p_CompanyName
+                InsertLogFile("Login", "Login ", My.Computer.Name, Me.Name, Me.txtUserName.Text)
             End If
             'Do While myReader.Read()
             'Console.WriteLine("{0},{1}", myReader.GetString(1), myReader.GetString(2))
