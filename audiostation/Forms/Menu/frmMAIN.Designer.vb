@@ -195,11 +195,6 @@ Partial Class frmMAIN
         Me.SalesQuotionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator22 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalesQuotationApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        '--
-        Me.PurchasePitchingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PurchasePitchingApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        '--
         Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         '--
         Me.MenuStrip.SuspendLayout()

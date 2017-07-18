@@ -10,7 +10,7 @@ Public Class frmSKUUoM
     Dim isAllowDelete As Boolean
 
     Private Sub frmSKUUoM_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        isAllowDelete = canDelete(Me.Name)
+        'isAllowDelete = canDelete(Me.Name)
 
         clear_obj()
         'lock_obj(True)
@@ -84,13 +84,13 @@ Public Class frmSKUUoM
 
         If m_UoMId = 0 Then
             prm11.Direction = ParameterDirection.Output
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             m_UoMId = prm11.Value
             cn.Close()
         Else
             prm11.Value = m_UoMId
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             cn.Close()
             'clear_lvw()
@@ -128,7 +128,7 @@ err_btnSave_Click:
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@action", SqlDbType.NVarChar)
         prm1.Value = "READ"
         
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -177,7 +177,7 @@ err_btnSave_Click:
             prm2.Value = My.Settings.UserName
             Dim prm3 As SqlParameter = cmd.Parameters.Add("@row_count", SqlDbType.Int)
             prm3.Direction = ParameterDirection.Output
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             cn.Close()
             If prm3.Value = 1 Then
