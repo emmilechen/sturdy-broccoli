@@ -142,7 +142,7 @@ Module modFunction
             Dim prm2 As SqlParameter = cmd.Parameters.Add("@form_name", SqlDbType.NVarChar, 50)
             prm2.Value = form_name
 
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
             While myReader.Read
                 formDelete = myReader.GetBoolean(4)
