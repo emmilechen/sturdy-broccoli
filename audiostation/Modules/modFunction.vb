@@ -169,7 +169,7 @@ Module modFunction
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@" & fieldName, SqlDbType.Int)
         prm1.Value = fieldId
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -186,7 +186,7 @@ Module modFunction
 
         cmd = New SqlCommand("select * from " + tableName + " where " + fieldName + "='" + fieldValue + "' ", cn)
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
         myReader = cmd.ExecuteReader
 
         If myReader.HasRows Then
@@ -274,7 +274,7 @@ Module modFunction
             '------------------------END OF ENCRYPTING PASSWORD----------------------------
             prm2.Value = EncryptPass2
 
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
             If myReader.HasRows Then
                 isLogged = True
@@ -306,7 +306,7 @@ Module modFunction
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@period_id", SqlDbType.Int)
         prm1.Value = PeriodId
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While myReader.Read()
             GetPeriodName = myReader.GetString(1)
