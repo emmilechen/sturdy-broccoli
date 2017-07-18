@@ -8,7 +8,7 @@ Imports System.Data.OleDb
 Public Class frmMAIN
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
-    Dim cmd As SqlCommand
+    Dim cmd As SqlCommand, formkiri As Integer
     Sub DefineToolstrip()
         Dim myReader As SqlDataReader
         Dim prm1, prm2 As SqlParameter
@@ -103,14 +103,20 @@ Public Class frmMAIN
     End Sub
     Private Function openformutility(openargs As String, judul As String)
         Me.Cursor = Cursors.AppStarting
-        'For Each f As Form In Application.OpenForms
-        '    If TypeOf f Is frmUtility Then
-        '        f.Activate() : Me.Cursor = Cursors.Default
-        '        Exit Function
-        '    End If
-        'Next
+        For Each f As Form In Application.OpenForms
+            If TypeOf f Is frmUtility And (f.Text = judul) Then
+                'formkiri = IIf(formkiri = 0, f.Width, formkiri)
+                f.Activate() : f.Left = 0 : Me.Cursor = Cursors.Default
+                Exit Function
+            ElseIf TypeOf f Is frmUtility And (f.Text <> judul) Then
+                'formkiri = f.Width
+            Else
+                'formkiri = 0
+            End If
+        Next
         Dim MDIForm As New frmUtility(openargs, judul)
         MDIForm.MdiParent = Me
+        'MDIForm.Left = formkiri
         MDIForm.Show()
         Me.Cursor = Cursors.Default
     End Function
@@ -160,12 +166,17 @@ Public Class frmMAIN
                 userVal = CInt(wrapper.DecryptData(cipherText))
                 '-------------------------END OF DECRYPT--------------------------------
 
-                If userCount <= userVal Then
-                    fdlLogin.ShowDialog()
-                Else
-                    MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@mybrightsolution.com(Er:03)", MsgBoxStyle.Critical)
-                    End
-                End If
+                'If userCount <= userVal Then
+                fdlLogin.ShowDialog()
+
+                frmdashboard.MdiParent = Me
+                frmdashboard.Show()
+                frmdashboard.BringToFront()
+
+                'Else
+                '    MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@mybrightsolution.com(Er:03)", MsgBoxStyle.Critical)
+                '    End
+                'End If
             End If
         Catch ex As Exception
             MsgBox("Unable to start Box Tree, please check :" + vbCrLf + "1.License" + vbCrLf + "2.Connection to server" + vbCrLf + "3.Server database" + vbCrLf + "For help please contact us at support@mybrightsolution.com" + vbCrLf + vbCrLf + "Error Message :" + vbCrLf + ex.Message, MsgBoxStyle.Critical)
@@ -380,30 +391,9 @@ Public Class frmMAIN
         End If
     End Sub
 
-    Private Sub UserToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UserToolStripMenuItem.Click
-        'Dim NewMDIChild As New frmUser()
-        ''Set the Parent Form of the Child window.
-        'NewMDIChild.MdiParent = Me
-        ''Display the new form.
-        'NewMDIChild.Show()
-        If Not GetPermission("frmUser") = False Then
-            frmUser.MdiParent = Me
-            frmUser.Show()
-            frmUser.BringToFront()
-        End If
-    End Sub
-
     Private Sub SignOutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SignOutToolStripMenuItem.Click
         Me.Text = "BoxTree"
         fdlLogin.ShowDialog()
-    End Sub
-
-    Private Sub UserLevelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UserLevelToolStripMenuItem.Click
-        If Not GetPermission("frmUserLevel") = False Then
-            frmUserLevel.MdiParent = Me
-            frmUserLevel.Show()
-            frmUserLevel.BringToFront()
-        End If
     End Sub
 
     Private Sub SupplierListToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SupplierListToolStripMenuItem.Click
@@ -1333,38 +1323,82 @@ Public Class frmMAIN
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
 
     End Sub
-
     Private Sub DepartementToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DepartementToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
-
     Private Sub DivisionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DivisionToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
-
     Private Sub UnitOfMeasurementElectricalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementElectricalToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
-
     Private Sub UnitOfMeasurementSizeToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementSizeToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
-
     Private Sub UnitOfMeasurementSpeedToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnitOfMeasurementSpeedToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
-
     Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseToolStripMenuItem.Click
 
     End Sub
-
     Private Sub MasterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MasterToolStripMenuItem.Click
 
     End Sub
-
     Private Sub UnitOfMeasurementToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UnitOfMeasurementToolStripMenuItem.Click
         frmSKUUoM.MdiParent = Me
         frmSKUUoM.Show()
         frmSKUUoM.BringToFront()
+    End Sub
+
+    Private Sub UserToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserToolStripMenuItem.Click
+        If Not GetPermission("frmUser") = False Then
+            frmUser.MdiParent = Me
+            frmUser.Show()
+            frmUser.BringToFront()
+        End If
+    End Sub
+
+    Private Sub UserLevelToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserLevelToolStripMenuItem.Click
+        If Not GetPermission("frmUserLevel") = False Then
+            frmUserLevel.MdiParent = Me
+            frmUserLevel.Show()
+            frmUserLevel.BringToFront()
+        End If
+    End Sub
+
+    Private Sub UOMElectricalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UOMElectricalToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub UOMSizeToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UOMSizeToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub UOMSpeedToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UOMSpeedToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub MachineCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MachineCategoryToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub MachineSubCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MachineSubCategoryToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub MachineDivisionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MachineDivisionToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub SalesQuotionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SalesQuotionToolStripMenuItem.Click
+        frmSQuoteList.MdiParent = Me
+        frmSQuoteList.Show()
+        frmSQuoteList.BringToFront()
+    End Sub
+
+    Private Sub SalesQuotationApprovalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SalesQuotationApprovalToolStripMenuItem.Click
+        frmSQuoteApprovalList.MdiParent = Me
+        frmSQuoteApprovalList.Show()
+        frmSQuoteApprovalList.BringToFront()
     End Sub
 End Class
