@@ -80,7 +80,7 @@ Module modFunction
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sys_init_id", SqlDbType.NVarChar, 50)
         prm1.Value = sysInitId
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While myReader.Read()
             GetSysInit = myReader.GetString(2)
@@ -98,7 +98,7 @@ Module modFunction
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@form_name", SqlDbType.NVarChar, 50)
         prm2.Value = FormName
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While myReader.Read()
             GetPermission = myReader.GetBoolean(3)
@@ -430,7 +430,8 @@ Module modFunction
                 sqlComm.CommandType = CommandType.StoredProcedure
                 For Each ctrl As Control In root.Controls
                     If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
-                        If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
+                        If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CInt(ctrl.Text))
+                        If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
                         If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
                     Else
                     End If
@@ -452,7 +453,7 @@ Module modFunction
                                     If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
                                         ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString), Decimal.ToInt32(sqlReader.Item(ctrl.Tag).ToString).ToString(), sqlReader.Item(ctrl.Tag).ToString)
                                     Else
-                                        If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = sqlReader.Item(ctrl.Tag).ToString
+                                        If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
                                         If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(ctrl.Tag).ToString
                                     End If
                                 Else
@@ -463,6 +464,8 @@ Module modFunction
                     sqlReader.Close()
                 Else
                     'delete
+                    sqlComm.ExecuteNonQuery()
+                    txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 End If
 
                 sqlCon.Close()
@@ -534,6 +537,23 @@ Module modFunction
                 CType(ctrl, CheckBox).Text = ""
             End If
         Next ctrl
+    End Function
+    Public Function MarqueeLeft(ByVal Text As String)
+        Dim Str1 As String = Text.Remove(0, 1)
+        Dim Str2 As String = Text(0)
+        Return Str1 & Str2
+    End Function
+    Public Function InsertLogFile(ByVal namaevent As String, ByVal ketlogfile As String, ByVal namahost As String, ByVal namamodul As String, ByVal curuserlogin As String)
+        On Error Resume Next
+        If cn.State = Data.ConnectionState.Closed Then
+            cn.Open()
+        End If
+        Dim strsql As String = "sp_ins_LOG '" & ketlogfile & "','" & namahost & "','" & curuserlogin & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & namamodul & "','" & namaevent & "'"
+        Dim cmd As New SqlCommand(strsql, cn)
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+        cmd = Nothing
+        'con.Close()itu yg baru
     End Function
 End Module
 
