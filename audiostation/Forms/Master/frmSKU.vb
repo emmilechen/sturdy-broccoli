@@ -179,7 +179,7 @@ Public Class frmSKU
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         On Error GoTo err_btnSave_Click
-
+        If Me.txtSKUCode.Text = "" Then Me.txtSKUCode.Text = GETGeneralcode("", "mt_sku", "sku_code", "", Me.txtSKUName.Text, True, 4, 1, "", "")
         If txtSKUCode.Text = "" Or txtSKUName.Text = "" Or cmbCategoryID.SelectedIndex = -1 Then
             MsgBox("Stock Code, Stock Name and Stock Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             txtSKUCode.Focus()

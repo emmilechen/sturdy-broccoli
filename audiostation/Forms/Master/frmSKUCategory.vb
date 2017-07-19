@@ -100,13 +100,13 @@ Public Class frmSKUCategory
 
         If m_CategoryId = 0 Then
             prm1.Direction = ParameterDirection.Output
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             m_CategoryId = prm1.Value
             cn.Close()
         Else
             prm1.Value = m_CategoryId
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             cn.Close()
             'clear_lvw()
@@ -120,7 +120,7 @@ exit_btnSave_Click:
 
 err_btnSave_Click:
         If Err.Number = 5 Then
-            MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
+            MsgBox("This primary code has been used (and deleted) previously. Please create with another code {" & Err.Description & "}", vbExclamation + vbOKOnly, Me.Text)
         Else
             MsgBox(Err.Number)
         End If
@@ -146,7 +146,7 @@ err_btnSave_Click:
         Dim prm2 As SqlParameter = cmd.Parameters.Add("@is_sub_category", SqlDbType.Bit)
         prm2.Value = 0
 
-        cn.Open()
+        If cn.State = Data.ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -194,7 +194,7 @@ err_btnSave_Click:
             prm2.Value = My.Settings.UserName
             Dim prm3 As SqlParameter = cmd.Parameters.Add("@row_count", SqlDbType.Int)
             prm3.Direction = ParameterDirection.Output
-            cn.Open()
+            If cn.State = Data.ConnectionState.Closed Then cn.Open()
             cmd.ExecuteReader()
             cn.Close()
             If prm3.Value = 1 Then

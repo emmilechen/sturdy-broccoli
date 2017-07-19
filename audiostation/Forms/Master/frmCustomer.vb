@@ -124,6 +124,7 @@ Public Class frmCustomer
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         On Error GoTo err_btnSave_Click
+        If Me.txtCCode.Text = "" Then Me.txtCCode.Text = GETGeneralcode("", "mt_customer", "c_code", "", Me.txtCName.Text, True, 2, 1, "", "")
         If txtCCode.Text = "" Or txtCName.Text = "" Or cmbCCategory.Text = "" Or txtCCurrCode.Text = "" Then
             MsgBox("Customer Code, Customer Name and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             txtCCode.Focus()
