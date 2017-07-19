@@ -238,6 +238,7 @@ Module modProcedure
             End
         End Try
     End Sub
+
     Public Sub cekMacAddress()
         'Try
         '    cmd = New SqlCommand("cekMacAddress", cn)
@@ -254,5 +255,21 @@ Module modProcedure
         '    If ConnectionState.Open = 1 Then cn.Close()
         '    End
         'End Try
+    End Sub
+
+    Public Sub exec_sp_Approval(ByVal sp_name As String, ByVal trx_field_id As String, ByVal trx_id As Integer, ByVal trx_field_status As String, ByVal trx_status As String)
+        cmd = New SqlCommand(sp_name, cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@" & trx_field_id, SqlDbType.Int)
+        prm1.Value = trx_id
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@" & trx_field_status, SqlDbType.NVarChar, 50)
+        prm2.Value = trx_status
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+        prm3.Value = My.Settings.UserName
+
+        cn.Open()
+        cmd.ExecuteReader()
+        cn.Close()
     End Sub
 End Module
