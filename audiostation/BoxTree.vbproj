@@ -583,12 +583,6 @@
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\Form3.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
     </Compile>
