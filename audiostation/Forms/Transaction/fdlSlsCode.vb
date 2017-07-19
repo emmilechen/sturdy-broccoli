@@ -60,6 +60,11 @@ Public Class fdlSlsCode
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
+            Case "frmSQuote"
+                With frmSQuote
+                    .SlsCodeId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                    .SlsCode = ListView1.SelectedItems.Item(0).SubItems.Item(0).Text
+                End With
             Case "frmSO"
                 With frmSO
                     .SlsCodeId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)

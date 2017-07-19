@@ -204,16 +204,16 @@ Public Class frmSQuoteList
 
         'Call FillList(myReader, Me.ListView1, 8, 1)
         While myReader.Read
-            lvItem = New ListViewItem(CStr(myReader.Item(30)))
+            lvItem = New ListViewItem(CStr(myReader.Item(32)))
             lvItem.Tag = CStr(myReader.Item(0)) & "*~~~~~*" & intCurrRow 'ID
             'lvItem.Tag = "v" & CStr(DR.Item(0))
-            lvItem.SubItems.Add(myReader.Item(31))
-            lvItem.SubItems.Add(myReader.GetInt32(3))
-            lvItem.SubItems.Add(myReader.GetString(4))
-            lvItem.SubItems.Add(myReader.GetString(5))
-            lvItem.SubItems.Add(myReader.GetString(6))
-            lvItem.SubItems.Add(myReader.GetString(32))
-            lvItem.SubItems.Add(myReader.GetString(8))
+            lvItem.SubItems.Add(myReader.Item(33)) 'squote_date
+            lvItem.SubItems.Add(myReader.GetInt32(3)) 'c_id
+            lvItem.SubItems.Add(myReader.GetString(4)) 'c_code
+            lvItem.SubItems.Add(myReader.GetString(5)) 'c_name
+            lvItem.SubItems.Add(myReader.GetString(6)) 'so_type
+            lvItem.SubItems.Add(myReader.GetString(34)) 'squote_status
+            lvItem.SubItems.Add(myReader.GetString(8)) 'status
 
             If intCurrRow Mod 2 = 0 Then
                 lvItem.BackColor = Color.Lavender

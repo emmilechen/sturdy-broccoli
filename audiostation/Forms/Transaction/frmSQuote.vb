@@ -86,7 +86,7 @@ Public Class frmSQuote
         cmd.CommandType = CommandType.StoredProcedure
 
         prm1 = cmd.Parameters.Add("@sys_dropdown_whr", SqlDbType.NVarChar, 50)
-        prm1.Value = "so_status"
+        prm1.Value = "squote_status"
 
         cn.Open()
         myReader = cmd.ExecuteReader
@@ -474,7 +474,7 @@ Public Class frmSQuote
             .Columns.Add("Code", 80)
             .Columns.Add("Line Description", 220)
             .Columns.Add("location_id", 0)
-            .Columns.Add("Location", 80)
+            .Columns.Add("Location", 0)
             .Columns.Add("Qty", 50, HorizontalAlignment.Right)
             .Columns.Add("UoM", 50)
             .Columns.Add("avg_cost", 0, HorizontalAlignment.Right)
@@ -581,6 +581,8 @@ Public Class frmSQuote
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
         prm1.Value = m_SOId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "squote"
 
         cn.Open()
 
@@ -588,13 +590,13 @@ Public Class frmSQuote
 
         While myReader.Read
             m_SONo = IIf(myReader.Item(1) Is DBNull.Value, "", myReader.Item(1))
-            txtSONo.Text = myReader.GetString(1)
-            dtpSODate.Value = myReader.GetDateTime(2)
+            txtSONo.Text = myReader.GetString(32)
+            dtpSODate.Value = myReader.GetDateTime(33)
             m_CId = myReader.GetInt32(3)
             txtCCode.Text = myReader.GetString(4)
             txtCName.Text = myReader.GetString(5)
             m_SOType = myReader.GetString(6)
-            m_SOStatus = myReader.GetString(7)
+            m_SOStatus = myReader.GetString(34)
             If Not myReader.IsDBNull(myReader.GetOrdinal("c_contact")) Then
                 txtCContact.Text = myReader.GetString(myReader.GetOrdinal("c_contact"))
             Else
@@ -661,6 +663,8 @@ Public Class frmSQuote
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
         prm1.Value = m_SOId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "squote"
 
         cn.Open()
 
@@ -720,76 +724,76 @@ Public Class frmSQuote
                 MsgBox("Warning,Sales Order total is 0 !", vbInformation, Me.Text)
             End If
 
-            If m_SOId = 0 Then
-                If txtSONo.Text = "" Then
-                    txtSONo.Text = GetSysNumber("squo", Now.Date)
-                    isGetNum = True
-                Else
-                    isGetNum = False
-                End If
-            End If
+            'If m_SOId = 0 Then
+            '    If txtSONo.Text = "" Then
+            '        txtSONo.Text = GetSysNumber("squo", Now.Date)
+            '        isGetNum = True
+            '    Else
+            '        isGetNum = False
+            '    End If
+            'End If
 
-            cmd = New SqlCommand(IIf(m_SOId = 0, "usp_tr_so_INS", "usp_tr_so_UPD"), cn)
-            cmd.CommandType = CommandType.StoredProcedure
+            'cmd = New SqlCommand(IIf(m_SOId = 0, "usp_tr_so_INS", "usp_tr_so_UPD"), cn)
+            'cmd.CommandType = CommandType.StoredProcedure
 
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@squote_no", SqlDbType.NVarChar, 50)
-            prm1.Value = txtSONo.Text
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_date", SqlDbType.SmallDateTime)
-            prm2.Value = dtpSODate.Value.Date
-            Dim prm3 As SqlParameter = cmd.Parameters.Add("@c_id", SqlDbType.Int)
-            prm3.Value = m_CId
-            Dim prm4 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
-            prm4.Value = m_CurrId
-            Dim prm6 As SqlParameter = cmd.Parameters.Add("@so_curr_rate", SqlDbType.Money)
-            prm6.Value = FormatNumber(ntbSOCurrRate.Text)
-            Dim prm7 As SqlParameter = cmd.Parameters.Add("@so_type", SqlDbType.NVarChar, 50)
-            prm7.Value = cmbSOType.Items(cmbSOType.SelectedIndex).ItemData
-            Dim prm8 As SqlParameter = cmd.Parameters.Add("@sls_code_id", SqlDbType.Int)
-            prm8.Value = m_SlsCodeId
-            Dim prm9 As SqlParameter = cmd.Parameters.Add("@c_contact", SqlDbType.NVarChar, 50)
-            prm9.Value = IIf(txtCContact.Text = "", DBNull.Value, txtCContact.Text)
-            Dim prm10 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.DateTime)
-            prm10.Value = dtpDeliveryDate.Value
-            Dim prm11 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
-            prm11.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
-            Dim prm12 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
-            prm12.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
-            Dim prm13 As SqlParameter = cmd.Parameters.Add("@so_remarks", SqlDbType.NVarChar, 255)
-            prm13.Value = IIf(txtSORemarks.Text = "", DBNull.Value, txtSORemarks.Text)
-            Dim prm14 As SqlParameter = cmd.Parameters.Add("@sinvoice_no_ref", SqlDbType.NVarChar, 255)
-            prm14.Value = IIf(txtSInvoiceNo.Text = "", DBNull.Value, txtSInvoiceNo.Text)
+            'Dim prm1 As SqlParameter = cmd.Parameters.Add("@squote_no", SqlDbType.NVarChar, 50)
+            'prm1.Value = txtSONo.Text
+            'Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_date", SqlDbType.SmallDateTime)
+            'prm2.Value = dtpSODate.Value.Date
+            'Dim prm3 As SqlParameter = cmd.Parameters.Add("@c_id", SqlDbType.Int)
+            'prm3.Value = m_CId
+            'Dim prm4 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
+            'prm4.Value = m_CurrId
+            'Dim prm6 As SqlParameter = cmd.Parameters.Add("@so_curr_rate", SqlDbType.Money)
+            'prm6.Value = FormatNumber(ntbSOCurrRate.Text)
+            'Dim prm7 As SqlParameter = cmd.Parameters.Add("@so_type", SqlDbType.NVarChar, 50)
+            'prm7.Value = cmbSOType.Items(cmbSOType.SelectedIndex).ItemData
+            'Dim prm8 As SqlParameter = cmd.Parameters.Add("@sls_code_id", SqlDbType.Int)
+            'prm8.Value = m_SlsCodeId
+            'Dim prm9 As SqlParameter = cmd.Parameters.Add("@c_contact", SqlDbType.NVarChar, 50)
+            'prm9.Value = IIf(txtCContact.Text = "", DBNull.Value, txtCContact.Text)
+            'Dim prm10 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.DateTime)
+            'prm10.Value = dtpDeliveryDate.Value
+            'Dim prm11 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
+            'prm11.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
+            'Dim prm12 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
+            'prm12.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
+            'Dim prm13 As SqlParameter = cmd.Parameters.Add("@so_remarks", SqlDbType.NVarChar, 255)
+            'prm13.Value = IIf(txtSORemarks.Text = "", DBNull.Value, txtSORemarks.Text)
+            'Dim prm14 As SqlParameter = cmd.Parameters.Add("@sinvoice_no_ref", SqlDbType.NVarChar, 255)
+            'prm14.Value = IIf(txtSInvoiceNo.Text = "", DBNull.Value, txtSInvoiceNo.Text)
 
-            If isConvertToSO = True Then
-                m_SONo = GetSysNumber("sord", Now.Date)
-                Dim prm21 As SqlParameter = cmd.Parameters.Add("@so_no", SqlDbType.NVarChar, 50)
-                prm21.Value = m_SONo
-                Dim prm22 As SqlParameter = cmd.Parameters.Add("@so_date", SqlDbType.SmallDateTime)
-                prm22.Value = Now.Date
-                Dim prm23 As SqlParameter = cmd.Parameters.Add("@so_status", SqlDbType.NVarChar, 50)
-                prm23.Value = "O"
-            End If
+            'If isConvertToSO = True Then
+            '    m_SONo = GetSysNumber("sord", Now.Date)
+            '    Dim prm21 As SqlParameter = cmd.Parameters.Add("@so_no", SqlDbType.NVarChar, 50)
+            '    prm21.Value = m_SONo
+            '    Dim prm22 As SqlParameter = cmd.Parameters.Add("@so_date", SqlDbType.SmallDateTime)
+            '    prm22.Value = Now.Date
+            '    Dim prm23 As SqlParameter = cmd.Parameters.Add("@so_status", SqlDbType.NVarChar, 50)
+            '    prm23.Value = "O"
+            'End If
 
-            Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-            prm15.Value = My.Settings.UserName
-            Dim prm17 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
+            'Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            'prm15.Value = My.Settings.UserName
+            'Dim prm17 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
 
-            If m_SOId = 0 Then
-                prm17.Direction = ParameterDirection.Output
+            'If m_SOId = 0 Then
+            '    prm17.Direction = ParameterDirection.Output
 
-                cn.Open()
-                cmd.ExecuteReader()
-                m_SOId = prm17.Value
-                'MessageBox.Show(m_SOId)
-                cn.Close()
-                If isGetNum = True Then UpdSysNumber("squo")
-            Else
-                prm17.Value = m_SOId
-                cn.Open()
-                cmd.ExecuteReader()
-                cn.Close()
-                'clear_lvw()
-                If CDbl(ntbSOCurrRate.Text) <> m_SOCurrRateBefore Then refresh_total()
-            End If
+            '    cn.Open()
+            '    cmd.ExecuteReader()
+            '    m_SOId = prm17.Value
+            '    'MessageBox.Show(m_SOId)
+            '    cn.Close()
+            '    If isGetNum = True Then UpdSysNumber("squo")
+            'Else
+            '    prm17.Value = m_SOId
+            '    cn.Open()
+            '    cmd.ExecuteReader()
+            '    cn.Close()
+            '    'clear_lvw()
+            '    If CDbl(ntbSOCurrRate.Text) <> m_SOCurrRateBefore Then refresh_total()
+            'End If
 
             lock_obj(True)
             lock_objD(True)
@@ -856,6 +860,8 @@ Public Class frmSQuote
                     Exit Sub
                 End If
                 SaveSOHeader()
+                txtSONo.ReadOnly = True
+                m_SOCurrRateBefore = CDbl(ntbSOCurrRate.Text)
             End If
             If txtSODtlDesc.Text = "" Then
                 MsgBox("Line Description are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
@@ -929,7 +935,7 @@ Public Class frmSQuote
                 isGetNum = False
             End If
 
-            cmd = New SqlCommand("usp_tr_so_INS", cn)
+            cmd = New SqlCommand(IIf(m_SOId = 0, "usp_tr_so_INS", "usp_tr_so_UPD"), cn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim prm1 As SqlParameter = cmd.Parameters.Add("@squote_no", SqlDbType.NVarChar, 50)
@@ -958,19 +964,40 @@ Public Class frmSQuote
             prm13.Value = IIf(txtSORemarks.Text = "", DBNull.Value, txtSORemarks.Text)
             Dim prm14 As SqlParameter = cmd.Parameters.Add("@sinvoice_no_ref", SqlDbType.NVarChar, 255)
             prm14.Value = IIf(txtSInvoiceNo.Text = "", DBNull.Value, txtSInvoiceNo.Text)
+
+            If isConvertToSO = True Then
+                m_SONo = GetSysNumber("sord", Now.Date)
+                Dim prm21 As SqlParameter = cmd.Parameters.Add("@so_no", SqlDbType.NVarChar, 50)
+                prm21.Value = m_SONo
+                Dim prm22 As SqlParameter = cmd.Parameters.Add("@so_date", SqlDbType.SmallDateTime)
+                prm22.Value = Now.Date
+                Dim prm23 As SqlParameter = cmd.Parameters.Add("@so_status", SqlDbType.NVarChar, 50)
+                prm23.Value = "O"
+            End If
+
             Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
             prm15.Value = My.Settings.UserName
-            Dim prm16 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
-            prm16.Direction = ParameterDirection.Output
+            Dim prm17 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
 
-            cn.Open()
-            cmd.ExecuteReader()
-            m_SOId = prm16.Value
+            If m_SOId = 0 Then
+                prm17.Direction = ParameterDirection.Output
 
-            cn.Close()
-            If isGetNum = True Then UpdSysNumber("squo")
-            txtSONo.ReadOnly = True
-            m_SOCurrRateBefore = CDbl(ntbSOCurrRate.Text)
+                cn.Open()
+                cmd.ExecuteReader()
+                m_SOId = prm17.Value
+                'MessageBox.Show(m_SOId)
+                cn.Close()
+                If isGetNum = True Then UpdSysNumber("squo")
+            Else
+                prm17.Value = m_SOId
+                cn.Open()
+                cmd.ExecuteReader()
+                cn.Close()
+                'clear_lvw()
+                If CDbl(ntbSOCurrRate.Text) <> m_SOCurrRateBefore Then refresh_total()
+            End If
+
+
         Catch ex As Exception
             'If Err.Number = 5 Then
             '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)

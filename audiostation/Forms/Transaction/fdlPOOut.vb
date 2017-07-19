@@ -64,7 +64,7 @@ Public Class fdlPOOut
             .Columns.Add("Total", IIf(m_FrmCallerId = "frmPInvoice", 100, 0), HorizontalAlignment.Right)
         End With
 
-        cmd = New SqlCommand("sp_tr_po_SEL", cn)
+        cmd = New SqlCommand("usp_tr_po_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
@@ -92,6 +92,8 @@ Public Class fdlPOOut
         prm5.Value = m_POStat1
         Dim prm6 As SqlParameter = cmd.Parameters.Add("@po_stat2", SqlDbType.NVarChar, 50)
         prm6.Value = m_POStat2
+        Dim prm7 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm7.Value = "po"
 
         cn.Open()
 
