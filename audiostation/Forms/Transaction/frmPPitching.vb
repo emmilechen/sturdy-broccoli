@@ -908,6 +908,266 @@ Public Class frmPPitching
                 MsgBox("Warning,Purchase Order total is 0 !", vbInformation, Me.Text)
             End If
 
+            'If m_POId = 0 Then
+            '    If txtPPitchingNo.Text = "" Then
+            '        txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
+            '        isGetNum = True
+            '    Else
+            '        isGetNum = False
+            '    End If
+            'End If
+
+            'cmd = New SqlCommand(IIf(m_POId = 0, "usp_tr_po_INS", "usp_tr_po_UPD"), cn)
+            'cmd.CommandType = CommandType.StoredProcedure
+
+            'Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+            'prm1.Value = txtPPitchingNo.Text
+            'Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
+            'prm2.Value = dtpPPitchingDate.Value.Date
+            'Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
+            'prm3.Value = m_SId
+            'Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
+            'prm11.Value = m_CurrId
+            'Dim prm12 As SqlParameter = cmd.Parameters.Add("@po_curr_rate", SqlDbType.Money)
+            'prm12.Value = FormatNumber(ntbPOCurrRate.Text)
+            'Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_type", SqlDbType.NVarChar, 50)
+            'prm4.Value = cmbPOType.Items(cmbPOType.SelectedIndex).ItemData
+            'Dim prm13 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+            'prm13.Value = m_PchCodeId
+            'Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
+            'prm5.Value = dtpDeliveryDate.Value.Date
+            'Dim prm6 As SqlParameter = cmd.Parameters.Add("@ship_via", SqlDbType.NVarChar, 50)
+            'prm6.Value = IIf(txtShipVia.Text = "", DBNull.Value, txtShipVia.Text)
+            'Dim prm7 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
+            'prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
+            'Dim prm8 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
+            'prm8.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
+            'Dim prm9 As SqlParameter = cmd.Parameters.Add("@payment_method", SqlDbType.NVarChar, 50)
+            'prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
+            'Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
+            'prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+
+            'If isConvertToPO = True Then
+            '    m_PONo = GetSysNumber("pord", Now.Date)
+            '    Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
+            '    prm21.Value = m_PONo
+            '    Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
+            '    prm22.Value = Now.Date
+            '    Dim prm23 As SqlParameter = cmd.Parameters.Add("@po_status", SqlDbType.NVarChar, 50)
+            '    prm23.Value = "O"
+            'End If
+
+            'Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            'prm15.Value = My.Settings.UserName
+            'Dim prm16 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+
+            'If m_POId = 0 Then
+            '    prm16.Direction = ParameterDirection.Output
+
+            '    cn.Open()
+            '    cmd.ExecuteReader()
+            '    m_POId = prm16.Value
+            '    'MessageBox.Show(m_POId)
+            '    cn.Close()
+            '    If isGetNum = True Then UpdSysNumber("ppit")
+            'Else
+            '    prm16.Value = m_POId
+            '    If CInt(txtPrinted.Text) > 0 Then txtRevise.Text = CInt(txtRevise.Text) + 1 : txtPrinted.Text = "0"
+            '    Dim prm17 As SqlParameter = cmd.Parameters.Add("@revise", SqlDbType.SmallInt)
+            '    prm17.Value = txtRevise.Text
+            '    Dim prm14 As SqlParameter = cmd.Parameters.Add("@printed", SqlDbType.SmallInt)
+            '    prm14.Value = txtPrinted.Text
+
+            '    cn.Open()
+            '    cmd.ExecuteReader()
+            '    cn.Close()
+            '    'clear_lvw()
+            '    If CDbl(ntbPOCurrRate.Text) <> m_POCurrRateBefore Then refresh_total()
+            'End If
+
+            lock_obj(True)
+            lock_objD(True)
+            m_POCurrRateBefore = CDbl(ntbPOCurrRate.Text)
+
+        Catch ex As Exception
+            'If Err.Number = 5 Then
+            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
+            'Else
+            MsgBox(ex.Message)
+            'End If
+            If ConnectionState.Open = 1 Then cn.Close()
+        End Try
+        autoRefresh()
+
+        For i As Integer = 0 To DataGridView1.RowCount
+
+        Next
+    End Sub
+
+    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+        clear_objD()
+        lock_obj(False)
+        lock_objD(False)
+        'If m_POStatus = "FR" Then
+        '    btnSave.Enabled = False
+        '    btnDelete.Enabled = False
+        '    lock_objD(True)
+        'Else
+        If m_POStatus = "PR" Then
+            lock_objD(True)
+            ntbPOQty.ReadOnly = False
+            btnSaveD.Enabled = True
+        End If
+    End Sub
+
+    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
+        If m_POStatus = "O" Then
+            If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
+                cmd = New SqlCommand("usp_tr_po_DEL", cn)
+                cmd.CommandType = CommandType.StoredProcedure
+
+                Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+                prm1.Value = m_POId
+                Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+                prm2.Value = My.Settings.UserName
+
+                cn.Open()
+                cmd.ExecuteReader()
+                cn.Close()
+                btnAdd_Click(sender, e)
+            End If
+        Else
+            MsgBox("You can't delete this transaction record", vbCritical, Me.Text)
+        End If
+        autoRefresh()
+    End Sub
+
+    Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
+        Try
+            If m_POId = 0 Then
+                If m_SId = 0 Or m_PchCodeId = 0 Then
+                    MsgBox("Purchase Code, Supplier Code and Supplier Name are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+                    txtSCode.Focus()
+                    Exit Sub
+                End If
+                SavePOHeader()
+                txtPPitchingNo.ReadOnly = True
+                m_POCurrRateBefore = CDbl(ntbPOCurrRate.Text)
+            End If
+
+            'If m_POStatus = "PR" And m_PODId = 0 Then
+            '    MsgBox("For partially received Purchase Order you can only edit the quantity and not add a new line.", vbCritical + vbOKOnly, Me.Text)
+            '    clear_objD()
+            '    Exit Sub
+            'End If
+
+            If txtPODtlDesc.Text = "" Then
+                MsgBox("Line Description are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+                txtPODtlDesc.Focus()
+                Exit Sub
+            End If
+
+            If cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "S" And (m_SKUId = 0 Or m_LocationId = 0) Then
+                MsgBox("Stock and Location are primary fields that should be entered. Please select before you save it.", vbCritical + vbOKOnly, Me.Text)
+                txtPODtlDesc.Focus()
+                Exit Sub
+            End If
+
+            cmd = New SqlCommand(IIf(m_PODId = 0, "usp_tr_po_dtl_INS", "usp_tr_po_dtl_UPD"), cn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim prm17 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+            prm17.Value = m_POId
+            Dim prm18 As SqlParameter = cmd.Parameters.Add("@po_dtl_type", SqlDbType.NVarChar, 50)
+            prm18.Value = cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData
+            Dim prm25 As SqlParameter = cmd.Parameters.Add("@prequest_dtl_id", SqlDbType.Int)
+            prm25.Value = m_PRequestDId
+            Dim prm19 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
+            prm19.Value = IIf(cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "S", m_SKUId, 0)
+            Dim prm20 As SqlParameter = cmd.Parameters.Add("@po_dtl_desc", SqlDbType.NVarChar, 255)
+            prm20.Value = IIf(txtPODtlDesc.Text = "", DBNull.Value, txtPODtlDesc.Text)
+            Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_qty", SqlDbType.Decimal)
+            prm21.Value = IIf(ntbPOQty.Text = "", 0, CDbl(ntbPOQty.Text))
+            Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_price", SqlDbType.Decimal)
+            prm22.Value = FormatNumber(ntbPOPrice.Text, Dec)
+            Dim prm23 As SqlParameter = cmd.Parameters.Add("@tax_percent", SqlDbType.Decimal)
+            prm23.Value = ntbPOTaxPercent.Text / 100
+            Dim prm26 As SqlParameter = cmd.Parameters.Add("@location_id", SqlDbType.Int)
+            prm26.Value = m_LocationId
+            Dim prm27 As SqlParameter = cmd.Parameters.Add("@expense_id", SqlDbType.Int)
+            prm27.Value = IIf(cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "E", m_SKUId, 0)
+
+            If m_PODId <> 0 Then
+                Dim prm24 As SqlParameter = cmd.Parameters.Add("@po_dtl_id", SqlDbType.Int)
+                prm24.Value = m_PODId
+            End If
+            cn.Open()
+            cmd.ExecuteReader()
+            cn.Close()
+
+            clear_lvw()
+            clear_objD()
+            refresh_total()
+
+        Catch ex As Exception
+            'If Err.Number = 5 Then
+            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
+            'Else
+            MsgBox(ex.Message)
+            'End If
+            If ConnectionState.Open = 1 Then cn.Close()
+        End Try
+    End Sub
+
+    Sub SavePOHeader()
+        Try
+            'If txtPPitchingNo.Text = "" Then
+            '    txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
+            '    isGetNum = True
+            'Else
+            '    isGetNum = False
+            'End If
+
+            'cmd = New SqlCommand("usp_tr_po_INS", cn)
+            'cmd.CommandType = CommandType.StoredProcedure
+
+            'Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+            'prm1.Value = txtPPitchingNo.Text
+            'Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
+            'prm2.Value = dtpPPitchingDate.Value.Date
+            'Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
+            'prm3.Value = m_SId
+            'Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
+            'prm11.Value = m_CurrId
+            'Dim prm12 As SqlParameter = cmd.Parameters.Add("@po_curr_rate", SqlDbType.Money)
+            'prm12.Value = FormatNumber(ntbPOCurrRate.Text)
+            'Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_type", SqlDbType.NVarChar, 50)
+            'prm4.Value = cmbPOType.Items(cmbPOType.SelectedIndex).ItemData
+            'Dim prm13 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+            'prm13.Value = m_PchCodeId
+            'Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
+            'prm5.Value = dtpDeliveryDate.Value.Date
+            'Dim prm6 As SqlParameter = cmd.Parameters.Add("@ship_via", SqlDbType.NVarChar, 50)
+            'prm6.Value = IIf(txtShipVia.Text = "", DBNull.Value, txtShipVia.Text)
+            'Dim prm7 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
+            'prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
+            'Dim prm8 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
+            'prm8.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
+            'Dim prm9 As SqlParameter = cmd.Parameters.Add("@payment_method", SqlDbType.NVarChar, 50)
+            'prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
+            'Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
+            'prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+            'Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            'prm15.Value = My.Settings.UserName
+            'Dim prm16 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+            'prm16.Direction = ParameterDirection.Output
+
+            'cn.Open()
+            'cmd.ExecuteReader()
+            'm_POId = prm16.Value
+            'cn.Close()
+            'If isGetNum = True Then UpdSysNumber("ppit")
+
             If m_POId = 0 Then
                 If txtPPitchingNo.Text = "" Then
                     txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
@@ -984,189 +1244,6 @@ Public Class frmPPitching
                 'clear_lvw()
                 If CDbl(ntbPOCurrRate.Text) <> m_POCurrRateBefore Then refresh_total()
             End If
-
-            lock_obj(True)
-            lock_objD(True)
-            m_POCurrRateBefore = CDbl(ntbPOCurrRate.Text)
-
-        Catch ex As Exception
-            'If Err.Number = 5 Then
-            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
-            'Else
-            MsgBox(ex.Message)
-            'End If
-            If ConnectionState.Open = 1 Then cn.Close()
-        End Try
-        autoRefresh()
-
-        For i As Integer = 0 To DataGridView1.RowCount
-
-        Next
-    End Sub
-
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
-        clear_objD()
-        lock_obj(False)
-        lock_objD(False)
-        'If m_POStatus = "FR" Then
-        '    btnSave.Enabled = False
-        '    btnDelete.Enabled = False
-        '    lock_objD(True)
-        'Else
-        If m_POStatus = "PR" Then
-            lock_objD(True)
-            ntbPOQty.ReadOnly = False
-            btnSaveD.Enabled = True
-        End If
-    End Sub
-
-    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
-        If m_POStatus = "O" Then
-            If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
-                cmd = New SqlCommand("usp_tr_po_DEL", cn)
-                cmd.CommandType = CommandType.StoredProcedure
-
-                Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-                prm1.Value = m_POId
-                Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                prm2.Value = My.Settings.UserName
-
-                cn.Open()
-                cmd.ExecuteReader()
-                cn.Close()
-                btnAdd_Click(sender, e)
-            End If
-        Else
-            MsgBox("You can't delete this transaction record", vbCritical, Me.Text)
-        End If
-        autoRefresh()
-    End Sub
-
-    Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
-        Try
-            If m_POId = 0 Then
-                If m_SId = 0 Or m_PchCodeId = 0 Then
-                    MsgBox("Purchase Code, Supplier Code and Supplier Name are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-                    txtSCode.Focus()
-                    Exit Sub
-                End If
-                SavePOHeader()
-            End If
-
-            'If m_POStatus = "PR" And m_PODId = 0 Then
-            '    MsgBox("For partially received Purchase Order you can only edit the quantity and not add a new line.", vbCritical + vbOKOnly, Me.Text)
-            '    clear_objD()
-            '    Exit Sub
-            'End If
-
-            If txtPODtlDesc.Text = "" Then
-                MsgBox("Line Description are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-                txtPODtlDesc.Focus()
-                Exit Sub
-            End If
-
-            If cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "S" And (m_SKUId = 0 Or m_LocationId = 0) Then
-                MsgBox("Stock and Location are primary fields that should be entered. Please select before you save it.", vbCritical + vbOKOnly, Me.Text)
-                txtPODtlDesc.Focus()
-                Exit Sub
-            End If
-
-            cmd = New SqlCommand(IIf(m_PODId = 0, "usp_tr_po_dtl_INS", "usp_tr_po_dtl_UPD"), cn)
-            cmd.CommandType = CommandType.StoredProcedure
-
-            Dim prm17 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-            prm17.Value = m_POId
-            Dim prm18 As SqlParameter = cmd.Parameters.Add("@po_dtl_type", SqlDbType.NVarChar, 50)
-            prm18.Value = cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData
-            Dim prm25 As SqlParameter = cmd.Parameters.Add("@prequest_dtl_id", SqlDbType.Int)
-            prm25.Value = m_PRequestDId
-            Dim prm19 As SqlParameter = cmd.Parameters.Add("@sku_id", SqlDbType.Int)
-            prm19.Value = IIf(cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "S", m_SKUId, 0)
-            Dim prm20 As SqlParameter = cmd.Parameters.Add("@po_dtl_desc", SqlDbType.NVarChar, 255)
-            prm20.Value = IIf(txtPODtlDesc.Text = "", DBNull.Value, txtPODtlDesc.Text)
-            Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_qty", SqlDbType.Decimal)
-            prm21.Value = IIf(ntbPOQty.Text = "", 0, CDbl(ntbPOQty.Text))
-            Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_price", SqlDbType.Decimal)
-            prm22.Value = FormatNumber(ntbPOPrice.Text, Dec)
-            Dim prm23 As SqlParameter = cmd.Parameters.Add("@tax_percent", SqlDbType.Decimal)
-            prm23.Value = ntbPOTaxPercent.Text / 100
-            Dim prm26 As SqlParameter = cmd.Parameters.Add("@location_id", SqlDbType.Int)
-            prm26.Value = m_LocationId
-            Dim prm27 As SqlParameter = cmd.Parameters.Add("@expense_id", SqlDbType.Int)
-            prm27.Value = IIf(cmbPODtlType.Items(cmbPODtlType.SelectedIndex).ItemData = "E", m_SKUId, 0)
-
-            If m_PODId <> 0 Then
-                Dim prm24 As SqlParameter = cmd.Parameters.Add("@po_dtl_id", SqlDbType.Int)
-                prm24.Value = m_PODId
-            End If
-            cn.Open()
-            cmd.ExecuteReader()
-            cn.Close()
-
-            clear_lvw()
-            clear_objD()
-            refresh_total()
-
-        Catch ex As Exception
-            'If Err.Number = 5 Then
-            '    MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
-            'Else
-            MsgBox(ex.Message)
-            'End If
-            If ConnectionState.Open = 1 Then cn.Close()
-        End Try
-    End Sub
-
-    Sub SavePOHeader()
-        Try
-            If txtPPitchingNo.Text = "" Then
-                txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
-                isGetNum = True
-            Else
-                isGetNum = False
-            End If
-
-            cmd = New SqlCommand("usp_tr_po_INS", cn)
-            cmd.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
-            prm1.Value = txtPPitchingNo.Text
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
-            prm2.Value = dtpPPitchingDate.Value.Date
-            Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
-            prm3.Value = m_SId
-            Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
-            prm11.Value = m_CurrId
-            Dim prm12 As SqlParameter = cmd.Parameters.Add("@po_curr_rate", SqlDbType.Money)
-            prm12.Value = FormatNumber(ntbPOCurrRate.Text)
-            Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_type", SqlDbType.NVarChar, 50)
-            prm4.Value = cmbPOType.Items(cmbPOType.SelectedIndex).ItemData
-            Dim prm13 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
-            prm13.Value = m_PchCodeId
-            Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
-            prm5.Value = dtpDeliveryDate.Value.Date
-            Dim prm6 As SqlParameter = cmd.Parameters.Add("@ship_via", SqlDbType.NVarChar, 50)
-            prm6.Value = IIf(txtShipVia.Text = "", DBNull.Value, txtShipVia.Text)
-            Dim prm7 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
-            prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
-            Dim prm8 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
-            prm8.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
-            Dim prm9 As SqlParameter = cmd.Parameters.Add("@payment_method", SqlDbType.NVarChar, 50)
-            prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
-            Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
-            prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
-            Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-            prm15.Value = My.Settings.UserName
-            Dim prm16 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
-            prm16.Direction = ParameterDirection.Output
-
-            cn.Open()
-            cmd.ExecuteReader()
-            m_POId = prm16.Value
-            cn.Close()
-            If isGetNum = True Then UpdSysNumber("ppit")
-            txtPPitchingNo.ReadOnly = True
-            m_POCurrRateBefore = CDbl(ntbPOCurrRate.Text)
 
         Catch ex As Exception
             'If Err.Number = 5 Then
@@ -1462,22 +1539,6 @@ Public Class frmPPitching
         Next
         lock_obj(True)
         autoRefresh()
-    End Sub
-
-    Sub exec_sp_Approval(ByVal sp_name As String, ByVal trx_field_id As String, ByVal trx_id As Integer, ByVal trx_field_status As String, ByVal trx_status As String)
-        cmd = New SqlCommand(sp_name, cn)
-        cmd.CommandType = CommandType.StoredProcedure
-
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@" & trx_field_id, SqlDbType.Int)
-        prm1.Value = trx_id
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@" & trx_field_status, SqlDbType.NVarChar, 50)
-        prm2.Value = trx_status
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-        prm3.Value = My.Settings.UserName
-
-        cn.Open()
-        cmd.ExecuteReader()
-        cn.Close()
     End Sub
 
     Private Sub btnConvertToPO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConvertToPO.Click

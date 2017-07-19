@@ -977,6 +977,7 @@ Partial Class frmSO
         Me.btnPrintSInv.TabIndex = 55
         Me.btnPrintSInv.Text = "Print S. Inv."
         Me.btnPrintSInv.UseVisualStyleBackColor = True
+        Me.btnPrintSInv.Visible = False
         '
         'ntbSOCurrRate
         '
@@ -1156,7 +1157,6 @@ Partial Class frmSO
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sales Order"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -551,6 +551,8 @@ Public Class frmSO
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
         prm1.Value = m_SOId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "so"
 
         cn.Open()
 
@@ -633,6 +635,8 @@ Public Class frmSO
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
         prm1.Value = m_SOId
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "so"
 
         cn.Open()
 
@@ -1090,7 +1094,7 @@ Public Class frmSO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "' "
+        strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 

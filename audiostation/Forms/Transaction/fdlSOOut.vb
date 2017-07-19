@@ -81,6 +81,8 @@ Public Class fdlSOOut
         prm6.Value = IIf(m_FrmCallerId = "frmSDelivery", "PD", "FD")
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@so_ref_no", SqlDbType.NVarChar, 50)
         prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
+        Dim prm8 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm8.Value = "so"
 
         cn.Open()
 

@@ -795,6 +795,7 @@ Public Class frmSQuote
             '    If CDbl(ntbSOCurrRate.Text) <> m_SOCurrRateBefore Then refresh_total()
             'End If
 
+            SaveSOHeader()
             lock_obj(True)
             lock_objD(True)
             m_SOCurrRateBefore = CDbl(ntbSOCurrRate.Text)
@@ -1152,7 +1153,8 @@ Public Class frmSQuote
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "' "
+        'strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'squote'"
+        strSQL = "exec RPT_Sls_Order_Form " & m_SOId & ", 'squote'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1381,5 +1383,53 @@ Public Class frmSQuote
             .Show()
             .BringToFront()
         End With
+    End Sub
+
+    Private Sub btnSubmitApproval_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSubmitApproval.Click
+        btnSave_Click(sender, e)
+        m_SOStatus = "W"
+
+        exec_sp_Approval("usp_tr_so_APPROVAL", "so_id", m_SOId, "squote_status", m_SOStatus)
+
+        For i = 0 To m_SOStatusArr.GetUpperBound(0)
+            If m_SOStatus = m_SOStatusArr(i, 0) Then
+                txtSOStatus.Text = m_SOStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+        lock_obj(True)
+        autoRefresh()
+    End Sub
+
+    Private Sub btnReject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReject.Click
+        btnSave_Click(sender, e)
+        m_SOStatus = "R"
+
+        exec_sp_Approval("usp_tr_so_APPROVAL", "so_id", m_SOId, "squote_status", m_SOStatus)
+
+        For i = 0 To m_SOStatusArr.GetUpperBound(0)
+            If m_SOStatus = m_SOStatusArr(i, 0) Then
+                txtSOStatus.Text = m_SOStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+        lock_obj(True)
+        autoRefresh()
+    End Sub
+
+    Private Sub btnApprove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApprove.Click
+        btnSave_Click(sender, e)
+        m_SOStatus = "A"
+
+        exec_sp_Approval("usp_tr_so_APPROVAL", "so_id", m_SOId, "squote_status", m_SOStatus)
+
+        For i = 0 To m_SOStatusArr.GetUpperBound(0)
+            If m_SOStatus = m_SOStatusArr(i, 0) Then
+                txtSOStatus.Text = m_SOStatusArr(i, 1)
+                Exit For
+            End If
+        Next
+        lock_obj(True)
+        autoRefresh()
     End Sub
 End Class

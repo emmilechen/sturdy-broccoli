@@ -95,7 +95,8 @@ Public Class frmSQuoteList
                 .SOId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
                 .FrmCallerId = Me.Name
                 .MdiParent = frmMAIN
-                .AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                '.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                .WindowState = FormWindowState.Maximized
                 .Show()
             End With
         End If

@@ -12,19 +12,21 @@ Public Class frmSQuoteApprovalList
         If ListView1.CheckedItems.Count > 0 Then
             For i = 1 To ListView1.Items.Count
                 If ListView1.Items(i - 1).Checked = True Then
-                    cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
-                    cmd.CommandType = CommandType.StoredProcedure
+                    exec_sp_Approval("usp_tr_so_APPROVAL", "so_id", LeftSplitUF(ListView1.Items(i - 1).Tag), "squote_status", "A")
 
-                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
-                    prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
-                    prm2.Value = "A"
-                    Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                    prm3.Value = My.Settings.UserName
+                    'cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
+                    'cmd.CommandType = CommandType.StoredProcedure
 
-                    cn.Open()
-                    cmd.ExecuteReader()
-                    cn.Close()
+                    'Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
+                    'prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
+                    'Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
+                    'prm2.Value = "A"
+                    'Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+                    'prm3.Value = My.Settings.UserName
+
+                    'cn.Open()
+                    'cmd.ExecuteReader()
+                    'cn.Close()
                 End If
             Next
             btnFilter_Click(sender, e)
@@ -174,15 +176,15 @@ Public Class frmSQuoteApprovalList
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
         prm1.Value = 0
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_no", SqlDbType.NVarChar, 50)
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@so_no", SqlDbType.NVarChar, 50)
         prm2.Value = IIf(txtPRequestNo.Text = "", DBNull.Value, txtPRequestNo.Text)
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@squote_date1", SqlDbType.SmallDateTime)
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@so_date1", SqlDbType.SmallDateTime)
         prm3.Value = IIf(isShowAll = False, dtpPRequestDateFrom.Value.Date, DBNull.Value)
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@squote_date2", SqlDbType.SmallDateTime)
+        Dim prm4 As SqlParameter = cmd.Parameters.Add("@so_date2", SqlDbType.SmallDateTime)
         prm4.Value = IIf(isShowAll = False, dtpPRequestDateTo.Value.Date, DBNull.Value)
         Dim prm5 As SqlParameter = cmd.Parameters.Add("@srequester", SqlDbType.NVarChar, 50)
         prm5.Value = IIf(txtPRequester.Text = "", DBNull.Value, txtPRequester.Text)
-        Dim prm6 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar, 50)
+        Dim prm6 As SqlParameter = cmd.Parameters.Add("@so_stat1", SqlDbType.NVarChar, 50)
         prm6.Value = "W"
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
         prm7.Value = "squote"
@@ -195,16 +197,16 @@ Public Class frmSQuoteApprovalList
 
         'Call FillList(myReader, Me.ListView1, 8, 1)
         While myReader.Read
-            lvItem = New ListViewItem(CStr(myReader.Item(30)))
+            lvItem = New ListViewItem(CStr(myReader.Item(32)))
             lvItem.Tag = CStr(myReader.Item(0)) & "*~~~~~*" & intCurrRow 'ID
             'lvItem.Tag = "v" & CStr(DR.Item(0))
-            lvItem.SubItems.Add(myReader.Item(31))
-            lvItem.SubItems.Add(myReader.GetInt32(15))
-            lvItem.SubItems.Add(myReader.GetString(16))
-            lvItem.SubItems.Add(myReader.GetString(33))
-            lvItem.SubItems.Add(myReader.GetDateTime(9))
-            lvItem.SubItems.Add(IIf(myReader.Item(14) Is DBNull.Value, "", myReader.Item(14)))
-            lvItem.SubItems.Add(myReader.GetString(32))
+            lvItem.SubItems.Add(myReader.Item(33))
+            lvItem.SubItems.Add(myReader.GetInt32(14)) 'sls_code_id
+            lvItem.SubItems.Add(myReader.GetString(15)) 'sls_code
+            lvItem.SubItems.Add(myReader.GetString(35)) 'srequester
+            lvItem.SubItems.Add(myReader.GetDateTime(10)) 'delivery_date
+            lvItem.SubItems.Add(IIf(myReader.Item(13) Is DBNull.Value, "", myReader.Item(13))) 'so_remarks
+            lvItem.SubItems.Add(myReader.GetString(34)) 'squote_status
             lvItem.SubItems.Add(myReader.GetString(8))
 
             If intCurrRow Mod 2 = 0 Then
@@ -223,28 +225,31 @@ Public Class frmSQuoteApprovalList
 
     Private Sub btnReject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReject.Click
         If ListView1.CheckedItems.Count > 0 Then
-            cn.Open()
+            'cn.Open()
             For i = 1 To ListView1.Items.Count
                 If ListView1.Items(i - 1).Checked = True Then
-                    cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
-                    cmd.CommandType = CommandType.StoredProcedure
+                    exec_sp_Approval("usp_tr_so_APPROVAL", "so_id", LeftSplitUF(ListView1.Items(i - 1).Tag), "squote_status", "R")
 
-                    Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
-                    prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                    Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
-                    prm2.Value = "R"
-                    Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                    prm3.Value = My.Settings.UserName
+                    'cmd = New SqlCommand("usp_tr_so_APPROVAL", cn)
+                    'cmd.CommandType = CommandType.StoredProcedure
 
-                    cmd.ExecuteReader()
+                    'Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int, 255)
+                    'prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
+                    'Dim prm2 As SqlParameter = cmd.Parameters.Add("@squote_status", SqlDbType.NVarChar)
+                    'prm2.Value = "R"
+                    'Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+                    'prm3.Value = My.Settings.UserName
+
+                    'cmd.ExecuteReader()
                 End If
             Next
-            cn.Close()
+            'cn.Close()
             btnFilter_Click(sender, e)
         Else
             MessageBox.Show("You didn't select any item yet. Please select an item.", Me.Text)
         End If
     End Sub
+
     Private Sub chbDate_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chbDate.CheckedChanged
         If chbDate.Checked = True Then
             dtpPRequestDateFrom.Enabled = True

@@ -44,6 +44,8 @@ Public Class frmSOList
         End If
         Dim prm7 As SqlParameter = cmd.Parameters.Add("@so_ref_no", SqlDbType.NVarChar, 50)
         prm7.Value = IIf(txtSORefNo.Text = "", DBNull.Value, txtSORefNo.Text)
+        Dim prm8 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm8.Value = "so"
 
         cn.Open()
 
@@ -140,7 +142,27 @@ Public Class frmSOList
     End Sub
 
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
-        If Not isDeletedRecord("usp_tr_so_SEL", "so_id", LeftSplitUF(ListView1.SelectedItems.Item(0).Tag), Me.Text) = False Then
+        Dim isDeletedRecord As Boolean = False
+        cmd = New SqlCommand("usp_tr_so_SEL", cn)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Dim prm1 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
+        prm1.Value = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@trx_type", SqlDbType.NVarChar)
+        prm2.Value = "so"
+
+        cn.Open()
+
+        Dim myReader As SqlDataReader = cmd.ExecuteReader()
+
+        If myReader.HasRows = False Then
+            MsgBox("This record has been deleted before.", vbCritical + vbOKOnly, Me.Text)
+            isDeletedRecord = True
+        End If
+        myReader.Close()
+        cn.Close()
+
+        If Not isDeletedRecord = False Then
             btnFilter_Click(sender, e)
         ElseIf Not Application.OpenForms().OfType(Of frmSO).Any Then
             With frmSO
