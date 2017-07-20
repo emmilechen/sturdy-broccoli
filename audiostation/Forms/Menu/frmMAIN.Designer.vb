@@ -94,6 +94,9 @@ Partial Class frmMAIN
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.FormInductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SalesQuotionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesQuotationApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator22 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalesOrderToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.WorkOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesDeliveryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -119,14 +122,11 @@ Partial Class frmMAIN
         Me.SalesARAgingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.COGSReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MachineCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MachineSubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MachineDivisionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MachineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator19 = New System.Windows.Forms.ToolStripSeparator()
-        Me.UOMElectricalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UOMSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UOMSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UnitOfMeasurementElectricalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnitOfMeasurementSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnitOfMeasurementSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BankCardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
@@ -163,6 +163,7 @@ Partial Class frmMAIN
         Me.CurrencyToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyRevaluationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExpenseIncomeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExpenseIncomeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,6 +176,13 @@ Partial Class frmMAIN
         Me.PeriodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LedgerAccountSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MachineCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MachineSubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MachineDivisionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator19 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UOMElectricalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UOMSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UOMSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -187,16 +195,9 @@ Partial Class frmMAIN
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.UnitOfMeasurementElectricalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UnitOfMeasurementSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UnitOfMeasurementSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
-        '--
-        Me.SalesQuotionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator22 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SalesQuotationApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UtilityFormToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        '--
+        Me.ToolStripSeparator23 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ProductionMemoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RequestMemoToWarehouseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -240,7 +241,7 @@ Partial Class frmMAIN
         '
         'UserToolStripMenuItem1
         '
-        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem, Me.ToolStripSeparator18, Me.UserToolStripMenuItem, Me.UserLevelToolStripMenuItem})
+        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator18, Me.UserToolStripMenuItem, Me.UserLevelToolStripMenuItem, Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem})
         Me.UserToolStripMenuItem1.Name = "UserToolStripMenuItem1"
         Me.UserToolStripMenuItem1.Size = New System.Drawing.Size(42, 20)
         Me.UserToolStripMenuItem1.Text = "User"
@@ -590,95 +591,112 @@ Partial Class frmMAIN
         'CustomerMasterToolStripMenuItem
         '
         Me.CustomerMasterToolStripMenuItem.Name = "CustomerMasterToolStripMenuItem"
-        Me.CustomerMasterToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.CustomerMasterToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.CustomerMasterToolStripMenuItem.Text = "Customer Card"
         '
         'SalesCodeStripMenuItem
         '
         Me.SalesCodeStripMenuItem.Name = "SalesCodeStripMenuItem"
-        Me.SalesCodeStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.SalesCodeStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.SalesCodeStripMenuItem.Text = "Sales Code"
         '
         'StockPriceToolStripMenuItem
         '
         Me.StockPriceToolStripMenuItem.Name = "StockPriceToolStripMenuItem"
-        Me.StockPriceToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.StockPriceToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.StockPriceToolStripMenuItem.Text = "Stock Sales Price"
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(158, 6)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(205, 6)
         '
         'FormInductionToolStripMenuItem
         '
         Me.FormInductionToolStripMenuItem.Name = "FormInductionToolStripMenuItem"
-        Me.FormInductionToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.FormInductionToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.FormInductionToolStripMenuItem.Text = "Form Induction"
         '
         'ToolStripSeparator16
         '
         Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(158, 6)
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(205, 6)
+        '
+        'SalesQuotionToolStripMenuItem
+        '
+        Me.SalesQuotionToolStripMenuItem.Name = "SalesQuotionToolStripMenuItem"
+        Me.SalesQuotionToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.SalesQuotionToolStripMenuItem.Text = "Sales Quotation"
+        '
+        'SalesQuotationApprovalToolStripMenuItem
+        '
+        Me.SalesQuotationApprovalToolStripMenuItem.Name = "SalesQuotationApprovalToolStripMenuItem"
+        Me.SalesQuotationApprovalToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.SalesQuotationApprovalToolStripMenuItem.Text = "Sales Quotation Approval"
+        '
+        'ToolStripSeparator22
+        '
+        Me.ToolStripSeparator22.Name = "ToolStripSeparator22"
+        Me.ToolStripSeparator22.Size = New System.Drawing.Size(205, 6)
         '
         'SalesOrderToolStripMenuItem1
         '
         Me.SalesOrderToolStripMenuItem1.Name = "SalesOrderToolStripMenuItem1"
-        Me.SalesOrderToolStripMenuItem1.Size = New System.Drawing.Size(161, 22)
+        Me.SalesOrderToolStripMenuItem1.Size = New System.Drawing.Size(208, 22)
         Me.SalesOrderToolStripMenuItem1.Text = "Sales Order"
         '
         'WorkOrderToolStripMenuItem
         '
         Me.WorkOrderToolStripMenuItem.Name = "WorkOrderToolStripMenuItem"
-        Me.WorkOrderToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.WorkOrderToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.WorkOrderToolStripMenuItem.Text = "Work Order"
         '
         'SalesDeliveryToolStripMenuItem
         '
         Me.SalesDeliveryToolStripMenuItem.Name = "SalesDeliveryToolStripMenuItem"
-        Me.SalesDeliveryToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.SalesDeliveryToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.SalesDeliveryToolStripMenuItem.Text = "Sales Delivery"
         '
         'BC40ToolStripMenuItem
         '
         Me.BC40ToolStripMenuItem.Name = "BC40ToolStripMenuItem"
-        Me.BC40ToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.BC40ToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.BC40ToolStripMenuItem.Text = "BC 4.0"
         '
         'SalesInvoiceToolStripMenuItem
         '
         Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
-        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
         '
         'FakturPajakToolStripMenuItem
         '
         Me.FakturPajakToolStripMenuItem.Name = "FakturPajakToolStripMenuItem"
-        Me.FakturPajakToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.FakturPajakToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.FakturPajakToolStripMenuItem.Text = "Faktur Pajak"
         '
         'SalesReturnToolStripMenuItem
         '
         Me.SalesReturnToolStripMenuItem.Name = "SalesReturnToolStripMenuItem"
-        Me.SalesReturnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.SalesReturnToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.SalesReturnToolStripMenuItem.Text = "Sales Return"
         '
         'SalesPaymentToolStripMenuItem
         '
         Me.SalesPaymentToolStripMenuItem.Name = "SalesPaymentToolStripMenuItem"
-        Me.SalesPaymentToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.SalesPaymentToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.SalesPaymentToolStripMenuItem.Text = "Sales Receipt"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(158, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(205, 6)
         '
         'ReportsToolStripMenuItem2
         '
         Me.ReportsToolStripMenuItem2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerListReportToolStripMenuItem, Me.SalesPriceListToolStripMenuItem, Me.SalesReportToolStripMenuItem, Me.WorkOrderReportToolStripMenuItem, Me.WorkOrderSummaryReportToolStripMenuItem, Me.SalesDeliveryReportToolStripMenuItem, Me.SalesInvoiceReportToolStripMenuItem, Me.SalesInvoiceSummaryReportToolStripMenuItem, Me.SalesReturnReportToolStripMenuItem, Me.SalesReceiptReportToolStripMenuItem, Me.SalesTransactionReportToolStripMenuItem, Me.SalesMonthlyStatementReportToolStripMenuItem, Me.SalesARAgingReportToolStripMenuItem, Me.COGSReportToolStripMenuItem})
         Me.ReportsToolStripMenuItem2.Name = "ReportsToolStripMenuItem2"
-        Me.ReportsToolStripMenuItem2.Size = New System.Drawing.Size(161, 22)
+        Me.ReportsToolStripMenuItem2.Size = New System.Drawing.Size(208, 22)
         Me.ReportsToolStripMenuItem2.Text = "Reports"
         '
         'CustomerListReportToolStripMenuItem
@@ -768,63 +786,21 @@ Partial Class frmMAIN
         '
         'ProductionToolStripMenuItem
         '
-        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem, Me.ToolStripSeparator17, Me.UnitOfMeasurementElectricalToolStripMenuItem, Me.UnitOfMeasurementSizeToolStripMenuItem, Me.UnitOfMeasurementSpeedToolStripMenuItem})
+        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem, Me.ToolStripSeparator17, Me.UnitOfMeasurementElectricalToolStripMenuItem, Me.UnitOfMeasurementSizeToolStripMenuItem, Me.UnitOfMeasurementSpeedToolStripMenuItem, Me.ToolStripSeparator23, Me.ProductionMemoToolStripMenuItem, Me.RequestMemoToWarehouseToolStripMenuItem})
         Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
         Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.ProductionToolStripMenuItem.Text = "Production"
         '
-        'MachineCategoryToolStripMenuItem
-        '
-        Me.MachineCategoryToolStripMenuItem.Name = "MachineCategoryToolStripMenuItem"
-        Me.MachineCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.MachineCategoryToolStripMenuItem.Tag = "machine_cat"
-        Me.MachineCategoryToolStripMenuItem.Text = "Machine Category"
-        '
-        'MachineSubCategoryToolStripMenuItem
-        '
-        Me.MachineSubCategoryToolStripMenuItem.Name = "MachineSubCategoryToolStripMenuItem"
-        Me.MachineSubCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.MachineSubCategoryToolStripMenuItem.Tag = "machine_subcat"
-        Me.MachineSubCategoryToolStripMenuItem.Text = "Machine Sub Category"
-        '
-        'MachineDivisionToolStripMenuItem
-        '
-        Me.MachineDivisionToolStripMenuItem.Name = "MachineDivisionToolStripMenuItem"
-        Me.MachineDivisionToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.MachineDivisionToolStripMenuItem.Tag = "machine_division"
-        Me.MachineDivisionToolStripMenuItem.Text = "Machine Division"
-        '
         'MachineToolStripMenuItem
         '
         Me.MachineToolStripMenuItem.Name = "MachineToolStripMenuItem"
-        Me.MachineToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.MachineToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.MachineToolStripMenuItem.Text = "Machine Detail"
         '
-        'ToolStripSeparator19
+        'ToolStripSeparator17
         '
-        Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
-        Me.ToolStripSeparator19.Size = New System.Drawing.Size(191, 6)
-        '
-        'UOMElectricalToolStripMenuItem
-        '
-        Me.UOMElectricalToolStripMenuItem.Name = "UOMElectricalToolStripMenuItem"
-        Me.UOMElectricalToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.UOMElectricalToolStripMenuItem.Tag = "unit_uom_machine_elec"
-        Me.UOMElectricalToolStripMenuItem.Text = "UOM-Electrical"
-        '
-        'UOMSizeToolStripMenuItem
-        '
-        Me.UOMSizeToolStripMenuItem.Name = "UOMSizeToolStripMenuItem"
-        Me.UOMSizeToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.UOMSizeToolStripMenuItem.Tag = "unit_uom_machine_size"
-        Me.UOMSizeToolStripMenuItem.Text = "UOM-Size"
-        '
-        'UOMSpeedToolStripMenuItem
-        '
-        Me.UOMSpeedToolStripMenuItem.Name = "UOMSpeedToolStripMenuItem"
-        Me.UOMSpeedToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.UOMSpeedToolStripMenuItem.Tag = "unit_uom_machine_speed"
-        Me.UOMSpeedToolStripMenuItem.Text = "UOM-Speed"
+        Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
+        Me.ToolStripSeparator17.Size = New System.Drawing.Size(235, 6)
         '
         'UnitOfMeasurementElectricalToolStripMenuItem
         '
@@ -1066,7 +1042,7 @@ Partial Class frmMAIN
         'UtilityFormToolStripMenuItem
         '
         Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
-        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
         Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
         '
         'ReportToolStripMenuItem
@@ -1141,6 +1117,53 @@ Partial Class frmMAIN
         Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
         Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
         Me.WindowToolStripMenuItem.Text = "Window"
+        '
+        'MachineCategoryToolStripMenuItem
+        '
+        Me.MachineCategoryToolStripMenuItem.Name = "MachineCategoryToolStripMenuItem"
+        Me.MachineCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.MachineCategoryToolStripMenuItem.Tag = "machine_cat"
+        Me.MachineCategoryToolStripMenuItem.Text = "Machine Category"
+        '
+        'MachineSubCategoryToolStripMenuItem
+        '
+        Me.MachineSubCategoryToolStripMenuItem.Name = "MachineSubCategoryToolStripMenuItem"
+        Me.MachineSubCategoryToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.MachineSubCategoryToolStripMenuItem.Tag = "machine_subcat"
+        Me.MachineSubCategoryToolStripMenuItem.Text = "Machine Sub Category"
+        '
+        'MachineDivisionToolStripMenuItem
+        '
+        Me.MachineDivisionToolStripMenuItem.Name = "MachineDivisionToolStripMenuItem"
+        Me.MachineDivisionToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.MachineDivisionToolStripMenuItem.Tag = "machine_division"
+        Me.MachineDivisionToolStripMenuItem.Text = "Machine Division"
+        '
+        'ToolStripSeparator19
+        '
+        Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
+        Me.ToolStripSeparator19.Size = New System.Drawing.Size(191, 6)
+        '
+        'UOMElectricalToolStripMenuItem
+        '
+        Me.UOMElectricalToolStripMenuItem.Name = "UOMElectricalToolStripMenuItem"
+        Me.UOMElectricalToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.UOMElectricalToolStripMenuItem.Tag = "unit_uom_machine_elec"
+        Me.UOMElectricalToolStripMenuItem.Text = "UOM-Electrical"
+        '
+        'UOMSizeToolStripMenuItem
+        '
+        Me.UOMSizeToolStripMenuItem.Name = "UOMSizeToolStripMenuItem"
+        Me.UOMSizeToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.UOMSizeToolStripMenuItem.Tag = "unit_uom_machine_size"
+        Me.UOMSizeToolStripMenuItem.Text = "UOM-Size"
+        '
+        'UOMSpeedToolStripMenuItem
+        '
+        Me.UOMSpeedToolStripMenuItem.Name = "UOMSpeedToolStripMenuItem"
+        Me.UOMSpeedToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.UOMSpeedToolStripMenuItem.Tag = "unit_uom_machine_speed"
+        Me.UOMSpeedToolStripMenuItem.Text = "UOM-Speed"
         '
         'ToolStrip
         '
@@ -1231,91 +1254,22 @@ Partial Class frmMAIN
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
         Me.ToolStripStatusLabel.Text = "User"
         '
-        'UserToolStripMenuItem1
+        'ToolStripSeparator23
         '
-        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem})
-        Me.UserToolStripMenuItem1.Name = "UserToolStripMenuItem1"
-        Me.UserToolStripMenuItem1.Size = New System.Drawing.Size(42, 20)
-        Me.UserToolStripMenuItem1.Text = "User"
+        Me.ToolStripSeparator23.Name = "ToolStripSeparator23"
+        Me.ToolStripSeparator23.Size = New System.Drawing.Size(235, 6)
         '
-        'DepartementToolStripMenuItem
+        'ProductionMemoToolStripMenuItem
         '
-        Me.DepartementToolStripMenuItem.Name = "DepartementToolStripMenuItem"
-        Me.DepartementToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DepartementToolStripMenuItem.Tag = "unit_user_dept"
-        Me.DepartementToolStripMenuItem.Text = "Departement"
+        Me.ProductionMemoToolStripMenuItem.Name = "ProductionMemoToolStripMenuItem"
+        Me.ProductionMemoToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
+        Me.ProductionMemoToolStripMenuItem.Text = "Production Memo"
         '
-        'PurchasePitchingToolStripMenuItem
-        'UtilityFormToolStripMenuItem
+        'RequestMemoToWarehouseToolStripMenuItem
         '
-        Me.PurchasePitchingToolStripMenuItem.Name = "PurchasePitchingToolStripMenuItem"
-        Me.PurchasePitchingToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.PurchasePitchingToolStripMenuItem.Text = "Purchase Pitching"
-        Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
-        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
-        '
-        'PurchasePitchingApprovalToolStripMenuItem
-        '
-        Me.PurchasePitchingApprovalToolStripMenuItem.Name = "PurchasePitchingApprovalToolStripMenuItem"
-        Me.PurchasePitchingApprovalToolStripMenuItem.Size = New System.Drawing.Size(218, 22)
-        Me.PurchasePitchingApprovalToolStripMenuItem.Text = "Purchase Pitching Approval"
-        '
-        'DivisionToolStripMenuItem
-        '
-        Me.DivisionToolStripMenuItem.Name = "DivisionToolStripMenuItem"
-        Me.DivisionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DivisionToolStripMenuItem.Tag = "unit_user_div"
-        Me.DivisionToolStripMenuItem.Text = "Division"
-        '
-        'UserToolStripMenuItem1
-        '
-        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem})
-        Me.UserToolStripMenuItem1.Name = "UserToolStripMenuItem1"
-        Me.UserToolStripMenuItem1.Size = New System.Drawing.Size(42, 20)
-        Me.UserToolStripMenuItem1.Text = "User"
-        '
-        'DepartementToolStripMenuItem
-        '
-        Me.DepartementToolStripMenuItem.Name = "DepartementToolStripMenuItem"
-        Me.DepartementToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DepartementToolStripMenuItem.Tag = "unit_user_dept"
-        Me.DepartementToolStripMenuItem.Text = "Departement"
-        '
-        'UtilityFormToolStripMenuItem
-        '
-        Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
-        Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
-        '
-        'DivisionToolStripMenuItem
-        '
-        Me.DivisionToolStripMenuItem.Name = "DivisionToolStripMenuItem"
-        Me.DivisionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DivisionToolStripMenuItem.Tag = "unit_user_div"
-        Me.DivisionToolStripMenuItem.Text = "Division"
-        '
-        'ToolStripSeparator17
-        '
-        Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
-        Me.ToolStripSeparator17.Size = New System.Drawing.Size(235, 6)
-        '
-        'SalesQuotionToolStripMenuItem
-        '
-        Me.SalesQuotionToolStripMenuItem.Name = "SalesQuotionToolStripMenuItem"
-        Me.SalesQuotionToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.SalesQuotionToolStripMenuItem.Text = "Sales Quotation"
-        '
-        'ToolStripSeparator22
-        '
-        Me.ToolStripSeparator22.Name = "ToolStripSeparator22"
-        Me.ToolStripSeparator22.Size = New System.Drawing.Size(205, 6)
-        '
-        'SalesQuotationApprovalToolStripMenuItem
-        '
-        Me.SalesQuotationApprovalToolStripMenuItem.Name = "SalesQuotationApprovalToolStripMenuItem"
-        Me.SalesQuotationApprovalToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
-        Me.SalesQuotationApprovalToolStripMenuItem.Text = "Sales Quotation Approval"
+        Me.RequestMemoToWarehouseToolStripMenuItem.Name = "RequestMemoToWarehouseToolStripMenuItem"
+        Me.RequestMemoToWarehouseToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
+        Me.RequestMemoToWarehouseToolStripMenuItem.Text = "Request Memo to Warehouse"
         '
         'frmMAIN
         '
@@ -1514,4 +1468,7 @@ Partial Class frmMAIN
     Friend WithEvents SalesQuotionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalesQuotationApprovalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator22 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator23 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ProductionMemoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RequestMemoToWarehouseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

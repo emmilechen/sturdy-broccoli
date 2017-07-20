@@ -74,6 +74,8 @@ Public Class frmdashboard
     Private Sub frmdashboard_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Timer1.Enabled = True
         Me.Label4.Text = " PT. INTERACT CORPINDO, Jl. Raya Narogong No.36, Bojong Menteng, Rawalumbu, Kota Bks, Jawa Barat 17117, Indonesia ~ PT. Interact Corpindo offers offset printing services. The company designs and develops various printed pieces, including printing with 1 to 11 colors, high gloss U.V. coating "
+        'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
+        'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
     End Sub
 
     Private Sub frmdashboard_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize

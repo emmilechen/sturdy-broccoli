@@ -1401,4 +1401,16 @@ Public Class frmMAIN
         frmSQuoteApprovalList.Show()
         frmSQuoteApprovalList.BringToFront()
     End Sub
+
+    Private Sub ProductionMemoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionMemoToolStripMenuItem.Click
+        ftr_mp.MdiParent = Me
+        ftr_mp.Show()
+        ftr_mp.BringToFront()
+    End Sub
+
+    Private Sub RequestMemoToWarehouseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RequestMemoToWarehouseToolStripMenuItem.Click
+        ftr_mrq.MdiParent = Me
+        ftr_mrq.Show()
+        ftr_mrq.BringToFront()
+    End Sub
 End Class
