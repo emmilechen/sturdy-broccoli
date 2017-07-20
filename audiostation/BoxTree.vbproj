@@ -27,6 +27,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>BTP</ProductName>
+    <PublisherName>MBS</PublisherName>
+    <SuiteName>BTP</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -2268,6 +2271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\FTR_Induction.resx">
       <DependentUpon>FTR_Induction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\ftr_mp.resx">
+      <DependentUpon>ftr_mp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
