@@ -548,7 +548,7 @@ Public Class frmMAIN
         End If
     End Sub
 
-    Private Sub BC40ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BC40ToolStripMenuItem.Click
+    Private Sub BC40ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If Not GetPermission("frmBCList") = False Then
             With frmBCList
                 .MdiParent = Me
@@ -986,7 +986,7 @@ Public Class frmMAIN
         End If
     End Sub
 
-    Private Sub WorkOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WorkOrderToolStripMenuItem.Click
+    Private Sub WorkOrderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If Not GetPermission("frmWorkOrderList") = False Then
             With frmWorkOrderList
                 .MdiParent = Me
