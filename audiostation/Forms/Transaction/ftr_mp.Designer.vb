@@ -24,25 +24,27 @@ Partial Class ftr_mp
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ftr_mp))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.btnCustomer = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.txtskuid = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.btnAddD = New System.Windows.Forms.Button()
+        Me.btnDeleteD = New System.Windows.Forms.Button()
+        Me.btnSaveD = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -50,100 +52,30 @@ Partial Class ftr_mp
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.btnAddD = New System.Windows.Forms.Button()
-        Me.btnDeleteD = New System.Windows.Forms.Button()
-        Me.btnSaveD = New System.Windows.Forms.Button()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtmp_note = New System.Windows.Forms.TextBox()
+        Me.cmbmp_st = New System.Windows.Forms.ComboBox()
+        Me.txtso_id_f = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtpono = New System.Windows.Forms.TextBox()
+        Me.btnCustomer = New System.Windows.Forms.Button()
+        Me.txtsono = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbcust = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
+        Me.txtmp_no = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtguid = New System.Windows.Forms.TextBox()
+        Me.txtguid_d = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "No. MP"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(35, 52)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox1.TabIndex = 1
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(194, 52)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
-        Me.DateTimePicker1.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(191, 36)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Tanggal"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(352, 51)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(152, 21)
-        Me.ComboBox1.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(349, 35)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(51, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Customer"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(507, 35)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "SO. No"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(510, 51)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox2.TabIndex = 8
-        '
-        'btnCustomer
-        '
-        Me.btnCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnCustomer.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCustomer.ImageIndex = 3
-        Me.btnCustomer.ImageList = Me.ImageList1
-        Me.btnCustomer.Location = New System.Drawing.Point(669, 46)
-        Me.btnCustomer.Name = "btnCustomer"
-        Me.btnCustomer.Size = New System.Drawing.Size(29, 25)
-        Me.btnCustomer.TabIndex = 9
-        Me.btnCustomer.UseVisualStyleBackColor = True
         '
         'ImageList1
         '
@@ -154,22 +86,6 @@ Partial Class ftr_mp
         Me.ImageList1.Images.SetKeyName(2, "Box.png")
         Me.ImageList1.Images.SetKeyName(3, "Search.png")
         Me.ImageList1.Images.SetKeyName(4, "add.png")
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(704, 51)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(153, 20)
-        Me.TextBox3.TabIndex = 10
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(701, 35)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 13)
-        Me.Label5.TabIndex = 11
-        Me.Label5.Text = "PO. No"
         '
         'TabControl1
         '
@@ -183,6 +99,9 @@ Partial Class ftr_mp
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.txtguid_d)
+        Me.TabPage1.Controls.Add(Me.TextBox1)
+        Me.TabPage1.Controls.Add(Me.txtskuid)
         Me.TabPage1.Controls.Add(Me.Label11)
         Me.TabPage1.Controls.Add(Me.btnAddD)
         Me.TabPage1.Controls.Add(Me.btnDeleteD)
@@ -192,7 +111,6 @@ Partial Class ftr_mp
         Me.TabPage1.Controls.Add(Me.Label9)
         Me.TabPage1.Controls.Add(Me.TextBox7)
         Me.TabPage1.Controls.Add(Me.Label8)
-        Me.TabPage1.Controls.Add(Me.ComboBox2)
         Me.TabPage1.Controls.Add(Me.Label7)
         Me.TabPage1.Controls.Add(Me.TextBox6)
         Me.TabPage1.Controls.Add(Me.TextBox5)
@@ -208,15 +126,136 @@ Partial Class ftr_mp
         Me.TabPage1.Text = "Order Detail "
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'txtskuid
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1232, 433)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Technical Data"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.txtskuid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtskuid.Location = New System.Drawing.Point(306, 7)
+        Me.txtskuid.Name = "txtskuid"
+        Me.txtskuid.Size = New System.Drawing.Size(96, 21)
+        Me.txtskuid.TabIndex = 40
+        Me.txtskuid.Tag = "sku_id_f"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(156, 15)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(118, 13)
+        Me.Label11.TabIndex = 39
+        Me.Label11.Text = "Product Description"
+        '
+        'btnAddD
+        '
+        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD.ImageIndex = 4
+        Me.btnAddD.ImageList = Me.ImageList1
+        Me.btnAddD.Location = New System.Drawing.Point(895, 26)
+        Me.btnAddD.Name = "btnAddD"
+        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD.TabIndex = 38
+        Me.btnAddD.UseVisualStyleBackColor = True
+        '
+        'btnDeleteD
+        '
+        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD.ImageIndex = 1
+        Me.btnDeleteD.ImageList = Me.ImageList1
+        Me.btnDeleteD.Location = New System.Drawing.Point(864, 26)
+        Me.btnDeleteD.Name = "btnDeleteD"
+        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD.TabIndex = 37
+        Me.btnDeleteD.UseVisualStyleBackColor = True
+        '
+        'btnSaveD
+        '
+        Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD.ImageIndex = 0
+        Me.btnSaveD.ImageList = Me.ImageList1
+        Me.btnSaveD.Location = New System.Drawing.Point(832, 26)
+        Me.btnSaveD.Name = "btnSaveD"
+        Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD.TabIndex = 36
+        Me.btnSaveD.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(711, 15)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(93, 13)
+        Me.Label10.TabIndex = 28
+        Me.Label10.Text = "Tgl Permintaan"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(714, 31)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.ReadOnly = True
+        Me.TextBox8.Size = New System.Drawing.Size(112, 21)
+        Me.TextBox8.TabIndex = 27
+        Me.TextBox8.Tag = "tgl_permintaan_kirim"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(593, 15)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(56, 13)
+        Me.Label9.TabIndex = 26
+        Me.Label9.Text = "Tgl Kirim"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox7.Location = New System.Drawing.Point(596, 31)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.ReadOnly = True
+        Me.TextBox7.Size = New System.Drawing.Size(112, 21)
+        Me.TextBox7.TabIndex = 25
+        Me.TextBox7.Tag = "tgl_janji_kirim"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(523, 14)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(33, 13)
+        Me.Label8.TabIndex = 24
+        Me.Label8.Text = "UOM"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(405, 15)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(27, 13)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = "Qty"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox6.Location = New System.Drawing.Point(408, 31)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(112, 21)
+        Me.TextBox6.TabIndex = 21
+        Me.TextBox6.Tag = "mp_qty"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox5.Location = New System.Drawing.Point(156, 31)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(246, 21)
+        Me.TextBox5.TabIndex = 20
+        Me.TextBox5.Tag = "sku_id_desc"
         '
         'ListView1
         '
@@ -259,6 +298,16 @@ Partial Class ftr_mp
         Me.Label6.Size = New System.Drawing.Size(82, 13)
         Me.Label6.TabIndex = 16
         Me.Label6.Text = "Product Code"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1232, 433)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Technical Data"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'ToolStrip1
         '
@@ -317,172 +366,208 @@ Partial Class ftr_mp
         Me.ToolStripButton6.Size = New System.Drawing.Size(45, 22)
         Me.ToolStripButton6.Text = "&Exit"
         '
-        'TextBox5
+        'Panel1
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(156, 31)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(246, 21)
-        Me.TextBox5.TabIndex = 20
+        Me.Panel1.Controls.Add(Me.txtguid)
+        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Controls.Add(Me.txtmp_note)
+        Me.Panel1.Controls.Add(Me.cmbmp_st)
+        Me.Panel1.Controls.Add(Me.txtso_id_f)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.txtpono)
+        Me.Panel1.Controls.Add(Me.btnCustomer)
+        Me.Panel1.Controls.Add(Me.txtsono)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.cmbcust)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.dttpmp_tgl)
+        Me.Panel1.Controls.Add(Me.txtmp_no)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Location = New System.Drawing.Point(12, 31)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1235, 53)
+        Me.Panel1.TabIndex = 22
         '
-        'TextBox6
+        'Label12
         '
-        Me.TextBox6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(408, 31)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(112, 21)
-        Me.TextBox6.TabIndex = 21
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(855, 4)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(35, 13)
+        Me.Label12.TabIndex = 26
+        Me.Label12.Text = "Notes"
         '
-        'Label7
+        'txtmp_note
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(405, 15)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(27, 13)
-        Me.Label7.TabIndex = 22
-        Me.Label7.Text = "Qty"
+        Me.txtmp_note.Location = New System.Drawing.Point(857, 19)
+        Me.txtmp_note.Name = "txtmp_note"
+        Me.txtmp_note.Size = New System.Drawing.Size(372, 20)
+        Me.txtmp_note.TabIndex = 25
+        Me.txtmp_note.Tag = "mp_note"
         '
-        'ComboBox2
+        'cmbmp_st
         '
-        Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(526, 30)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(64, 21)
-        Me.ComboBox2.TabIndex = 23
+        Me.cmbmp_st.FormattingEnabled = True
+        Me.cmbmp_st.Location = New System.Drawing.Point(734, 0)
+        Me.cmbmp_st.Name = "cmbmp_st"
+        Me.cmbmp_st.Size = New System.Drawing.Size(111, 21)
+        Me.cmbmp_st.TabIndex = 24
+        Me.cmbmp_st.Tag = "mp_st"
         '
-        'Label8
+        'txtso_id_f
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(523, 14)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(33, 13)
-        Me.Label8.TabIndex = 24
-        Me.Label8.Text = "UOM"
+        Me.txtso_id_f.Location = New System.Drawing.Point(586, 0)
+        Me.txtso_id_f.Name = "txtso_id_f"
+        Me.txtso_id_f.Size = New System.Drawing.Size(65, 20)
+        Me.txtso_id_f.TabIndex = 23
+        Me.txtso_id_f.Tag = "so_id_f"
         '
-        'Label9
+        'Label5
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(593, 15)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 13)
-        Me.Label9.TabIndex = 26
-        Me.Label9.Text = "Tgl Kirim"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(689, 4)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(42, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "PO. No"
         '
-        'TextBox7
+        'txtpono
         '
-        Me.TextBox7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(596, 31)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(112, 21)
-        Me.TextBox7.TabIndex = 25
+        Me.txtpono.Location = New System.Drawing.Point(692, 20)
+        Me.txtpono.Name = "txtpono"
+        Me.txtpono.ReadOnly = True
+        Me.txtpono.Size = New System.Drawing.Size(153, 20)
+        Me.txtpono.TabIndex = 21
         '
-        'Label10
+        'btnCustomer
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(711, 15)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 13)
-        Me.Label10.TabIndex = 28
-        Me.Label10.Text = "Tgl Permintaan"
+        Me.btnCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnCustomer.Enabled = False
+        Me.btnCustomer.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCustomer.ImageIndex = 3
+        Me.btnCustomer.ImageList = Me.ImageList1
+        Me.btnCustomer.Location = New System.Drawing.Point(657, 15)
+        Me.btnCustomer.Name = "btnCustomer"
+        Me.btnCustomer.Size = New System.Drawing.Size(29, 25)
+        Me.btnCustomer.TabIndex = 20
+        Me.btnCustomer.UseVisualStyleBackColor = True
         '
-        'TextBox8
+        'txtsono
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(714, 31)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(112, 21)
-        Me.TextBox8.TabIndex = 27
+        Me.txtsono.Location = New System.Drawing.Point(498, 20)
+        Me.txtsono.Name = "txtsono"
+        Me.txtsono.ReadOnly = True
+        Me.txtsono.Size = New System.Drawing.Size(153, 20)
+        Me.txtsono.TabIndex = 19
         '
-        'btnAddD
+        'Label4
         '
-        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddD.ImageIndex = 4
-        Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(895, 26)
-        Me.btnAddD.Name = "btnAddD"
-        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
-        Me.btnAddD.TabIndex = 38
-        Me.btnAddD.UseVisualStyleBackColor = True
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(495, 4)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
+        Me.Label4.TabIndex = 18
+        Me.Label4.Text = "SO. No"
         '
-        'btnDeleteD
+        'Label3
         '
-        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteD.ImageIndex = 1
-        Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(864, 26)
-        Me.btnDeleteD.Name = "btnDeleteD"
-        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
-        Me.btnDeleteD.TabIndex = 37
-        Me.btnDeleteD.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(337, 4)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 13)
+        Me.Label3.TabIndex = 17
+        Me.Label3.Text = "Customer"
         '
-        'btnSaveD
+        'cmbcust
         '
-        Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaveD.ImageIndex = 0
-        Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(832, 26)
-        Me.btnSaveD.Name = "btnSaveD"
-        Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
-        Me.btnSaveD.TabIndex = 36
-        Me.btnSaveD.UseVisualStyleBackColor = True
+        Me.cmbcust.FormattingEnabled = True
+        Me.cmbcust.Location = New System.Drawing.Point(340, 20)
+        Me.cmbcust.Name = "cmbcust"
+        Me.cmbcust.Size = New System.Drawing.Size(152, 21)
+        Me.cmbcust.TabIndex = 16
         '
-        'Label11
+        'Label2
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(156, 15)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(118, 13)
-        Me.Label11.TabIndex = 39
-        Me.Label11.Text = "Product Description"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(179, 5)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Tanggal"
+        '
+        'dttpmp_tgl
+        '
+        Me.dttpmp_tgl.Location = New System.Drawing.Point(182, 21)
+        Me.dttpmp_tgl.Name = "dttpmp_tgl"
+        Me.dttpmp_tgl.Size = New System.Drawing.Size(152, 20)
+        Me.dttpmp_tgl.TabIndex = 14
+        Me.dttpmp_tgl.Tag = "mp_tgl"
+        '
+        'txtmp_no
+        '
+        Me.txtmp_no.BackColor = System.Drawing.Color.GreenYellow
+        Me.txtmp_no.Location = New System.Drawing.Point(23, 21)
+        Me.txtmp_no.Name = "txtmp_no"
+        Me.txtmp_no.Size = New System.Drawing.Size(153, 20)
+        Me.txtmp_no.TabIndex = 13
+        Me.txtmp_no.Tag = "mp_no"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(20, 5)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "No. MP"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(526, 31)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(64, 21)
+        Me.TextBox1.TabIndex = 41
+        Me.TextBox1.Tag = "mp_qty"
+        '
+        'txtguid
+        '
+        Me.txtguid.Location = New System.Drawing.Point(1110, -2)
+        Me.txtguid.Name = "txtguid"
+        Me.txtguid.Size = New System.Drawing.Size(119, 20)
+        Me.txtguid.TabIndex = 27
+        '
+        'txtguid_d
+        '
+        Me.txtguid_d.Location = New System.Drawing.Point(1106, 6)
+        Me.txtguid_d.Name = "txtguid_d"
+        Me.txtguid_d.Size = New System.Drawing.Size(119, 20)
+        Me.txtguid_d.TabIndex = 42
         '
         'ftr_mp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 561)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.btnCustomer)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label1)
         Me.Name = "ftr_mp"
-        Me.Text = "ftr_mp"
+        Me.Text = "Production Memo"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents btnCustomer As System.Windows.Forms.Button
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
@@ -502,7 +587,6 @@ Partial Class ftr_mp
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
@@ -510,4 +594,24 @@ Partial Class ftr_mp
     Friend WithEvents btnAddD As System.Windows.Forms.Button
     Friend WithEvents btnDeleteD As System.Windows.Forms.Button
     Friend WithEvents btnSaveD As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtpono As System.Windows.Forms.TextBox
+    Friend WithEvents btnCustomer As System.Windows.Forms.Button
+    Friend WithEvents txtsono As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents cmbcust As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents dttpmp_tgl As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtmp_no As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtmp_note As System.Windows.Forms.TextBox
+    Friend WithEvents cmbmp_st As System.Windows.Forms.ComboBox
+    Friend WithEvents txtso_id_f As System.Windows.Forms.TextBox
+    Friend WithEvents txtskuid As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d As System.Windows.Forms.TextBox
 End Class

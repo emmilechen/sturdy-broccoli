@@ -178,4 +178,8 @@ Public Class fdlCustomer
     Private Sub fdlCustomer_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
         'Me.Dispose()
     End Sub
+
+    Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+
+    End Sub
 End Class
