@@ -1094,7 +1094,8 @@ Public Class frmSO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
+        'strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
+        strSQL = "exec RPT_Sls_Order_Form " & m_SOId & ", 'so'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 

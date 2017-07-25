@@ -109,7 +109,6 @@ Partial Class frmSQuote
         Me.dtpRequiredDeliveryDate = New System.Windows.Forms.DateTimePicker()
         Me.txtSInvoiceNo = New System.Windows.Forms.TextBox()
         Me.Label41 = New System.Windows.Forms.Label()
-        Me.btnPrintSInv = New System.Windows.Forms.Button()
         Me.btnReject = New System.Windows.Forms.Button()
         Me.btnApprove = New System.Windows.Forms.Button()
         Me.btnSubmitApproval = New System.Windows.Forms.Button()
@@ -222,7 +221,7 @@ Partial Class frmSQuote
         'btnCancel
         '
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(994, 601)
+        Me.btnCancel.Location = New System.Drawing.Point(1077, 604)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(84, 26)
         Me.btnCancel.TabIndex = 53
@@ -232,7 +231,7 @@ Partial Class frmSQuote
         'btnEdit
         '
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(724, 601)
+        Me.btnEdit.Location = New System.Drawing.Point(807, 604)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 50
@@ -242,7 +241,7 @@ Partial Class frmSQuote
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(814, 601)
+        Me.btnAdd.Location = New System.Drawing.Point(897, 604)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 51
@@ -252,7 +251,7 @@ Partial Class frmSQuote
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(634, 601)
+        Me.btnDelete.Location = New System.Drawing.Point(717, 604)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(84, 26)
         Me.btnDelete.TabIndex = 49
@@ -262,7 +261,7 @@ Partial Class frmSQuote
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(904, 601)
+        Me.btnSave.Location = New System.Drawing.Point(987, 604)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(84, 26)
         Me.btnSave.TabIndex = 52
@@ -435,11 +434,11 @@ Partial Class frmSQuote
         'btnPrint
         '
         Me.btnPrint.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrint.Location = New System.Drawing.Point(1084, 601)
+        Me.btnPrint.Location = New System.Drawing.Point(1167, 604)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(84, 26)
         Me.btnPrint.TabIndex = 54
-        Me.btnPrint.Text = "Preview"
+        Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
         'cmbSOType
@@ -907,20 +906,10 @@ Partial Class frmSQuote
         Me.Label41.TabIndex = 121
         Me.Label41.Text = "Invoice No. Ref."
         '
-        'btnPrintSInv
-        '
-        Me.btnPrintSInv.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrintSInv.Location = New System.Drawing.Point(1174, 601)
-        Me.btnPrintSInv.Name = "btnPrintSInv"
-        Me.btnPrintSInv.Size = New System.Drawing.Size(84, 26)
-        Me.btnPrintSInv.TabIndex = 55
-        Me.btnPrintSInv.Text = "Print"
-        Me.btnPrintSInv.UseVisualStyleBackColor = True
-        '
         'btnReject
         '
         Me.btnReject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReject.Location = New System.Drawing.Point(407, 601)
+        Me.btnReject.Location = New System.Drawing.Point(490, 604)
         Me.btnReject.Name = "btnReject"
         Me.btnReject.Size = New System.Drawing.Size(84, 26)
         Me.btnReject.TabIndex = 124
@@ -930,7 +919,7 @@ Partial Class frmSQuote
         'btnApprove
         '
         Me.btnApprove.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnApprove.Location = New System.Drawing.Point(317, 601)
+        Me.btnApprove.Location = New System.Drawing.Point(400, 604)
         Me.btnApprove.Name = "btnApprove"
         Me.btnApprove.Size = New System.Drawing.Size(84, 26)
         Me.btnApprove.TabIndex = 123
@@ -940,7 +929,7 @@ Partial Class frmSQuote
         'btnSubmitApproval
         '
         Me.btnSubmitApproval.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmitApproval.Location = New System.Drawing.Point(497, 601)
+        Me.btnSubmitApproval.Location = New System.Drawing.Point(580, 604)
         Me.btnSubmitApproval.Name = "btnSubmitApproval"
         Me.btnSubmitApproval.Size = New System.Drawing.Size(131, 26)
         Me.btnSubmitApproval.TabIndex = 122
@@ -950,7 +939,7 @@ Partial Class frmSQuote
         'btnConvertToSO
         '
         Me.btnConvertToSO.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConvertToSO.Location = New System.Drawing.Point(217, 601)
+        Me.btnConvertToSO.Location = New System.Drawing.Point(300, 604)
         Me.btnConvertToSO.Name = "btnConvertToSO"
         Me.btnConvertToSO.Size = New System.Drawing.Size(94, 26)
         Me.btnConvertToSO.TabIndex = 125
@@ -1032,12 +1021,11 @@ Partial Class frmSQuote
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1262, 632)
+        Me.ClientSize = New System.Drawing.Size(1262, 639)
         Me.Controls.Add(Me.btnConvertToSO)
         Me.Controls.Add(Me.btnReject)
         Me.Controls.Add(Me.btnApprove)
         Me.Controls.Add(Me.btnSubmitApproval)
-        Me.Controls.Add(Me.btnPrintSInv)
         Me.Controls.Add(Me.Label41)
         Me.Controls.Add(Me.txtSInvoiceNo)
         Me.Controls.Add(Me.Label39)
@@ -1229,7 +1217,6 @@ Partial Class frmSQuote
     Friend WithEvents dtpRequiredDeliveryDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtSInvoiceNo As System.Windows.Forms.TextBox
     Friend WithEvents Label41 As System.Windows.Forms.Label
-    Friend WithEvents btnPrintSInv As System.Windows.Forms.Button
     Friend WithEvents btnReject As System.Windows.Forms.Button
     Friend WithEvents btnApprove As System.Windows.Forms.Button
     Friend WithEvents btnSubmitApproval As System.Windows.Forms.Button

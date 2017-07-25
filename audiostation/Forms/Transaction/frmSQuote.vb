@@ -429,7 +429,6 @@ Public Class frmSQuote
         btnPrint.Enabled = isLock
         'btnPreview.Enabled = isLock
         btnPrint.Enabled = isLock
-        btnPrintSInv.Enabled = isLock
 
         If m_SOId = 0 Then
             txtSONo.ReadOnly = False
@@ -1160,7 +1159,7 @@ Public Class frmSQuote
 
         DA.Fill(DS, "SO_")
 
-        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Sls_Order_Form.rpt"
+        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Sls_Quote_Form.rpt"
 
         If Not IO.File.Exists(strReportPath) Then
             Throw (New Exception("Unable to locate report file:" & _
@@ -1169,7 +1168,7 @@ Public Class frmSQuote
 
         Dim cr As New ReportDocument
         Dim NewMDIChild As New frmDocViewer()
-        NewMDIChild.Text = "Sales Order"
+        NewMDIChild.Text = "Sales Quotation"
         NewMDIChild.Show()
 
         cr.Load(strReportPath)
@@ -1184,7 +1183,7 @@ Public Class frmSQuote
 
     Private Sub txtSKUBarcode_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSKUBarcode.KeyPress
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) And txtSKUBarcode.Text <> "" Then
-            cmd = New SqlCommand("sp_mt_sku_SEL", cn)
+            cmd = New SqlCommand("usp_mt_sku_SEL", cn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_barcode", SqlDbType.NVarChar, 50)
@@ -1330,7 +1329,7 @@ Public Class frmSQuote
         End Try
     End Sub
 
-    Private Sub btnPrintSInv_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrintSInv.Click
+    Private Sub btnPrintSInv_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
