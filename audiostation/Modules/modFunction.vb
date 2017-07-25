@@ -362,14 +362,14 @@ Module modFunction
     End Function
     Function GetCurrentID(ByVal outputfield As String, ByVal namatable As String, ByVal kondisi As String) As String
         On Error Resume Next
-        Dim cmd As OleDbCommand
-        Dim dr As OleDbDataReader
+        Dim cmd As SqlCommand
+        Dim dr As SqlDataReader
 
         If cn.State = ConnectionState.Closed Then
             cn.Open()
         End If
 
-        cmd = New OleDbCommand("Select " & outputfield & " from " & namatable & " where " & kondisi, cn)
+        cmd = New SqlCommand("Select " & outputfield & " from " & namatable & " where " & kondisi, cn)
         dr = cmd.ExecuteReader()
 
         If dr.Read() Then
