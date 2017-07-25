@@ -1,6 +1,12 @@
-﻿Public Class ftr_mp
-    Private m_SOId As Integer
-    Private m_CId As Integer
+﻿Imports System.Data.SqlClient
+Imports System.Data.OleDb
+Public Class ftr_mp
+    Private m_SOId As Integer, m_CId As Integer
+    Private namatable As String, namafieldPK As String
+    Dim strConnection As String = My.Settings.ConnStr
+    Private strConn As String = My.Settings.ConnStr
+    Private sqlCon As SqlConnection
+    Dim cn As SqlConnection = New SqlConnection(strConnection)
     Public Property soid() As Integer
         Get
             Return txtso_id_f.Text 'm_SOId
@@ -22,6 +28,7 @@
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
         Me.dttpmp_tgl.Focus()
+        Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
     End Function
     Private Sub ftr_mp_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -39,7 +46,7 @@
     Private Sub cmbcust_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbcust.SelectedIndexChanged
         On Error Resume Next
         ' Me.btnCustomer.Enabled = Me.cmbcust.SelectedValue <> "0" ' Me.cmbcust.SelectedIndex > 0
-        Me.btnCustomer.Enabled = Me.cmbcust.SelectedItem.count > 0
+        Me.btnCustomer.Enabled = Me.cmbcust.SelectedIndex >= 0
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
@@ -51,7 +58,8 @@
 
     Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
         Dim li As ListViewItem, i As Integer
-        If Me.txtguid.Text <> "" And Me.txtguid_d.Text <> "" Then
+        If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then
+
         Else
             'insert
             With Me
@@ -74,7 +82,7 @@
             Else
                 'it is not a duplicate, go ahead and add it.
                 If Me.btnSaveD.Tag = "N" Then
-                    
+
                 Else
                     For a As Integer = ListView1.SelectedItems.Count - 1 To 0
                         ListView1.SelectedItems(a).Remove()
@@ -148,6 +156,27 @@
     End Sub
     Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
         'save
+        On Error GoTo err_ToolStripButton1_Click
+        If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
+        If Me.cmbcust.Text = "" Or Me.txtsono.Text = "" Then
+            MsgBox("Customer Code, Customer Name and SO # are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+            cmbcust.Focus()
+            Exit Sub
+        End If
+        If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
+            namatable = "tr_mp" : namafieldPK = "mp_no"
+            Me.txtmp_no.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("MP", namatable, namafieldPK, "mp_tgl", CDate(Me.dttpmp_tgl.Text), False, 4, 1, "", ""), Me.txtmp_no.Text)
+            If Fillobject(Me.txtguid, Me.Panel1, IIf(Me.txtguid.Text = "0", "insert", "update"), "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & " !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, "MP")
+        Else
+            MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "MP")
+        End If
+exit_ToolStripButton1_Click:
+        If ConnectionState.Open = 1 Then cn.Close()
+        Exit Sub
+
+err_ToolStripButton1_Click:
+        MsgBox(Err.Description)
+        Resume exit_ToolStripButton1_Click
 
     End Sub
 
@@ -161,6 +190,23 @@
 
     Private Sub ToolStripButton4_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton4.Click
         'delete
+        On Error GoTo err_ToolStripButton4_Click
+        If Me.txtguid.Text = "" Then Exit Sub
+        If MsgBox("Data akan dihapus, lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
+            If Fillobject(Me.txtguid, Me.Panel1, "delete", "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah dihapus !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal dihapus !", MsgBoxStyle.Critical, "MP")
+        Else
+            MsgBox("Data belum dihapus !", MsgBoxStyle.Critical, "MP")
+        End If
+
+exit_ToolStripButton4_Click:
+        If ConnectionState.Open = 1 Then cn.Close()
+        Exit Sub
+
+err_ToolStripButton4_Click:
+        MsgBox(Err.Description)
+        Resume exit_ToolStripButton4_Click
+
+
     End Sub
 
     Private Sub ToolStripButton5_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton5.Click

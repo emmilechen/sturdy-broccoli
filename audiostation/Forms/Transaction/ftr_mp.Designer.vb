@@ -27,6 +27,8 @@ Partial Class ftr_mp
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtskuid = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.btnAddD = New System.Windows.Forms.Button()
@@ -53,6 +55,7 @@ Partial Class ftr_mp
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtguid = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtmp_note = New System.Windows.Forms.TextBox()
         Me.cmbmp_st = New System.Windows.Forms.ComboBox()
@@ -68,9 +71,6 @@ Partial Class ftr_mp
         Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
         Me.txtmp_no = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.txtguid = New System.Windows.Forms.TextBox()
-        Me.txtguid_d = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -125,6 +125,24 @@ Partial Class ftr_mp
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Order Detail "
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txtguid_d
+        '
+        Me.txtguid_d.Location = New System.Drawing.Point(1106, 6)
+        Me.txtguid_d.Name = "txtguid_d"
+        Me.txtguid_d.Size = New System.Drawing.Size(119, 20)
+        Me.txtguid_d.TabIndex = 42
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.MediumTurquoise
+        Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(526, 31)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(64, 21)
+        Me.TextBox1.TabIndex = 41
+        Me.TextBox1.Tag = "mp_qty"
         '
         'txtskuid
         '
@@ -191,6 +209,7 @@ Partial Class ftr_mp
         '
         'TextBox8
         '
+        Me.TextBox8.BackColor = System.Drawing.Color.MediumTurquoise
         Me.TextBox8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox8.Location = New System.Drawing.Point(714, 31)
         Me.TextBox8.Name = "TextBox8"
@@ -211,6 +230,7 @@ Partial Class ftr_mp
         '
         'TextBox7
         '
+        Me.TextBox7.BackColor = System.Drawing.Color.MediumTurquoise
         Me.TextBox7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox7.Location = New System.Drawing.Point(596, 31)
         Me.TextBox7.Name = "TextBox7"
@@ -389,6 +409,15 @@ Partial Class ftr_mp
         Me.Panel1.Size = New System.Drawing.Size(1235, 53)
         Me.Panel1.TabIndex = 22
         '
+        'txtguid
+        '
+        Me.txtguid.Location = New System.Drawing.Point(955, 1)
+        Me.txtguid.Name = "txtguid"
+        Me.txtguid.Size = New System.Drawing.Size(119, 20)
+        Me.txtguid.TabIndex = 27
+        Me.txtguid.Tag = "mp_pk"
+        Me.txtguid.Visible = False
+        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -414,6 +443,7 @@ Partial Class ftr_mp
         Me.cmbmp_st.Size = New System.Drawing.Size(111, 21)
         Me.cmbmp_st.TabIndex = 24
         Me.cmbmp_st.Tag = "mp_st"
+        Me.cmbmp_st.Visible = False
         '
         'txtso_id_f
         '
@@ -422,6 +452,7 @@ Partial Class ftr_mp
         Me.txtso_id_f.Size = New System.Drawing.Size(65, 20)
         Me.txtso_id_f.TabIndex = 23
         Me.txtso_id_f.Tag = "so_id_f"
+        Me.txtso_id_f.Visible = False
         '
         'Label5
         '
@@ -434,6 +465,7 @@ Partial Class ftr_mp
         '
         'txtpono
         '
+        Me.txtpono.BackColor = System.Drawing.Color.MediumTurquoise
         Me.txtpono.Location = New System.Drawing.Point(692, 20)
         Me.txtpono.Name = "txtpono"
         Me.txtpono.ReadOnly = True
@@ -455,6 +487,7 @@ Partial Class ftr_mp
         '
         'txtsono
         '
+        Me.txtsono.BackColor = System.Drawing.Color.MediumTurquoise
         Me.txtsono.Location = New System.Drawing.Point(498, 20)
         Me.txtsono.Name = "txtsono"
         Me.txtsono.ReadOnly = True
@@ -509,6 +542,7 @@ Partial Class ftr_mp
         Me.txtmp_no.BackColor = System.Drawing.Color.GreenYellow
         Me.txtmp_no.Location = New System.Drawing.Point(23, 21)
         Me.txtmp_no.Name = "txtmp_no"
+        Me.txtmp_no.ReadOnly = True
         Me.txtmp_no.Size = New System.Drawing.Size(153, 20)
         Me.txtmp_no.TabIndex = 13
         Me.txtmp_no.Tag = "mp_no"
@@ -521,30 +555,6 @@ Partial Class ftr_mp
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. MP"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(526, 31)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(64, 21)
-        Me.TextBox1.TabIndex = 41
-        Me.TextBox1.Tag = "mp_qty"
-        '
-        'txtguid
-        '
-        Me.txtguid.Location = New System.Drawing.Point(1110, -2)
-        Me.txtguid.Name = "txtguid"
-        Me.txtguid.Size = New System.Drawing.Size(119, 20)
-        Me.txtguid.TabIndex = 27
-        '
-        'txtguid_d
-        '
-        Me.txtguid_d.Location = New System.Drawing.Point(1106, 6)
-        Me.txtguid_d.Name = "txtguid_d"
-        Me.txtguid_d.Size = New System.Drawing.Size(119, 20)
-        Me.txtguid_d.TabIndex = 42
         '
         'ftr_mp
         '
