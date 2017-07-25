@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class RPT_Sls_Order_Form
+Public Class RPT_Sls_Quote_Form
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class RPT_Sls_Order_Form
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "RPT_Sls_Order_Form.rpt"
+            Return "RPT_Sls_Quote_Form.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class RPT_Sls_Order_Form
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "boxtree.RPT_Sls_Order_Form.rpt"
+            Return "boxtree.RPT_Sls_Quote_Form.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class RPT_Sls_Order_Form
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedRPT_Sls_Order_Form
+Public Class CachedRPT_Sls_Quote_Form
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +152,7 @@ Public Class CachedRPT_Sls_Order_Form
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As RPT_Sls_Order_Form = New RPT_Sls_Order_Form()
+        Dim rpt As RPT_Sls_Quote_Form = New RPT_Sls_Quote_Form()
         rpt.Site = Me.Site
         Return rpt
     End Function
