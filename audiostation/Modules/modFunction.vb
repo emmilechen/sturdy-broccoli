@@ -360,6 +360,29 @@ Module modFunction
             checkisnumber = True
         End If
     End Function
+    Function GetCurrentID(ByVal outputfield As String, ByVal namatable As String, ByVal kondisi As String) As String
+        On Error Resume Next
+        Dim cmd As OleDbCommand
+        Dim dr As OleDbDataReader
+
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+
+        cmd = New OleDbCommand("Select " & outputfield & " from " & namatable & " where " & kondisi, cn)
+        dr = cmd.ExecuteReader()
+
+        If dr.Read() Then
+
+            GetCurrentID = dr.Item(outputfield).ToString()
+
+        End If
+
+        dr.Close()
+
+        cmd.Dispose()
+        'Exit Function
+    End Function
     Function GETGeneralcode(ByVal kodetrx As String, ByVal namatable As String, ByVal NamaField As String, ByVal strtgl As String, ByVal requestcode As Object, ByVal masterno As Boolean, Optional panjangangka As Integer = 1, Optional ambilangka As Integer = 1, Optional pembatas As String = "", Optional kondisi As String = "") As String
         Dim cmd As SqlCommand
         Dim dr As SqlDataReader
@@ -426,7 +449,6 @@ Module modFunction
             Using (sqlCon)
                 sqlCon.Open()
                 sqlComm = New SqlCommand(namasp, sqlCon)
-
                 sqlComm.CommandType = CommandType.StoredProcedure
                 For Each ctrl As Control In root.Controls
                     If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
@@ -441,7 +463,12 @@ Module modFunction
                 sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
                 sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
 
-                If action = "insert" Or action = "update" Then
+                If action = "insert" Then
+                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
+                    sqlComm.ExecuteNonQuery()
+                    txtid.Text = sqlComm.Parameters("@c_id").SqlValue.ToString
+                ElseIf action = "update" Then
+                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
                     txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 ElseIf action = "select" Then
@@ -464,6 +491,7 @@ Module modFunction
                     sqlReader.Close()
                 Else
                     'delete
+                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
                     txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 End If
