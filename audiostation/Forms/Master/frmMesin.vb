@@ -105,10 +105,6 @@ Public Class frmMesin
     End Sub
 
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
-        Dim schemaTable As DataTable
-        Dim myReader As SqlDataReader
-        Dim myField As DataRow
-        Dim myProperty As DataColumn
         On Error GoTo err_btnsave_Click
         If cmbkat.Text = "" Or cmbsubkat.Text = "" Or txttype.Text = "" Or txtnama.Text = "" Then
             MsgBox("Customer Code, Customer Name and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
