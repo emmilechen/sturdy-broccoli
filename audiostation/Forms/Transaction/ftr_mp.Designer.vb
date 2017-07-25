@@ -71,6 +71,9 @@ Partial Class ftr_mp
         Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
         Me.txtmp_no = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.txtmp_id_f = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -99,6 +102,9 @@ Partial Class ftr_mp
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.txtmp_id_f)
+        Me.TabPage1.Controls.Add(Me.Label13)
+        Me.TabPage1.Controls.Add(Me.DateTimePicker1)
         Me.TabPage1.Controls.Add(Me.txtguid_d)
         Me.TabPage1.Controls.Add(Me.TextBox1)
         Me.TabPage1.Controls.Add(Me.txtskuid)
@@ -128,10 +134,11 @@ Partial Class ftr_mp
         '
         'txtguid_d
         '
-        Me.txtguid_d.Location = New System.Drawing.Point(1106, 6)
+        Me.txtguid_d.Location = New System.Drawing.Point(473, 9)
         Me.txtguid_d.Name = "txtguid_d"
-        Me.txtguid_d.Size = New System.Drawing.Size(119, 20)
+        Me.txtguid_d.Size = New System.Drawing.Size(47, 20)
         Me.txtguid_d.TabIndex = 42
+        Me.txtguid_d.Tag = "mp_dtl_pk"
         '
         'TextBox1
         '
@@ -147,9 +154,9 @@ Partial Class ftr_mp
         'txtskuid
         '
         Me.txtskuid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtskuid.Location = New System.Drawing.Point(306, 7)
+        Me.txtskuid.Location = New System.Drawing.Point(115, 6)
         Me.txtskuid.Name = "txtskuid"
-        Me.txtskuid.Size = New System.Drawing.Size(96, 21)
+        Me.txtskuid.Size = New System.Drawing.Size(35, 21)
         Me.txtskuid.TabIndex = 40
         Me.txtskuid.Tag = "sku_id_f"
         '
@@ -168,10 +175,10 @@ Partial Class ftr_mp
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddD.ImageIndex = 4
         Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(895, 26)
+        Me.btnAddD.Location = New System.Drawing.Point(1081, 27)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
-        Me.btnAddD.TabIndex = 38
+        Me.btnAddD.TabIndex = 6
         Me.btnAddD.UseVisualStyleBackColor = True
         '
         'btnDeleteD
@@ -179,10 +186,10 @@ Partial Class ftr_mp
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeleteD.ImageIndex = 1
         Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(864, 26)
+        Me.btnDeleteD.Location = New System.Drawing.Point(1050, 27)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
-        Me.btnDeleteD.TabIndex = 37
+        Me.btnDeleteD.TabIndex = 5
         Me.btnDeleteD.UseVisualStyleBackColor = True
         '
         'btnSaveD
@@ -191,42 +198,42 @@ Partial Class ftr_mp
         Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSaveD.ImageIndex = 0
         Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(832, 26)
+        Me.btnSaveD.Location = New System.Drawing.Point(1018, 27)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
-        Me.btnSaveD.TabIndex = 36
+        Me.btnSaveD.TabIndex = 4
         Me.btnSaveD.UseVisualStyleBackColor = True
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(711, 15)
+        Me.Label10.Location = New System.Drawing.Point(730, 15)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 13)
+        Me.Label10.Size = New System.Drawing.Size(86, 13)
         Me.Label10.TabIndex = 28
-        Me.Label10.Text = "Tgl Permintaan"
+        Me.Label10.Text = "Tgl Janji Kirim"
         '
         'TextBox8
         '
         Me.TextBox8.BackColor = System.Drawing.Color.MediumTurquoise
         Me.TextBox8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(714, 31)
+        Me.TextBox8.Location = New System.Drawing.Point(729, 31)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(112, 21)
+        Me.TextBox8.Size = New System.Drawing.Size(126, 21)
         Me.TextBox8.TabIndex = 27
-        Me.TextBox8.Tag = "tgl_permintaan_kirim"
+        Me.TextBox8.Tag = ""
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(593, 15)
+        Me.Label9.Location = New System.Drawing.Point(597, 15)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 13)
+        Me.Label9.Size = New System.Drawing.Size(125, 13)
         Me.Label9.TabIndex = 26
-        Me.Label9.Text = "Tgl Kirim"
+        Me.Label9.Text = "Tgl Permintaan Kirim"
         '
         'TextBox7
         '
@@ -235,9 +242,9 @@ Partial Class ftr_mp
         Me.TextBox7.Location = New System.Drawing.Point(596, 31)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(112, 21)
+        Me.TextBox7.Size = New System.Drawing.Size(126, 21)
         Me.TextBox7.TabIndex = 25
-        Me.TextBox7.Tag = "tgl_janji_kirim"
+        Me.TextBox7.Tag = ""
         '
         'Label8
         '
@@ -265,7 +272,7 @@ Partial Class ftr_mp
         Me.TextBox6.Location = New System.Drawing.Point(408, 31)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(112, 21)
-        Me.TextBox6.TabIndex = 21
+        Me.TextBox6.TabIndex = 2
         Me.TextBox6.Tag = "mp_qty"
         '
         'TextBox5
@@ -274,7 +281,7 @@ Partial Class ftr_mp
         Me.TextBox5.Location = New System.Drawing.Point(156, 31)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(246, 21)
-        Me.TextBox5.TabIndex = 20
+        Me.TextBox5.TabIndex = 1
         Me.TextBox5.Tag = "sku_id_desc"
         '
         'ListView1
@@ -295,19 +302,21 @@ Partial Class ftr_mp
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ImageIndex = 3
         Me.Button1.ImageList = Me.ImageList1
-        Me.Button1.Location = New System.Drawing.Point(121, 26)
+        Me.Button1.Location = New System.Drawing.Point(121, 28)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(29, 25)
-        Me.Button1.TabIndex = 18
+        Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox4
         '
+        Me.TextBox4.BackColor = System.Drawing.Color.MediumTurquoise
         Me.TextBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(19, 31)
         Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.ReadOnly = True
         Me.TextBox4.Size = New System.Drawing.Size(96, 21)
-        Me.TextBox4.TabIndex = 17
+        Me.TextBox4.TabIndex = 0
         '
         'Label6
         '
@@ -331,6 +340,7 @@ Partial Class ftr_mp
         '
         'ToolStrip1
         '
+        Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton5, Me.ToolStripButton6})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -343,7 +353,7 @@ Partial Class ftr_mp
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(51, 22)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(56, 22)
         Me.ToolStripButton1.Text = "&Save"
         '
         'ToolStripButton2
@@ -351,7 +361,7 @@ Partial Class ftr_mp
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(50, 22)
+        Me.ToolStripButton2.Size = New System.Drawing.Size(55, 22)
         Me.ToolStripButton2.Text = "&Find"
         '
         'ToolStripButton3
@@ -359,7 +369,7 @@ Partial Class ftr_mp
         Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(63, 22)
+        Me.ToolStripButton3.Size = New System.Drawing.Size(68, 22)
         Me.ToolStripButton3.Text = "&Cancel"
         '
         'ToolStripButton4
@@ -367,7 +377,7 @@ Partial Class ftr_mp
         Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(60, 22)
+        Me.ToolStripButton4.Size = New System.Drawing.Size(68, 22)
         Me.ToolStripButton4.Text = "&Delete"
         '
         'ToolStripButton5
@@ -375,7 +385,7 @@ Partial Class ftr_mp
         Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(51, 22)
+        Me.ToolStripButton5.Size = New System.Drawing.Size(55, 22)
         Me.ToolStripButton5.Text = "&New"
         '
         'ToolStripButton6
@@ -383,7 +393,7 @@ Partial Class ftr_mp
         Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(45, 22)
+        Me.ToolStripButton6.Size = New System.Drawing.Size(51, 22)
         Me.ToolStripButton6.Text = "&Exit"
         '
         'Panel1
@@ -556,6 +566,33 @@ Partial Class ftr_mp
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. MP"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(857, 16)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(137, 13)
+        Me.Label13.TabIndex = 44
+        Me.Label13.Text = "Tanggal Realisasi Kirim"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(860, 32)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
+        Me.DateTimePicker1.TabIndex = 3
+        Me.DateTimePicker1.Tag = "tgl_realisasi_kirim"
+        '
+        'txtmp_id_f
+        '
+        Me.txtmp_id_f.Location = New System.Drawing.Point(336, 8)
+        Me.txtmp_id_f.Name = "txtmp_id_f"
+        Me.txtmp_id_f.Size = New System.Drawing.Size(66, 20)
+        Me.txtmp_id_f.TabIndex = 45
+        Me.txtmp_id_f.Tag = "mp_id_f"
+        Me.txtmp_id_f.Visible = False
+        '
         'ftr_mp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -624,4 +661,7 @@ Partial Class ftr_mp
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents txtguid_d As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtmp_id_f As System.Windows.Forms.TextBox
 End Class

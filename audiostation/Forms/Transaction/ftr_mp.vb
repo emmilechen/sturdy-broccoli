@@ -27,6 +27,19 @@ Public Class ftr_mp
     Private Function kosong()
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
+        With Me
+            .ListView1.Columns.Clear()
+            .ListView1.Columns.Add("Kolom 0", "guid", 0)
+            .ListView1.Columns.Add("Kolom 1", "skuid", 0)
+            .ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
+            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 5)
+            .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
+            .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
+            .ListView1.Columns.Add("Kolom 6", "Tgl_Kirim", Me.TextBox7.Width + 5)
+            .ListView1.Columns.Add("Kolom 7", "Tgl_Permintaan", Me.TextBox8.Width + 5)
+        End With
+        Me.ListView1.Items.Clear()
+
         Me.dttpmp_tgl.Focus()
         Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
@@ -62,17 +75,6 @@ Public Class ftr_mp
 
         Else
             'insert
-            With Me
-                .ListView1.Columns.Clear()
-                .ListView1.Columns.Add("Kolom 0", "guid", 0)
-                .ListView1.Columns.Add("Kolom 1", "skuid", 0)
-                .ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
-                .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 5)
-                .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
-                .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
-                .ListView1.Columns.Add("Kolom 6", "Tgl_Kirim", Me.TextBox7.Width + 5)
-                .ListView1.Columns.Add("Kolom 7", "Tgl_Permintaan", Me.TextBox8.Width + 5)
-            End With
 
 
             If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD.Tag = "N" Then
@@ -156,6 +158,7 @@ Public Class ftr_mp
     End Sub
     Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
         'save
+        Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String
         On Error GoTo err_ToolStripButton1_Click
         If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
         If Me.cmbcust.Text = "" Or Me.txtsono.Text = "" Then
@@ -165,8 +168,26 @@ Public Class ftr_mp
         End If
         If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
             namatable = "tr_mp" : namafieldPK = "mp_no"
-            Me.txtmp_no.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("MP", namatable, namafieldPK, "mp_tgl", CDate(Me.dttpmp_tgl.Text), False, 4, 1, "", ""), Me.txtmp_no.Text)
-            If Fillobject(Me.txtguid, Me.Panel1, IIf(Me.txtguid.Text = "0", "insert", "update"), "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & " !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, "MP")
+            If (Me.txtguid.Text = "0") Then
+                'Insert new
+                Me.txtmp_no.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("MP", namatable, namafieldPK, "mp_tgl", CDate(Me.dttpmp_tgl.Text), False, 4, 1, "", ""), Me.txtmp_no.Text)
+                updheader = Fillobject(Me.txtguid, Me.Panel1, "insert", "sp_tr_mp", "", "@mp_pk") 'update header
+
+                For i As Integer = 0 To Me.ListView1.Items.Count - 1
+                    'kl blm ada, INSERT
+                    upddetil = Executestr("EXEC sp_tr_mp_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','0','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & Me.dttpmp_tgl.Text & "','0'")
+                Next
+                If updheader And upddetil Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, "MP")
+
+            Else
+                'Update
+                updheader = Fillobject(Me.txtguid, Me.Panel1, "update", "sp_tr_mp", "", "@mp_pk") 'update header
+                upddetil = Fillobject(Me.txtguid_d, Me.TabPage1, "update", "sp_tr_mp_dtl", "", "@mp_dtl_pk") 'update detil
+                If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, "MP")
+
+
+            End If
+            
         Else
             MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "MP")
         End If
@@ -211,9 +232,26 @@ err_ToolStripButton4_Click:
 
     Private Sub ToolStripButton5_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton5.Click
         'new
+        kosong()
     End Sub
 
     Private Sub ToolStripButton6_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton6.Click
         Me.Close()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub TextBox7_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox7.TextChanged
+
+    End Sub
+
+    Private Sub TextBox8_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox8.TextChanged
+
+    End Sub
+
+    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+        Me.txtmp_id_f.Text = Me.txtguid.Text
     End Sub
 End Class
