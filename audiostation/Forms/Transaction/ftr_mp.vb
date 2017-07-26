@@ -27,6 +27,8 @@ Public Class ftr_mp
     Private Function kosong()
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
+        AssignValuetoCombo(Me.cmbmp_st, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='wo_status'", "sys_dropdown_sort")
+        '
         With Me
             .ListView1.Columns.Clear()
             .ListView1.Columns.Add("Kolom 0", "guid", 0)
@@ -47,9 +49,10 @@ Public Class ftr_mp
     End Function
     Private Function isirecord(ByVal guidno As Integer)
         Me.txtguid.Text = guidno
+
         Fillobject(Me.txtguid, Me.Panel1, "select", "sp_tr_mp", Me.txtguid.Text, "@mp_pk")
         opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, mp_tgl, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
-
+        Me.btnCustomer.Enabled = False
         'Me.Text = "Machine - " & Me.txtnama.Text
 
         Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True
@@ -60,7 +63,7 @@ Public Class ftr_mp
         Dim str(10) As String, strsql As String
         Dim itm As ListViewItem
         Dim dr As SqlDataReader
-
+        If cn.State = ConnectionState.Closed Then cn.Open()
         With namalistview
             .Items.Clear()
             strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord

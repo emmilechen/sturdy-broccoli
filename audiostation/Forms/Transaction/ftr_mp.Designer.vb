@@ -167,6 +167,7 @@ Partial Class ftr_mp
         Me.txtguid_d.Size = New System.Drawing.Size(47, 20)
         Me.txtguid_d.TabIndex = 42
         Me.txtguid_d.Tag = "mp_dtl_pk"
+        Me.txtguid_d.Visible = False
         '
         'TextBox1
         '
@@ -187,6 +188,7 @@ Partial Class ftr_mp
         Me.txtskuid.Size = New System.Drawing.Size(35, 21)
         Me.txtskuid.TabIndex = 40
         Me.txtskuid.Tag = "sku_id_f"
+        Me.txtskuid.Visible = False
         '
         'Label11
         '
@@ -455,6 +457,7 @@ Partial Class ftr_mp
         Me.txt_mp_pk.Size = New System.Drawing.Size(119, 20)
         Me.txt_mp_pk.TabIndex = 28
         Me.txt_mp_pk.Tag = ""
+        Me.txt_mp_pk.Visible = False
         '
         'txtguid
         '
@@ -463,6 +466,7 @@ Partial Class ftr_mp
         Me.txtguid.Size = New System.Drawing.Size(119, 20)
         Me.txtguid.TabIndex = 27
         Me.txtguid.Tag = "mp_pk"
+        Me.txtguid.Visible = False
         '
         'Label12
         '
@@ -489,6 +493,7 @@ Partial Class ftr_mp
         Me.cmbmp_st.Size = New System.Drawing.Size(111, 21)
         Me.cmbmp_st.TabIndex = 24
         Me.cmbmp_st.Tag = "mp_st"
+        Me.cmbmp_st.Visible = False
         '
         'txtso_id_f
         '
@@ -497,6 +502,7 @@ Partial Class ftr_mp
         Me.txtso_id_f.Size = New System.Drawing.Size(65, 20)
         Me.txtso_id_f.TabIndex = 23
         Me.txtso_id_f.Tag = "so_id_f"
+        Me.txtso_id_f.Visible = False
         '
         'Label5
         '
