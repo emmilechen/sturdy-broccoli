@@ -381,6 +381,8 @@ Public Class frmSO
         txtLotJobNo.Text = ""
         dtpRequiredDeliveryDate.Checked = False
         dtpRequiredDeliveryDate.Value = dtpDeliveryDate.Value
+        dtpDeliveryPlanDate.Checked = False
+        dtpDeliveryPlanDate.Value = dtpDeliveryDate.Value
     End Sub
 
     Sub lock_obj(ByVal isLock As Boolean)
@@ -426,6 +428,8 @@ Public Class frmSO
         txtLotJobNo.ReadOnly = isLock
         dtpRequiredDeliveryDate.Enabled = Not isLock
         dtpRequiredDeliveryDate.Checked = isLock
+        dtpDeliveryPlanDate.Enabled = Not isLock
+        dtpDeliveryPlanDate.Checked = isLock
         btnLocation.Enabled = Not isLock
         btnSKU.Enabled = Not isLock
         btnSaveD.Enabled = Not isLock
@@ -459,6 +463,7 @@ Public Class frmSO
             .Columns.Add("sum_sdelivery_qty", 0, HorizontalAlignment.Right)
             .Columns.Add("Lot Job No.", 80)
             .Columns.Add("Required Delivery Date", 120)
+            .Columns.Add("Delivery Plan Date", 120)
         End With
 
         If m_SOId <> 0 Then
@@ -522,7 +527,7 @@ Public Class frmSO
                     End If
                 Next
                 lvItem.SubItems.Add(myReader.GetValue(23)) 'sum_sdelivery_qty
-                For i = 24 To 25
+                For i = 24 To 26
                     If myReader.Item(i) Is System.DBNull.Value Then
                         lvItem.SubItems.Add("")
                     Else
@@ -863,6 +868,8 @@ Public Class frmSO
             prm23.Value = IIf(dtpRequiredDeliveryDate.Checked = False, System.DBNull.Value, dtpRequiredDeliveryDate.Value)
             Dim prm24 As SqlParameter = cmd.Parameters.Add("@is_package", SqlDbType.Bit)
             prm24.Value = isSKUPackage
+            Dim prm26 As SqlParameter = cmd.Parameters.Add("@delivery_plan_date", SqlDbType.SmallDateTime)
+            prm26.Value = IIf(dtpDeliveryPlanDate.Checked = False, System.DBNull.Value, dtpDeliveryPlanDate.Value)
 
             If m_SODId <> 0 Then
                 Dim prm25 As SqlParameter = cmd.Parameters.Add("@so_dtl_id", SqlDbType.Int)
@@ -1001,6 +1008,7 @@ Public Class frmSO
             txtLotJobNo.Text = .SubItems.Item(20).Text
             If .SubItems.Item(21).Text = "" Then dtpRequiredDeliveryDate.Checked = False Else dtpRequiredDeliveryDate.Checked = True
             dtpRequiredDeliveryDate.Value = IIf(.SubItems.Item(21).Text = "", FormatDateTime(Now, DateFormat.ShortDate), .SubItems.Item(21).Text)
+            dtpDeliveryPlanDate.Value = IIf(.SubItems.Item(22).Text = "", FormatDateTime(Now, DateFormat.ShortDate), .SubItems.Item(22).Text)
         End With
     End Sub
 

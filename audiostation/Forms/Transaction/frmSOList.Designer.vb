@@ -37,7 +37,6 @@ Partial Class frmSOList
         Me.Label1 = New System.Windows.Forms.Label()
         Me.chbDate = New System.Windows.Forms.CheckBox()
         Me.txtSORefNo = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dtpSODateFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtpSODateTo = New System.Windows.Forms.DateTimePicker()
@@ -53,10 +52,10 @@ Partial Class frmSOList
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 149)
+        Me.ListView1.Location = New System.Drawing.Point(12, 150)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(956, 416)
+        Me.ListView1.Size = New System.Drawing.Size(754, 415)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -80,7 +79,7 @@ Partial Class frmSOList
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(883, 572)
+        Me.btnEdit.Location = New System.Drawing.Point(681, 572)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(84, 26)
         Me.btnEdit.TabIndex = 5
@@ -91,7 +90,7 @@ Partial Class frmSOList
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(793, 572)
+        Me.btnAdd.Location = New System.Drawing.Point(591, 572)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(84, 26)
         Me.btnAdd.TabIndex = 4
@@ -122,7 +121,7 @@ Partial Class frmSOList
         '
         Me.btnFilter.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(884, 117)
+        Me.btnFilter.Location = New System.Drawing.Point(656, 98)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(84, 26)
         Me.btnFilter.TabIndex = 2
@@ -163,10 +162,11 @@ Partial Class frmSOList
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.chbDate)
         Me.GroupBox1.Controls.Add(Me.txtSORefNo)
-        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.btnFilter)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.dtpSODateFrom)
@@ -178,7 +178,7 @@ Partial Class frmSOList
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(11, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(956, 99)
+        Me.GroupBox1.Size = New System.Drawing.Size(754, 132)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filter By"
@@ -211,18 +211,6 @@ Partial Class frmSOList
         Me.txtSORefNo.Size = New System.Drawing.Size(221, 21)
         Me.txtSORefNo.TabIndex = 7
         '
-        'Label7
-        '
-        Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(818, 14)
-        Me.Label7.Name = "Label7"
-        Me.Label7.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label7.Size = New System.Drawing.Size(132, 25)
-        Me.Label7.TabIndex = 71
-        Me.Label7.Text = "Sales Order"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -253,7 +241,7 @@ Partial Class frmSOList
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(794, 117)
+        Me.btnClear.Location = New System.Drawing.Point(566, 98)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(84, 26)
         Me.btnClear.TabIndex = 1
@@ -264,11 +252,9 @@ Partial Class frmSOList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(979, 608)
-        Me.Controls.Add(Me.btnClear)
+        Me.ClientSize = New System.Drawing.Size(777, 608)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblCurrentRecord)
-        Me.Controls.Add(Me.btnFilter)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.ListView1)
@@ -297,7 +283,6 @@ Partial Class frmSOList
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents cmbStatus As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents dtpSODateFrom As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtpSODateTo As System.Windows.Forms.DateTimePicker

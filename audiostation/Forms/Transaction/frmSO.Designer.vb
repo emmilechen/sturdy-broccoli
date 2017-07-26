@@ -116,6 +116,8 @@ Partial Class frmSO
         Me.Label41 = New System.Windows.Forms.Label()
         Me.btnInvoiceNo = New System.Windows.Forms.Button()
         Me.btnPrintSInv = New System.Windows.Forms.Button()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.dtpDeliveryPlanDate = New System.Windows.Forms.DateTimePicker()
         Me.ntbSOCurrRate = New boxtree.NumericTextBox()
         Me.ntbSOTaxPercent = New boxtree.NumericTextBox()
         Me.ntbSODiscAmt = New boxtree.NumericTextBox()
@@ -176,7 +178,7 @@ Partial Class frmSO
         Me.ListView1.Location = New System.Drawing.Point(10, 241)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1241, 206)
+        Me.ListView1.Size = New System.Drawing.Size(1248, 206)
         Me.ListView1.TabIndex = 36
         Me.ListView1.TabStop = False
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -358,7 +360,7 @@ Partial Class frmSO
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeleteD.ImageIndex = 1
         Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(1190, 169)
+        Me.btnDeleteD.Location = New System.Drawing.Point(1196, 171)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD.TabIndex = 34
@@ -380,7 +382,7 @@ Partial Class frmSO
         Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSaveD.ImageIndex = 0
         Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(1158, 169)
+        Me.btnSaveD.Location = New System.Drawing.Point(1164, 171)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
         Me.btnSaveD.TabIndex = 33
@@ -558,7 +560,7 @@ Partial Class frmSO
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(658, 199)
+        Me.Label21.Location = New System.Drawing.Point(762, 198)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(52, 13)
         Me.Label21.TabIndex = 64
@@ -567,7 +569,7 @@ Partial Class frmSO
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(806, 197)
+        Me.Label22.Location = New System.Drawing.Point(910, 196)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(44, 13)
         Me.Label22.TabIndex = 65
@@ -585,7 +587,7 @@ Partial Class frmSO
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(861, 197)
+        Me.Label24.Location = New System.Drawing.Point(965, 196)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(70, 13)
         Me.Label24.TabIndex = 69
@@ -594,7 +596,7 @@ Partial Class frmSO
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(1033, 197)
+        Me.Label25.Location = New System.Drawing.Point(1137, 196)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(39, 13)
         Me.Label25.TabIndex = 70
@@ -605,7 +607,7 @@ Partial Class frmSO
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddD.ImageIndex = 4
         Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(1221, 169)
+        Me.btnAddD.Location = New System.Drawing.Point(1227, 171)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD.TabIndex = 35
@@ -621,7 +623,7 @@ Partial Class frmSO
         '
         'txtSONetAmt
         '
-        Me.txtSONetAmt.Location = New System.Drawing.Point(1158, 215)
+        Me.txtSONetAmt.Location = New System.Drawing.Point(1065, 172)
         Me.txtSONetAmt.Name = "txtSONetAmt"
         Me.txtSONetAmt.ReadOnly = True
         Me.txtSONetAmt.Size = New System.Drawing.Size(93, 21)
@@ -630,7 +632,7 @@ Partial Class frmSO
         '
         'txtSOTaxAmt
         '
-        Me.txtSOTaxAmt.Location = New System.Drawing.Point(1078, 215)
+        Me.txtSOTaxAmt.Location = New System.Drawing.Point(1182, 214)
         Me.txtSOTaxAmt.Name = "txtSOTaxAmt"
         Me.txtSOTaxAmt.ReadOnly = True
         Me.txtSOTaxAmt.Size = New System.Drawing.Size(76, 21)
@@ -639,7 +641,7 @@ Partial Class frmSO
         '
         'txtSOGrossAmt
         '
-        Me.txtSOGrossAmt.Location = New System.Drawing.Point(715, 215)
+        Me.txtSOGrossAmt.Location = New System.Drawing.Point(819, 214)
         Me.txtSOGrossAmt.Name = "txtSOGrossAmt"
         Me.txtSOGrossAmt.ReadOnly = True
         Me.txtSOGrossAmt.Size = New System.Drawing.Size(82, 21)
@@ -648,7 +650,7 @@ Partial Class frmSO
         '
         'txtSOGrossAfterDiscAmt
         '
-        Me.txtSOGrossAfterDiscAmt.Location = New System.Drawing.Point(933, 215)
+        Me.txtSOGrossAfterDiscAmt.Location = New System.Drawing.Point(1037, 214)
         Me.txtSOGrossAfterDiscAmt.Name = "txtSOGrossAfterDiscAmt"
         Me.txtSOGrossAfterDiscAmt.ReadOnly = True
         Me.txtSOGrossAfterDiscAmt.Size = New System.Drawing.Size(97, 21)
@@ -658,7 +660,7 @@ Partial Class frmSO
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(725, 198)
+        Me.Label26.Location = New System.Drawing.Point(829, 197)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(74, 13)
         Me.Label26.TabIndex = 82
@@ -667,7 +669,7 @@ Partial Class frmSO
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(942, 197)
+        Me.Label27.Location = New System.Drawing.Point(1046, 196)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(88, 13)
         Me.Label27.TabIndex = 83
@@ -676,7 +678,7 @@ Partial Class frmSO
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(1089, 197)
+        Me.Label28.Location = New System.Drawing.Point(1193, 196)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(65, 13)
         Me.Label28.TabIndex = 84
@@ -685,7 +687,7 @@ Partial Class frmSO
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(1187, 197)
+        Me.Label29.Location = New System.Drawing.Point(1094, 154)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(64, 13)
         Me.Label29.TabIndex = 85
@@ -765,7 +767,7 @@ Partial Class frmSO
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(569, 199)
+        Me.Label33.Location = New System.Drawing.Point(673, 198)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(62, 13)
         Me.Label33.TabIndex = 97
@@ -773,7 +775,7 @@ Partial Class frmSO
         '
         'txtLotJobNo
         '
-        Me.txtLotJobNo.Location = New System.Drawing.Point(568, 215)
+        Me.txtLotJobNo.Location = New System.Drawing.Point(672, 214)
         Me.txtLotJobNo.MaxLength = 50
         Me.txtLotJobNo.Name = "txtLotJobNo"
         Me.txtLotJobNo.Size = New System.Drawing.Size(58, 21)
@@ -979,6 +981,24 @@ Partial Class frmSO
         Me.btnPrintSInv.UseVisualStyleBackColor = True
         Me.btnPrintSInv.Visible = False
         '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(569, 198)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(95, 13)
+        Me.Label40.TabIndex = 123
+        Me.Label40.Text = "Delivery Plan Date"
+        '
+        'dtpDeliveryPlanDate
+        '
+        Me.dtpDeliveryPlanDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDeliveryPlanDate.Location = New System.Drawing.Point(569, 214)
+        Me.dtpDeliveryPlanDate.Name = "dtpDeliveryPlanDate"
+        Me.dtpDeliveryPlanDate.ShowCheckBox = True
+        Me.dtpDeliveryPlanDate.Size = New System.Drawing.Size(97, 21)
+        Me.dtpDeliveryPlanDate.TabIndex = 122
+        '
         'ntbSOCurrRate
         '
         Me.ntbSOCurrRate.AllowSpace = False
@@ -992,7 +1012,7 @@ Partial Class frmSO
         'ntbSOTaxPercent
         '
         Me.ntbSOTaxPercent.AllowSpace = False
-        Me.ntbSOTaxPercent.Location = New System.Drawing.Point(1033, 215)
+        Me.ntbSOTaxPercent.Location = New System.Drawing.Point(1137, 214)
         Me.ntbSOTaxPercent.MaxLength = 3
         Me.ntbSOTaxPercent.Name = "ntbSOTaxPercent"
         Me.ntbSOTaxPercent.Size = New System.Drawing.Size(40, 21)
@@ -1002,7 +1022,7 @@ Partial Class frmSO
         'ntbSODiscAmt
         '
         Me.ntbSODiscAmt.AllowSpace = False
-        Me.ntbSODiscAmt.Location = New System.Drawing.Point(848, 215)
+        Me.ntbSODiscAmt.Location = New System.Drawing.Point(952, 214)
         Me.ntbSODiscAmt.MaxLength = 14
         Me.ntbSODiscAmt.Name = "ntbSODiscAmt"
         Me.ntbSODiscAmt.Size = New System.Drawing.Size(81, 21)
@@ -1012,7 +1032,7 @@ Partial Class frmSO
         'ntbSODiscPercent
         '
         Me.ntbSODiscPercent.AllowSpace = False
-        Me.ntbSODiscPercent.Location = New System.Drawing.Point(802, 215)
+        Me.ntbSODiscPercent.Location = New System.Drawing.Point(906, 214)
         Me.ntbSODiscPercent.MaxLength = 3
         Me.ntbSODiscPercent.Name = "ntbSODiscPercent"
         Me.ntbSODiscPercent.Size = New System.Drawing.Size(40, 21)
@@ -1032,7 +1052,7 @@ Partial Class frmSO
         'ntbSOPrice
         '
         Me.ntbSOPrice.AllowSpace = False
-        Me.ntbSOPrice.Location = New System.Drawing.Point(630, 215)
+        Me.ntbSOPrice.Location = New System.Drawing.Point(734, 214)
         Me.ntbSOPrice.MaxLength = 18
         Me.ntbSOPrice.Name = "ntbSOPrice"
         Me.ntbSOPrice.Size = New System.Drawing.Size(80, 21)
@@ -1054,7 +1074,9 @@ Partial Class frmSO
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1262, 632)
+        Me.ClientSize = New System.Drawing.Size(1266, 632)
+        Me.Controls.Add(Me.Label40)
+        Me.Controls.Add(Me.dtpDeliveryPlanDate)
         Me.Controls.Add(Me.btnPrintSInv)
         Me.Controls.Add(Me.btnInvoiceNo)
         Me.Controls.Add(Me.Label41)
@@ -1260,5 +1282,7 @@ Partial Class frmSO
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents btnInvoiceNo As System.Windows.Forms.Button
     Friend WithEvents btnPrintSInv As System.Windows.Forms.Button
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents dtpDeliveryPlanDate As System.Windows.Forms.DateTimePicker
 
 End Class

@@ -125,6 +125,7 @@ Public Class fdlSKUSOOut
             .Columns.Add("sum_sdelivery_qty", 0)
             .Columns.Add("Lot Job No.", 90)
             .Columns.Add("Required Date", 90)
+            .Columns.Add("Delivery Plan Date", 90)
             .Columns.Add("avg_cost", 0)
         End With
 
@@ -175,6 +176,7 @@ Public Class fdlSKUSOOut
             lvItem.SubItems.Add(myReader.GetValue(23)) 'sum_sdelivery_qty
             lvItem.SubItems.Add(IIf(myReader.Item(24) Is System.DBNull.Value, "", myReader.Item(24))) 'lot_job_no
             lvItem.SubItems.Add(IIf(myReader.Item(25) Is System.DBNull.Value, "", myReader.Item(25))) 'required_date
+            lvItem.SubItems.Add(IIf(myReader.Item(26) Is System.DBNull.Value, "", myReader.Item(26))) 'delivery_plan_date
             lvItem.SubItems.Add(myReader.GetValue(11)) 'avg_cost
             If intCurrRow Mod 2 = 0 Then
                 lvItem.BackColor = Color.Lavender

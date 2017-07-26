@@ -13,7 +13,6 @@ Public Class frmSOList
             .Clear()
             .View = View.Details
             .Columns.Add("Sales Order No.", 120)
-            .Columns.Add("Ref No.", 200)
             .Columns.Add("Date", 90)
             .Columns.Add("c_id", 0)
             .Columns.Add("Customer Code", 90)
@@ -21,6 +20,7 @@ Public Class frmSOList
             .Columns.Add("so_type", 0)
             .Columns.Add("so_status", 0)
             .Columns.Add("Status", 100)
+            .Columns.Add("Ref No.", 120)
         End With
 
         cmd = New SqlCommand("usp_tr_so_SEL", cn)
@@ -59,7 +59,6 @@ Public Class frmSOList
             lvItem = New ListViewItem(CStr(myReader.Item(1)))
             lvItem.Tag = CStr(myReader.Item(0)) & "*~~~~~*" & intCurrRow 'ID
             'lvItem.Tag = "v" & CStr(DR.Item(0))
-            lvItem.SubItems.Add(IIf(myReader.Item(11) Is DBNull.Value, "", myReader.Item(11))) 'ref_no
             lvItem.SubItems.Add(myReader.Item(2)) 'so_date
             lvItem.SubItems.Add(myReader.GetInt32(3)) 'c_id
             lvItem.SubItems.Add(myReader.GetString(4)) 'c_code
@@ -67,6 +66,7 @@ Public Class frmSOList
             lvItem.SubItems.Add(myReader.GetString(6)) 'so_type
             lvItem.SubItems.Add(myReader.GetString(7)) 'so_status
             lvItem.SubItems.Add(myReader.GetString(8)) 'so_status_val
+            lvItem.SubItems.Add(IIf(myReader.Item(11) Is DBNull.Value, "", myReader.Item(11))) 'ref_no
 
             If intCurrRow Mod 2 = 0 Then
                 lvItem.BackColor = Color.Lavender
