@@ -27,9 +27,6 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>BTP</ProductName>
-    <PublisherName>MBS</PublisherName>
-    <SuiteName>BTP</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -584,12 +581,6 @@
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Transaction\fdlCUtility.Designer.vb">
-      <DependentUpon>fdlCUtility.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\fdlCUtility.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
@@ -1590,6 +1581,12 @@
       <DependentUpon>RPT_Sls_Customer_List.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\RPT_Sls_OrderInv_Form.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Sls_OrderInv_Form.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\RPT_Sls_Order_Form.vb">
       <SubType>Component</SubType>
       <AutoGen>True</AutoGen>
@@ -1878,9 +1875,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
-      <DependentUpon>fdlCUtility.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
@@ -2293,9 +2287,6 @@
     <EmbeddedResource Include="Forms\Transaction\FTR_Induction.resx">
       <DependentUpon>FTR_Induction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\ftr_mp.resx">
-      <DependentUpon>ftr_mp.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -2363,6 +2354,10 @@
     <EmbeddedResource Include="Reports\RPT_Sls_Customer_List.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_Sls_Customer_List.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT_Sls_OrderInv_Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Sls_OrderInv_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Sls_Order_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
