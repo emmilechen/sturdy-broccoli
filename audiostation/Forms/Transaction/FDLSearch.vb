@@ -71,13 +71,13 @@ Public Class FDLSearch
 
         Me.txtrows.Text = "28"
         Select Case Me.txtopenargs.Text
-            Case Is = 0
+            Case Is = 0 'INDUCTION
                 xfield1 = "ind_no" : xfield2 = "CONVERT(VARCHAR(11),ind_tgl,106)" : xfield3 = "(select c_name from mt_customer where c_id=ind_c_id)+'/'+ind_keterangan" : xtable = "tr_induction "
                 opensearchform(xfield1, xfield2, xfield3, xtable, "ind_no<>''", "ind_no", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
-            Case Is = 1
+            Case Is = 1 'MESIN
                 xfield1 = "idmesin" : xfield2 = "namamesin" : xfield3 = "merekmesin+' ~'+tipemesin+'/'+katmesin" : xtable = "mt_mesin "
                 opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>''", "idmesin desc", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
@@ -87,15 +87,15 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Add("Tipe_Mesin")
                 Me.ComboBox2.Items.Add("Kategori_Mesin")
                 Me.ComboBox2.Text = "<--ALL-->"
-            Case Is = 2
+            Case Is = 2 'USER
                 xfield1 = "user_id" : xfield2 = "user_name" : xfield3 = "user_level_description" : xtable = "mt_user inner join mt_user_level on mt_user.user_level_id=mt_user_level.user_level_id "
                 opensearchform(xfield1, xfield2, xfield3, xtable, "user_id<>0", "user_name", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
-            Case Is = 3
-                xfield1 = "pono" : xfield2 = "spkid" : xfield3 = "name" : xtable = "txpo inner join T_CARD on t_card.code=txpo.supplierid "
-                opensearchform(xfield1, xfield2, xfield3, xtable, "pono<>'s'", "pono", Me.txtopenargs.Text)
+            Case Is = 3 'Memo Produksi
+                xfield1 = "mp_pk" : xfield2 = "mp_no" : xfield3 = "so_no+' ~'+c_name" : xtable = "tr_mp a inner join tr_so b on a.so_id_f=b.so_id inner join mt_customer c on c.c_id=b.c_id "
+                opensearchform(xfield1, xfield2, xfield3, xtable, "mp_no<>''", "mp_no", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"

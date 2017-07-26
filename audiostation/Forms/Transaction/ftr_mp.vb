@@ -32,11 +32,12 @@ Public Class ftr_mp
             .ListView1.Columns.Add("Kolom 0", "guid", 0)
             .ListView1.Columns.Add("Kolom 1", "skuid", 0)
             .ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
-            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 5)
+            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
             .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
             .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
             .ListView1.Columns.Add("Kolom 6", "Tgl_Kirim", Me.TextBox7.Width + 5)
             .ListView1.Columns.Add("Kolom 7", "Tgl_Permintaan", Me.TextBox8.Width + 5)
+            .ListView1.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
         End With
         Me.ListView1.Items.Clear()
 
@@ -44,11 +45,51 @@ Public Class ftr_mp
         Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
     End Function
+    Private Function isirecord(ByVal guidno As Integer)
+        Me.txtguid.Text = guidno
+        Fillobject(Me.txtguid, Me.Panel1, "select", "sp_tr_mp", Me.txtguid.Text, "@mp_pk")
+        opensearchform(Me.ListView1, "mp_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, mp_tgl, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
+
+        'Me.Text = "Machine - " & Me.txtnama.Text
+
+        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True
+    End Function
+    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read()
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString())
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString())
+                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString())
+                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", dr.Item(8).ToString())
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
     Private Sub ftr_mp_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Top = 0 : Me.Left = 0
+        If cn.State = ConnectionState.Closed Then cn.Open()
         kosong()
     End Sub
-
     Private Sub btnCustomer_Click(sender As System.Object, e As System.EventArgs) Handles btnCustomer.Click
         Dim NewFormDialog As New fdlCUtility
         NewFormDialog.FrmCallerId = Me.Name
@@ -63,6 +104,7 @@ Public Class ftr_mp
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        If Me.txtsono.Text = "" Then Exit Sub
         Dim NewFormDialog As New fdlCUtility
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.Tag = "2"
@@ -99,6 +141,7 @@ Public Class ftr_mp
                 li.SubItems.Add(Me.TextBox1.Text)
                 li.SubItems.Add(Me.TextBox7.Text)
                 li.SubItems.Add(Me.TextBox8.Text)
+                li.SubItems.Add(Me.DateTimePicker1.Text)
 
                 Me.txtguid_d.Text = ""
                 Me.txtskuid.Text = ""
@@ -134,6 +177,7 @@ Public Class ftr_mp
             Me.TextBox1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
             Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(6).Text
             Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(7).Text
+            Me.DateTimePicker1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(8).Text
             Me.btnSaveD.Tag = "E"
         End If
     End Sub
@@ -203,13 +247,19 @@ err_ToolStripButton1_Click:
 
     Private Sub ToolStripButton2_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton2.Click
         'find
+        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
+        Dim child As New FDLSearch()
+        child.txtopenargs.Text = "3"
+        If child.ShowDialog() = DialogResult.OK Then
+            Me.txt_mp_pk.Text = child.txtChildText0.Text
+        End If
     End Sub
 
-    Private Sub ToolStripButton3_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(sender As System.Object, e As System.EventArgs) Handles cmdcancel.Click
         'cancel
     End Sub
 
-    Private Sub ToolStripButton4_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(sender As System.Object, e As System.EventArgs) Handles cmddel.Click
         'delete
         On Error GoTo err_ToolStripButton4_Click
         If Me.txtguid.Text = "" Then Exit Sub
@@ -253,5 +303,30 @@ err_ToolStripButton4_Click:
 
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         Me.txtmp_id_f.Text = Me.txtguid.Text
+    End Sub
+
+    Private Sub txt_mp_pk_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_mp_pk.TextChanged
+        If Me.txt_mp_pk.Text = "0" Or Me.txt_mp_pk.Text = "" Then
+            'kosong
+            kosong()
+        Else
+            'isi-record
+            isirecord(Me.txt_mp_pk.Text)
+        End If
+    End Sub
+
+    Private Sub cmbmp_st_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbmp_st.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub txtso_id_f_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtso_id_f.TextChanged
+        If Me.txtso_id_f.Text <> "" And Me.txt_mp_pk.Text <> "0" Then
+            'isi
+            Me.txtsono.Text = GetCurrentID("so_no", "tr_so", "so_id=" & Me.txtso_id_f.Text)
+            Me.txtpono.Text = GetCurrentID("ref_no", "tr_so", "so_id=" & Me.txtso_id_f.Text)
+            Me.cmbcust.SelectedValue = GetCurrentID("c_id", "tr_so", "so_id=" & Me.txtso_id_f.Text)
+        Else
+
+        End If
     End Sub
 End Class

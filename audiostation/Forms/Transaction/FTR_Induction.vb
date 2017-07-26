@@ -187,7 +187,7 @@ Public Class FTR_Induction
 
         dr.Close()
         cmd.Dispose()
-        Me.cmddel.Enabled = True
+        Me.cmddelete.Enabled = True
         Me.cmdsave.Enabled = True : Me.cmdsave.Text = "&Update"
         'Me.cmdinfo.Enabled = Me.txteventno.Text <> ""
         Me.TextBox1.Focus()
@@ -202,7 +202,117 @@ Public Class FTR_Induction
             'kosong()
         End If
     End Sub
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
+    Private Sub CheckBox37_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox37.CheckedChanged
+        checkall(Me.Panel6, Me.CheckBox37)
+    End Sub
+    Private Sub CheckBox41_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox41.CheckedChanged
+        checkall(Me.Panel8, Me.CheckBox41)
+    End Sub
+    Private Sub CheckBox42_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox42.CheckedChanged
+        checkall(Me.Panel7, Me.CheckBox42)
+    End Sub
+    Private Sub CheckBox43_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox43.CheckedChanged
+        checkall(Me.Panel12, Me.CheckBox43)
+    End Sub
+    Private Sub CheckBox44_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox44.CheckedChanged
+        checkall(Me.Panel3, Me.CheckBox44)
+    End Sub
+    Private Sub CheckBox45_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox45.CheckedChanged
+        checkall(Me.Panel4, Me.CheckBox45)
+    End Sub
+    Private Sub CheckBox46_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox46.CheckedChanged
+        checkall(Me.Panel10, Me.CheckBox46)
+    End Sub
+    Private Sub TextBox2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox2.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox3_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox3.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox4_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox4.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox5_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox5.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox24_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox24.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox25_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox25.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox26_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox26.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox27_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox27.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox34_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox34.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox35_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox35.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox28_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox28.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox29_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox29.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox30_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox30.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox31_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox31.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox32_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox32.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox33_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox33.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox36_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox36.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox37_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox37.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox38_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox38.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox39_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox39.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox40_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox40.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox17_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox17.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox18_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox18.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox19_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox19.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox20_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox20.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox41_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox41.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox42_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox42.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub TextBox43_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox43.KeyPress
+        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
+    End Sub
+    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+        Dim xno As String
+        If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
+    End Sub
+
+    Private Sub cmdsave_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
         Dim strsql As String
         If ComboBox5.SelectedValue = "" Then Exit Sub
         If MsgBox("Data akan disimpan " & IIf(Me.txtguid.Text = "", "", "ulang") & ", lanjutkan ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Induction") = MsgBoxResult.Yes Then
@@ -384,112 +494,16 @@ Public Class FTR_Induction
             End If
         End If
     End Sub
-    Private Sub CheckBox37_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox37.CheckedChanged
-        checkall(Me.Panel6, Me.CheckBox37)
+
+    Private Sub cmdfind_Click(sender As System.Object, e As System.EventArgs) Handles cmdfind.Click
+        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
+        Dim child As New FDLSearch()
+        child.txtopenargs.Text = "0"
+        If child.ShowDialog() = DialogResult.OK Then
+            Me.txtguid.Text = child.txtChildText0.Text
+        End If
     End Sub
-    Private Sub CheckBox41_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox41.CheckedChanged
-        checkall(Me.Panel8, Me.CheckBox41)
-    End Sub
-    Private Sub CheckBox42_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox42.CheckedChanged
-        checkall(Me.Panel7, Me.CheckBox42)
-    End Sub
-    Private Sub CheckBox43_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox43.CheckedChanged
-        checkall(Me.Panel12, Me.CheckBox43)
-    End Sub
-    Private Sub CheckBox44_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox44.CheckedChanged
-        checkall(Me.Panel3, Me.CheckBox44)
-    End Sub
-    Private Sub CheckBox45_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox45.CheckedChanged
-        checkall(Me.Panel4, Me.CheckBox45)
-    End Sub
-    Private Sub CheckBox46_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox46.CheckedChanged
-        checkall(Me.Panel10, Me.CheckBox46)
-    End Sub
-    Private Sub TextBox2_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox2.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox3_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox3.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox4_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox4.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox5_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox5.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox24_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox24.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox25_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox25.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox26_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox26.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox27_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox27.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox34_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox34.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox35_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox35.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox28_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox28.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox29_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox29.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox30_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox30.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox31_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox31.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox32_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox32.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox33_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox33.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox36_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox36.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox37_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox37.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox38_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox38.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox39_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox39.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox40_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox40.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox17_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox17.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox18_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox18.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox19_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox19.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox20_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox20.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox41_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox41.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox42_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox42.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub TextBox43_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox43.KeyPress
-        If Not checkisnumber(e.KeyChar) Then e.KeyChar = ""
-    End Sub
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
+    Private Sub cmdprint_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
@@ -520,17 +534,5 @@ Public Class FTR_Induction
             .myCrystalReportViewer.ShowGroupTreeButton = False
             .myCrystalReportViewer.ReportSource = cr
         End With
-    End Sub
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles cmdfind.Click
-        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
-        Dim child As New FDLSearch()
-        child.txtopenargs.Text = "0"
-        If child.ShowDialog() = DialogResult.OK Then
-            Me.txtguid.Text = child.txtChildText0.Text
-        End If
-    End Sub
-    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        Dim xno As String
-        If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
     End Sub
 End Class

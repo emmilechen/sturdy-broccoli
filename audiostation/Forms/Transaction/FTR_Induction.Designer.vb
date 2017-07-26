@@ -22,6 +22,8 @@ Partial Class FTR_Induction
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FTR_Induction))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -220,13 +222,7 @@ Partial Class FTR_Induction
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.cmddel = New System.Windows.Forms.Button()
         Me.txtguid = New System.Windows.Forms.TextBox()
-        Me.cmdprint = New System.Windows.Forms.Button()
-        Me.cmdexit = New System.Windows.Forms.Button()
-        Me.cmdfind = New System.Windows.Forms.Button()
-        Me.cmdsave = New System.Windows.Forms.Button()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label66 = New System.Windows.Forms.Label()
@@ -241,6 +237,15 @@ Partial Class FTR_Induction
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.cmdsave = New System.Windows.Forms.ToolStripButton()
+        Me.cmdfind = New System.Windows.Forms.ToolStripButton()
+        Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
+        Me.cmddelete = New System.Windows.Forms.ToolStripButton()
+        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
+        Me.cmdnew = New System.Windows.Forms.ToolStripButton()
+        Me.cmdexit = New System.Windows.Forms.ToolStripButton()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -262,15 +267,15 @@ Partial Class FTR_Induction
         Me.Panel13.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.Panel16.SuspendLayout()
-        Me.Panel14.SuspendLayout()
         Me.Panel17.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 20)
+        Me.Label1.Location = New System.Drawing.Point(12, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(24, 13)
         Me.Label1.TabIndex = 0
@@ -280,7 +285,7 @@ Partial Class FTR_Induction
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(248, 20)
+        Me.Label2.Location = New System.Drawing.Point(248, 40)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 13)
         Me.Label2.TabIndex = 1
@@ -290,7 +295,7 @@ Partial Class FTR_Induction
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(487, 20)
+        Me.Label3.Location = New System.Drawing.Point(487, 40)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 2
@@ -300,7 +305,7 @@ Partial Class FTR_Induction
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(606, 19)
+        Me.Label4.Location = New System.Drawing.Point(606, 39)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(82, 13)
         Me.Label4.TabIndex = 3
@@ -321,7 +326,7 @@ Partial Class FTR_Induction
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel1.Location = New System.Drawing.Point(15, 70)
+        Me.Panel1.Location = New System.Drawing.Point(15, 90)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(439, 139)
         Me.Panel1.TabIndex = 5
@@ -428,7 +433,7 @@ Partial Class FTR_Induction
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(889, 19)
+        Me.Label5.Location = New System.Drawing.Point(889, 39)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(44, 13)
         Me.Label5.TabIndex = 4
@@ -442,10 +447,10 @@ Partial Class FTR_Induction
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.Location = New System.Drawing.Point(15, 215)
+        Me.TabControl1.Location = New System.Drawing.Point(15, 235)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(886, 476)
+        Me.TabControl1.Size = New System.Drawing.Size(1042, 476)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -460,7 +465,7 @@ Partial Class FTR_Induction
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(878, 450)
+        Me.TabPage1.Size = New System.Drawing.Size(1034, 450)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detail Process 1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1339,7 +1344,7 @@ Partial Class FTR_Induction
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(878, 450)
+        Me.TabPage2.Size = New System.Drawing.Size(1034, 450)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Detail Process 2"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1928,7 +1933,7 @@ Partial Class FTR_Induction
         Me.TabPage3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(878, 450)
+        Me.TabPage3.Size = New System.Drawing.Size(1034, 450)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Alamat Kirim"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1968,7 +1973,7 @@ Partial Class FTR_Induction
         Me.TabPage4.Controls.Add(Me.Panel13)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(878, 450)
+        Me.TabPage4.Size = New System.Drawing.Size(1034, 450)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Dept. Costing"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -2246,7 +2251,7 @@ Partial Class FTR_Induction
         Me.TabPage5.Controls.Add(Me.Panel16)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(878, 450)
+        Me.TabPage5.Size = New System.Drawing.Size(1034, 450)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Keterangan Tambahan"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -2284,7 +2289,7 @@ Partial Class FTR_Induction
         '
         Me.TextBox1.BackColor = System.Drawing.Color.Chartreuse
         Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(12, 36)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 56)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(123, 21)
@@ -2294,7 +2299,7 @@ Partial Class FTR_Induction
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(251, 35)
+        Me.ComboBox1.Location = New System.Drawing.Point(251, 55)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(233, 21)
         Me.ComboBox1.TabIndex = 2
@@ -2303,7 +2308,7 @@ Partial Class FTR_Induction
         '
         Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(490, 35)
+        Me.ComboBox2.Location = New System.Drawing.Point(490, 55)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(113, 21)
         Me.ComboBox2.TabIndex = 3
@@ -2312,93 +2317,25 @@ Partial Class FTR_Induction
         '
         Me.ComboBox3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(609, 35)
+        Me.ComboBox3.Location = New System.Drawing.Point(609, 55)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(280, 21)
         Me.ComboBox3.TabIndex = 4
         '
-        'Panel14
-        '
-        Me.Panel14.BackColor = System.Drawing.Color.Gainsboro
-        Me.Panel14.Controls.Add(Me.cmddel)
-        Me.Panel14.Controls.Add(Me.txtguid)
-        Me.Panel14.Controls.Add(Me.cmdprint)
-        Me.Panel14.Controls.Add(Me.cmdexit)
-        Me.Panel14.Controls.Add(Me.cmdfind)
-        Me.Panel14.Controls.Add(Me.cmdsave)
-        Me.Panel14.Location = New System.Drawing.Point(905, 70)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(156, 617)
-        Me.Panel14.TabIndex = 26
-        '
-        'cmddel
-        '
-        Me.cmddel.BackColor = System.Drawing.Color.Red
-        Me.cmddel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmddel.Location = New System.Drawing.Point(18, 482)
-        Me.cmddel.Name = "cmddel"
-        Me.cmddel.Size = New System.Drawing.Size(125, 37)
-        Me.cmddel.TabIndex = 34
-        Me.cmddel.Text = "Delete"
-        Me.cmddel.UseVisualStyleBackColor = False
-        '
         'txtguid
         '
-        Me.txtguid.Location = New System.Drawing.Point(18, 5)
+        Me.txtguid.Location = New System.Drawing.Point(936, 32)
         Me.txtguid.Name = "txtguid"
         Me.txtguid.ReadOnly = True
         Me.txtguid.Size = New System.Drawing.Size(125, 20)
         Me.txtguid.TabIndex = 33
         Me.txtguid.Visible = False
         '
-        'cmdprint
-        '
-        Me.cmdprint.BackColor = System.Drawing.Color.Chartreuse
-        Me.cmdprint.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdprint.Location = New System.Drawing.Point(18, 522)
-        Me.cmdprint.Name = "cmdprint"
-        Me.cmdprint.Size = New System.Drawing.Size(125, 37)
-        Me.cmdprint.TabIndex = 3
-        Me.cmdprint.Text = "Print"
-        Me.cmdprint.UseVisualStyleBackColor = False
-        '
-        'cmdexit
-        '
-        Me.cmdexit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdexit.Location = New System.Drawing.Point(18, 567)
-        Me.cmdexit.Name = "cmdexit"
-        Me.cmdexit.Size = New System.Drawing.Size(125, 37)
-        Me.cmdexit.TabIndex = 2
-        Me.cmdexit.Text = "Exit"
-        Me.cmdexit.UseVisualStyleBackColor = True
-        '
-        'cmdfind
-        '
-        Me.cmdfind.BackColor = System.Drawing.Color.LightCoral
-        Me.cmdfind.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdfind.Location = New System.Drawing.Point(18, 441)
-        Me.cmdfind.Name = "cmdfind"
-        Me.cmdfind.Size = New System.Drawing.Size(125, 37)
-        Me.cmdfind.TabIndex = 1
-        Me.cmdfind.Text = "Find"
-        Me.cmdfind.UseVisualStyleBackColor = False
-        '
-        'cmdsave
-        '
-        Me.cmdsave.BackColor = System.Drawing.Color.DodgerBlue
-        Me.cmdsave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdsave.Location = New System.Drawing.Point(18, 398)
-        Me.cmdsave.Name = "cmdsave"
-        Me.cmdsave.Size = New System.Drawing.Size(125, 37)
-        Me.cmdsave.TabIndex = 0
-        Me.cmdsave.Text = "Save"
-        Me.cmdsave.UseVisualStyleBackColor = False
-        '
         'ComboBox4
         '
         Me.ComboBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(892, 35)
+        Me.ComboBox4.Location = New System.Drawing.Point(892, 55)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(169, 21)
         Me.ComboBox4.TabIndex = 5
@@ -2407,7 +2344,7 @@ Partial Class FTR_Induction
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 36)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 56)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(104, 21)
         Me.DateTimePicker1.TabIndex = 1
@@ -2416,7 +2353,7 @@ Partial Class FTR_Induction
         '
         Me.Label66.AutoSize = True
         Me.Label66.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label66.Location = New System.Drawing.Point(141, 20)
+        Me.Label66.Location = New System.Drawing.Point(141, 40)
         Me.Label66.Name = "Label66"
         Me.Label66.Size = New System.Drawing.Size(52, 13)
         Me.Label66.TabIndex = 29
@@ -2435,7 +2372,7 @@ Partial Class FTR_Induction
         Me.Panel17.Controls.Add(Me.Label13)
         Me.Panel17.Controls.Add(Me.Label12)
         Me.Panel17.Controls.Add(Me.Label11)
-        Me.Panel17.Location = New System.Drawing.Point(460, 70)
+        Me.Panel17.Location = New System.Drawing.Point(460, 90)
         Me.Panel17.Name = "Panel17"
         Me.Panel17.Size = New System.Drawing.Size(428, 139)
         Me.Panel17.TabIndex = 30
@@ -2527,6 +2464,82 @@ Partial Class FTR_Induction
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Kompetitor 1"
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdprint, Me.cmdnew, Me.cmdexit})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1069, 25)
+        Me.ToolStrip1.TabIndex = 31
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'cmdsave
+        '
+        Me.cmdsave.Image = CType(resources.GetObject("cmdsave.Image"), System.Drawing.Image)
+        Me.cmdsave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdsave.Name = "cmdsave"
+        Me.cmdsave.Size = New System.Drawing.Size(60, 22)
+        Me.cmdsave.Text = "&Save"
+        '
+        'cmdfind
+        '
+        Me.cmdfind.Image = CType(resources.GetObject("cmdfind.Image"), System.Drawing.Image)
+        Me.cmdfind.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdfind.Name = "cmdfind"
+        Me.cmdfind.Size = New System.Drawing.Size(53, 22)
+        Me.cmdfind.Text = "&Find"
+        '
+        'cmdcancel
+        '
+        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
+        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdcancel.Name = "cmdcancel"
+        Me.cmdcancel.Size = New System.Drawing.Size(70, 22)
+        Me.cmdcancel.Text = "&Cancel"
+        '
+        'cmddelete
+        '
+        Me.cmddelete.Image = CType(resources.GetObject("cmddelete.Image"), System.Drawing.Image)
+        Me.cmddelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmddelete.Name = "cmddelete"
+        Me.cmddelete.Size = New System.Drawing.Size(70, 22)
+        Me.cmddelete.Text = "&Delete"
+        '
+        'cmdprint
+        '
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
+        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdprint.Name = "cmdprint"
+        Me.cmdprint.Size = New System.Drawing.Size(59, 22)
+        Me.cmdprint.Text = "&Print"
+        '
+        'cmdnew
+        '
+        Me.cmdnew.Image = CType(resources.GetObject("cmdnew.Image"), System.Drawing.Image)
+        Me.cmdnew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdnew.Name = "cmdnew"
+        Me.cmdnew.Size = New System.Drawing.Size(55, 22)
+        Me.cmdnew.Text = "&New"
+        '
+        'cmdexit
+        '
+        Me.cmdexit.Image = CType(resources.GetObject("cmdexit.Image"), System.Drawing.Image)
+        Me.cmdexit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdexit.Name = "cmdexit"
+        Me.cmdexit.Size = New System.Drawing.Size(51, 22)
+        Me.cmdexit.Text = "&Exit"
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
+        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
+        Me.ImageList1.Images.SetKeyName(2, "Box.png")
+        Me.ImageList1.Images.SetKeyName(3, "Search.png")
+        Me.ImageList1.Images.SetKeyName(4, "add.png")
+        '
         'FTR_Induction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2534,12 +2547,13 @@ Partial Class FTR_Induction
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1069, 703)
+        Me.ClientSize = New System.Drawing.Size(1069, 722)
+        Me.Controls.Add(Me.txtguid)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel17)
         Me.Controls.Add(Me.Label66)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.ComboBox4)
-        Me.Controls.Add(Me.Panel14)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.ComboBox1)
@@ -2589,10 +2603,10 @@ Partial Class FTR_Induction
         Me.TabPage5.ResumeLayout(False)
         Me.Panel16.ResumeLayout(False)
         Me.Panel16.PerformLayout()
-        Me.Panel14.ResumeLayout(False)
-        Me.Panel14.PerformLayout()
         Me.Panel17.ResumeLayout(False)
         Me.Panel17.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2676,7 +2690,6 @@ Partial Class FTR_Induction
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents Panel14 As System.Windows.Forms.Panel
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
     Friend WithEvents Panel15 As System.Windows.Forms.Panel
     Friend WithEvents Label67 As System.Windows.Forms.Label
@@ -2792,10 +2805,6 @@ Partial Class FTR_Induction
     Friend WithEvents TextBox42 As System.Windows.Forms.TextBox
     Friend WithEvents ComboBox11 As System.Windows.Forms.ComboBox
     Friend WithEvents DateTimePicker3 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents cmdprint As System.Windows.Forms.Button
-    Friend WithEvents cmdexit As System.Windows.Forms.Button
-    Friend WithEvents cmdfind As System.Windows.Forms.Button
-    Friend WithEvents cmdsave As System.Windows.Forms.Button
     Friend WithEvents DateTimePicker4 As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
@@ -2815,5 +2824,13 @@ Partial Class FTR_Induction
     Friend WithEvents Label83 As System.Windows.Forms.Label
     Friend WithEvents Label81 As System.Windows.Forms.Label
     Friend WithEvents Label80 As System.Windows.Forms.Label
-    Friend WithEvents cmddel As System.Windows.Forms.Button
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents cmdsave As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdfind As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdcancel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmddelete As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdnew As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdexit As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdprint As System.Windows.Forms.ToolStripButton
 End Class

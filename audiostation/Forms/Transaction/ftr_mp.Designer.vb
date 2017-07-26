@@ -27,6 +27,9 @@ Partial Class ftr_mp
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txtmp_id_f = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.txtguid_d = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtskuid = New System.Windows.Forms.TextBox()
@@ -50,11 +53,12 @@ Partial Class ftr_mp
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
+        Me.cmddel = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txt_mp_pk = New System.Windows.Forms.TextBox()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtmp_note = New System.Windows.Forms.TextBox()
@@ -71,9 +75,6 @@ Partial Class ftr_mp
         Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
         Me.txtmp_no = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.txtmp_id_f = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -131,6 +132,33 @@ Partial Class ftr_mp
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Order Detail "
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txtmp_id_f
+        '
+        Me.txtmp_id_f.Location = New System.Drawing.Point(336, 8)
+        Me.txtmp_id_f.Name = "txtmp_id_f"
+        Me.txtmp_id_f.Size = New System.Drawing.Size(66, 20)
+        Me.txtmp_id_f.TabIndex = 45
+        Me.txtmp_id_f.Tag = "mp_id_f"
+        Me.txtmp_id_f.Visible = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(857, 16)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(137, 13)
+        Me.Label13.TabIndex = 44
+        Me.Label13.Text = "Tanggal Realisasi Kirim"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(860, 32)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
+        Me.DateTimePicker1.TabIndex = 3
+        Me.DateTimePicker1.Tag = "tgl_realisasi_kirim"
         '
         'txtguid_d
         '
@@ -341,7 +369,7 @@ Partial Class ftr_mp
         'ToolStrip1
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton5, Me.ToolStripButton6})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.cmdcancel, Me.cmddel, Me.ToolStripButton5, Me.ToolStripButton6})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1264, 25)
@@ -364,21 +392,21 @@ Partial Class ftr_mp
         Me.ToolStripButton2.Size = New System.Drawing.Size(55, 22)
         Me.ToolStripButton2.Text = "&Find"
         '
-        'ToolStripButton3
+        'cmdcancel
         '
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(68, 22)
-        Me.ToolStripButton3.Text = "&Cancel"
+        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
+        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdcancel.Name = "cmdcancel"
+        Me.cmdcancel.Size = New System.Drawing.Size(68, 22)
+        Me.cmdcancel.Text = "&Cancel"
         '
-        'ToolStripButton4
+        'cmddel
         '
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(68, 22)
-        Me.ToolStripButton4.Text = "&Delete"
+        Me.cmddel.Image = CType(resources.GetObject("cmddel.Image"), System.Drawing.Image)
+        Me.cmddel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmddel.Name = "cmddel"
+        Me.cmddel.Size = New System.Drawing.Size(68, 22)
+        Me.cmddel.Text = "&Delete"
         '
         'ToolStripButton5
         '
@@ -398,6 +426,7 @@ Partial Class ftr_mp
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.txt_mp_pk)
         Me.Panel1.Controls.Add(Me.txtguid)
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.txtmp_note)
@@ -419,6 +448,14 @@ Partial Class ftr_mp
         Me.Panel1.Size = New System.Drawing.Size(1235, 53)
         Me.Panel1.TabIndex = 22
         '
+        'txt_mp_pk
+        '
+        Me.txt_mp_pk.Location = New System.Drawing.Point(1110, 0)
+        Me.txt_mp_pk.Name = "txt_mp_pk"
+        Me.txt_mp_pk.Size = New System.Drawing.Size(119, 20)
+        Me.txt_mp_pk.TabIndex = 28
+        Me.txt_mp_pk.Tag = ""
+        '
         'txtguid
         '
         Me.txtguid.Location = New System.Drawing.Point(955, 1)
@@ -426,7 +463,6 @@ Partial Class ftr_mp
         Me.txtguid.Size = New System.Drawing.Size(119, 20)
         Me.txtguid.TabIndex = 27
         Me.txtguid.Tag = "mp_pk"
-        Me.txtguid.Visible = False
         '
         'Label12
         '
@@ -453,7 +489,6 @@ Partial Class ftr_mp
         Me.cmbmp_st.Size = New System.Drawing.Size(111, 21)
         Me.cmbmp_st.TabIndex = 24
         Me.cmbmp_st.Tag = "mp_st"
-        Me.cmbmp_st.Visible = False
         '
         'txtso_id_f
         '
@@ -462,7 +497,6 @@ Partial Class ftr_mp
         Me.txtso_id_f.Size = New System.Drawing.Size(65, 20)
         Me.txtso_id_f.TabIndex = 23
         Me.txtso_id_f.Tag = "so_id_f"
-        Me.txtso_id_f.Visible = False
         '
         'Label5
         '
@@ -566,33 +600,6 @@ Partial Class ftr_mp
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. MP"
         '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(857, 16)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(137, 13)
-        Me.Label13.TabIndex = 44
-        Me.Label13.Text = "Tanggal Realisasi Kirim"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(860, 32)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(152, 20)
-        Me.DateTimePicker1.TabIndex = 3
-        Me.DateTimePicker1.Tag = "tgl_realisasi_kirim"
-        '
-        'txtmp_id_f
-        '
-        Me.txtmp_id_f.Location = New System.Drawing.Point(336, 8)
-        Me.txtmp_id_f.Name = "txtmp_id_f"
-        Me.txtmp_id_f.Size = New System.Drawing.Size(66, 20)
-        Me.txtmp_id_f.TabIndex = 45
-        Me.txtmp_id_f.Tag = "mp_id_f"
-        Me.txtmp_id_f.Visible = False
-        '
         'ftr_mp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -625,8 +632,8 @@ Partial Class ftr_mp
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmdcancel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents cmddel As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -664,4 +671,5 @@ Partial Class ftr_mp
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtmp_id_f As System.Windows.Forms.TextBox
+    Friend WithEvents txt_mp_pk As System.Windows.Forms.TextBox
 End Class
