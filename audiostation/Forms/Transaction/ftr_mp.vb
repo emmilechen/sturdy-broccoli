@@ -46,6 +46,8 @@ Public Class ftr_mp
         Me.dttpmp_tgl.Focus()
         Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
+
+        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False
     End Function
     Private Function isirecord(ByVal guidno As Integer)
         Me.txtguid.Text = guidno
@@ -116,6 +118,7 @@ Public Class ftr_mp
 
     Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
         Dim li As ListViewItem, i As Integer
+        If Me.txtguid.Text = "0" Then Exit Sub
         If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
@@ -183,7 +186,7 @@ Public Class ftr_mp
         End If
     End Sub
     Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
-        If Me.txtskuid.Text = "" Then Exit Sub
+        If Me.txtskuid.Text = "" Or Me.txtguid.Text = "0" Then Exit Sub
         If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
@@ -197,8 +200,8 @@ Public Class ftr_mp
             End If
         End If
     End Sub
-
     Private Sub btnAddD_Click(sender As System.Object, e As System.EventArgs) Handles btnAddD.Click
+        If Me.txtso_id_f.Text = "" Then Exit Sub
         Me.txtguid_d.Text = ""
         Me.txtskuid.Text = ""
         Me.TextBox4.Text = ""
