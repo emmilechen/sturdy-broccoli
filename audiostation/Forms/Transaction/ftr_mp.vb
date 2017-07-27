@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Public Class ftr_mp
     Private m_SOId As Integer, m_CId As Integer
     Private namatable As String, namafieldPK As String
@@ -47,17 +49,17 @@ Public Class ftr_mp
         Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
 
-        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False
+        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False : Me.cmdprint.Enabled = False
     End Function
     Private Function isirecord(ByVal guidno As Integer)
         Me.txtguid.Text = guidno
 
         Fillobject(Me.txtguid, Me.Panel1, "select", "sp_tr_mp", Me.txtguid.Text, "@mp_pk")
-        opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, mp_tgl, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
+        opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
         Me.btnCustomer.Enabled = False
         'Me.Text = "Machine - " & Me.txtnama.Text
 
-        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True
+        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True
     End Function
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         'On Error Resume Next
@@ -123,7 +125,7 @@ Public Class ftr_mp
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC sp_tr_mp_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")
-            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, mp_tgl, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD.Tag = "N" Then
@@ -191,7 +193,7 @@ Public Class ftr_mp
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC sp_tr_mp_dtl 'delete', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")
-            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, mp_tgl, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
         Else
             If ListView1.SelectedItems.Count > 0 Then
                 For a As Integer = ListView1.SelectedItems.Count - 1 To 0
@@ -296,18 +298,6 @@ err_ToolStripButton4_Click:
         Me.Close()
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
-    Private Sub TextBox7_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox7.TextChanged
-
-    End Sub
-
-    Private Sub TextBox8_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox8.TextChanged
-
-    End Sub
-
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         Me.txtmp_id_f.Text = Me.txtguid.Text
     End Sub
@@ -322,10 +312,6 @@ err_ToolStripButton4_Click:
         End If
     End Sub
 
-    Private Sub cmbmp_st_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbmp_st.SelectedIndexChanged
-
-    End Sub
-
     Private Sub txtso_id_f_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtso_id_f.TextChanged
         If Me.txtso_id_f.Text <> "" And Me.txt_mp_pk.Text <> "0" Then
             'isi
@@ -335,5 +321,38 @@ err_ToolStripButton4_Click:
         Else
 
         End If
+    End Sub
+    Private Sub cmdprint_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
+        Dim strConnection As String = My.Settings.ConnStr
+        Dim Connection As New SqlConnection(strConnection)
+        Dim strSQL As String
+        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub
+        'strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
+        strSQL = "exec RPT_MP_Form " & Me.txtguid.Text & ", 'mp'"
+        Dim DA As New SqlDataAdapter(strSQL, Connection)
+        Dim DS As New DataSet
+
+        DA.Fill(DS, "MP_")
+
+        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_MP_Form.rpt"
+
+        If Not IO.File.Exists(strReportPath) Then
+            Throw (New Exception("Unable to locate report file:" & _
+              vbCrLf & strReportPath))
+        End If
+
+        Dim cr As New ReportDocument
+        Dim NewMDIChild As New frmDocViewer()
+        NewMDIChild.Text = "Memo Produksi"
+        NewMDIChild.Show()
+
+        cr.Load(strReportPath)
+        cr.SetDataSource(DS.Tables("MP_"))
+        With NewMDIChild
+            .myCrystalReportViewer.ShowRefreshButton = False
+            .myCrystalReportViewer.ShowCloseButton = False
+            .myCrystalReportViewer.ShowGroupTreeButton = False
+            .myCrystalReportViewer.ReportSource = cr
+        End With
     End Sub
 End Class

@@ -75,6 +75,8 @@ Partial Class ftr_mp
         Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
         Me.txtmp_no = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -371,7 +373,7 @@ Partial Class ftr_mp
         'ToolStrip1
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.cmdcancel, Me.cmddel, Me.ToolStripButton5, Me.ToolStripButton6})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.cmdcancel, Me.cmddel, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.cmdprint})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1264, 25)
@@ -606,6 +608,19 @@ Partial Class ftr_mp
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. MP"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'cmdprint
+        '
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
+        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdprint.Name = "cmdprint"
+        Me.cmdprint.Size = New System.Drawing.Size(58, 22)
+        Me.cmdprint.Text = "&Print"
+        '
         'ftr_mp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -678,4 +693,6 @@ Partial Class ftr_mp
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtmp_id_f As System.Windows.Forms.TextBox
     Friend WithEvents txt_mp_pk As System.Windows.Forms.TextBox
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents cmdprint As System.Windows.Forms.ToolStripButton
 End Class
