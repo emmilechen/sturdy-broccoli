@@ -71,30 +71,11 @@ Public Class frmUtility
             cmd.Dispose()
         End With
     End Function
-    Private Function autocompletetext(ByVal namatextbox As TextBox, ByVal outputfield As String, ByVal namatable As String, ByVal kondisi As String, ByVal urutkan As String) As String
-        On Error Resume Next
-        Dim cmd As SqlCommand
-        Dim str(10) As String, strsql As String
-        Dim itm As ListViewItem
-        Dim dr As SqlDataReader
-        If Len(Me.txtsearch.Text) > 1 Then Exit Function
-        strsql = "SELECT " & outputfield & " FROM " & namatable & " where " & kondisi & " order by " & urutkan
-        cmd = New SqlCommand(strsql, cn)
-        dr = cmd.ExecuteReader()
-        If dr.HasRows Then
-            Do While dr.Read()
-                str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
-                namatextbox.AutoCompleteCustomSource.Add(str(0))
-            Loop
-        End If
-        dr.Close()
-        cmd.Dispose()
-    End Function
     Private Sub loaddata(openargs As String, cari As String)
         Select Case openargs
             Case Is = "unit_user_dept", "unit_user_div", "unit_uom_machine_elec", "unit_uom_machine_size", "unit_uom_machine_speed", "machine_cat", "machine_subcat", "machine_division" 'apa aj
                 opensearchform(Me.ListView1, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')" & cari, "sys_dropdown_sort", 0) : frfield = "3" : fr = "y.catcode" : frtable = "m_member x inner join M_Event_Category y on x.kodemember=y.catname " : Me.btndelete.Enabled = False : Me.btnsave.Enabled = False : Me.btnnew.Enabled = False
-                autocompletetext(Me.txtkode, "distinct sys_dropdown_id", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')", "sys_dropdown_id")
+                autocompleteteks(Me.txtkode, "distinct sys_dropdown_id", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')", "sys_dropdown_id")
         End Select
         'kosong()
         Me.lblreckiri.Text = Me.ListView1.Items.Count & " records"
