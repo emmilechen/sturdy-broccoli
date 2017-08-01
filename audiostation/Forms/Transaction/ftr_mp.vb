@@ -17,7 +17,6 @@ Public Class ftr_mp
             txtso_id_f.Text = Value
         End Set
     End Property
-
     Public Property sono() As String
         Get
             Return txtsono.Text
@@ -30,7 +29,6 @@ Public Class ftr_mp
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
         AssignValuetoCombo(Me.cmbmp_st, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='wo_status'", "sys_dropdown_sort")
-        '
         With Me
             .ListView1.Columns.Clear()
             .ListView1.Columns.Add("Kolom 0", "guid", 0)
@@ -48,7 +46,7 @@ Public Class ftr_mp
         Me.dttpmp_tgl.Focus()
         Me.txtguid.Text = "0"
         Me.btnSaveD.Tag = "N"
-
+        Me.ToolStrip2.Enabled = False
         Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False : Me.cmdprint.Enabled = False
     End Function
     Private Function isirecord(ByVal guidno As Integer)

@@ -51,12 +51,7 @@ Partial Class ftr_mp
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
-        Me.cmddel = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txt_mp_pk = New System.Windows.Forms.TextBox()
         Me.txtguid = New System.Windows.Forms.TextBox()
@@ -75,23 +70,36 @@ Partial Class ftr_mp
         Me.dttpmp_tgl = New System.Windows.Forms.DateTimePicker()
         Me.txtmp_no = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
+        Me.cmddel = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.cmdprint = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.ToolStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
-        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
-        Me.ImageList1.Images.SetKeyName(2, "Box.png")
+        Me.ImageList1.Images.SetKeyName(0, "add.png")
+        Me.ImageList1.Images.SetKeyName(1, "Checkmark.png")
+        Me.ImageList1.Images.SetKeyName(2, "Remove.png")
         Me.ImageList1.Images.SetKeyName(3, "Search.png")
-        Me.ImageList1.Images.SetKeyName(4, "add.png")
         '
         'TabControl1
         '
@@ -100,7 +108,7 @@ Partial Class ftr_mp
         Me.TabControl1.Location = New System.Drawing.Point(12, 90)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1240, 459)
+        Me.TabControl1.Size = New System.Drawing.Size(1240, 421)
         Me.TabControl1.TabIndex = 16
         '
         'TabPage1
@@ -130,7 +138,7 @@ Partial Class ftr_mp
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1232, 433)
+        Me.TabPage1.Size = New System.Drawing.Size(1232, 395)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Order Detail "
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -205,7 +213,7 @@ Partial Class ftr_mp
         'btnAddD
         '
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddD.ImageIndex = 4
+        Me.btnAddD.ImageIndex = 0
         Me.btnAddD.ImageList = Me.ImageList1
         Me.btnAddD.Location = New System.Drawing.Point(1081, 27)
         Me.btnAddD.Name = "btnAddD"
@@ -216,7 +224,7 @@ Partial Class ftr_mp
         'btnDeleteD
         '
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteD.ImageIndex = 1
+        Me.btnDeleteD.ImageIndex = 2
         Me.btnDeleteD.ImageList = Me.ImageList1
         Me.btnDeleteD.Location = New System.Drawing.Point(1050, 27)
         Me.btnDeleteD.Name = "btnDeleteD"
@@ -228,7 +236,7 @@ Partial Class ftr_mp
         '
         Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnSaveD.ImageIndex = 0
+        Me.btnSaveD.ImageIndex = 1
         Me.btnSaveD.ImageList = Me.ImageList1
         Me.btnSaveD.Location = New System.Drawing.Point(1018, 27)
         Me.btnSaveD.Name = "btnSaveD"
@@ -323,7 +331,7 @@ Partial Class ftr_mp
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(19, 57)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1207, 358)
+        Me.ListView1.Size = New System.Drawing.Size(1207, 320)
         Me.ListView1.TabIndex = 19
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -332,7 +340,7 @@ Partial Class ftr_mp
         '
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ImageIndex = 3
+        Me.Button1.ImageKey = "Search.png"
         Me.Button1.ImageList = Me.ImageList1
         Me.Button1.Location = New System.Drawing.Point(121, 28)
         Me.Button1.Name = "Button1"
@@ -380,53 +388,10 @@ Partial Class ftr_mp
         Me.ToolStrip1.TabIndex = 21
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'ToolStripButton1
+        'ToolStripSeparator1
         '
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(56, 22)
-        Me.ToolStripButton1.Text = "&Save"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(55, 22)
-        Me.ToolStripButton2.Text = "&Find"
-        '
-        'cmdcancel
-        '
-        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
-        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdcancel.Name = "cmdcancel"
-        Me.cmdcancel.Size = New System.Drawing.Size(68, 22)
-        Me.cmdcancel.Text = "&Cancel"
-        '
-        'cmddel
-        '
-        Me.cmddel.Image = CType(resources.GetObject("cmddel.Image"), System.Drawing.Image)
-        Me.cmddel.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmddel.Name = "cmddel"
-        Me.cmddel.Size = New System.Drawing.Size(68, 22)
-        Me.cmddel.Text = "&Delete"
-        '
-        'ToolStripButton5
-        '
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(55, 22)
-        Me.ToolStripButton5.Text = "&New"
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(51, 22)
-        Me.ToolStripButton6.Text = "&Exit"
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'Panel1
         '
@@ -529,7 +494,7 @@ Partial Class ftr_mp
         Me.btnCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCustomer.Enabled = False
         Me.btnCustomer.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCustomer.ImageIndex = 3
+        Me.btnCustomer.ImageKey = "Search.png"
         Me.btnCustomer.ImageList = Me.ImageList1
         Me.btnCustomer.Location = New System.Drawing.Point(657, 15)
         Me.btnCustomer.Name = "btnCustomer"
@@ -608,24 +573,130 @@ Partial Class ftr_mp
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "No. MP"
         '
-        'ToolStripSeparator1
+        'ToolStripButton1
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripButton1.Image = Global.boxtree.My.Resources.Resources.Save
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(56, 22)
+        Me.ToolStripButton1.Text = "&Save"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.Image = Global.boxtree.My.Resources.Resources.find
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(55, 22)
+        Me.ToolStripButton2.Text = "&Find"
+        '
+        'cmdcancel
+        '
+        Me.cmdcancel.Image = Global.boxtree.My.Resources.Resources.cancel
+        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdcancel.Name = "cmdcancel"
+        Me.cmdcancel.Size = New System.Drawing.Size(68, 22)
+        Me.cmdcancel.Text = "&Cancel"
+        '
+        'cmddel
+        '
+        Me.cmddel.Image = Global.boxtree.My.Resources.Resources.Delete
+        Me.cmddel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmddel.Name = "cmddel"
+        Me.cmddel.Size = New System.Drawing.Size(68, 22)
+        Me.cmddel.Text = "&Delete"
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.Image = Global.boxtree.My.Resources.Resources.new_rec
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(55, 22)
+        Me.ToolStripButton5.Text = "&New"
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.Image = Global.boxtree.My.Resources.Resources._exit
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(51, 22)
+        Me.ToolStripButton6.Text = "&Exit"
         '
         'cmdprint
         '
-        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
+        Me.cmdprint.Image = Global.boxtree.My.Resources.Resources.printer
         Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdprint.Name = "cmdprint"
         Me.cmdprint.Size = New System.Drawing.Size(58, 22)
         Me.cmdprint.Text = "&Print"
+        '
+        'ToolStrip2
+        '
+        Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton4, Me.ToolStripSeparator2, Me.ToolStripButton7, Me.ToolStripSeparator3, Me.ToolStripButton8, Me.ToolStripSeparator4, Me.ToolStripButton9})
+        Me.ToolStrip2.Location = New System.Drawing.Point(0, 536)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Size = New System.Drawing.Size(1264, 25)
+        Me.ToolStrip2.TabIndex = 23
+        Me.ToolStrip2.Text = "ToolStrip2"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(66, 22)
+        Me.ToolStripButton4.Text = "Checked"
+        '
+        'ToolStripButton7
+        '
+        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton7.Name = "ToolStripButton7"
+        Me.ToolStripButton7.Size = New System.Drawing.Size(68, 22)
+        Me.ToolStripButton7.Text = "Approve"
+        '
+        'ToolStripButton8
+        '
+        Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
+        Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton8.Name = "ToolStripButton8"
+        Me.ToolStripButton8.Size = New System.Drawing.Size(74, 22)
+        Me.ToolStripButton8.Text = "Accepted"
+        '
+        'ToolStripButton9
+        '
+        Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
+        Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton9.Name = "ToolStripButton9"
+        Me.ToolStripButton9.Size = New System.Drawing.Size(75, 22)
+        Me.ToolStripButton9.Text = "Ascertain"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
         '
         'ftr_mp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 561)
+        Me.Controls.Add(Me.ToolStrip2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
@@ -638,6 +709,8 @@ Partial Class ftr_mp
         Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.ToolStrip2.ResumeLayout(False)
+        Me.ToolStrip2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -695,4 +768,12 @@ Partial Class ftr_mp
     Friend WithEvents txt_mp_pk As System.Windows.Forms.TextBox
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdprint As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton7 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton8 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton9 As System.Windows.Forms.ToolStripButton
 End Class
