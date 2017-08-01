@@ -470,7 +470,7 @@ Module modFunction
                 ElseIf action = "update" Then
                     sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
-                    txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
+                    'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 ElseIf action = "select" Then
                     Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
                     If sqlReader.HasRows Then
@@ -493,7 +493,7 @@ Module modFunction
                     'delete
                     sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
-                    txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
+                    'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 End If
 
                 sqlCon.Close()
@@ -582,6 +582,29 @@ Module modFunction
         cmd.Dispose()
         cmd = Nothing
         'con.Close()itu yg baru
+    End Function
+    Public Function autocompleteteks(ByVal namatextbox As TextBox, ByVal outputfield As String, ByVal namatable As String, ByVal kondisi As String, ByVal urutkan As String) As String
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+        'If Len(namatextbox) > 1 Then Exit Function
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+        strsql = "SELECT " & outputfield & " FROM " & namatable & " where " & kondisi & " order by " & urutkan
+        cmd = New SqlCommand(strsql, cn)
+        dr = cmd.ExecuteReader()
+        If dr.HasRows Then
+            Do While dr.Read()
+                str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                namatextbox.AutoCompleteCustomSource.Add(str(0))
+            Loop
+        End If
+        'autocompleteteks = str(0)
+        dr.Close()
+        cmd.Dispose()
     End Function
 End Module
 
