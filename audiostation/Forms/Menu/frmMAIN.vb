@@ -1321,7 +1321,9 @@ Public Class frmMAIN
     End Sub
 
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
-
+        frmFormmod.MdiParent = Me
+        frmFormmod.Show()
+        frmFormmod.BringToFront()
     End Sub
     Private Sub DepartementToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DepartementToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)

@@ -1046,7 +1046,7 @@ Partial Class frmMAIN
         '
         Me.UtilityFormToolStripMenuItem.Name = "UtilityFormToolStripMenuItem"
         Me.UtilityFormToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.UtilityFormToolStripMenuItem.Text = "Utility Form"
+        Me.UtilityFormToolStripMenuItem.Text = "Form-Module"
         '
         'ReportToolStripMenuItem
         '
