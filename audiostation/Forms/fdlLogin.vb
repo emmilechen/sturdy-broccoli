@@ -38,6 +38,7 @@ Public Class fdlLogin
             Else
                 frmMAIN.ToolStripStatusLabel.Text = "User login: " & txtUserName.Text & "; User level: " & myReader.GetString(4)
                 My.Settings.UserName = myReader.GetString(1)
+                My.Settings.UserID = GetCurrentID("user_id", "mt_user", "user_name='" & myReader.GetString(1) & "'")
                 My.Settings.Save()
                 p_UserLevel = myReader.GetInt32(3)
                 'str_user_name = myReader.GetString(1)
