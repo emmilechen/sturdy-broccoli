@@ -152,4 +152,15 @@ Public Class frmFormmod
         Fillobject(Me.TextBox1, Me.Panel2, "insert", "sp_rt_form_sign", Me.TextBox1.Text, "@user_id")
         opensearchform(Me.ListView1, "rt_form_id", "formname", "tablename, fieldname, signlevelid, userid", "rt_form_sign", "rt_form_sign.formname in ('" & Me.txtguid.Text & "')", "formname", 0)
     End Sub
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        If Me.TextBox1.Text = "" Then Exit Sub
+        Dim strsql As String = "delete from rt_form_id where form_name='" & Me.TextBox2.Text & "' and userid=" & Me.ComboBox5.SelectedValue
+        If Executestr(strsql) Then MsgBox("Data telah dihapus !", MsgBoxStyle.Information, Me.Text) Else MsgBox("Data belum dihapus !", MsgBoxStyle.Information, Me.Text)
+        opensearchform(Me.ListView1, "rt_form_id", "formname", "tablename, fieldname, signlevelid, userid", "rt_form_sign", "rt_form_sign.formname in ('" & Me.txtguid.Text & "')", "formname", 0)
+    End Sub
+
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        ClearObjectonForm(Me.Panel2)
+    End Sub
 End Class

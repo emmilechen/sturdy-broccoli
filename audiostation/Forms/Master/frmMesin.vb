@@ -170,4 +170,8 @@ err_btnsave_Click:
         If Me.txtguid.Text = "" Then Exit Sub
         If Me.ListViewb.SelectedItems.Count > 0 Then Btnup.Enabled = True : Btndown.Enabled = False
     End Sub
+
+    Private Sub btndelete_Click(sender As Object, e As System.EventArgs) Handles btndelete.Click
+
+    End Sub
 End Class

@@ -22,9 +22,7 @@ Partial Class frmCustomer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCustomer))
         Me.txtCCode = New System.Windows.Forms.TextBox()
         Me.txtCName = New System.Windows.Forms.TextBox()
         Me.txtCPaymentTerms = New System.Windows.Forms.TextBox()
@@ -35,12 +33,6 @@ Partial Class frmCustomer
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtCEmail = New System.Windows.Forms.TextBox()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.cmbFilterBy = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.txtCAddress1 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCAddress2 = New System.Windows.Forms.TextBox()
@@ -58,7 +50,6 @@ Partial Class frmCustomer
         Me.txtCInfo3 = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.lblCurrentRecord = New System.Windows.Forms.Label()
         Me.cmbCCategory = New System.Windows.Forms.ComboBox()
         Me.txtCBalance = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -75,99 +66,80 @@ Partial Class frmCustomer
         Me.txtCAdvanceBalance = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txt_c_curr_id = New System.Windows.Forms.TextBox()
+        Me.txtguid = New System.Windows.Forms.TextBox()
+        Me.cmbCTitle = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.btnsave = New System.Windows.Forms.ToolStripButton()
+        Me.btnfind = New System.Windows.Forms.ToolStripButton()
+        Me.btncancel = New System.Windows.Forms.ToolStripButton()
+        Me.btndelete = New System.Windows.Forms.ToolStripButton()
+        Me.btnnew = New System.Windows.Forms.ToolStripButton()
+        Me.btnexit = New System.Windows.Forms.ToolStripButton()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'ListView1
-        '
-        Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
-        Me.ListView1.Location = New System.Drawing.Point(15, 39)
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(608, 579)
-        Me.ListView1.TabIndex = 2
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.List
-        '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(879, 646)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 7
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(636, 646)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
         '
         'txtCCode
         '
         Me.txtCCode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCCode.BackColor = System.Drawing.Color.LawnGreen
         Me.txtCCode.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCCode.Location = New System.Drawing.Point(140, 4)
+        Me.txtCCode.Location = New System.Drawing.Point(13, 35)
         Me.txtCCode.MaxLength = 10
         Me.txtCCode.Name = "txtCCode"
+        Me.txtCCode.ReadOnly = True
         Me.txtCCode.Size = New System.Drawing.Size(100, 21)
         Me.txtCCode.TabIndex = 0
+        Me.txtCCode.Tag = "c_code"
         '
         'txtCName
         '
         Me.txtCName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCName.Location = New System.Drawing.Point(140, 31)
+        Me.txtCName.Location = New System.Drawing.Point(190, 35)
         Me.txtCName.MaxLength = 255
         Me.txtCName.Name = "txtCName"
-        Me.txtCName.Size = New System.Drawing.Size(259, 21)
-        Me.txtCName.TabIndex = 1
+        Me.txtCName.Size = New System.Drawing.Size(347, 21)
+        Me.txtCName.TabIndex = 2
+        Me.txtCName.Tag = "c_name"
         '
         'txtCPaymentTerms
         '
         Me.txtCPaymentTerms.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCPaymentTerms.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCPaymentTerms.Location = New System.Drawing.Point(139, 278)
+        Me.txtCPaymentTerms.Location = New System.Drawing.Point(13, 267)
         Me.txtCPaymentTerms.MaxLength = 3
         Me.txtCPaymentTerms.Name = "txtCPaymentTerms"
         Me.txtCPaymentTerms.Size = New System.Drawing.Size(73, 21)
-        Me.txtCPaymentTerms.TabIndex = 11
-        Me.txtCPaymentTerms.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtCPaymentTerms.TabIndex = 12
+        Me.txtCPaymentTerms.Tag = "c_payment_terms"
+        Me.txtCPaymentTerms.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtCRemarks
         '
         Me.txtCRemarks.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCRemarks.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCRemarks.Location = New System.Drawing.Point(139, 415)
+        Me.txtCRemarks.Location = New System.Drawing.Point(13, 360)
         Me.txtCRemarks.MaxLength = 255
         Me.txtCRemarks.Multiline = True
         Me.txtCRemarks.Name = "txtCRemarks"
-        Me.txtCRemarks.Size = New System.Drawing.Size(260, 53)
-        Me.txtCRemarks.TabIndex = 17
+        Me.txtCRemarks.Size = New System.Drawing.Size(525, 53)
+        Me.txtCRemarks.TabIndex = 18
+        Me.txtCRemarks.Tag = "c_remarks"
         '
         'Label1
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 7)
+        Me.Label1.Location = New System.Drawing.Point(10, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(90, 13)
         Me.Label1.TabIndex = 7
@@ -178,18 +150,18 @@ Partial Class frmCustomer
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 31)
+        Me.Label2.Location = New System.Drawing.Point(117, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.Size = New System.Drawing.Size(36, 13)
         Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Customer Name *"
+        Me.Label2.Text = "Title *"
         '
         'Label3
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(15, 281)
+        Me.Label3.Location = New System.Drawing.Point(10, 251)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(81, 13)
         Me.Label3.TabIndex = 9
@@ -200,7 +172,7 @@ Partial Class frmCustomer
         Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(15, 415)
+        Me.Label4.Location = New System.Drawing.Point(10, 344)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 13)
         Me.Label4.TabIndex = 10
@@ -211,7 +183,7 @@ Partial Class frmCustomer
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 227)
+        Me.Label5.Location = New System.Drawing.Point(540, 197)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(31, 13)
         Me.Label5.TabIndex = 12
@@ -221,131 +193,76 @@ Partial Class frmCustomer
         '
         Me.txtCEmail.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCEmail.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCEmail.Location = New System.Drawing.Point(139, 224)
+        Me.txtCEmail.Location = New System.Drawing.Point(543, 213)
         Me.txtCEmail.MaxLength = 50
         Me.txtCEmail.Name = "txtCEmail"
         Me.txtCEmail.Size = New System.Drawing.Size(260, 21)
-        Me.txtCEmail.TabIndex = 9
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(798, 646)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
-        Me.btnAdd.TabIndex = 6
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'btnEdit
-        '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(717, 646)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 5
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(960, 646)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 8
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'cmbFilterBy
-        '
-        Me.cmbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbFilterBy.FormattingEnabled = True
-        Me.cmbFilterBy.Location = New System.Drawing.Point(64, 6)
-        Me.cmbFilterBy.Name = "cmbFilterBy"
-        Me.cmbFilterBy.Size = New System.Drawing.Size(136, 21)
-        Me.cmbFilterBy.TabIndex = 0
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(12, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(46, 13)
-        Me.Label6.TabIndex = 17
-        Me.Label6.Text = "Filter By"
-        '
-        'txtFilter
-        '
-        Me.txtFilter.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtFilter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFilter.Location = New System.Drawing.Point(206, 6)
-        Me.txtFilter.Name = "txtFilter"
-        Me.txtFilter.Size = New System.Drawing.Size(417, 21)
-        Me.txtFilter.TabIndex = 1
+        Me.txtCEmail.TabIndex = 10
+        Me.txtCEmail.Tag = "c_email"
         '
         'txtCAddress1
         '
         Me.txtCAddress1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCAddress1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAddress1.Location = New System.Drawing.Point(140, 112)
+        Me.txtCAddress1.Location = New System.Drawing.Point(13, 136)
         Me.txtCAddress1.MaxLength = 255
+        Me.txtCAddress1.Multiline = True
         Me.txtCAddress1.Name = "txtCAddress1"
-        Me.txtCAddress1.Size = New System.Drawing.Size(259, 21)
-        Me.txtCAddress1.TabIndex = 4
+        Me.txtCAddress1.Size = New System.Drawing.Size(399, 46)
+        Me.txtCAddress1.TabIndex = 6
+        Me.txtCAddress1.Tag = "c_address1"
         '
         'Label7
         '
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(16, 115)
+        Me.Label7.Location = New System.Drawing.Point(10, 118)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(46, 13)
+        Me.Label7.Size = New System.Drawing.Size(55, 13)
         Me.Label7.TabIndex = 20
-        Me.Label7.Text = "Address"
+        Me.Label7.Text = "Address 1"
         '
         'txtCAddress2
         '
         Me.txtCAddress2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCAddress2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAddress2.Location = New System.Drawing.Point(140, 139)
+        Me.txtCAddress2.Location = New System.Drawing.Point(418, 136)
         Me.txtCAddress2.MaxLength = 255
+        Me.txtCAddress2.Multiline = True
         Me.txtCAddress2.Name = "txtCAddress2"
-        Me.txtCAddress2.Size = New System.Drawing.Size(260, 21)
-        Me.txtCAddress2.TabIndex = 5
+        Me.txtCAddress2.Size = New System.Drawing.Size(385, 46)
+        Me.txtCAddress2.TabIndex = 7
+        Me.txtCAddress2.Tag = "c_address2"
         '
         'txtCPhone
         '
         Me.txtCPhone.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCPhone.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCPhone.Location = New System.Drawing.Point(140, 193)
+        Me.txtCPhone.Location = New System.Drawing.Point(13, 213)
         Me.txtCPhone.MaxLength = 50
         Me.txtCPhone.Name = "txtCPhone"
-        Me.txtCPhone.Size = New System.Drawing.Size(109, 21)
-        Me.txtCPhone.TabIndex = 7
+        Me.txtCPhone.Size = New System.Drawing.Size(259, 21)
+        Me.txtCPhone.TabIndex = 8
+        Me.txtCPhone.Tag = "c_phone"
         '
         'txtCContact
         '
         Me.txtCContact.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCContact.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCContact.Location = New System.Drawing.Point(140, 166)
+        Me.txtCContact.Location = New System.Drawing.Point(685, 35)
         Me.txtCContact.MaxLength = 255
         Me.txtCContact.Name = "txtCContact"
         Me.txtCContact.Size = New System.Drawing.Size(260, 21)
-        Me.txtCContact.TabIndex = 6
+        Me.txtCContact.TabIndex = 4
+        Me.txtCContact.Tag = "c_contact"
         '
         'Label8
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(16, 196)
+        Me.Label8.Location = New System.Drawing.Point(10, 197)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 13)
         Me.Label8.TabIndex = 24
@@ -356,18 +273,18 @@ Partial Class frmCustomer
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(16, 169)
+        Me.Label9.Location = New System.Drawing.Point(682, 19)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(45, 13)
+        Me.Label9.Size = New System.Drawing.Size(81, 13)
         Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Contact"
+        Me.Label9.Text = "Contact Person"
         '
         'Label10
         '
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(256, 196)
+        Me.Label10.Location = New System.Drawing.Point(278, 197)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(25, 13)
         Me.Label10.TabIndex = 27
@@ -377,18 +294,19 @@ Partial Class frmCustomer
         '
         Me.txtCFax.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCFax.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCFax.Location = New System.Drawing.Point(288, 193)
+        Me.txtCFax.Location = New System.Drawing.Point(278, 213)
         Me.txtCFax.MaxLength = 50
         Me.txtCFax.Name = "txtCFax"
-        Me.txtCFax.Size = New System.Drawing.Size(109, 21)
-        Me.txtCFax.TabIndex = 8
+        Me.txtCFax.Size = New System.Drawing.Size(259, 21)
+        Me.txtCFax.TabIndex = 9
+        Me.txtCFax.Tag = "c_fax"
         '
         'Label11
         '
         Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(15, 476)
+        Me.Label11.Location = New System.Drawing.Point(10, 430)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(67, 13)
         Me.Label11.TabIndex = 29
@@ -398,18 +316,19 @@ Partial Class frmCustomer
         '
         Me.txtCInfo1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCInfo1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCInfo1.Location = New System.Drawing.Point(138, 476)
+        Me.txtCInfo1.Location = New System.Drawing.Point(13, 446)
         Me.txtCInfo1.MaxLength = 255
         Me.txtCInfo1.Name = "txtCInfo1"
         Me.txtCInfo1.Size = New System.Drawing.Size(260, 21)
-        Me.txtCInfo1.TabIndex = 18
+        Me.txtCInfo1.TabIndex = 19
+        Me.txtCInfo1.Tag = "c_info1"
         '
         'Label12
         '
         Me.Label12.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(15, 503)
+        Me.Label12.Location = New System.Drawing.Point(275, 430)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(67, 13)
         Me.Label12.TabIndex = 31
@@ -419,18 +338,19 @@ Partial Class frmCustomer
         '
         Me.txtCInfo2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCInfo2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCInfo2.Location = New System.Drawing.Point(138, 503)
+        Me.txtCInfo2.Location = New System.Drawing.Point(278, 446)
         Me.txtCInfo2.MaxLength = 255
         Me.txtCInfo2.Name = "txtCInfo2"
         Me.txtCInfo2.Size = New System.Drawing.Size(260, 21)
-        Me.txtCInfo2.TabIndex = 19
+        Me.txtCInfo2.TabIndex = 20
+        Me.txtCInfo2.Tag = "c_info2"
         '
         'Label13
         '
         Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(16, 529)
+        Me.Label13.Location = New System.Drawing.Point(540, 430)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(67, 13)
         Me.Label13.TabIndex = 33
@@ -440,18 +360,19 @@ Partial Class frmCustomer
         '
         Me.txtCInfo3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCInfo3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCInfo3.Location = New System.Drawing.Point(138, 527)
+        Me.txtCInfo3.Location = New System.Drawing.Point(543, 446)
         Me.txtCInfo3.MaxLength = 255
         Me.txtCInfo3.Name = "txtCInfo3"
         Me.txtCInfo3.Size = New System.Drawing.Size(260, 21)
-        Me.txtCInfo3.TabIndex = 20
+        Me.txtCInfo3.TabIndex = 21
+        Me.txtCInfo3.Tag = "c_info3"
         '
         'Label14
         '
         Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(218, 281)
+        Me.Label14.Location = New System.Drawing.Point(94, 270)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(30, 13)
         Me.Label14.TabIndex = 35
@@ -462,40 +383,32 @@ Partial Class frmCustomer
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(16, 58)
+        Me.Label15.Location = New System.Drawing.Point(540, 19)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(61, 13)
         Me.Label15.TabIndex = 37
         Me.Label15.Text = "Category *"
         '
-        'lblCurrentRecord
-        '
-        Me.lblCurrentRecord.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblCurrentRecord.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCurrentRecord.Location = New System.Drawing.Point(12, 651)
-        Me.lblCurrentRecord.Name = "lblCurrentRecord"
-        Me.lblCurrentRecord.Size = New System.Drawing.Size(249, 13)
-        Me.lblCurrentRecord.TabIndex = 38
-        Me.lblCurrentRecord.Text = "Selected record:"
-        '
         'cmbCCategory
         '
         Me.cmbCCategory.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbCCategory.FormattingEnabled = True
-        Me.cmbCCategory.Location = New System.Drawing.Point(140, 58)
+        Me.cmbCCategory.Location = New System.Drawing.Point(543, 35)
         Me.cmbCCategory.Name = "cmbCCategory"
         Me.cmbCCategory.Size = New System.Drawing.Size(136, 21)
-        Me.cmbCCategory.TabIndex = 2
+        Me.cmbCCategory.TabIndex = 3
+        Me.cmbCCategory.Tag = "c_category"
         '
         'txtCBalance
         '
         Me.txtCBalance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCBalance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCBalance.Location = New System.Drawing.Point(139, 333)
+        Me.txtCBalance.Location = New System.Drawing.Point(278, 266)
         Me.txtCBalance.Name = "txtCBalance"
         Me.txtCBalance.ReadOnly = True
         Me.txtCBalance.Size = New System.Drawing.Size(131, 21)
-        Me.txtCBalance.TabIndex = 14
+        Me.txtCBalance.TabIndex = 15
+        Me.txtCBalance.Tag = ""
         Me.txtCBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label17
@@ -503,7 +416,7 @@ Partial Class frmCustomer
         Me.Label17.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(15, 363)
+        Me.Label17.Location = New System.Drawing.Point(415, 250)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(71, 13)
         Me.Label17.TabIndex = 102
@@ -514,7 +427,7 @@ Partial Class frmCustomer
         Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(15, 336)
+        Me.Label19.Location = New System.Drawing.Point(278, 250)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(44, 13)
         Me.Label19.TabIndex = 100
@@ -524,11 +437,12 @@ Partial Class frmCustomer
         '
         Me.txtCLocalBalance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCLocalBalance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCLocalBalance.Location = New System.Drawing.Point(139, 360)
+        Me.txtCLocalBalance.Location = New System.Drawing.Point(415, 266)
         Me.txtCLocalBalance.Name = "txtCLocalBalance"
         Me.txtCLocalBalance.ReadOnly = True
         Me.txtCLocalBalance.Size = New System.Drawing.Size(131, 21)
-        Me.txtCLocalBalance.TabIndex = 15
+        Me.txtCLocalBalance.TabIndex = 16
+        Me.txtCLocalBalance.Tag = ""
         Me.txtCLocalBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnCurrency
@@ -536,28 +450,29 @@ Partial Class frmCustomer
         Me.btnCurrency.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCurrency.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCurrency.ImageIndex = 0
-        Me.btnCurrency.Location = New System.Drawing.Point(216, 303)
+        Me.btnCurrency.Location = New System.Drawing.Point(209, 263)
         Me.btnCurrency.Name = "btnCurrency"
         Me.btnCurrency.Size = New System.Drawing.Size(29, 25)
-        Me.btnCurrency.TabIndex = 13
+        Me.btnCurrency.TabIndex = 14
         Me.btnCurrency.Text = "..."
         Me.btnCurrency.UseVisualStyleBackColor = True
         '
         'txtCCurrCode
         '
         Me.txtCCurrCode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCCurrCode.Location = New System.Drawing.Point(139, 305)
+        Me.txtCCurrCode.Location = New System.Drawing.Point(130, 267)
         Me.txtCCurrCode.Name = "txtCCurrCode"
         Me.txtCCurrCode.ReadOnly = True
         Me.txtCCurrCode.Size = New System.Drawing.Size(73, 21)
-        Me.txtCCurrCode.TabIndex = 12
+        Me.txtCCurrCode.TabIndex = 13
         Me.txtCCurrCode.TabStop = False
+        Me.txtCCurrCode.Tag = ""
         '
         'Label27
         '
         Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(15, 308)
+        Me.Label27.Location = New System.Drawing.Point(127, 251)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(88, 13)
         Me.Label27.TabIndex = 96
@@ -568,7 +483,7 @@ Partial Class frmCustomer
         Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(16, 88)
+        Me.Label18.Location = New System.Drawing.Point(10, 68)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(36, 13)
         Me.Label18.TabIndex = 104
@@ -578,18 +493,19 @@ Partial Class frmCustomer
         '
         Me.txtCNpwp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCNpwp.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCNpwp.Location = New System.Drawing.Point(140, 85)
+        Me.txtCNpwp.Location = New System.Drawing.Point(13, 84)
         Me.txtCNpwp.MaxLength = 50
         Me.txtCNpwp.Name = "txtCNpwp"
         Me.txtCNpwp.Size = New System.Drawing.Size(259, 21)
-        Me.txtCNpwp.TabIndex = 3
+        Me.txtCNpwp.TabIndex = 5
+        Me.txtCNpwp.Tag = "c_npwp"
         '
         'Label20
         '
         Me.Label20.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(16, 254)
+        Me.Label20.Location = New System.Drawing.Point(806, 197)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(85, 13)
         Me.Label20.TabIndex = 106
@@ -599,18 +515,19 @@ Partial Class frmCustomer
         '
         Me.txtCTPBNo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCTPBNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCTPBNo.Location = New System.Drawing.Point(139, 251)
+        Me.txtCTPBNo.Location = New System.Drawing.Point(809, 213)
         Me.txtCTPBNo.MaxLength = 50
         Me.txtCTPBNo.Name = "txtCTPBNo"
-        Me.txtCTPBNo.Size = New System.Drawing.Size(259, 21)
-        Me.txtCTPBNo.TabIndex = 10
+        Me.txtCTPBNo.Size = New System.Drawing.Size(260, 21)
+        Me.txtCTPBNo.TabIndex = 11
+        Me.txtCTPBNo.Tag = "c_tpb_no"
         '
         'Label21
         '
         Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(15, 390)
+        Me.Label21.Location = New System.Drawing.Point(552, 250)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(89, 13)
         Me.Label21.TabIndex = 108
@@ -620,27 +537,33 @@ Partial Class frmCustomer
         '
         Me.txtCAdvanceBalance.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtCAdvanceBalance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAdvanceBalance.Location = New System.Drawing.Point(139, 387)
+        Me.txtCAdvanceBalance.Location = New System.Drawing.Point(552, 266)
         Me.txtCAdvanceBalance.Name = "txtCAdvanceBalance"
         Me.txtCAdvanceBalance.ReadOnly = True
         Me.txtCAdvanceBalance.Size = New System.Drawing.Size(131, 21)
-        Me.txtCAdvanceBalance.TabIndex = 16
+        Me.txtCAdvanceBalance.TabIndex = 17
+        Me.txtCAdvanceBalance.Tag = ""
         Me.txtCAdvanceBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TabControl1
         '
         Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(633, 39)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 28)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(413, 579)
-        Me.TabControl1.TabIndex = 3
+        Me.TabControl1.Size = New System.Drawing.Size(1240, 521)
+        Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label16)
+        Me.TabPage1.Controls.Add(Me.Label6)
+        Me.TabPage1.Controls.Add(Me.txt_c_curr_id)
+        Me.TabPage1.Controls.Add(Me.txtguid)
+        Me.TabPage1.Controls.Add(Me.cmbCTitle)
         Me.TabPage1.Controls.Add(Me.txtCCode)
         Me.TabPage1.Controls.Add(Me.Label21)
         Me.TabPage1.Controls.Add(Me.txtCName)
@@ -685,10 +608,44 @@ Partial Class frmCustomer
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(405, 553)
+        Me.TabPage1.Size = New System.Drawing.Size(1232, 495)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Primary Information"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txt_c_curr_id
+        '
+        Me.txt_c_curr_id.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txt_c_curr_id.Location = New System.Drawing.Point(686, 266)
+        Me.txt_c_curr_id.Name = "txt_c_curr_id"
+        Me.txt_c_curr_id.ReadOnly = True
+        Me.txt_c_curr_id.Size = New System.Drawing.Size(29, 21)
+        Me.txt_c_curr_id.TabIndex = 111
+        Me.txt_c_curr_id.TabStop = False
+        Me.txt_c_curr_id.Tag = "c_curr_id"
+        Me.txt_c_curr_id.Visible = False
+        '
+        'txtguid
+        '
+        Me.txtguid.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtguid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid.Location = New System.Drawing.Point(278, 84)
+        Me.txtguid.MaxLength = 10
+        Me.txtguid.Name = "txtguid"
+        Me.txtguid.Size = New System.Drawing.Size(100, 21)
+        Me.txtguid.TabIndex = 110
+        Me.txtguid.Tag = ""
+        Me.txtguid.Visible = False
+        '
+        'cmbCTitle
+        '
+        Me.cmbCTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbCTitle.FormattingEnabled = True
+        Me.cmbCTitle.Location = New System.Drawing.Point(118, 35)
+        Me.cmbCTitle.Name = "cmbCTitle"
+        Me.cmbCTitle.Size = New System.Drawing.Size(66, 21)
+        Me.cmbCTitle.TabIndex = 1
+        Me.cmbCTitle.Tag = "c_title"
         '
         'TabPage2
         '
@@ -696,7 +653,7 @@ Partial Class frmCustomer
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(405, 553)
+        Me.TabPage2.Size = New System.Drawing.Size(1232, 495)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Balance"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -715,23 +672,95 @@ Partial Class frmCustomer
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.List
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnsave, Me.btnfind, Me.btncancel, Me.btndelete, Me.btnnew, Me.btnexit})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1264, 25)
+        Me.ToolStrip1.TabIndex = 119
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'btnsave
+        '
+        Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
+        Me.btnsave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnsave.Name = "btnsave"
+        Me.btnsave.Size = New System.Drawing.Size(60, 22)
+        Me.btnsave.Text = "&Save"
+        '
+        'btnfind
+        '
+        Me.btnfind.Image = CType(resources.GetObject("btnfind.Image"), System.Drawing.Image)
+        Me.btnfind.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnfind.Name = "btnfind"
+        Me.btnfind.Size = New System.Drawing.Size(53, 22)
+        Me.btnfind.Text = "&Find"
+        '
+        'btncancel
+        '
+        Me.btncancel.Image = CType(resources.GetObject("btncancel.Image"), System.Drawing.Image)
+        Me.btncancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btncancel.Name = "btncancel"
+        Me.btncancel.Size = New System.Drawing.Size(70, 22)
+        Me.btncancel.Text = "&Cancel"
+        '
+        'btndelete
+        '
+        Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
+        Me.btndelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(70, 22)
+        Me.btndelete.Text = "&Delete"
+        '
+        'btnnew
+        '
+        Me.btnnew.Image = CType(resources.GetObject("btnnew.Image"), System.Drawing.Image)
+        Me.btnnew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnnew.Name = "btnnew"
+        Me.btnnew.Size = New System.Drawing.Size(55, 22)
+        Me.btnnew.Text = "&New"
+        '
+        'btnexit
+        '
+        Me.btnexit.Image = CType(resources.GetObject("btnexit.Image"), System.Drawing.Image)
+        Me.btnexit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnexit.Name = "btnexit"
+        Me.btnexit.Size = New System.Drawing.Size(51, 22)
+        Me.btnexit.Text = "&Exit"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(187, 19)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(92, 13)
+        Me.Label6.TabIndex = 112
+        Me.Label6.Text = "Customer Name *"
+        '
+        'Label16
+        '
+        Me.Label16.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(415, 118)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(55, 13)
+        Me.Label16.TabIndex = 113
+        Me.Label16.Text = "Address 2"
+        '
         'frmCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1047, 672)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(1264, 561)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.lblCurrentRecord)
-        Me.Controls.Add(Me.txtFilter)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.cmbFilterBy)
-        Me.Controls.Add(Me.btnCancel)
-        Me.Controls.Add(Me.btnEdit)
-        Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.ListView1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Location = New System.Drawing.Point(193, 0)
         Me.Name = "frmCustomer"
@@ -742,13 +771,12 @@ Partial Class frmCustomer
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents txtCCode As System.Windows.Forms.TextBox
     Friend WithEvents txtCName As System.Windows.Forms.TextBox
     Friend WithEvents txtCPaymentTerms As System.Windows.Forms.TextBox
@@ -759,12 +787,6 @@ Partial Class frmCustomer
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtCEmail As System.Windows.Forms.TextBox
-    Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents cmbFilterBy As System.Windows.Forms.ComboBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtFilter As System.Windows.Forms.TextBox
     Friend WithEvents txtCAddress1 As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtCAddress2 As System.Windows.Forms.TextBox
@@ -782,7 +804,6 @@ Partial Class frmCustomer
     Friend WithEvents txtCInfo3 As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents lblCurrentRecord As System.Windows.Forms.Label
     Friend WithEvents cmbCCategory As System.Windows.Forms.ComboBox
     Friend WithEvents txtCBalance As System.Windows.Forms.TextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
@@ -801,4 +822,16 @@ Partial Class frmCustomer
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents ListView2 As System.Windows.Forms.ListView
+    Friend WithEvents cmbCTitle As System.Windows.Forms.ComboBox
+    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents btnsave As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnfind As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btncancel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btndelete As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnnew As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnexit As System.Windows.Forms.ToolStripButton
+    Friend WithEvents txtguid As System.Windows.Forms.TextBox
+    Friend WithEvents txt_c_curr_id As System.Windows.Forms.TextBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
