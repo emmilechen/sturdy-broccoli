@@ -1415,4 +1415,12 @@ Public Class frmMAIN
         ftr_mrq.Show()
         ftr_mrq.BringToFront()
     End Sub
+
+    Private Sub CustomerCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerCategoryToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub CustomerTitleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerTitleToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
 End Class

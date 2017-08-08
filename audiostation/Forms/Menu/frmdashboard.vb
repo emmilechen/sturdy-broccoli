@@ -79,7 +79,10 @@ Public Class frmdashboard
         Dim dr3 As SqlDataReader
         Dim strfield As String
         Me.Timer1.Enabled = True
-        Me.Label4.Text = " PT. INTERACT CORPINDO, Jl. Raya Narogong No.36, Bojong Menteng, Rawalumbu, Kota Bks, Jawa Barat 17117, Indonesia ~ PT. Interact Corpindo offers offset printing services. The company designs and develops various printed pieces, including printing with 1 to 11 colors, high gloss U.V. coating "
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+        Me.Label4.Text = GetSysInit("sys_marquee")
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         '**************TO BE CHECKED******************
@@ -93,15 +96,15 @@ Public Class frmdashboard
             .ListView3.Columns.Add("Kolom 5", "fielddate", 100)
             .ListView3.Columns.Add("Kolom 6", "fieldnote", 100)
         End With
-        cmd3 = New SqlCommand("SELECT a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote FROM rt_form_sign a inner join mt_form b on b.form_name=a.formname where a.userid in ('" & My.Settings.UserID & "') order by a.formname", cn)
-        dr3 = cmd3.ExecuteReader()
-        If dr3.Read() Then
+        'cmd3 = New SqlCommand("SELECT a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote FROM rt_form_sign a inner join mt_form b on b.form_name=a.formname where a.userid in ('" & My.Settings.UserID & "') order by a.formname", cn)
+        'dr3 = cmd3.ExecuteReader()
+        'If dr3.Read() Then
 
-            list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
+        list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
 
 
-        End If
-        
+        'End If
+
         'SELECT a.formname, a.fieldname, a.signlevelid,b.fieldpk,b.fieldno,b.fielddate,b.fieldnote FROM  where(a.userid = 10)
     End Sub
 
