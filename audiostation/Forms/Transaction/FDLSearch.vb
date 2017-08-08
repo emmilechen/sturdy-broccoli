@@ -99,21 +99,28 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
+            Case Is = 4 'Customer
+                xfield1 = "c_id" : xfield2 = "c_code" : xfield3 = "c_code+' ~'+c_name" : xtable = "mt_customer"
+                opensearchform(xfield1, xfield2, xfield3, xtable, "c_code<>''", "c_code", Me.txtopenargs.Text)
+                Me.ComboBox2.Items.Clear()
+                Me.ComboBox2.Items.Add("<--ALL-->")
+                Me.ComboBox2.Text = "<--ALL-->"
         End Select
         Me.TextBox1.Focus()
     End Sub
     Private Sub TextBox1_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox1.TextChanged
         On Error Resume Next
-        Select Case Me.txtopenargs.Text
-            Case Is = 0
-                opensearchform(xfield1, xfield2, xfield3, xtable, "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
-            Case Is = 1
-                opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
-            Case Is = 2
-                opensearchform(xfield1, xfield2, xfield3, xtable, "(user_name+user_level_description) like '%" & Me.TextBox1.Text & "%'", "user_name", Me.txtopenargs.Text)
-            Case Is = 3
-                opensearchform(xfield1, xfield2, xfield3, xtable, "pono<>'s' and (pono+spkid+name) like '%" & Me.TextBox1.Text & "%'", "pono", Me.txtopenargs.Text)
-        End Select
+        opensearchform(xfield1, xfield2, xfield3, xtable, xfield1 & "<>'' and (" & xfield2 & " like '%" & Me.TextBox1.Text & "%' OR " & xfield3 & " like '%" & Me.TextBox1.Text & "%')", xfield2 & " desc", Me.txtopenargs.Text)
+        'Select Case Me.txtopenargs.Text
+        '    Case Is = 0
+        '        opensearchform(xfield1, xfield2, xfield3, xtable, "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
+        '    Case Is = 1
+        '        opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
+        '    Case Is = 2
+        '        opensearchform(xfield1, xfield2, xfield3, xtable, "(user_name+user_level_description) like '%" & Me.TextBox1.Text & "%'", "user_name", Me.txtopenargs.Text)
+        '    Case Is = 3
+        '        opensearchform(xfield1, xfield2, xfield3, xtable, "pono<>'s' and (pono+spkid+name) like '%" & Me.TextBox1.Text & "%'", "pono", Me.txtopenargs.Text)
+        'End Select
     End Sub
     Private Sub ListView1_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles ListView1.KeyDown
         'If e.KeyCode = Keys.Enter then
@@ -134,16 +141,17 @@ Public Class FDLSearch
     Private Sub txtrows_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtrows.TextChanged
         If xfield1 = Nothing Then Exit Sub
         If IsNumeric(Me.txtrows.Text) Then
-            Select Case Me.txtopenargs.Text
-                Case Is = 0
-                    opensearchform(xfield1, xfield2, xfield3, xtable, "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
-                Case Is = 1
-                    opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
-                Case Is = 2
-                    opensearchform(xfield1, xfield2, xfield3, xtable, "(user_name+user_level_description) like '%" & Me.TextBox1.Text & "%'", "user_name", Me.txtopenargs.Text)
-                Case Is = 3
-                    opensearchform(xfield1, xfield2, xfield3, xtable, "pono<>'s' and (pono+spkid+name) like '%" & Me.TextBox1.Text & "%'", "pono", Me.txtopenargs.Text)
-            End Select
+            opensearchform(xfield1, xfield2, xfield3, xtable, xfield1 & "<>'' and (" & xfield2 & " like '%" & Me.TextBox1.Text & "%' OR " & xfield3 & " like '%" & Me.TextBox1.Text & "%')", xfield2 & " desc", Me.txtopenargs.Text)
+            'Select Case Me.txtopenargs.Text
+            '    Case Is = 0
+            '        opensearchform(xfield1, xfield2, xfield3, xtable, "ind_no<>'' and (ind_no+ind_tgl+ind_keterangan) like '%" & Me.TextBox1.Text & "%'", "ind_no", Me.txtopenargs.Text)
+            '    Case Is = 1
+            '        opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>'' and (idmesin like '%" & Me.TextBox1.Text & "%' OR namamesin like '%" & Me.TextBox1.Text & "%' OR merekmesin like '%" & Me.TextBox1.Text & "%' OR tipemesin like '%" & Me.TextBox1.Text & "%' OR katmesin like '%" & Me.TextBox1.Text & "%')", "idmesin desc", Me.txtopenargs.Text)
+            '    Case Is = 2
+            '        opensearchform(xfield1, xfield2, xfield3, xtable, "(user_name+user_level_description) like '%" & Me.TextBox1.Text & "%'", "user_name", Me.txtopenargs.Text)
+            '    Case Is = 3
+            '        opensearchform(xfield1, xfield2, xfield3, xtable, "pono<>'s' and (pono+spkid+name) like '%" & Me.TextBox1.Text & "%'", "pono", Me.txtopenargs.Text)
+            'End Select
         End If
     End Sub
     Private Sub ListView1_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnClick
