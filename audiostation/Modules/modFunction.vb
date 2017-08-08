@@ -479,7 +479,7 @@ Module modFunction
                                 If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
                                     If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
                                         ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString), Decimal.ToInt32(sqlReader.Item(ctrl.Tag).ToString).ToString(), sqlReader.Item(ctrl.Tag).ToString)
-                                    Else
+                                    Else 'kalo outputnya ga ada field ybs, maka gagal
                                         If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
                                         If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(ctrl.Tag).ToString
                                     End If
