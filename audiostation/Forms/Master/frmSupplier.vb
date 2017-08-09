@@ -2,31 +2,40 @@
 Imports System.Data.OleDb
 
 Public Class frmSupplier
-    Private ListView1Sorter As lvColumnSorter
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
     Dim m_SId As Integer
     Dim m_CurrId As Integer
     Dim isAllowDelete As Boolean
-
-    Private Sub frmSupplier_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If cn.State = ConnectionState.Closed Then cn.Open()
-        isAllowDelete = canDelete(Me.Name)
-
-        clear_obj()
-
-        cmbFilterBy.Items.Add("<All>")
-        cmbFilterBy.Items.Add("Code")
-        cmbFilterBy.Items.Add("Name")
-        cmbFilterBy.SelectedIndex = 0
-
-        'If ListView1.Items.Count > 0 Then
-        '    ListView1.Items.Item(0).Selected = True
-        '    ListView1_Click(sender, e)
-        'End If
+    Private namatable As String, namafieldPK As String
+    Private Sub kosong()
+        ClearObjectonForm(Me)
+        clear_lvw2()
+        AssignValuetoCombo(Me.cmbCCategory, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_supplier_category'", "sys_dropdown_sort")
+        AssignValuetoCombo(Me.cmbCTitle, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_supplier_title'", "sys_dropdown_sort")
+        Me.btncancel.Enabled = False
+        Me.btndelete.Enabled = False
+        Me.TabControl1.SelectedTab = Me.TabPage1
+        Me.cmbCTitle.Focus()
     End Sub
-
+    Private Function isirecord(ByVal guidno As Integer)
+        'Me.txtguid.Text = guidno ' : Me.txtkode.Text = guidno
+        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_supplier", Me.txtguid.Text, "@s_id") : clear_lvw2()
+        Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
+    End Function
+    Private Sub frmSupplier_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        On Error Resume Next
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        namatable = "mt_supplier" : namafieldPK = "s_id"
+        If Me.txtSCode.Text = "" Then
+            kosong()
+        Else
+            'isirec
+            'kosong()
+        End If
+        Me.Left = 0 : Me.Top = 0
+    End Sub
     Public Property CurrId() As Integer
         Get
             Return m_CurrId
@@ -35,7 +44,6 @@ Public Class frmSupplier
             m_CurrId = Value
         End Set
     End Property
-
     Public Property CurrCode() As String
         Get
             Return txtSCurrCode.Text
@@ -44,184 +52,8 @@ Public Class frmSupplier
             txtSCurrCode.Text = Value
         End Set
     End Property
-
-    Private Sub ListView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.Click
-        'If m_SId = 0 And btnAdd.Enabled = False Then lock_obj(True)
-        'txtSID.Text = Strings.Mid(ListView1.SelectedItems(0).Tag, 2, Len(ListView1.SelectedItems(0).Tag) - 1)
-        With ListView1.SelectedItems.Item(0)
-            lblCurrentRecord.Text = "Selected record: " + CStr(CInt(RightSplitUF(ListView1.SelectedItems.Item(0).Tag) + 1)) + " of " + ListView1.Items.Count.ToString
-            m_SId = LeftSplitUF(.Tag)
-            txtSCode.Text = .SubItems.Item(0).Text
-            txtSName.Text = .SubItems.Item(1).Text
-            txtSAddress1.Text = .SubItems.Item(2).Text
-            txtSAddress2.Text = .SubItems.Item(3).Text
-            txtSContact.Text = .SubItems.Item(4).Text
-            txtSPhone.Text = .SubItems.Item(5).Text
-            txtSFax.Text = .SubItems.Item(6).Text
-            txtSEmail.Text = .SubItems.Item(7).Text
-            txtSPaymentTerm.Text = .SubItems.Item(8).Text
-            txtSRemarks.Text = .SubItems.Item(9).Text
-            txtSInfo1.Text = .SubItems.Item(10).Text
-            txtSInfo2.Text = .SubItems.Item(11).Text
-            txtSInfo3.Text = .SubItems.Item(12).Text
-            m_CurrId = .SubItems.Item(13).Text
-            txtSCurrCode.Text = .SubItems.Item(14).Text
-            txtSBalance.Text = FormatNumber(.SubItems.Item(16).Text)
-            txtSLocalBalance.Text = FormatNumber(.SubItems.Item(17).Text)
-            txtSAdvanceBalance.Text = FormatNumber(.SubItems.Item(18).Text)
-
-            clear_lvw2()
-        End With
-    End Sub
-
-    Private Sub txtFilter_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtFilter.KeyPress
-        If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then clear_lvw()
-    End Sub
-
-    Private Sub cmbFilterBy_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbFilterBy.SelectedIndexChanged
-        If cmbFilterBy.SelectedItem.ToString = "<All>" Then
-            txtFilter.Text = ""
-            If m_SId <> 0 Then clear_obj()
-            clear_lvw()
-        End If
-        btnCancel_Click(sender, e)
-    End Sub
-
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        clear_obj()
-        lock_obj(False)
-        clear_lvw2()
-    End Sub
-
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
-        lock_obj(False)
-        If m_SId <> 0 Then txtSCode.ReadOnly = True
-    End Sub
-
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
-        If m_SId = 0 And ListView1.Items.Count > 0 Then
-            ListView1.Items.Item(0).Selected = True
-            ListView1_Click(sender, e)
-        End If
-        lock_obj(True)
-    End Sub
-
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        On Error GoTo err_cmdSave_Click
-
-        If txtSCode.Text = "" Or txtSName.Text = "" Or txtSCurrCode.Text = "" Then
-            MsgBox("Supplier Code, Supplier Name and Supplier Currency are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-            txtSCode.Focus()
-            Exit Sub
-        End If
-
-        cmd = New SqlCommand(IIf(m_SId = 0, "sp_mt_supplier_INS", "sp_mt_supplier_UPD"), cn)
-        cmd.CommandType = CommandType.StoredProcedure
-
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@s_code", SqlDbType.NVarChar, 50)
-        prm2.Value = txtSCode.Text
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_name", SqlDbType.NVarChar, 255)
-        prm3.Value = txtSName.Text
-        Dim prm4 As SqlParameter = cmd.Parameters.Add("@s_address1", SqlDbType.NVarChar, 255)
-        prm4.Value = IIf(txtSAddress1.Text = "", DBNull.Value, txtSAddress1.Text)
-        Dim prm5 As SqlParameter = cmd.Parameters.Add("@s_address2", SqlDbType.NVarChar, 255)
-        prm5.Value = IIf(txtSAddress2.Text = "", DBNull.Value, txtSAddress2.Text)
-        Dim prm6 As SqlParameter = cmd.Parameters.Add("@s_contact", SqlDbType.NVarChar, 255)
-        prm6.Value = IIf(txtSContact.Text = "", DBNull.Value, txtSContact.Text)
-        Dim prm7 As SqlParameter = cmd.Parameters.Add("@s_phone", SqlDbType.NVarChar, 50)
-        prm7.Value = IIf(txtSPhone.Text = "", DBNull.Value, txtSPhone.Text)
-        Dim prm8 As SqlParameter = cmd.Parameters.Add("@s_fax", SqlDbType.NVarChar, 50)
-        prm8.Value = IIf(txtSFax.Text = "", DBNull.Value, txtSFax.Text)
-        Dim prm9 As SqlParameter = cmd.Parameters.Add("@s_email", SqlDbType.NVarChar, 50)
-        prm9.Value = IIf(txtSEmail.Text = "", DBNull.Value, txtSEmail.Text)
-        Dim prm10 As SqlParameter = cmd.Parameters.Add("@s_payment_terms", SqlDbType.Int, 50)
-        prm10.Value = IIf(txtSPaymentTerm.Text = "", 0, txtSPaymentTerm.Text)
-        Dim prm11 As SqlParameter = cmd.Parameters.Add("@s_remarks", SqlDbType.NVarChar, 255)
-        prm11.Value = IIf(txtSRemarks.Text = "", DBNull.Value, txtSRemarks.Text)
-        Dim prm12 As SqlParameter = cmd.Parameters.Add("@s_info1", SqlDbType.NVarChar, 255)
-        prm12.Value = IIf(txtSInfo1.Text = "", DBNull.Value, txtSInfo1.Text)
-        Dim prm13 As SqlParameter = cmd.Parameters.Add("@s_info2", SqlDbType.NVarChar, 255)
-        prm13.Value = IIf(txtSInfo2.Text = "", DBNull.Value, txtSInfo2.Text)
-        Dim prm14 As SqlParameter = cmd.Parameters.Add("@s_info3", SqlDbType.NVarChar, 255)
-        prm14.Value = IIf(txtSInfo3.Text = "", DBNull.Value, txtSInfo3.Text)
-        Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-        prm15.Value = My.Settings.UserName
-        Dim prm16 As SqlParameter = cmd.Parameters.Add("@s_curr_id", SqlDbType.Int)
-        prm16.Value = m_CurrId
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int, 255)
-
-        If m_SId = 0 Then
-            prm1.Direction = ParameterDirection.Output
-            cn.Open()
-            cmd.ExecuteReader()
-            m_SId = prm1.Value
-            cn.Close()
-        Else
-            prm1.Value = m_SId
-            cn.Open()
-            cmd.ExecuteReader()
-            cn.Close()
-        End If
-        clear_lvw()
-        lock_obj(True)
-
-exit_cmdSave_Click:
-        If ConnectionState.Open = 1 Then cn.Close()
-        Exit Sub
-
-err_cmdSave_Click:
-        If Err.Number = 5 Then
-            MsgBox("This primary code has been used (and deleted) previously. Please create with another code", vbExclamation + vbOKOnly, Me.Text)
-        Else
-            MsgBox(Err.Number)
-        End If
-        Resume exit_cmdSave_Click
-    End Sub
-
-    Sub clear_lvw()
-        With ListView1
-            .Clear()
-            .View = View.Details
-            .Columns.Add("Supplier Code", 90)
-            .Columns.Add("Supplier Name", 150)
-            .Columns.Add("Address1", 0)
-            .Columns.Add("Address2", 0)
-            .Columns.Add("Contact", 150)
-            .Columns.Add("Phone", 90)
-            .Columns.Add("Fax", 90)
-            .Columns.Add("Email", 0)
-            .Columns.Add("Payment Term", 0)
-            .Columns.Add("Remark", 0)
-            .Columns.Add("Other Info1", 0)
-            .Columns.Add("Other Info2", 0)
-            .Columns.Add("Other Info3", 0)
-            .Columns.Add("s_curr_id", 0)
-            .Columns.Add("curr_code", 0)
-            .Columns.Add("curr_rate", 0)
-            .Columns.Add("s_balance", 0)
-            .Columns.Add("s_local_balance", 0)
-            .Columns.Add("s_advance_balance", 0)
-        End With
-
-        cmd = New SqlCommand("sp_mt_supplier_SEL", cn)
-        cmd.CommandType = CommandType.StoredProcedure
-
-        Dim prm1 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int, 255)
-        prm1.Value = 0
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@s_code", SqlDbType.NVarChar, 50)
-        prm2.Value = IIf(cmbFilterBy.Text = "Supplier Code", txtFilter.Text, DBNull.Value)
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_name", SqlDbType.NVarChar, 50)
-        prm3.Value = IIf(cmbFilterBy.Text = "Supplier Name", txtFilter.Text, DBNull.Value)
-
-        If cn.State = ConnectionState.Closed Then cn.Open()
-        Dim myReader As SqlDataReader = cmd.ExecuteReader()
-
-        Call FillList(myReader, Me.ListView1, 19, 1)
-        myReader.Close()
-        cn.Close()
-    End Sub
-
     Sub clear_lvw2()
+        If Me.txtSCode.Text = "" Then Exit Sub
         With ListView2
             .Clear()
             .View = View.Details
@@ -239,7 +71,7 @@ err_cmdSave_Click:
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int, 255)
         prm1.Value = m_SId
 
-        cn.Open()
+        If cn.State = ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -314,74 +146,61 @@ err_cmdSave_Click:
         Else
             If isAllowDelete = True Then btnDelete.Enabled = Not isLock Else btnDelete.Enabled = False
         End If
-        btnEdit.Enabled = isLock
-        btnAdd.Enabled = isLock
+        btnnew.Enabled = isLock
         btnSave.Enabled = Not isLock
         btnCancel.Enabled = Not isLock
     End Sub
-
-    Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
-        If MsgBox("Are you sure you want to delete this record?", vbYesNo + vbCritical, Me.Text) = vbYes Then
-            cmd = New SqlCommand("sp_mt_supplier_DEL", cn)
-            cmd.CommandType = CommandType.StoredProcedure
-
-            Dim prm1 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int, 255)
-            prm1.Value = m_SId
-            Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-            prm2.Value = My.Settings.UserName
-            Dim prm3 As SqlParameter = cmd.Parameters.Add("@row_count", SqlDbType.Int)
-            prm3.Direction = ParameterDirection.Output
-            cn.Open()
-            cmd.ExecuteReader()
-            cn.Close()
-            If prm3.Value = 1 Then
-                MsgBox("You can't delete this record because it's already used in transaction.", vbCritical, Me.Text)
-            Else
-                clear_lvw()
-                clear_obj()
-            End If
-            lock_obj(True)
-        End If
-    End Sub
-
     Private Sub txtSPaymentTerm_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSPaymentTerm.KeyPress
         Dim key As Integer = Asc(e.KeyChar)
         If Not ((key >= 48 And key <= 57) Or key = 8) Then
             e.Handled = True
         End If
     End Sub
-
-    Private Sub ListView1_ColumnClick(ByVal sender As Object, ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnClick
-        If (e.Column = ListView1Sorter.SortColumn) Then
-            ' Reverse the current sort direction for this column.
-            If (ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending) Then
-                ListView1Sorter.Order = Windows.Forms.SortOrder.Descending
-            Else
-                ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
-            End If
-        Else
-            ' Set the column number that is to be sorted; default to ascending.
-            ListView1Sorter.SortColumn = e.Column
-            ListView1Sorter.Order = Windows.Forms.SortOrder.Ascending
-        End If
-
-        ' Perform the sort with these new sort options.
-        ListView1.Sort()
-    End Sub
-
     Public Sub New()
-
         ' This call is required by the designer.
         InitializeComponent()
-
         ' Add any initialization after the InitializeComponent() call.
-        ListView1Sorter = New lvColumnSorter()
-        ListView1.ListViewItemSorter = ListView1Sorter
     End Sub
-
     Private Sub btnCurrency_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCurrency.Click
         Dim NewFormDialog As New fdlCurrency
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
+    End Sub
+    Private Sub btnsave_Click_1(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
+        If txtSCode.Text = "" Or txtSName.Text = "" Or txtSCurrCode.Text = "" Then
+            MsgBox("Code, Name, Currency and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+            txtSCode.Focus()
+            Exit Sub
+        End If
+        If Me.txtSCode.Text = "" Then Me.txtSCode.Text = GETGeneralcode("", "mt_supplier", "s_code", "", Me.txtSName.Text, True, 2, 1, "", "")
+        Me.txtguid.Tag = "suppid"
+        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_supplier", "", "@s_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, Me.Text) Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, Me.Text)
+        'lock_obj(True)
+    End Sub
+    Private Sub btnfind_Click(sender As System.Object, e As System.EventArgs) Handles btnfind.Click
+        Dim child As New FDLSearch()
+        child.txtopenargs.Text = "5"
+        If child.ShowDialog() = DialogResult.OK Then
+            Me.txtguid.Text = child.txtChildText0.Text
+        End If
+    End Sub
+    Private Sub btnnew_Click(sender As System.Object, e As System.EventArgs) Handles btnnew.Click
+        kosong()
+    End Sub
+    Private Sub btnexit_Click(sender As System.Object, e As System.EventArgs) Handles btnexit.Click
+        Me.Close()
+    End Sub
+
+    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+        If Me.txtguid.Text <> "" Then m_SId = Me.txtguid.Text : Me.txtguid.Tag = "suppid" : isirecord(Me.txtguid.Text)
+    End Sub
+
+    Private Sub txt_c_curr_id_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_c_curr_id.TextChanged
+        If Me.txt_c_curr_id.Text <> "" And Me.txtSCurrCode.Text <> "0" Then
+            'isi
+            Me.txtSCurrCode.Text = GetCurrentID("curr_code", "mt_curr", "curr_id='" & Me.txt_c_curr_id.Text & "'")
+        Else
+
+        End If
     End Sub
 End Class

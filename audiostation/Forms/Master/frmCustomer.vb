@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
-
 Public Class frmCustomer
     Private m_CurrId As Integer, m_CId As Integer, isAllowDelete As Boolean
     Dim strConnection As String = My.Settings.ConnStr
@@ -11,6 +10,7 @@ Public Class frmCustomer
     Private namatable As String, namafieldPK As String
     Private Sub kosong()
         ClearObjectonForm(Me)
+        clear_lvw2()
         AssignValuetoCombo(Me.cmbCCategory, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_customer_category'", "sys_dropdown_sort")
         AssignValuetoCombo(Me.cmbCTitle, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_customer_title'", "sys_dropdown_sort")
         Me.btncancel.Enabled = False
@@ -20,7 +20,7 @@ Public Class frmCustomer
     End Sub
     Private Function isirecord(ByVal guidno As Integer)
         'Me.txtguid.Text = guidno ' : Me.txtkode.Text = guidno
-        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_customer", Me.txtguid.Text, "@c_id")
+        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_customer", Me.txtguid.Text, "@c_id") : clear_lvw2()
         Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
     End Function
     Private Sub frmCustomer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -35,7 +35,6 @@ Public Class frmCustomer
         End If
         Me.Left = 0 : Me.Top = 0
     End Sub
-
     Public Property CurrId() As Integer
         Get
             Return m_CurrId
@@ -44,7 +43,6 @@ Public Class frmCustomer
             m_CurrId = Value
         End Set
     End Property
-
     Public Property CurrCode() As String
         Get
             Return txtCCurrCode.Text
@@ -53,7 +51,6 @@ Public Class frmCustomer
             txtCCurrCode.Text = Value
         End Set
     End Property
-
     Sub clear_lvw2()
         With ListView2
             .Clear()
@@ -72,7 +69,7 @@ Public Class frmCustomer
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@c_id", SqlDbType.Int, 255)
         prm1.Value = m_CId
 
-        cn.Open()
+        If cn.State = ConnectionState.Closed Then cn.Open()
 
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
 
@@ -103,35 +100,6 @@ Public Class frmCustomer
         myReader.Close()
         cn.Close()
     End Sub
-
-    Sub clear_obj()
-        m_CId = 0
-        m_CurrId = 0
-        txtCCode.Text = ""
-        txtCName.Text = ""
-        txtCNpwp.Text = ""
-        txtCAddress1.Text = ""
-        txtCAddress2.Text = ""
-        txtCContact.Text = ""
-        txtCPhone.Text = ""
-        txtCFax.Text = ""
-        txtCEmail.Text = ""
-        txtCTPBNo.Text = ""
-        txtCPaymentTerms.Text = 0
-        txtCRemarks.Text = ""
-        txtCInfo1.Text = ""
-        txtCInfo2.Text = ""
-        txtCInfo3.Text = ""
-        txtCCurrCode.Text = ""
-        txtCLocalBalance.Text = ""
-        txtCBalance.Text = ""
-        txtCAdvanceBalance.Text = ""
-        cmbCCategory.Text = ""
-        cmbCCategory.SelectedIndex = -1
-        cmbCTitle.Text = ""
-        cmbCTitle.SelectedIndex = -1
-    End Sub
-
     Sub lock_obj(ByVal isLock As Boolean)
         txtCCode.ReadOnly = isLock
         txtCName.ReadOnly = isLock
@@ -161,29 +129,22 @@ Public Class frmCustomer
         btnsave.Enabled = Not isLock
         btncancel.Enabled = Not isLock
     End Sub
-
-
     Private Sub txtCPaymentTerm_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtCPaymentTerms.KeyPress
         Dim key As Integer = Asc(e.KeyChar)
         If Not ((key >= 48 And key <= 57) Or key = 8) Then
             e.Handled = True
         End If
     End Sub
-
     Public Sub New()
-
         ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-       
+        ' Add any initialization after the InitializeComponent() call.       
     End Sub
     Private Sub btnCurrency_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCurrency.Click
         Dim NewFormDialog As New fdlCurrency
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
-
     Private Sub btnfind_Click(sender As System.Object, e As System.EventArgs) Handles btnfind.Click
         Dim child As New FDLSearch()
         child.txtopenargs.Text = "4"
@@ -191,19 +152,15 @@ Public Class frmCustomer
             Me.txtguid.Text = child.txtChildText0.Text
         End If
     End Sub
-
     Private Sub btnnew_Click(sender As System.Object, e As System.EventArgs) Handles btnnew.Click
         kosong()
     End Sub
-
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         If Me.txtguid.Text <> "" Then m_CId = Me.txtguid.Text : Me.txtguid.Tag = "custid" : isirecord(Me.txtguid.Text)
     End Sub
-
     Private Sub btnexit_Click(sender As System.Object, e As System.EventArgs) Handles btnexit.Click
         Me.Close()
     End Sub
-
     Private Sub txt_c_curr_id_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_c_curr_id.TextChanged
         If Me.txt_c_curr_id.Text <> "" And Me.txtCCurrCode.Text <> "0" Then
             'isi
@@ -212,19 +169,17 @@ Public Class frmCustomer
 
         End If
     End Sub
-
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         On Error GoTo err_btnsave_Click
 
         If txtCName.Text = "" Or cmbCCategory.Text = "" Or cmbCTitle.Text = "" Or txtCCurrCode.Text = "" Then
-            MsgBox("Customer Code, Customer Name and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+            MsgBox("Code, Name, Currency and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             txtCCode.Focus()
             Exit Sub
         End If
         If Me.txtCCode.Text = "" Then Me.txtCCode.Text = GETGeneralcode("", "mt_customer", "c_code", "", Me.txtCName.Text, True, 2, 1, "", "")
         Me.txtguid.Tag = "custid"
-        'Me.txtCCode.Text = IIf(Me.txtguid.Text = "", GETGeneralcode("", namatable, namafieldPK, "", Me.txtCName.Text, True, 3, 1, "", ""), Me.txtCCode.Text)
-        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_customer", "", "@c_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
+        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_customer", "", "@c_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, Me.Text) Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, Me.Text)
 
 
 exit_btnsave_Click:

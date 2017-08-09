@@ -42,7 +42,7 @@ Public Class frmUtility
         'Me.cmdfind.Enabled = False
         'Me.ListView2.Items.Clear()
         'Me.Width = 544
-        Me.txtkode.Focus()
+        Me.txtseq.Focus()
     End Sub
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         On Error Resume Next
