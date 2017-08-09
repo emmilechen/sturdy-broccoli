@@ -105,6 +105,12 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
+            Case Is = 5 'Supplier
+                xfield1 = "s_id" : xfield2 = "s_code" : xfield3 = "s_code+' ~'+s_name" : xtable = "mt_supplier"
+                opensearchform(xfield1, xfield2, xfield3, xtable, "s_code<>''", "s_code", Me.txtopenargs.Text)
+                Me.ComboBox2.Items.Clear()
+                Me.ComboBox2.Items.Add("<--ALL-->")
+                Me.ComboBox2.Text = "<--ALL-->"
         End Select
         Me.TextBox1.Focus()
     End Sub
