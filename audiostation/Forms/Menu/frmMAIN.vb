@@ -1423,4 +1423,12 @@ Public Class frmMAIN
     Private Sub CustomerTitleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerTitleToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
+
+    Private Sub SupplierCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SupplierCategoryToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub SupplierTitleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SupplierTitleToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
 End Class
