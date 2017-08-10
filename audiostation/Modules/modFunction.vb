@@ -459,16 +459,16 @@ Module modFunction
                     End If
                 Next ctrl
                 sqlComm.Parameters.AddWithValue("@action", action)
-                sqlComm.Parameters.AddWithValue("@c_id", 0)
+                sqlComm.Parameters.AddWithValue(outputid, 0)
                 sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
                 sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
 
                 If action = "insert" Then
-                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
+                    sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
-                    txtid.Text = sqlComm.Parameters("@c_id").SqlValue.ToString
+                    txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 ElseIf action = "update" Then
-                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
+                    sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
                     'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 ElseIf action = "select" Then
@@ -491,7 +491,7 @@ Module modFunction
                     sqlReader.Close()
                 Else
                     'delete
-                    sqlComm.Parameters("@c_id").Direction = ParameterDirection.Output
+                    sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                     sqlComm.ExecuteNonQuery()
                     'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                 End If
