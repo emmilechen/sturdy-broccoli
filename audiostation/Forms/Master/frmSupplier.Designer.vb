@@ -38,6 +38,8 @@ Partial Class frmSupplier
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtSInfo3 = New System.Windows.Forms.TextBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtCTPBNo = New System.Windows.Forms.TextBox()
         Me.txt_c_curr_id = New System.Windows.Forms.TextBox()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -72,6 +74,7 @@ Partial Class frmSupplier
         Me.txtSName = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.btnsave = New System.Windows.Forms.ToolStripButton()
         Me.btnfind = New System.Windows.Forms.ToolStripButton()
@@ -79,11 +82,10 @@ Partial Class frmSupplier
         Me.btndelete = New System.Windows.Forms.ToolStripButton()
         Me.btnnew = New System.Windows.Forms.ToolStripButton()
         Me.btnexit = New System.Windows.Forms.ToolStripButton()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.txtCTPBNo = New System.Windows.Forms.TextBox()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -306,6 +308,28 @@ Partial Class frmSupplier
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Primary Information"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label21
+        '
+        Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(820, 197)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(85, 13)
+        Me.Label21.TabIndex = 143
+        Me.Label21.Text = "Registration No."
+        '
+        'txtCTPBNo
+        '
+        Me.txtCTPBNo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCTPBNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCTPBNo.Location = New System.Drawing.Point(823, 213)
+        Me.txtCTPBNo.MaxLength = 50
+        Me.txtCTPBNo.Name = "txtCTPBNo"
+        Me.txtCTPBNo.Size = New System.Drawing.Size(260, 21)
+        Me.txtCTPBNo.TabIndex = 142
+        Me.txtCTPBNo.Tag = "s_tpb_no"
         '
         'txt_c_curr_id
         '
@@ -683,6 +707,7 @@ Partial Class frmSupplier
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.ListView1)
         Me.TabPage3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
@@ -691,6 +716,18 @@ Partial Class frmSupplier
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Product Category"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ListView1
+        '
+        Me.ListView1.CheckBoxes = True
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.GridLines = True
+        Me.ListView1.Location = New System.Drawing.Point(18, 16)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(372, 455)
+        Me.ListView1.TabIndex = 1
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'ToolStrip1
         '
@@ -756,28 +793,6 @@ Partial Class frmSupplier
         Me.btnexit.Size = New System.Drawing.Size(51, 22)
         Me.btnexit.Text = "&Exit"
         '
-        'Label21
-        '
-        Me.Label21.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(820, 197)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(85, 13)
-        Me.Label21.TabIndex = 143
-        Me.Label21.Text = "Registration No."
-        '
-        'txtCTPBNo
-        '
-        Me.txtCTPBNo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCTPBNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCTPBNo.Location = New System.Drawing.Point(823, 213)
-        Me.txtCTPBNo.MaxLength = 50
-        Me.txtCTPBNo.Name = "txtCTPBNo"
-        Me.txtCTPBNo.Size = New System.Drawing.Size(260, 21)
-        Me.txtCTPBNo.TabIndex = 142
-        Me.txtCTPBNo.Tag = "s_tpb_no"
-        '
         'frmSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -794,6 +809,7 @@ Partial Class frmSupplier
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -858,4 +874,5 @@ Partial Class frmSupplier
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents txtCTPBNo As System.Windows.Forms.TextBox
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
 End Class

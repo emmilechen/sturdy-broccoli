@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
-
 Public Class frmSupplier
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -14,6 +13,15 @@ Public Class frmSupplier
         clear_lvw2()
         AssignValuetoCombo(Me.cmbCCategory, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_supplier_category'", "sys_dropdown_sort")
         AssignValuetoCombo(Me.cmbCTitle, "", "sys_dropdown_val", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_supplier_title'", "sys_dropdown_sort")
+        With Me
+            .ListView1.Columns.Clear()
+            .ListView1.Columns.Add("Kolom 0", "", 50)
+            .ListView1.Columns.Add("Kolom 1", "Keterangan", Me.ListView1.Width - 50)
+            .ListView1.Columns.Add("Kolom 2", "kode", 0)
+            .ListView1.Columns.Add("Kolom 3", "guid", 0)
+            .ListView1.Columns(0).DisplayIndex = .ListView1.Columns.Count - 1
+            .ListView1.CheckBoxes = False
+        End With
         Me.btncancel.Enabled = False
         Me.btndelete.Enabled = False
         Me.TabControl1.SelectedTab = Me.TabPage1
@@ -21,8 +29,38 @@ Public Class frmSupplier
     End Sub
     Private Function isirecord(ByVal guidno As Integer)
         'Me.txtguid.Text = guidno ' : Me.txtkode.Text = guidno
+        Me.ListView1.CheckBoxes = True
         Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_supplier", Me.txtguid.Text, "@s_id") : clear_lvw2()
+        opensearchform(Me.ListView1, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division')", "sys_dropdown_sort", 0)
         Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
+    End Function
+    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader, ix As Integer = 0
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read()
+                    str(0) = "" 'IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                    str(1) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
+                    str(3) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                    If Me.txtguid.Text <> "" Then namalistview.Items(CInt(ix)).Checked = IIf(GetCurrentID("pk_mesin_id", "rt_mesin_div", "flag_id=1 and pk_mesin_id='" & Me.txtSCode.Text & "' and pk_mesin_idf='" & dr.Item(0).ToString() & "'") = Me.txtSCode.Text, True, False)
+                    ix = ix + 1
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
     End Function
     Private Sub frmSupplier_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         On Error Resume Next
@@ -200,6 +238,18 @@ Public Class frmSupplier
             'isi
             Me.txtSCurrCode.Text = GetCurrentID("curr_code", "mt_curr", "curr_id='" & Me.txt_c_curr_id.Text & "'")
         Else
+
+        End If
+    End Sub
+
+    Private Sub ListView1_ItemChecked(sender As Object, e As System.Windows.Forms.ItemCheckedEventArgs) Handles ListView1.ItemChecked
+        If Me.txtSCode.Text = "" Then Exit Sub
+        If Me.ListView1.SelectedItems.Count = 1 Then
+            If Me.ListView1.SelectedItems(0).Checked = True Then
+                Executestr("insert into rt_mesin_div (pk_mesin_id, pk_mesin_idf, flag_id) values ('" & Me.txtSCode.Text & "','" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "','1')")
+            Else
+                Executestr("delete from rt_mesin_div where pk_mesin_id='" & Me.txtSCode.Text & "' and pk_mesin_idf='" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "' and flag_id=1")
+            End If
 
         End If
     End Sub

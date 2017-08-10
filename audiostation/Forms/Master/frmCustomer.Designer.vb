@@ -71,6 +71,8 @@ Partial Class frmCustomer
         Me.txt_c_curr_id = New System.Windows.Forms.TextBox()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.cmbCTitle = New System.Windows.Forms.ComboBox()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -80,9 +82,9 @@ Partial Class frmCustomer
         Me.btndelete = New System.Windows.Forms.ToolStripButton()
         Me.btnnew = New System.Windows.Forms.ToolStripButton()
         Me.btnexit = New System.Windows.Forms.ToolStripButton()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -674,6 +676,27 @@ Partial Class frmCustomer
         Me.cmbCTitle.TabIndex = 0
         Me.cmbCTitle.Tag = "c_title"
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.ListView1)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(1232, 495)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Product Category"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'ListView1
+        '
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.GridLines = True
+        Me.ListView1.Location = New System.Drawing.Point(18, 16)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(372, 455)
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.ListView2)
@@ -757,15 +780,6 @@ Partial Class frmCustomer
         Me.btnexit.Size = New System.Drawing.Size(51, 22)
         Me.btnexit.Text = "&Exit"
         '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1232, 495)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Product Category"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
         'frmCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -784,6 +798,7 @@ Partial Class frmCustomer
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
@@ -849,4 +864,5 @@ Partial Class frmCustomer
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
 End Class
