@@ -596,6 +596,12 @@
     <Compile Include="Forms\Transaction\fdlCUtility.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\frmabsenproduksi.Designer.vb">
+      <DependentUpon>frmabsenproduksi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmabsenproduksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
     </Compile>
@@ -1464,12 +1470,6 @@
     <Compile Include="Forms\Transaction\ftr_mp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\ftr_mrq.Designer.vb">
-      <DependentUpon>ftr_mrq.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\ftr_mrq.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modules\clsLvwCompare.vb" />
     <Compile Include="Modules\clsNumTextBox.vb">
       <SubType>Component</SubType>
@@ -1900,6 +1900,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
+      <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
