@@ -1317,4 +1317,8 @@ Public Class frmSO
             Call frmSOList.frmSOListShow(Nothing, EventArgs.Empty)
         End If
     End Sub
+
+    Private Sub ntbSODiscAmt_TextChanged(sender As System.Object, e As System.EventArgs) Handles ntbSODiscAmt.TextChanged
+
+    End Sub
 End Class
