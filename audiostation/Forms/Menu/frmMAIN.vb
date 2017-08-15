@@ -101,6 +101,11 @@ Public Class frmMAIN
         'Next
         Me.Controls.Add(menu)
     End Sub
+    Private Function openformcommon(namaform As Form)
+        namaform.MdiParent = Me
+        namaform.Show()
+        namaform.BringToFront()
+    End Function
     Private Function openformutility(openargs As String, judul As String)
         Me.Cursor = Cursors.AppStarting
         For Each f As Form In Application.OpenForms
@@ -1411,9 +1416,9 @@ Public Class frmMAIN
     End Sub
 
     Private Sub RequestMemoToWarehouseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RequestMemoToWarehouseToolStripMenuItem.Click
-        ftr_mrq.MdiParent = Me
-        ftr_mrq.Show()
-        ftr_mrq.BringToFront()
+        'ftr_mrq.MdiParent = Me
+        'ftr_mrq.Show()
+        'ftr_mrq.BringToFront()
     End Sub
 
     Private Sub CustomerCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerCategoryToolStripMenuItem.Click
@@ -1431,4 +1436,13 @@ Public Class frmMAIN
     Private Sub SupplierTitleToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SupplierTitleToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
+
+    Private Sub ShiftToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ShiftToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+
+    Private Sub ProductionToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ProductionToolStripMenuItem1.Click
+        openformcommon(frmabsenproduksi)
+    End Sub
+  
 End Class
