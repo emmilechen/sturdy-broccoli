@@ -5,11 +5,9 @@ Public Class fdlLogin
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
     Dim isPassed As Boolean
-
     Private Sub cmdLogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLogin.Click
         Dim strConnection As String = My.Settings.ConnStr
         Dim cn As SqlConnection = New SqlConnection(strConnection)
-
         Dim cmd As SqlCommand = New SqlCommand("usp_mt_user_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
@@ -31,7 +29,6 @@ Public Class fdlLogin
             Dim wrapper As New Dencrypt(password)
             Dim LoginPassword As String = wrapper.DecryptData(cipherText)
             '-------------------------END OF DECRYPT--------------------------------
-
             If txtPassword.Text <> LoginPassword Then
                 MsgBox("Wrong password. Please contact your administrator!", vbOKOnly + vbCritical, "Login")
                 txtPassword.Text = ""
@@ -61,25 +58,27 @@ Public Class fdlLogin
                 frmMAIN.Text = frmMAIN.Text & " - " & p_CompanyName
                 InsertLogFile("Login", "Login ", My.Computer.Name, Me.Name, Me.txtUserName.Text)
             End If
-            'Do While myReader.Read()
-            'Console.WriteLine("{0},{1}", myReader.GetString(1), myReader.GetString(2))
-            'passwd = myReader.GetString(2)
-            'Loop
 
         End If
         myReader.Close()
         cn.Close()
     End Sub
-
     Private Sub fdlLogin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'Label3.Text = "App " & GetSysInit("version_app")
+        Dim lokasiupd As String = Format(getfiledate(My.Settings.AppLoc & "\" & My.Settings.AppName), "yyyyMMddHHmmss")
+        Dim lokasicur As String = Format(getfiledate(Application.StartupPath & "\" & My.Settings.AppName), "yyyyMMddHHmmss")
+        If lokasicur < lokasiupd Then
+            If MsgBox("Program harap diperbaharui !", MsgBoxStyle.YesNo + MsgBoxStyle.Question, UCase(My.Settings.AppName)) = MsgBoxResult.Yes Then
+                Process.Start(Application.StartupPath & "\Updater.exe") : Me.Close() 'run 1 app buat copy dan replace file dilokasi current
+            Else
+
+            End If
+        End If
+        Label3.Text = "App " & lokasicur
         Label4.Text = "DB " & GetSysInit("db_version")
     End Sub
-
     Private Sub cmdCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancel.Click
         End
     End Sub
-
     Private Sub fdlLogin_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
         If isPassed = False Then End
         Me.Dispose()
