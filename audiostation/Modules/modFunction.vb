@@ -5,7 +5,7 @@ Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Net.NetworkInformation
 Imports System.Reflection
-
+Imports System.IO
 Module modFunction
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
@@ -466,13 +466,10 @@ Module modFunction
                     sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
 
                     If action = "insert" Then
-                        sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
                         txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                     ElseIf action = "update" Then
-                        sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                     ElseIf action = "select" Then
                         Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
                         If sqlReader.HasRows Then
@@ -493,33 +490,50 @@ Module modFunction
                         sqlReader.Close()
                     Else
                         'delete
-                        sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                     End If
                 Else
-                    'TANPA SP
-                    Dim strsql1 As String = "(", strsql2 As String = "('"
+                    '=========================TANPA SP=============================
+                    Dim strsql1 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "(", ""), strsql2 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "('", "")
                     For Each ctrl As Control In root.Controls
                         If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
-                            If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CInt(ctrl.Text) & "', '"
-                            If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & ctrl.Text & "', '"
-                            If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CType(ctrl, ComboBox).SelectedValue & "', '"
+                            If action.Substring(0, action.Length - 3) = "ins" Then
+                                If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CInt(ctrl.Text) & "', '"
+                                If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & ctrl.Text & "', '"
+                                If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CType(ctrl, ComboBox).SelectedValue & "', '"
+                            ElseIf action.Substring(0, action.Length - 3) = "upd" Then
+                                If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & "='" & CInt(ctrl.Text) & "', "
+                                If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & "='" & ctrl.Text & "', "
+                                If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, ComboBox).SelectedValue & "', "
+                            ElseIf action.Substring(0, action.Length - 3) = "sel" Then
+                                If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & ", "
+                                If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", "
+                                If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & ", "
+                            ElseIf action.Substring(0, action.Length - 3) = "del" Then
+                                If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & "='" & CInt(ctrl.Text) & "', "
+                                If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & "='" & ctrl.Text & "', "
+                                If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, ComboBox).SelectedValue & "', "
+                            End If
                         Else
                         End If
                     Next ctrl
                     If action = "insert" Then
-                        Dim strsqlexec As String
                         strsql1 = strsql1.Substring(0, strsql1.Length - 2) & ")"
                         strsql2 = strsql2.Substring(0, strsql2.Length - 3) & ")"
-                        strsqlexec = action & " into " & namasp & " " & strsql1 & " values " & strsql2
-                        Executestr(strsqlexec)
-                        txtid.Text = "0" ' sqlComm.Parameters(outputid).SqlValue.ToString
-                    ElseIf action = "update" Then
-                        sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
+                        Dim strsqlexec As String = action & " into " & namasp & " " & strsql1 & " values " & strsql2
+                        sqlComm = New SqlCommand(strsqlexec, sqlCon)
                         sqlComm.ExecuteNonQuery()
-                        'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
+                        sqlComm.Dispose()
+                        txtid.Text = GetCurrentID(outputid, namasp, filterby)
+                    ElseIf action = "update" Then
+                        strsql1 = strsql1.Substring(0, strsql1.Length - 2)
+                        Dim strsqlexec As String = action & " " & namasp & " set " & strsql1 & " where " & filterby
+                        sqlComm = New SqlCommand(strsqlexec, sqlCon)
+                        sqlComm.ExecuteNonQuery()
+                        sqlComm.Dispose()
                     ElseIf action = "select" Then
+                        Dim strsqlexec As String = action & " * from " & namasp & " where " & filterby
+                        sqlComm = New SqlCommand(strsqlexec, sqlCon)
                         Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
                         If sqlReader.HasRows Then
                             While (sqlReader.Read())
@@ -539,9 +553,7 @@ Module modFunction
                         sqlReader.Close()
                     Else
                         'delete
-                        sqlComm.Parameters(outputid).Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        'txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
                     End If
                 End If
                 
@@ -656,6 +668,12 @@ Module modFunction
         'autocompleteteks = str(0)
         dr.Close()
         cmd.Dispose()
+    End Function
+    Public Function getfiledate(lokasi As String) As DateTime
+        Dim fileName As String = lokasi
+        If File.Exists(fileName) Then
+            getfiledate = File.GetLastWriteTime(fileName).ToString
+        End If
     End Function
 End Module
 
