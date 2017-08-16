@@ -111,6 +111,12 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
+            Case Is = 6 'absen produksi
+                xfield1 = "abs_id" : xfield2 = "abs_no" : xfield3 = "abs_no+' ~'+mp_no" : xtable = "tr_abs_prod inner join tr_mp on tr_mp.mp_pk=tr_abs_prod.mp_idf"
+                opensearchform(xfield1, xfield2, xfield3, xtable, "abs_no<>''", "abs_no", Me.txtopenargs.Text)
+                Me.ComboBox2.Items.Clear()
+                Me.ComboBox2.Items.Add("<--ALL-->")
+                Me.ComboBox2.Text = "<--ALL-->"
         End Select
         Me.TextBox1.Focus()
     End Sub
