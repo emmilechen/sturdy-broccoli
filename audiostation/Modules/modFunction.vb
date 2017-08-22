@@ -450,6 +450,7 @@ Module modFunction
                 sqlCon.Open()
                 '=====================BEGIN=====================
                 If Not TanpaSP Then
+                    '====================DENGAN SP==================================
                     sqlComm = New SqlCommand(namasp, sqlCon)
                     sqlComm.CommandType = CommandType.StoredProcedure
                     For Each ctrl As Control In root.Controls
@@ -457,6 +458,7 @@ Module modFunction
                             If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CInt(ctrl.Text))
                             If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
                             If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
+                            If TypeOf ctrl Is CheckBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, CheckBox).Checked)
                         Else
                         End If
                     Next ctrl
@@ -481,6 +483,7 @@ Module modFunction
                                         Else 'kalo outputnya ga ada field ybs, maka gagal
                                             If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
                                             If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(ctrl.Tag).ToString
+                                            If TypeOf ctrl Is CheckBox Then CType(ctrl, CheckBox).Checked = CBool(sqlReader.Item(ctrl.Tag).ToString)
                                         End If
                                     Else
                                     End If
@@ -494,25 +497,30 @@ Module modFunction
                     End If
                 Else
                     '=========================TANPA SP=============================
-                    Dim strsql1 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "(", ""), strsql2 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "('", "")
+
+                    Dim strsql1 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "(created, createdby, modified, modifiedby", ""), strsql2 As String = IIf(action.Substring(0, action.Length - 3) = "ins", "('" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "','", "modified='" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', modifiedby='" & My.Settings.UserName & "'")
                     For Each ctrl As Control In root.Controls
                         If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
                             If action.Substring(0, action.Length - 3) = "ins" Then
                                 If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CInt(ctrl.Text) & "', '"
                                 If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & ctrl.Text & "', '"
                                 If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CType(ctrl, ComboBox).SelectedValue & "', '"
+                                If TypeOf ctrl Is CheckBox Then strsql1 = strsql1 & ctrl.Tag & ", " : strsql2 = strsql2 & CType(ctrl, CheckBox).Checked & "', '"
                             ElseIf action.Substring(0, action.Length - 3) = "upd" Then
                                 If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & "='" & CInt(ctrl.Text) & "', "
                                 If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & "='" & ctrl.Text & "', "
                                 If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, ComboBox).SelectedValue & "', "
+                                If TypeOf ctrl Is CheckBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, CheckBox).Checked & "', "
                             ElseIf action.Substring(0, action.Length - 3) = "sel" Then
                                 If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & ", "
                                 If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & ", "
                                 If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & ", "
+                                If TypeOf ctrl Is CheckBox Then strsql1 = strsql1 & ctrl.Tag & ", "
                             ElseIf action.Substring(0, action.Length - 3) = "del" Then
                                 If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then strsql2 = strsql2 & ctrl.Tag & "='" & CInt(ctrl.Text) & "', "
                                 If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then strsql1 = strsql1 & ctrl.Tag & "='" & ctrl.Text & "', "
                                 If TypeOf ctrl Is ComboBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, ComboBox).SelectedValue & "', "
+                                If TypeOf ctrl Is CheckBox Then strsql1 = strsql1 & ctrl.Tag & "='" & CType(ctrl, CheckBox).Checked & "', "
                             End If
                         Else
                         End If
@@ -544,6 +552,7 @@ Module modFunction
                                         Else 'kalo outputnya ga ada field ybs, maka gagal
                                             If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
                                             If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(ctrl.Tag).ToString
+                                            If TypeOf ctrl Is CheckBox Then CType(ctrl, CheckBox).Checked = CBool(sqlReader.Item(ctrl.Tag).ToString)
                                         End If
                                     Else
                                     End If
@@ -553,7 +562,7 @@ Module modFunction
                         sqlReader.Close()
                     Else
                         'delete
-                        sqlComm.ExecuteNonQuery()
+                        'sqlComm.ExecuteNonQuery()
                     End If
                 End If
                 
@@ -571,7 +580,7 @@ Module modFunction
     Public Function AssignValuetoCombo(ByVal namacombo As ComboBox, strunion As String, fieldkey As String, fieldteks As String, namatabel As String, kondisi As String, sortby As String, Optional defaultval As String = "")
         On Error Resume Next
         '==========================================Fill Combo Template=========================================
-        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by guidstr", cn)
+        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by nama", cn)
         Dim DS As New DataSet
 
         DA.Fill(DS, "event")
@@ -587,7 +596,7 @@ Module modFunction
 
         For Each drDSRow In DS.Tables("event").Rows()
             drNewRow = dt.NewRow()
-            drNewRow("nama") = drDSRow("nama")
+            drNewRow("nama") = UCase(drDSRow("nama"))
             drNewRow("guidstr") = drDSRow("guidstr")
             dt.Rows.Add(drNewRow)
         Next
