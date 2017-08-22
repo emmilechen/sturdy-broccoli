@@ -54,6 +54,8 @@ Partial Class frmabsenproduksi
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.txtkode = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ComboBox9 = New System.Windows.Forms.ComboBox()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,26 +63,26 @@ Partial Class frmabsenproduksi
         '
         Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(176, 170)
+        Me.ComboBox1.Location = New System.Drawing.Point(191, 170)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(182, 33)
-        Me.ComboBox1.TabIndex = 0
+        Me.ComboBox1.TabIndex = 1
         Me.ComboBox1.Tag = "shift_id"
         '
         'DateTimePicker1
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(176, 92)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(191, 92)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(182, 33)
-        Me.DateTimePicker1.TabIndex = 1
+        Me.DateTimePicker1.TabIndex = 12
         Me.DateTimePicker1.Tag = "abs_date"
         '
         'ComboBox2
         '
         Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(176, 209)
+        Me.ComboBox2.Location = New System.Drawing.Point(191, 209)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(182, 33)
         Me.ComboBox2.TabIndex = 2
@@ -90,10 +92,10 @@ Partial Class frmabsenproduksi
         '
         Me.ComboBox3.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(176, 131)
+        Me.ComboBox3.Location = New System.Drawing.Point(191, 131)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(182, 33)
-        Me.ComboBox3.TabIndex = 3
+        Me.ComboBox3.TabIndex = 0
         Me.ComboBox3.Tag = "check_st"
         '
         'Label1
@@ -150,10 +152,10 @@ Partial Class frmabsenproduksi
         '
         Me.ComboBox4.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(176, 248)
+        Me.ComboBox4.Location = New System.Drawing.Point(191, 248)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(182, 33)
-        Me.ComboBox4.TabIndex = 8
+        Me.ComboBox4.TabIndex = 3
         Me.ComboBox4.Tag = "machine_id"
         '
         'Label6
@@ -170,35 +172,35 @@ Partial Class frmabsenproduksi
         '
         Me.ComboBox5.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(176, 287)
+        Me.ComboBox5.Location = New System.Drawing.Point(191, 287)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(182, 33)
-        Me.ComboBox5.TabIndex = 10
+        Me.ComboBox5.TabIndex = 4
         Me.ComboBox5.Tag = "mp_idf"
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(176, 365)
+        Me.TextBox1.Location = New System.Drawing.Point(191, 423)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(182, 33)
-        Me.TextBox1.TabIndex = 12
+        Me.TextBox1.TabIndex = 7
         Me.TextBox1.Tag = "qty_in_val"
         '
         'TextBox2
         '
         Me.TextBox2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(176, 404)
+        Me.TextBox2.Location = New System.Drawing.Point(191, 462)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(182, 33)
-        Me.TextBox2.TabIndex = 13
+        Me.TextBox2.TabIndex = 9
         Me.TextBox2.Tag = "qty_out_val"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(24, 368)
+        Me.Label7.Location = New System.Drawing.Point(24, 426)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(102, 25)
         Me.Label7.TabIndex = 14
@@ -208,7 +210,7 @@ Partial Class frmabsenproduksi
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(24, 407)
+        Me.Label8.Location = New System.Drawing.Point(24, 465)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(116, 25)
         Me.Label8.TabIndex = 15
@@ -220,38 +222,38 @@ Partial Class frmabsenproduksi
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(24, 329)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(115, 25)
+        Me.Label9.Size = New System.Drawing.Size(98, 25)
         Me.Label9.TabIndex = 17
-        Me.Label9.Text = "Material ID"
+        Me.Label9.Text = "Goods ID"
         '
         'ComboBox6
         '
         Me.ComboBox6.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(176, 326)
+        Me.ComboBox6.Location = New System.Drawing.Point(191, 326)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(538, 33)
-        Me.ComboBox6.TabIndex = 16
+        Me.ComboBox6.TabIndex = 5
         Me.ComboBox6.Tag = "prod_id"
         '
         'ComboBox7
         '
         Me.ComboBox7.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(364, 365)
+        Me.ComboBox7.Location = New System.Drawing.Point(379, 423)
         Me.ComboBox7.Name = "ComboBox7"
         Me.ComboBox7.Size = New System.Drawing.Size(118, 33)
-        Me.ComboBox7.TabIndex = 18
+        Me.ComboBox7.TabIndex = 8
         Me.ComboBox7.Tag = "qty_in_uom"
         '
         'ComboBox8
         '
         Me.ComboBox8.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(364, 404)
+        Me.ComboBox8.Location = New System.Drawing.Point(379, 462)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.Size = New System.Drawing.Size(118, 33)
-        Me.ComboBox8.TabIndex = 19
+        Me.ComboBox8.TabIndex = 10
         Me.ComboBox8.Tag = "qty_out_uom"
         '
         'ToolStrip1
@@ -260,8 +262,8 @@ Partial Class frmabsenproduksi
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnsave, Me.btnfind, Me.btncancel, Me.btndelete, Me.btnnew, Me.btnexit, Me.ToolStripSeparator1, Me.cmdprint})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(730, 37)
-        Me.ToolStrip1.TabIndex = 22
+        Me.ToolStrip1.Size = New System.Drawing.Size(778, 37)
+        Me.ToolStrip1.TabIndex = 11
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'btnsave
@@ -328,7 +330,7 @@ Partial Class frmabsenproduksi
         'txtguid
         '
         Me.txtguid.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid.Location = New System.Drawing.Point(364, 53)
+        Me.txtguid.Location = New System.Drawing.Point(379, 53)
         Me.txtguid.Name = "txtguid"
         Me.txtguid.ReadOnly = True
         Me.txtguid.Size = New System.Drawing.Size(182, 33)
@@ -340,11 +342,11 @@ Partial Class frmabsenproduksi
         '
         Me.txtkode.BackColor = System.Drawing.Color.GreenYellow
         Me.txtkode.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtkode.Location = New System.Drawing.Point(176, 53)
+        Me.txtkode.Location = New System.Drawing.Point(191, 53)
         Me.txtkode.Name = "txtkode"
         Me.txtkode.ReadOnly = True
         Me.txtkode.Size = New System.Drawing.Size(182, 33)
-        Me.txtkode.TabIndex = 24
+        Me.txtkode.TabIndex = 13
         Me.txtkode.Tag = "abs_no"
         '
         'Label10
@@ -357,11 +359,33 @@ Partial Class frmabsenproduksi
         Me.Label10.TabIndex = 25
         Me.Label10.Text = "No."
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(24, 368)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(162, 25)
+        Me.Label11.TabIndex = 27
+        Me.Label11.Text = "Raw Material ID"
+        '
+        'ComboBox9
+        '
+        Me.ComboBox9.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox9.FormattingEnabled = True
+        Me.ComboBox9.Location = New System.Drawing.Point(191, 365)
+        Me.ComboBox9.Name = "ComboBox9"
+        Me.ComboBox9.Size = New System.Drawing.Size(538, 33)
+        Me.ComboBox9.TabIndex = 6
+        Me.ComboBox9.Tag = "prod_id"
+        '
         'frmabsenproduksi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(730, 456)
+        Me.ClientSize = New System.Drawing.Size(778, 515)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.ComboBox9)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.txtkode)
         Me.Controls.Add(Me.txtguid)
@@ -428,4 +452,6 @@ Partial Class frmabsenproduksi
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents txtkode As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox9 As System.Windows.Forms.ComboBox
 End Class

@@ -78,7 +78,7 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
             Case Is = 1 'MESIN
-                xfield1 = "idmesin" : xfield2 = "namamesin" : xfield3 = "merekmesin+' ~'+tipemesin+'/'+katmesin" : xtable = "mt_mesin "
+                xfield1 = "primarykey" : xfield2 = "namamesin" : xfield3 = "merekmesin+' ~'+tipemesin+'/'+katmesin" : xtable = "mt_mesin "
                 opensearchform(xfield1, xfield2, xfield3, xtable, "idmesin<>''", "idmesin desc", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")

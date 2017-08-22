@@ -238,6 +238,7 @@ Partial Class FTR_Induction
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.cmdsave = New System.Windows.Forms.ToolStripButton()
         Me.cmdfind = New System.Windows.Forms.ToolStripButton()
         Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
@@ -245,7 +246,6 @@ Partial Class FTR_Induction
         Me.cmdprint = New System.Windows.Forms.ToolStripButton()
         Me.cmdnew = New System.Windows.Forms.ToolStripButton()
         Me.cmdexit = New System.Windows.Forms.ToolStripButton()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -450,7 +450,7 @@ Partial Class FTR_Induction
         Me.TabControl1.Location = New System.Drawing.Point(15, 235)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1042, 476)
+        Me.TabControl1.Size = New System.Drawing.Size(1220, 316)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -465,7 +465,7 @@ Partial Class FTR_Induction
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1034, 450)
+        Me.TabPage1.Size = New System.Drawing.Size(1212, 290)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Detail Process 1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -479,15 +479,15 @@ Partial Class FTR_Induction
         Me.Panel12.Controls.Add(Me.Label63)
         Me.Panel12.Controls.Add(Me.Label64)
         Me.Panel12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel12.Location = New System.Drawing.Point(441, 222)
+        Me.Panel12.Location = New System.Drawing.Point(6, 222)
         Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(429, 56)
+        Me.Panel12.Size = New System.Drawing.Size(390, 56)
         Me.Panel12.TabIndex = 20
         '
         'CheckBox43
         '
         Me.CheckBox43.AutoSize = True
-        Me.CheckBox43.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox43.Location = New System.Drawing.Point(321, 7)
         Me.CheckBox43.Name = "CheckBox43"
         Me.CheckBox43.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox43.TabIndex = 50
@@ -550,15 +550,15 @@ Partial Class FTR_Induction
         Me.Panel8.Controls.Add(Me.Label51)
         Me.Panel8.Controls.Add(Me.Label52)
         Me.Panel8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel8.Location = New System.Drawing.Point(441, 6)
+        Me.Panel8.Location = New System.Drawing.Point(402, 6)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(429, 117)
+        Me.Panel8.Size = New System.Drawing.Size(390, 117)
         Me.Panel8.TabIndex = 20
         '
         'CheckBox41
         '
         Me.CheckBox41.AutoSize = True
-        Me.CheckBox41.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox41.Location = New System.Drawing.Point(321, 10)
         Me.CheckBox41.Name = "CheckBox41"
         Me.CheckBox41.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox41.TabIndex = 50
@@ -569,7 +569,7 @@ Partial Class FTR_Induction
         '
         Me.Label79.AutoSize = True
         Me.Label79.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label79.Location = New System.Drawing.Point(310, 92)
+        Me.Label79.Location = New System.Drawing.Point(293, 93)
         Me.Label79.Name = "Label79"
         Me.Label79.Size = New System.Drawing.Size(14, 13)
         Me.Label79.TabIndex = 48
@@ -579,9 +579,9 @@ Partial Class FTR_Induction
         'TextBox34
         '
         Me.TextBox34.BackColor = System.Drawing.Color.Orange
-        Me.TextBox34.Location = New System.Drawing.Point(326, 87)
+        Me.TextBox34.Location = New System.Drawing.Point(313, 87)
         Me.TextBox34.Name = "TextBox34"
-        Me.TextBox34.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox34.Size = New System.Drawing.Size(66, 21)
         Me.TextBox34.TabIndex = 5
         '
         'TextBox35
@@ -589,7 +589,7 @@ Partial Class FTR_Induction
         Me.TextBox35.BackColor = System.Drawing.Color.Orange
         Me.TextBox35.Location = New System.Drawing.Point(221, 87)
         Me.TextBox35.Name = "TextBox35"
-        Me.TextBox35.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox35.Size = New System.Drawing.Size(66, 21)
         Me.TextBox35.TabIndex = 4
         '
         'CheckBox5
@@ -683,15 +683,15 @@ Partial Class FTR_Induction
         Me.Panel7.Controls.Add(Me.Label47)
         Me.Panel7.Controls.Add(Me.Label48)
         Me.Panel7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel7.Location = New System.Drawing.Point(441, 129)
+        Me.Panel7.Location = New System.Drawing.Point(402, 129)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(429, 87)
+        Me.Panel7.Size = New System.Drawing.Size(390, 87)
         Me.Panel7.TabIndex = 19
         '
         'CheckBox42
         '
         Me.CheckBox42.AutoSize = True
-        Me.CheckBox42.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox42.Location = New System.Drawing.Point(321, 10)
         Me.CheckBox42.Name = "CheckBox42"
         Me.CheckBox42.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox42.TabIndex = 50
@@ -790,15 +790,15 @@ Partial Class FTR_Induction
         Me.Panel6.Controls.Add(Me.Label42)
         Me.Panel6.Controls.Add(Me.Label43)
         Me.Panel6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel6.Location = New System.Drawing.Point(6, 222)
+        Me.Panel6.Location = New System.Drawing.Point(798, 6)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(429, 215)
+        Me.Panel6.Size = New System.Drawing.Size(390, 210)
         Me.Panel6.TabIndex = 18
         '
         'CheckBox37
         '
         Me.CheckBox37.AutoSize = True
-        Me.CheckBox37.Location = New System.Drawing.Point(360, 10)
+        Me.CheckBox37.Location = New System.Drawing.Point(326, 10)
         Me.CheckBox37.Name = "CheckBox37"
         Me.CheckBox37.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox37.TabIndex = 49
@@ -809,7 +809,7 @@ Partial Class FTR_Induction
         '
         Me.Label78.AutoSize = True
         Me.Label78.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label78.Location = New System.Drawing.Point(313, 133)
+        Me.Label78.Location = New System.Drawing.Point(298, 125)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(14, 13)
         Me.Label78.TabIndex = 48
@@ -820,7 +820,7 @@ Partial Class FTR_Induction
         '
         Me.Label77.AutoSize = True
         Me.Label77.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label77.Location = New System.Drawing.Point(313, 108)
+        Me.Label77.Location = New System.Drawing.Point(298, 103)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(14, 13)
         Me.Label77.TabIndex = 47
@@ -831,7 +831,7 @@ Partial Class FTR_Induction
         '
         Me.Label76.AutoSize = True
         Me.Label76.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label76.Location = New System.Drawing.Point(313, 80)
+        Me.Label76.Location = New System.Drawing.Point(298, 76)
         Me.Label76.Name = "Label76"
         Me.Label76.Size = New System.Drawing.Size(14, 13)
         Me.Label76.TabIndex = 5
@@ -841,55 +841,55 @@ Partial Class FTR_Induction
         'TextBox32
         '
         Me.TextBox32.BackColor = System.Drawing.Color.Orange
-        Me.TextBox32.Location = New System.Drawing.Point(331, 130)
+        Me.TextBox32.Location = New System.Drawing.Point(318, 122)
         Me.TextBox32.Name = "TextBox32"
-        Me.TextBox32.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox32.Size = New System.Drawing.Size(66, 21)
         Me.TextBox32.TabIndex = 12
         '
         'TextBox33
         '
         Me.TextBox33.BackColor = System.Drawing.Color.Orange
-        Me.TextBox33.Location = New System.Drawing.Point(226, 130)
+        Me.TextBox33.Location = New System.Drawing.Point(226, 121)
         Me.TextBox33.Name = "TextBox33"
-        Me.TextBox33.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox33.Size = New System.Drawing.Size(66, 21)
         Me.TextBox33.TabIndex = 11
         '
         'TextBox28
         '
         Me.TextBox28.BackColor = System.Drawing.Color.Orange
-        Me.TextBox28.Location = New System.Drawing.Point(331, 103)
+        Me.TextBox28.Location = New System.Drawing.Point(318, 97)
         Me.TextBox28.Name = "TextBox28"
-        Me.TextBox28.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox28.Size = New System.Drawing.Size(66, 21)
         Me.TextBox28.TabIndex = 9
         '
         'TextBox29
         '
         Me.TextBox29.BackColor = System.Drawing.Color.Orange
-        Me.TextBox29.Location = New System.Drawing.Point(226, 103)
+        Me.TextBox29.Location = New System.Drawing.Point(226, 97)
         Me.TextBox29.Name = "TextBox29"
-        Me.TextBox29.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox29.Size = New System.Drawing.Size(66, 21)
         Me.TextBox29.TabIndex = 8
         '
         'TextBox30
         '
         Me.TextBox30.BackColor = System.Drawing.Color.Orange
-        Me.TextBox30.Location = New System.Drawing.Point(331, 77)
+        Me.TextBox30.Location = New System.Drawing.Point(318, 74)
         Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox30.Size = New System.Drawing.Size(66, 21)
         Me.TextBox30.TabIndex = 6
         '
         'TextBox31
         '
         Me.TextBox31.BackColor = System.Drawing.Color.Orange
-        Me.TextBox31.Location = New System.Drawing.Point(226, 77)
+        Me.TextBox31.Location = New System.Drawing.Point(226, 74)
         Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox31.Size = New System.Drawing.Size(66, 21)
         Me.TextBox31.TabIndex = 4
         '
         'CheckBox22
         '
         Me.CheckBox22.AutoSize = True
-        Me.CheckBox22.Location = New System.Drawing.Point(116, 195)
+        Me.CheckBox22.Location = New System.Drawing.Point(116, 190)
         Me.CheckBox22.Name = "CheckBox22"
         Me.CheckBox22.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox22.TabIndex = 15
@@ -899,7 +899,7 @@ Partial Class FTR_Induction
         'CheckBox18
         '
         Me.CheckBox18.AutoSize = True
-        Me.CheckBox18.Location = New System.Drawing.Point(116, 104)
+        Me.CheckBox18.Location = New System.Drawing.Point(116, 99)
         Me.CheckBox18.Name = "CheckBox18"
         Me.CheckBox18.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox18.TabIndex = 7
@@ -909,7 +909,7 @@ Partial Class FTR_Induction
         'CheckBox19
         '
         Me.CheckBox19.AutoSize = True
-        Me.CheckBox19.Location = New System.Drawing.Point(116, 127)
+        Me.CheckBox19.Location = New System.Drawing.Point(116, 121)
         Me.CheckBox19.Name = "CheckBox19"
         Me.CheckBox19.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox19.TabIndex = 10
@@ -919,7 +919,7 @@ Partial Class FTR_Induction
         'CheckBox20
         '
         Me.CheckBox20.AutoSize = True
-        Me.CheckBox20.Location = New System.Drawing.Point(116, 149)
+        Me.CheckBox20.Location = New System.Drawing.Point(116, 144)
         Me.CheckBox20.Name = "CheckBox20"
         Me.CheckBox20.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox20.TabIndex = 13
@@ -929,7 +929,7 @@ Partial Class FTR_Induction
         'CheckBox21
         '
         Me.CheckBox21.AutoSize = True
-        Me.CheckBox21.Location = New System.Drawing.Point(116, 172)
+        Me.CheckBox21.Location = New System.Drawing.Point(116, 167)
         Me.CheckBox21.Name = "CheckBox21"
         Me.CheckBox21.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox21.TabIndex = 14
@@ -959,7 +959,7 @@ Partial Class FTR_Induction
         'CheckBox16
         '
         Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(116, 58)
+        Me.CheckBox16.Location = New System.Drawing.Point(116, 54)
         Me.CheckBox16.Name = "CheckBox16"
         Me.CheckBox16.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox16.TabIndex = 2
@@ -969,7 +969,7 @@ Partial Class FTR_Induction
         'CheckBox17
         '
         Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(116, 81)
+        Me.CheckBox17.Location = New System.Drawing.Point(116, 76)
         Me.CheckBox17.Name = "CheckBox17"
         Me.CheckBox17.Size = New System.Drawing.Size(85, 17)
         Me.CheckBox17.TabIndex = 3
@@ -980,7 +980,7 @@ Partial Class FTR_Induction
         '
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(12, 194)
+        Me.Label44.Location = New System.Drawing.Point(12, 190)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(27, 13)
         Me.Label44.TabIndex = 13
@@ -990,7 +990,7 @@ Partial Class FTR_Induction
         '
         Me.Label36.AutoSize = True
         Me.Label36.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(12, 172)
+        Me.Label36.Location = New System.Drawing.Point(12, 167)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(53, 13)
         Me.Label36.TabIndex = 12
@@ -1000,7 +1000,7 @@ Partial Class FTR_Induction
         '
         Me.Label37.AutoSize = True
         Me.Label37.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(12, 150)
+        Me.Label37.Location = New System.Drawing.Point(12, 144)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(64, 13)
         Me.Label37.TabIndex = 11
@@ -1010,7 +1010,7 @@ Partial Class FTR_Induction
         '
         Me.Label38.AutoSize = True
         Me.Label38.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label38.Location = New System.Drawing.Point(12, 125)
+        Me.Label38.Location = New System.Drawing.Point(12, 121)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(65, 13)
         Me.Label38.TabIndex = 10
@@ -1020,7 +1020,7 @@ Partial Class FTR_Induction
         '
         Me.Label39.AutoSize = True
         Me.Label39.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label39.Location = New System.Drawing.Point(12, 103)
+        Me.Label39.Location = New System.Drawing.Point(12, 99)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(45, 13)
         Me.Label39.TabIndex = 9
@@ -1030,7 +1030,7 @@ Partial Class FTR_Induction
         '
         Me.Label40.AutoSize = True
         Me.Label40.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label40.Location = New System.Drawing.Point(12, 80)
+        Me.Label40.Location = New System.Drawing.Point(12, 74)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(48, 13)
         Me.Label40.TabIndex = 8
@@ -1040,7 +1040,7 @@ Partial Class FTR_Induction
         '
         Me.Label41.AutoSize = True
         Me.Label41.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label41.Location = New System.Drawing.Point(12, 58)
+        Me.Label41.Location = New System.Drawing.Point(12, 54)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(53, 13)
         Me.Label41.TabIndex = 7
@@ -1084,14 +1084,14 @@ Partial Class FTR_Induction
         Me.Panel5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel5.Location = New System.Drawing.Point(6, 129)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(429, 87)
+        Me.Panel5.Size = New System.Drawing.Size(390, 87)
         Me.Panel5.TabIndex = 17
         '
         'Label75
         '
         Me.Label75.AutoSize = True
         Me.Label75.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label75.Location = New System.Drawing.Point(313, 62)
+        Me.Label75.Location = New System.Drawing.Point(298, 62)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(14, 13)
         Me.Label75.TabIndex = 5
@@ -1102,7 +1102,7 @@ Partial Class FTR_Induction
         '
         Me.Label70.AutoSize = True
         Me.Label70.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label70.Location = New System.Drawing.Point(313, 37)
+        Me.Label70.Location = New System.Drawing.Point(298, 37)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(14, 13)
         Me.Label70.TabIndex = 40
@@ -1112,9 +1112,9 @@ Partial Class FTR_Induction
         'TextBox26
         '
         Me.TextBox26.BackColor = System.Drawing.Color.Orange
-        Me.TextBox26.Location = New System.Drawing.Point(331, 58)
+        Me.TextBox26.Location = New System.Drawing.Point(318, 58)
         Me.TextBox26.Name = "TextBox26"
-        Me.TextBox26.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox26.Size = New System.Drawing.Size(66, 21)
         Me.TextBox26.TabIndex = 39
         '
         'TextBox27
@@ -1122,15 +1122,15 @@ Partial Class FTR_Induction
         Me.TextBox27.BackColor = System.Drawing.Color.Orange
         Me.TextBox27.Location = New System.Drawing.Point(226, 58)
         Me.TextBox27.Name = "TextBox27"
-        Me.TextBox27.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox27.Size = New System.Drawing.Size(66, 21)
         Me.TextBox27.TabIndex = 4
         '
         'TextBox25
         '
         Me.TextBox25.BackColor = System.Drawing.Color.Orange
-        Me.TextBox25.Location = New System.Drawing.Point(331, 32)
+        Me.TextBox25.Location = New System.Drawing.Point(318, 32)
         Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox25.Size = New System.Drawing.Size(66, 21)
         Me.TextBox25.TabIndex = 3
         '
         'TextBox24
@@ -1138,7 +1138,7 @@ Partial Class FTR_Induction
         Me.TextBox24.BackColor = System.Drawing.Color.Orange
         Me.TextBox24.Location = New System.Drawing.Point(226, 32)
         Me.TextBox24.Name = "TextBox24"
-        Me.TextBox24.Size = New System.Drawing.Size(87, 21)
+        Me.TextBox24.Size = New System.Drawing.Size(66, 21)
         Me.TextBox24.TabIndex = 2
         '
         'CheckBox9
@@ -1219,7 +1219,7 @@ Partial Class FTR_Induction
         Me.Panel2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel2.Location = New System.Drawing.Point(6, 6)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(429, 117)
+        Me.Panel2.Size = New System.Drawing.Size(390, 117)
         Me.Panel2.TabIndex = 16
         '
         'ComboBox10
@@ -1227,7 +1227,7 @@ Partial Class FTR_Induction
         Me.ComboBox10.FormattingEnabled = True
         Me.ComboBox10.Location = New System.Drawing.Point(226, 89)
         Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox10.Size = New System.Drawing.Size(160, 21)
         Me.ComboBox10.TabIndex = 7
         '
         'ComboBox9
@@ -1235,7 +1235,7 @@ Partial Class FTR_Induction
         Me.ComboBox9.FormattingEnabled = True
         Me.ComboBox9.Location = New System.Drawing.Point(226, 62)
         Me.ComboBox9.Name = "ComboBox9"
-        Me.ComboBox9.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox9.Size = New System.Drawing.Size(160, 21)
         Me.ComboBox9.TabIndex = 5
         '
         'ComboBox8
@@ -1243,7 +1243,7 @@ Partial Class FTR_Induction
         Me.ComboBox8.FormattingEnabled = True
         Me.ComboBox8.Location = New System.Drawing.Point(226, 35)
         Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox8.Size = New System.Drawing.Size(160, 21)
         Me.ComboBox8.TabIndex = 3
         '
         'ComboBox7
@@ -1251,7 +1251,7 @@ Partial Class FTR_Induction
         Me.ComboBox7.FormattingEnabled = True
         Me.ComboBox7.Location = New System.Drawing.Point(226, 8)
         Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox7.Size = New System.Drawing.Size(160, 21)
         Me.ComboBox7.TabIndex = 1
         '
         'CheckBox4
@@ -1344,7 +1344,7 @@ Partial Class FTR_Induction
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1034, 450)
+        Me.TabPage2.Size = New System.Drawing.Size(1212, 290)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Detail Process 2"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1360,15 +1360,15 @@ Partial Class FTR_Induction
         Me.Panel10.Controls.Add(Me.Label61)
         Me.Panel10.Controls.Add(Me.Label62)
         Me.Panel10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel10.Location = New System.Drawing.Point(441, 210)
+        Me.Panel10.Location = New System.Drawing.Point(799, 136)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(429, 124)
+        Me.Panel10.Size = New System.Drawing.Size(390, 124)
         Me.Panel10.TabIndex = 20
         '
         'CheckBox46
         '
         Me.CheckBox46.AutoSize = True
-        Me.CheckBox46.Location = New System.Drawing.Point(355, 10)
+        Me.CheckBox46.Location = New System.Drawing.Point(294, 12)
         Me.CheckBox46.Name = "CheckBox46"
         Me.CheckBox46.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox46.TabIndex = 50
@@ -1452,51 +1452,51 @@ Partial Class FTR_Induction
         Me.Panel9.Controls.Add(Me.Label59)
         Me.Panel9.Controls.Add(Me.Label60)
         Me.Panel9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel9.Location = New System.Drawing.Point(441, 6)
+        Me.Panel9.Location = New System.Drawing.Point(403, 6)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(429, 198)
+        Me.Panel9.Size = New System.Drawing.Size(390, 198)
         Me.Panel9.TabIndex = 19
         '
         'TextBox15
         '
         Me.TextBox15.Location = New System.Drawing.Point(133, 142)
         Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox15.Size = New System.Drawing.Size(219, 21)
         Me.TextBox15.TabIndex = 5
         '
         'TextBox14
         '
         Me.TextBox14.Location = New System.Drawing.Point(133, 115)
         Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox14.Size = New System.Drawing.Size(219, 21)
         Me.TextBox14.TabIndex = 4
         '
         'TextBox13
         '
         Me.TextBox13.Location = New System.Drawing.Point(133, 88)
         Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox13.Size = New System.Drawing.Size(219, 21)
         Me.TextBox13.TabIndex = 3
         '
         'TextBox12
         '
         Me.TextBox12.Location = New System.Drawing.Point(133, 61)
         Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox12.Size = New System.Drawing.Size(219, 21)
         Me.TextBox12.TabIndex = 2
         '
         'TextBox11
         '
         Me.TextBox11.Location = New System.Drawing.Point(133, 34)
         Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox11.Size = New System.Drawing.Size(219, 21)
         Me.TextBox11.TabIndex = 1
         '
         'TextBox10
         '
         Me.TextBox10.Location = New System.Drawing.Point(133, 7)
         Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(280, 21)
+        Me.TextBox10.Size = New System.Drawing.Size(219, 21)
         Me.TextBox10.TabIndex = 0
         '
         'Label54
@@ -1586,15 +1586,15 @@ Partial Class FTR_Induction
         Me.Panel4.Controls.Add(Me.Label30)
         Me.Panel4.Controls.Add(Me.Label31)
         Me.Panel4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel4.Location = New System.Drawing.Point(6, 210)
+        Me.Panel4.Location = New System.Drawing.Point(799, 6)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(429, 124)
+        Me.Panel4.Size = New System.Drawing.Size(390, 124)
         Me.Panel4.TabIndex = 18
         '
         'CheckBox45
         '
         Me.CheckBox45.AutoSize = True
-        Me.CheckBox45.Location = New System.Drawing.Point(357, 10)
+        Me.CheckBox45.Location = New System.Drawing.Point(319, 11)
         Me.CheckBox45.Name = "CheckBox45"
         Me.CheckBox45.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox45.TabIndex = 50
@@ -1738,13 +1738,13 @@ Partial Class FTR_Induction
         Me.Panel3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.Location = New System.Drawing.Point(6, 6)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(429, 198)
+        Me.Panel3.Size = New System.Drawing.Size(390, 198)
         Me.Panel3.TabIndex = 17
         '
         'CheckBox44
         '
         Me.CheckBox44.AutoSize = True
-        Me.CheckBox44.Location = New System.Drawing.Point(357, 11)
+        Me.CheckBox44.Location = New System.Drawing.Point(318, 10)
         Me.CheckBox44.Name = "CheckBox44"
         Me.CheckBox44.Size = New System.Drawing.Size(58, 17)
         Me.CheckBox44.TabIndex = 50
@@ -1933,7 +1933,7 @@ Partial Class FTR_Induction
         Me.TabPage3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1034, 450)
+        Me.TabPage3.Size = New System.Drawing.Size(1212, 290)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Alamat Kirim"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1973,7 +1973,7 @@ Partial Class FTR_Induction
         Me.TabPage4.Controls.Add(Me.Panel13)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(1034, 450)
+        Me.TabPage4.Size = New System.Drawing.Size(1212, 290)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Dept. Costing"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -2251,7 +2251,7 @@ Partial Class FTR_Induction
         Me.TabPage5.Controls.Add(Me.Panel16)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1034, 450)
+        Me.TabPage5.Size = New System.Drawing.Size(1212, 290)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Keterangan Tambahan"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -2470,9 +2470,19 @@ Partial Class FTR_Induction
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdprint, Me.cmdnew, Me.cmdexit})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1069, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1264, 25)
         Me.ToolStrip1.TabIndex = 31
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
+        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
+        Me.ImageList1.Images.SetKeyName(2, "Box.png")
+        Me.ImageList1.Images.SetKeyName(3, "Search.png")
+        Me.ImageList1.Images.SetKeyName(4, "add.png")
         '
         'cmdsave
         '
@@ -2530,16 +2540,6 @@ Partial Class FTR_Induction
         Me.cmdexit.Size = New System.Drawing.Size(51, 22)
         Me.cmdexit.Text = "&Exit"
         '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
-        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
-        Me.ImageList1.Images.SetKeyName(2, "Box.png")
-        Me.ImageList1.Images.SetKeyName(3, "Search.png")
-        Me.ImageList1.Images.SetKeyName(4, "add.png")
-        '
         'FTR_Induction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2547,7 +2547,7 @@ Partial Class FTR_Induction
         Me.AutoScroll = True
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1069, 722)
+        Me.ClientSize = New System.Drawing.Size(1264, 561)
         Me.Controls.Add(Me.txtguid)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.Panel17)

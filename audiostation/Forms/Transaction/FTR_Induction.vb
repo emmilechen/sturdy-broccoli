@@ -17,13 +17,14 @@ Public Class FTR_Induction
     Private Function kosong()
         ClearObjectonForm(Me) : ClearCheckBoxonForm(Me)
         Me.DateTimePicker1.Focus() : Me.CheckBox37.Text = "&Semua" : Me.CheckBox41.Text = "&Semua" : Me.CheckBox42.Text = "&Semua" : Me.CheckBox43.Text = "&Semua" : Me.CheckBox44.Text = "&Semua" : Me.CheckBox45.Text = "&Semua" : Me.CheckBox46.Text = "&Semua"
-        AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
-        AssignValuetoCombo(Me.ComboBox2, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
-        AssignValuetoCombo(Me.ComboBox3, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
-        AssignValuetoCombo(Me.ComboBox4, "", "sku_id", "sku_code+'-'+sku_name", "mt_sku", "sku_id<>''", "sku_code")
+        AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_name+', '+c_title", "mt_customer", "c_code<>''", "c_name")
+        AssignValuetoCombo(Me.ComboBox2, "", "user_id", "user_fname", "mt_user", "issales=1", "user_fname")
+        AssignValuetoCombo(Me.ComboBox3, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=1", "sku_name")
+        AssignValuetoCombo(Me.ComboBox4, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
         AssignValuetoCombo(Me.ComboBox5, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
         AssignValuetoCombo(Me.ComboBox11, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
-        Me.cmdsave.Text = "&Save"
+        Me.cmdsave.Text = "&Save" : Me.cmddelete.Enabled = False : Me.cmdcancel.Enabled = False : Me.cmdprint.Enabled = False
+        Me.TabControl1.SelectedTab = TabPage1
     End Function
     Private Function isirecord(ByVal guidno As String)
         If cn.State = ConnectionState.Closed Then cn.Open()
@@ -534,5 +535,25 @@ Public Class FTR_Induction
             .myCrystalReportViewer.ShowGroupTreeButton = False
             .myCrystalReportViewer.ReportSource = cr
         End With
+    End Sub
+
+    Private Sub cmdnew_Click(sender As System.Object, e As System.EventArgs) Handles cmdnew.Click
+        kosong()
+    End Sub
+
+    Private Sub cmdexit_Click(sender As System.Object, e As System.EventArgs) Handles cmdexit.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmddelete_Click(sender As System.Object, e As System.EventArgs) Handles cmddelete.Click
+        'delete
+    End Sub
+
+    Private Sub cmdcancel_Click(sender As System.Object, e As System.EventArgs) Handles cmdcancel.Click
+        If Me.txtguid.Text = "" Then
+            Exit Sub
+        Else
+            isirecord(Me.txtguid.Text)
+        End If
     End Sub
 End Class

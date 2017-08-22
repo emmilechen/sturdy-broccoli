@@ -98,7 +98,7 @@ err_btnsave_Click:
         If Me.ComboBox7.SelectedIndex >= 0 Then Me.ComboBox8.SelectedValue = Me.ComboBox7.SelectedValue
     End Sub
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        If Me.txtguid.Text <> "" Then isirecord(Me.txtguid.Text) ': AssignValuetoCombo(Me.ComboBox6, "", "sku_id_f", "sku_id_desc", "tr_mp_dtl", "mp_id_f='" & Me.ComboBox5.SelectedValue & "'", "skud_id_desc")
+        If Me.txtguid.Text <> "" Then isirecord(Me.txtguid.Text)
     End Sub
     Private Sub btncancel_Click(sender As System.Object, e As System.EventArgs) Handles btncancel.Click
         If Me.txtguid.Text <> "" Then isirecord(Me.txtguid.Text)
