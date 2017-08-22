@@ -1445,4 +1445,10 @@ Public Class frmMAIN
         openformcommon(frmabsenproduksi)
     End Sub
   
+    Private Sub FormCostingToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FormCostingToolStripMenuItem.Click
+        ftr_scosting.MdiParent = Me
+        ftr_scosting.Show()
+        ftr_scosting.BringToFront()
+    End Sub
+
 End Class
