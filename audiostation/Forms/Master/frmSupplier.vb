@@ -246,9 +246,9 @@ Public Class frmSupplier
         If Me.txtSCode.Text = "" Then Exit Sub
         If Me.ListView1.SelectedItems.Count = 1 Then
             If Me.ListView1.SelectedItems(0).Checked = True Then
-                Executestr("insert into rt_mesin_div (pk_mesin_id, pk_mesin_idf, flag_id) values ('" & Me.txtSCode.Text & "','" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "','1')")
+                Executestr("insert into rt_mesin_div (pk_mesin_id, pk_mesin_idf, flag_id) values ('" & Me.txtguid.Text & "','" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "','1')")
             Else
-                Executestr("delete from rt_mesin_div where pk_mesin_id='" & Me.txtSCode.Text & "' and pk_mesin_idf='" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "' and flag_id=1")
+                Executestr("delete from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "' and pk_mesin_idf='" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "' and flag_id=1")
             End If
 
         End If

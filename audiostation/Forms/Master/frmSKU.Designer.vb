@@ -106,8 +106,8 @@ Partial Class frmSKU
         'ListView1
         '
         Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
@@ -462,7 +462,7 @@ Partial Class frmSKU
         Me.cmbCategoryID.FormattingEnabled = True
         Me.cmbCategoryID.Location = New System.Drawing.Point(134, 60)
         Me.cmbCategoryID.Name = "cmbCategoryID"
-        Me.cmbCategoryID.Size = New System.Drawing.Size(148, 21)
+        Me.cmbCategoryID.Size = New System.Drawing.Size(351, 21)
         Me.cmbCategoryID.TabIndex = 2
         '
         'lblCurrentRecord
@@ -522,7 +522,7 @@ Partial Class frmSKU
         'TabControl1
         '
         Me.TabControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
@@ -858,7 +858,7 @@ Partial Class frmSKU
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.chbIsFinishedGoods2)
         Me.GroupBox1.Controls.Add(Me.Label22)
         Me.GroupBox1.Controls.Add(Me.cbCategory)
@@ -878,7 +878,7 @@ Partial Class frmSKU
         Me.chbIsFinishedGoods2.AutoSize = True
         Me.chbIsFinishedGoods2.Location = New System.Drawing.Point(226, 50)
         Me.chbIsFinishedGoods2.Name = "chbIsFinishedGoods2"
-        Me.chbIsFinishedGoods2.Size = New System.Drawing.Size(99, 17)
+        Me.chbIsFinishedGoods2.Size = New System.Drawing.Size(98, 17)
         Me.chbIsFinishedGoods2.TabIndex = 80
         Me.chbIsFinishedGoods2.Text = "Finished Goods"
         Me.chbIsFinishedGoods2.UseVisualStyleBackColor = True

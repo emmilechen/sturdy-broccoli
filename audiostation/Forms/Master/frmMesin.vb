@@ -36,14 +36,14 @@ Public Class frmMesin
             .ListViewa.Columns.Add("Kolom 1", "urut", 0)
             .ListViewa.Columns.Add("Kolom 2", "kode", 0)
             .ListViewa.Columns.Add("Kolom 3", "Keterangan", Me.ListViewa.Width)
-            opensearchform(Me.ListViewa, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey not in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
+            'opensearchform(Me.ListViewa, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey not in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
             Btnup.Enabled = False : Btndown.Enabled = False
             .ListViewb.Columns.Clear()
             .ListViewb.Columns.Add("Kolom 0", "guid", 0)
             .ListViewb.Columns.Add("Kolom 1", "urut", 0)
             .ListViewb.Columns.Add("Kolom 2", "kode", 0)
             .ListViewb.Columns.Add("Kolom 3", "Keterangan", Me.ListViewb.Width)
-            opensearchform(Me.ListViewb, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
+            'opensearchform(Me.ListViewb, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
         End With
         Me.btncancel.Enabled = False
         Me.btndelete.Enabled = False
@@ -61,6 +61,7 @@ Public Class frmMesin
         With namalistview
             .Items.Clear()
             strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            If cn.State = ConnectionState.Closed Then cn.Open()
             cmd = New SqlCommand(strsql, cn)
             dr = cmd.ExecuteReader()
             If dr.HasRows Then
@@ -81,7 +82,7 @@ Public Class frmMesin
     Private Sub frmMesin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         On Error Resume Next
         If cn.State = ConnectionState.Closed Then cn.Open()
-        namatable = "mt_mesin" : namafieldPK = "idmesin"
+        namatable = "mt_mesin" : namafieldPK = "primarykey"
         If Me.txtkode.Text = "" Then
             kosong()
         Else
@@ -90,30 +91,29 @@ Public Class frmMesin
         End If
         Me.Left = 0 : Me.Top = 0
     End Sub
-    Private Function isirecord(ByVal guidno As String)
+    Private Function isirecord(ByVal guidno As Integer)
         Me.txtguid.Text = guidno : Me.txtkode.Text = guidno
-        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_mesin", Me.txtguid.Text, "@idmesin")
-        opensearchform(Me.ListViewa, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey not in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
-        opensearchform(Me.ListViewb, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey in (select pk_mesin_idf from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
+        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_mesin", Me.txtguid.Text, "@c_id")
+        opensearchform(Me.ListViewa, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey not in (select pk_mesin_idf from rt_mesin_div where flag_id=0 and pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
+        opensearchform(Me.ListViewb, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey in (select pk_mesin_idf from rt_mesin_div where flag_id=0 and pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
         Me.Text = "Machine - " & Me.txtnama.Text
         Me.Btnup.Enabled = True : Me.Btndown.Enabled = True
         Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
     End Function
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        Dim xno As String
-        If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
+        If Me.txtguid.Text <> "" Then Me.txtguid.Tag = "primarykey" : isirecord(Me.txtguid.Text)
     End Sub
 
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         On Error GoTo err_btnsave_Click
         If cmbkat.Text = "" Or cmbsubkat.Text = "" Or txttype.Text = "" Or txtnama.Text = "" Then
-            MsgBox("Customer Code, Customer Name and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+            MsgBox("Code, Name and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             cmbkat.Focus()
             Exit Sub
         End If
-        Me.txtguid.Tag = ""
+        Me.txtguid.Tag = "primarykey"
         Me.txtkode.Text = IIf(Me.txtguid.Text = "", GETGeneralcode("", namatable, namafieldPK, "", Me.txtnama.Text, True, 3, 1, "", ""), Me.txtkode.Text)
-        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_mesin", "", "@idmesin") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
+        If Fillobject(Me.txtguid, Me.TabPage1, IIf(Me.txtguid.Text = "", "insert", "update"), "sp_mt_mesin", "", "@c_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Machine")
 
 exit_btnsave_Click:
         If ConnectionState.Open = 1 Then cn.Close()

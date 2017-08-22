@@ -260,9 +260,9 @@ err_btnsave_Click:
         If Me.txtCCode.Text = "" Then Exit Sub
         If Me.ListView1.SelectedItems.Count = 1 Then
             If Me.ListView1.SelectedItems(0).Checked = True Then
-                Executestr("insert into rt_mesin_div (pk_mesin_id, pk_mesin_idf, flag_id) values ('" & Me.txtCCode.Text & "','" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "','2')")
+                Executestr("insert into rt_mesin_div (pk_mesin_id, pk_mesin_idf, flag_id) values ('" & Me.txtguid.Text & "','" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "','2')")
             Else
-                Executestr("delete from rt_mesin_div where pk_mesin_id='" & Me.txtCCode.Text & "' and pk_mesin_idf='" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "' and flag_id=2")
+                Executestr("delete from rt_mesin_div where pk_mesin_id='" & Me.txtguid.Text & "' and pk_mesin_idf='" & Me.ListView1.SelectedItems(0).SubItems(3).Text & "' and flag_id=2")
             End If
 
         End If

@@ -28,7 +28,7 @@ Public Class frmUser
     End Function
     Private Function isirecord(ByVal guidno As String)
         Me.txtguid.Text = guidno : Me.txtuserid.Text = guidno
-        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_user", Me.txtguid.Text, "@user_id")
+        Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_user", Me.txtguid.Text, "@c_id")
         Me.btndelete.Text = IIf(Me.txtac.Text <> 0, "Un-", "") & "Delete"
         'ListView1.Items(k).ForeColor = Color.Black
     End Function
@@ -92,8 +92,6 @@ Public Class frmUser
     Private Sub txtUserPassword_MouseDoubleClick(sender As Object, e As System.Windows.Forms.MouseEventArgs)
         If txtUserPassword.Text <> "" Then MsgBox("Password : " & Me.txtUserPassword.Text, MsgBoxStyle.Information, "User")
     End Sub
-
-
     Private Sub btnfind_Click(sender As System.Object, e As System.EventArgs) Handles btnfind.Click
         'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
         Dim child As New FDLSearch()
@@ -106,22 +104,29 @@ Public Class frmUser
 
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         Try
-            If Me.txtguid.Text = "" Then
-                'insert
-                Me.txtUserName.Text = Microsoft.VisualBasic.Left(Replace(CStr(Me.txtfname.Text), " ", ""), 8) & Format(CDate(Me.DateTimePicker1.Text), "yydd")
-                '------------------------BEGIN ENCRYPTING PASSWORD----------------------------
-                Dim plainText As String = txtUserPassword.Text
-                Dim password As String = "1"
+            If MsgBox("Data akan disimpan, lajutkan ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "User") = MsgBoxResult.Yes Then
+                If Me.txtguid.Text = "" Then
+                    'insert
+                    Me.txtUserName.Text = Microsoft.VisualBasic.Left(Replace(CStr(Me.txtfname.Text), " ", ""), 8) & Format(CDate(Me.DateTimePicker1.Text), "yydd")
+                    '------------------------BEGIN ENCRYPTING PASSWORD----------------------------
+                    Dim plainText As String = txtUserPassword.Text
+                    Dim password As String = "1"
 
-                Dim wrapper As New Dencrypt(password)
-                Dim EncryptPass As String = wrapper.EncryptData(plainText)
-                Me.txtUserPassword.Text = EncryptPass
-                '------------------------END OF ENCRYPTING PASSWORD----------------------------
-                Fillobject(Me.txtguid, Me.TabPage1, "insert", "sp_mt_user", Me.txtguid.Text, "@user_id")
+                    Dim wrapper As New Dencrypt(password)
+                    Dim EncryptPass As String = wrapper.EncryptData(plainText)
+                    Me.txtUserPassword.Text = EncryptPass
+                    '------------------------END OF ENCRYPTING PASSWORD----------------------------
+                    Fillobject(Me.txtguid, Me.TabPage1, "insert", "sp_mt_user", Me.txtguid.Text, "@c_id")
+                    MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "User")
+                Else
+                    'update
+                    Fillobject(Me.txtguid, Me.TabPage1, "update", "sp_mt_user", Me.txtguid.Text, "@c_id")
+                    MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, "User")
+                End If
             Else
-                'update
-                Fillobject(Me.txtguid, Me.TabPage1, "update", "sp_mt_user", Me.txtguid.Text, "@user_id")
+
             End If
+            
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -134,14 +139,13 @@ Public Class frmUser
 
     Private Sub btncancel_Click(sender As System.Object, e As System.EventArgs) Handles btncancel.Click
         If Me.txtguid.Text = "" Then
-
+            Exit Sub
         Else
-
+            isirecord(Me.txtguid.Text)
         End If
     End Sub
     Private Sub btndelete_Click(sender As System.Object, e As System.EventArgs) Handles btndelete.Click
         Try
-     
             If MsgBox("Data akan dihapus, lanjutkan ?", vbCritical + vbYesNo, Me.Text) = MsgBoxResult.Yes Then
                 'update
                 If Me.btndelete.Text = "Un-Delete" Then Me.txtac.Text = 0
@@ -158,11 +162,6 @@ Public Class frmUser
     Private Sub btnnew_Click(sender As System.Object, e As System.EventArgs) Handles btnnew.Click
         kosong()
     End Sub
-    
-
-
-   
-
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         Dim xno As String
         If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
