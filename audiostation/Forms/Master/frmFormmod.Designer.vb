@@ -51,10 +51,7 @@ Partial Class frmFormmod
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
@@ -65,6 +62,9 @@ Partial Class frmFormmod
         Me.btndelete = New System.Windows.Forms.ToolStripButton()
         Me.btnnew = New System.Windows.Forms.ToolStripButton()
         Me.btnexit = New System.Windows.Forms.ToolStripButton()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -346,16 +346,6 @@ Partial Class frmFormmod
         Me.Label14.TabIndex = 24
         Me.Label14.Text = "Table Name"
         '
-        'Button3
-        '
-        Me.Button3.ImageIndex = 0
-        Me.Button3.ImageList = Me.ImageList1
-        Me.Button3.Location = New System.Drawing.Point(485, 37)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(29, 29)
-        Me.Button3.TabIndex = 22
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -364,26 +354,6 @@ Partial Class frmFormmod
         Me.ImageList1.Images.SetKeyName(1, "Checkmark.png")
         Me.ImageList1.Images.SetKeyName(2, "Remove.png")
         Me.ImageList1.Images.SetKeyName(3, "Search.png")
-        '
-        'Button2
-        '
-        Me.Button2.ImageIndex = 2
-        Me.Button2.ImageList = Me.ImageList1
-        Me.Button2.Location = New System.Drawing.Point(453, 37)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(29, 29)
-        Me.Button2.TabIndex = 21
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.ImageIndex = 1
-        Me.Button1.ImageList = Me.ImageList1
-        Me.Button1.Location = New System.Drawing.Point(423, 37)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(29, 29)
-        Me.Button1.TabIndex = 19
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'ComboBox4
         '
@@ -472,6 +442,36 @@ Partial Class frmFormmod
         Me.btnexit.Name = "btnexit"
         Me.btnexit.Size = New System.Drawing.Size(51, 22)
         Me.btnexit.Text = "Exit"
+        '
+        'Button3
+        '
+        Me.Button3.ImageIndex = 0
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(485, 37)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(29, 29)
+        Me.Button3.TabIndex = 22
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.ImageIndex = 2
+        Me.Button2.ImageList = Me.ImageList1
+        Me.Button2.Location = New System.Drawing.Point(453, 37)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(29, 29)
+        Me.Button2.TabIndex = 21
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.ImageIndex = 1
+        Me.Button1.ImageList = Me.ImageList1
+        Me.Button1.Location = New System.Drawing.Point(423, 37)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(29, 29)
+        Me.Button1.TabIndex = 19
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmFormmod
         '

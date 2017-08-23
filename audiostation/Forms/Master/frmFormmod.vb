@@ -163,4 +163,8 @@ Public Class frmFormmod
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         ClearObjectonForm(Me.Panel2)
     End Sub
+
+    Private Sub ToolStrip1_ItemClicked(sender As System.Object, e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
+
+    End Sub
 End Class
