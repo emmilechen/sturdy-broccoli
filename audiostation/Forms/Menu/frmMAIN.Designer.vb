@@ -66,30 +66,6 @@ Partial Class frmMAIN
         Me.PurchasePaymentReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseTransactionReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseAPAgingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockSubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator21 = New System.Windows.Forms.ToolStripSeparator()
-        Me.UnitOfMeasurementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator20 = New System.Windows.Forms.ToolStripSeparator()
-        Me.LocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.StockAdjToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockMovementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockCostAdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.StockLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockListReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockCategoryListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LocationListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockLocationMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockSetListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockAdjustmentReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockMovementReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StockControlReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerTitleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -99,6 +75,7 @@ Partial Class frmMAIN
         Me.StockPriceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.FormInductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormCostingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
         Me.SalesQuotionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesQuotationApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -125,6 +102,30 @@ Partial Class frmMAIN
         Me.SalesMonthlyStatementReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesARAgingReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.COGSReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockSubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator21 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UnitOfMeasurementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator20 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.StockAdjToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockMovementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockCostAdjustmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.StockLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockListReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockCategoryListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LocationListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockLocationMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockSetListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockAdjustmentReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockMovementReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockControlReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MachineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
@@ -194,18 +195,19 @@ Partial Class frmMAIN
         Me.UOMSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UOMSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.PrintToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.PrintPreviewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FormCostingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.PrintToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.PrintPreviewToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator27 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ModuleIssuesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -466,148 +468,6 @@ Partial Class frmMAIN
         Me.PurchaseAPAgingReportToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
         Me.PurchaseAPAgingReportToolStripMenuItem.Text = "Purchase AP Aging Report"
         '
-        'MasterToolStripMenuItem
-        '
-        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockCategoryToolStripMenuItem, Me.StockSubCategoryToolStripMenuItem, Me.StockMasterToolStripMenuItem, Me.ToolStripSeparator21, Me.UnitOfMeasurementToolStripMenuItem, Me.ToolStripSeparator20, Me.LocationToolStripMenuItem, Me.ToolStripSeparator5, Me.StockAdjToolStripMenuItem, Me.StockMovementToolStripMenuItem, Me.StockCostAdjustmentToolStripMenuItem, Me.ToolStripSeparator8, Me.StockLocationToolStripMenuItem, Me.ReportsToolStripMenuItem1})
-        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
-        Me.MasterToolStripMenuItem.Text = "Inventory"
-        '
-        'StockCategoryToolStripMenuItem
-        '
-        Me.StockCategoryToolStripMenuItem.Name = "StockCategoryToolStripMenuItem"
-        Me.StockCategoryToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockCategoryToolStripMenuItem.Text = "Product Category"
-        '
-        'StockSubCategoryToolStripMenuItem
-        '
-        Me.StockSubCategoryToolStripMenuItem.Name = "StockSubCategoryToolStripMenuItem"
-        Me.StockSubCategoryToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockSubCategoryToolStripMenuItem.Text = "Product Sub Category"
-        '
-        'StockMasterToolStripMenuItem
-        '
-        Me.StockMasterToolStripMenuItem.Name = "StockMasterToolStripMenuItem"
-        Me.StockMasterToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockMasterToolStripMenuItem.Text = "Product Detail"
-        '
-        'ToolStripSeparator21
-        '
-        Me.ToolStripSeparator21.Name = "ToolStripSeparator21"
-        Me.ToolStripSeparator21.Size = New System.Drawing.Size(192, 6)
-        '
-        'UnitOfMeasurementToolStripMenuItem
-        '
-        Me.UnitOfMeasurementToolStripMenuItem.Name = "UnitOfMeasurementToolStripMenuItem"
-        Me.UnitOfMeasurementToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.UnitOfMeasurementToolStripMenuItem.Text = "Unit of Measurement"
-        '
-        'ToolStripSeparator20
-        '
-        Me.ToolStripSeparator20.Name = "ToolStripSeparator20"
-        Me.ToolStripSeparator20.Size = New System.Drawing.Size(192, 6)
-        '
-        'LocationToolStripMenuItem
-        '
-        Me.LocationToolStripMenuItem.Name = "LocationToolStripMenuItem"
-        Me.LocationToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.LocationToolStripMenuItem.Text = "Location"
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(192, 6)
-        '
-        'StockAdjToolStripMenuItem
-        '
-        Me.StockAdjToolStripMenuItem.Name = "StockAdjToolStripMenuItem"
-        Me.StockAdjToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockAdjToolStripMenuItem.Text = "Stock Adjustment"
-        '
-        'StockMovementToolStripMenuItem
-        '
-        Me.StockMovementToolStripMenuItem.Name = "StockMovementToolStripMenuItem"
-        Me.StockMovementToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockMovementToolStripMenuItem.Text = "Stock Movement"
-        '
-        'StockCostAdjustmentToolStripMenuItem
-        '
-        Me.StockCostAdjustmentToolStripMenuItem.Name = "StockCostAdjustmentToolStripMenuItem"
-        Me.StockCostAdjustmentToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockCostAdjustmentToolStripMenuItem.Text = "Stock Cost Adjustment"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(192, 6)
-        '
-        'StockLocationToolStripMenuItem
-        '
-        Me.StockLocationToolStripMenuItem.Name = "StockLocationToolStripMenuItem"
-        Me.StockLocationToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.StockLocationToolStripMenuItem.Text = "Stock Location"
-        '
-        'ReportsToolStripMenuItem1
-        '
-        Me.ReportsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockListReportToolStripMenuItem, Me.StockCategoryListToolStripMenuItem, Me.LocationListToolStripMenuItem, Me.StockLocationMasterToolStripMenuItem, Me.StockSetListToolStripMenuItem, Me.StockAdjustmentReportToolStripMenuItem, Me.StockMovementReportToolStripMenuItem, Me.StockTransactionToolStripMenuItem, Me.StockControlReportToolStripMenuItem})
-        Me.ReportsToolStripMenuItem1.Name = "ReportsToolStripMenuItem1"
-        Me.ReportsToolStripMenuItem1.Size = New System.Drawing.Size(195, 22)
-        Me.ReportsToolStripMenuItem1.Text = "Reports"
-        '
-        'StockListReportToolStripMenuItem
-        '
-        Me.StockListReportToolStripMenuItem.Name = "StockListReportToolStripMenuItem"
-        Me.StockListReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockListReportToolStripMenuItem.Text = "&Stock List"
-        '
-        'StockCategoryListToolStripMenuItem
-        '
-        Me.StockCategoryListToolStripMenuItem.Name = "StockCategoryListToolStripMenuItem"
-        Me.StockCategoryListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockCategoryListToolStripMenuItem.Text = "Stock Category List"
-        '
-        'LocationListToolStripMenuItem
-        '
-        Me.LocationListToolStripMenuItem.Name = "LocationListToolStripMenuItem"
-        Me.LocationListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.LocationListToolStripMenuItem.Text = "Location List"
-        '
-        'StockLocationMasterToolStripMenuItem
-        '
-        Me.StockLocationMasterToolStripMenuItem.Name = "StockLocationMasterToolStripMenuItem"
-        Me.StockLocationMasterToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockLocationMasterToolStripMenuItem.Text = "&Stock Location List"
-        '
-        'StockSetListToolStripMenuItem
-        '
-        Me.StockSetListToolStripMenuItem.Name = "StockSetListToolStripMenuItem"
-        Me.StockSetListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockSetListToolStripMenuItem.Text = "Stock Set List"
-        '
-        'StockAdjustmentReportToolStripMenuItem
-        '
-        Me.StockAdjustmentReportToolStripMenuItem.Name = "StockAdjustmentReportToolStripMenuItem"
-        Me.StockAdjustmentReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockAdjustmentReportToolStripMenuItem.Text = "Stock Adjustment Report"
-        '
-        'StockMovementReportToolStripMenuItem
-        '
-        Me.StockMovementReportToolStripMenuItem.Name = "StockMovementReportToolStripMenuItem"
-        Me.StockMovementReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockMovementReportToolStripMenuItem.Text = "Stock Movement Report"
-        '
-        'StockTransactionToolStripMenuItem
-        '
-        Me.StockTransactionToolStripMenuItem.Name = "StockTransactionToolStripMenuItem"
-        Me.StockTransactionToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockTransactionToolStripMenuItem.Text = "Stock Transaction Report"
-        '
-        'StockControlReportToolStripMenuItem
-        '
-        Me.StockControlReportToolStripMenuItem.Name = "StockControlReportToolStripMenuItem"
-        Me.StockControlReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.StockControlReportToolStripMenuItem.Text = "Stock Control Report"
-        '
         'SalesToolStripMenuItem1
         '
         Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerCategoryToolStripMenuItem, Me.CustomerTitleToolStripMenuItem, Me.CustomerMasterToolStripMenuItem, Me.ToolStripSeparator24, Me.SalesCodeStripMenuItem, Me.StockPriceToolStripMenuItem, Me.ToolStripSeparator7, Me.FormInductionToolStripMenuItem, Me.FormCostingToolStripMenuItem, Me.ToolStripSeparator16, Me.SalesQuotionToolStripMenuItem, Me.SalesQuotationApprovalToolStripMenuItem, Me.ToolStripSeparator22, Me.SalesOrderToolStripMenuItem1, Me.SalesDeliveryToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.FakturPajakToolStripMenuItem, Me.SalesReturnToolStripMenuItem, Me.SalesPaymentToolStripMenuItem, Me.ToolStripSeparator9, Me.ReportsToolStripMenuItem2})
@@ -662,6 +522,12 @@ Partial Class frmMAIN
         Me.FormInductionToolStripMenuItem.Name = "FormInductionToolStripMenuItem"
         Me.FormInductionToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.FormInductionToolStripMenuItem.Text = "Form Induction"
+        '
+        'FormCostingToolStripMenuItem
+        '
+        Me.FormCostingToolStripMenuItem.Name = "FormCostingToolStripMenuItem"
+        Me.FormCostingToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.FormCostingToolStripMenuItem.Text = "Form Costing"
         '
         'ToolStripSeparator16
         '
@@ -817,6 +683,148 @@ Partial Class frmMAIN
         Me.COGSReportToolStripMenuItem.Name = "COGSReportToolStripMenuItem"
         Me.COGSReportToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.COGSReportToolStripMenuItem.Text = "COGS Report"
+        '
+        'MasterToolStripMenuItem
+        '
+        Me.MasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockCategoryToolStripMenuItem, Me.StockSubCategoryToolStripMenuItem, Me.StockMasterToolStripMenuItem, Me.ToolStripSeparator21, Me.UnitOfMeasurementToolStripMenuItem, Me.ToolStripSeparator20, Me.LocationToolStripMenuItem, Me.ToolStripSeparator5, Me.StockAdjToolStripMenuItem, Me.StockMovementToolStripMenuItem, Me.StockCostAdjustmentToolStripMenuItem, Me.ToolStripSeparator8, Me.StockLocationToolStripMenuItem, Me.ReportsToolStripMenuItem1})
+        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
+        Me.MasterToolStripMenuItem.Text = "Inventory"
+        '
+        'StockCategoryToolStripMenuItem
+        '
+        Me.StockCategoryToolStripMenuItem.Name = "StockCategoryToolStripMenuItem"
+        Me.StockCategoryToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockCategoryToolStripMenuItem.Text = "Product Category"
+        '
+        'StockSubCategoryToolStripMenuItem
+        '
+        Me.StockSubCategoryToolStripMenuItem.Name = "StockSubCategoryToolStripMenuItem"
+        Me.StockSubCategoryToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockSubCategoryToolStripMenuItem.Text = "Product Sub Category"
+        '
+        'StockMasterToolStripMenuItem
+        '
+        Me.StockMasterToolStripMenuItem.Name = "StockMasterToolStripMenuItem"
+        Me.StockMasterToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockMasterToolStripMenuItem.Text = "Product Detail"
+        '
+        'ToolStripSeparator21
+        '
+        Me.ToolStripSeparator21.Name = "ToolStripSeparator21"
+        Me.ToolStripSeparator21.Size = New System.Drawing.Size(192, 6)
+        '
+        'UnitOfMeasurementToolStripMenuItem
+        '
+        Me.UnitOfMeasurementToolStripMenuItem.Name = "UnitOfMeasurementToolStripMenuItem"
+        Me.UnitOfMeasurementToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.UnitOfMeasurementToolStripMenuItem.Text = "Unit of Measurement"
+        '
+        'ToolStripSeparator20
+        '
+        Me.ToolStripSeparator20.Name = "ToolStripSeparator20"
+        Me.ToolStripSeparator20.Size = New System.Drawing.Size(192, 6)
+        '
+        'LocationToolStripMenuItem
+        '
+        Me.LocationToolStripMenuItem.Name = "LocationToolStripMenuItem"
+        Me.LocationToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.LocationToolStripMenuItem.Text = "Location"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(192, 6)
+        '
+        'StockAdjToolStripMenuItem
+        '
+        Me.StockAdjToolStripMenuItem.Name = "StockAdjToolStripMenuItem"
+        Me.StockAdjToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockAdjToolStripMenuItem.Text = "Stock Adjustment"
+        '
+        'StockMovementToolStripMenuItem
+        '
+        Me.StockMovementToolStripMenuItem.Name = "StockMovementToolStripMenuItem"
+        Me.StockMovementToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockMovementToolStripMenuItem.Text = "Stock Movement"
+        '
+        'StockCostAdjustmentToolStripMenuItem
+        '
+        Me.StockCostAdjustmentToolStripMenuItem.Name = "StockCostAdjustmentToolStripMenuItem"
+        Me.StockCostAdjustmentToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockCostAdjustmentToolStripMenuItem.Text = "Stock Cost Adjustment"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(192, 6)
+        '
+        'StockLocationToolStripMenuItem
+        '
+        Me.StockLocationToolStripMenuItem.Name = "StockLocationToolStripMenuItem"
+        Me.StockLocationToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.StockLocationToolStripMenuItem.Text = "Stock Location"
+        '
+        'ReportsToolStripMenuItem1
+        '
+        Me.ReportsToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockListReportToolStripMenuItem, Me.StockCategoryListToolStripMenuItem, Me.LocationListToolStripMenuItem, Me.StockLocationMasterToolStripMenuItem, Me.StockSetListToolStripMenuItem, Me.StockAdjustmentReportToolStripMenuItem, Me.StockMovementReportToolStripMenuItem, Me.StockTransactionToolStripMenuItem, Me.StockControlReportToolStripMenuItem})
+        Me.ReportsToolStripMenuItem1.Name = "ReportsToolStripMenuItem1"
+        Me.ReportsToolStripMenuItem1.Size = New System.Drawing.Size(195, 22)
+        Me.ReportsToolStripMenuItem1.Text = "Reports"
+        '
+        'StockListReportToolStripMenuItem
+        '
+        Me.StockListReportToolStripMenuItem.Name = "StockListReportToolStripMenuItem"
+        Me.StockListReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockListReportToolStripMenuItem.Text = "&Stock List"
+        '
+        'StockCategoryListToolStripMenuItem
+        '
+        Me.StockCategoryListToolStripMenuItem.Name = "StockCategoryListToolStripMenuItem"
+        Me.StockCategoryListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockCategoryListToolStripMenuItem.Text = "Stock Category List"
+        '
+        'LocationListToolStripMenuItem
+        '
+        Me.LocationListToolStripMenuItem.Name = "LocationListToolStripMenuItem"
+        Me.LocationListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.LocationListToolStripMenuItem.Text = "Location List"
+        '
+        'StockLocationMasterToolStripMenuItem
+        '
+        Me.StockLocationMasterToolStripMenuItem.Name = "StockLocationMasterToolStripMenuItem"
+        Me.StockLocationMasterToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockLocationMasterToolStripMenuItem.Text = "&Stock Location List"
+        '
+        'StockSetListToolStripMenuItem
+        '
+        Me.StockSetListToolStripMenuItem.Name = "StockSetListToolStripMenuItem"
+        Me.StockSetListToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockSetListToolStripMenuItem.Text = "Stock Set List"
+        '
+        'StockAdjustmentReportToolStripMenuItem
+        '
+        Me.StockAdjustmentReportToolStripMenuItem.Name = "StockAdjustmentReportToolStripMenuItem"
+        Me.StockAdjustmentReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockAdjustmentReportToolStripMenuItem.Text = "Stock Adjustment Report"
+        '
+        'StockMovementReportToolStripMenuItem
+        '
+        Me.StockMovementReportToolStripMenuItem.Name = "StockMovementReportToolStripMenuItem"
+        Me.StockMovementReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockMovementReportToolStripMenuItem.Text = "Stock Movement Report"
+        '
+        'StockTransactionToolStripMenuItem
+        '
+        Me.StockTransactionToolStripMenuItem.Name = "StockTransactionToolStripMenuItem"
+        Me.StockTransactionToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockTransactionToolStripMenuItem.Text = "Stock Transaction Report"
+        '
+        'StockControlReportToolStripMenuItem
+        '
+        Me.StockControlReportToolStripMenuItem.Name = "StockControlReportToolStripMenuItem"
+        Me.StockControlReportToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.StockControlReportToolStripMenuItem.Text = "Stock Control Report"
         '
         'ProductionToolStripMenuItem
         '
@@ -1141,7 +1149,7 @@ Partial Class frmMAIN
         '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator3, Me.CompanyProfileToolStripMenuItem, Me.BackgroundParameterToolStripMenuItem, Me.TransactionNumberToolStripMenuItem, Me.PeriodToolStripMenuItem, Me.LedgerAccountSettingToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator3, Me.CompanyProfileToolStripMenuItem, Me.BackgroundParameterToolStripMenuItem, Me.TransactionNumberToolStripMenuItem, Me.PeriodToolStripMenuItem, Me.LedgerAccountSettingToolStripMenuItem, Me.ToolStripSeparator27, Me.ModuleIssuesToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
         Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.SettingsToolStripMenuItem.Text = "Settings"
@@ -1244,6 +1252,31 @@ Partial Class frmMAIN
         Me.ToolStrip.Text = "ToolStrip"
         Me.ToolStrip.Visible = False
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'StatusStrip
+        '
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(1103, 22)
+        Me.StatusStrip.TabIndex = 7
+        Me.StatusStrip.Text = "StatusStrip"
+        '
+        'ToolStripStatusLabel
+        '
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
+        Me.ToolStripStatusLabel.Text = "User"
+        '
         'NewToolStripButton
         '
         Me.NewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1271,11 +1304,6 @@ Partial Class frmMAIN
         Me.SaveToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.SaveToolStripButton.Text = "Save"
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
         'PrintToolStripButton
         '
         Me.PrintToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1294,11 +1322,6 @@ Partial Class frmMAIN
         Me.PrintPreviewToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.PrintPreviewToolStripButton.Text = "Print Preview"
         '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
         'HelpToolStripButton
         '
         Me.HelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1308,26 +1331,16 @@ Partial Class frmMAIN
         Me.HelpToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.HelpToolStripButton.Text = "Help"
         '
-        'StatusStrip
+        'ToolStripSeparator27
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
-        Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1103, 22)
-        Me.StatusStrip.TabIndex = 7
-        Me.StatusStrip.Text = "StatusStrip"
+        Me.ToolStripSeparator27.Name = "ToolStripSeparator27"
+        Me.ToolStripSeparator27.Size = New System.Drawing.Size(195, 6)
         '
-        'ToolStripStatusLabel
+        'ModuleIssuesToolStripMenuItem
         '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
-        Me.ToolStripStatusLabel.Text = "User"
-        '
-        'FormCostingToolStripMenuItem
-        '
-        Me.FormCostingToolStripMenuItem.Name = "FormCostingToolStripMenuItem"
-        Me.FormCostingToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
-        Me.FormCostingToolStripMenuItem.Text = "Form Costing"
+        Me.ModuleIssuesToolStripMenuItem.Name = "ModuleIssuesToolStripMenuItem"
+        Me.ModuleIssuesToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.ModuleIssuesToolStripMenuItem.Text = "Module Issues"
         '
         'frmMAIN
         '
@@ -1537,4 +1550,6 @@ Partial Class frmMAIN
     Friend WithEvents ToolStripSeparator26 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ProductionToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FormCostingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator27 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ModuleIssuesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

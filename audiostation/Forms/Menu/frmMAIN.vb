@@ -1451,4 +1451,9 @@ Public Class frmMAIN
         ftr_scosting.BringToFront()
     End Sub
 
+    Private Sub ModuleIssuesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ModuleIssuesToolStripMenuItem.Click
+        frmModule.MdiParent = Me
+        frmModule.Show()
+        frmModule.BringToFront()
+    End Sub
 End Class
