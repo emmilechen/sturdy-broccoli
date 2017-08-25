@@ -102,6 +102,7 @@ Public Class frmMAIN
         Me.Controls.Add(menu)
     End Sub
     Private Function openformcommon(namaform As Form)
+        'If Not GetPermission("frmUser") = False Then
         namaform.MdiParent = Me
         namaform.Show()
         namaform.BringToFront()
@@ -1358,11 +1359,7 @@ Public Class frmMAIN
     End Sub
 
     Private Sub UserToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserToolStripMenuItem.Click
-        If Not GetPermission("frmUser") = False Then
-            frmUser.MdiParent = Me
-            frmUser.Show()
-            frmUser.BringToFront()
-        End If
+        openformcommon(frmUser)
     End Sub
 
     Private Sub UserLevelToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserLevelToolStripMenuItem.Click
@@ -1398,21 +1395,15 @@ Public Class frmMAIN
     End Sub
 
     Private Sub SalesQuotionToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SalesQuotionToolStripMenuItem.Click
-        frmSQuoteList.MdiParent = Me
-        frmSQuoteList.Show()
-        frmSQuoteList.BringToFront()
+        openformcommon(frmSQuoteList)
     End Sub
 
     Private Sub SalesQuotationApprovalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SalesQuotationApprovalToolStripMenuItem.Click
-        frmSQuoteApprovalList.MdiParent = Me
-        frmSQuoteApprovalList.Show()
-        frmSQuoteApprovalList.BringToFront()
+        openformcommon(frmSQuoteApprovalList)
     End Sub
 
     Private Sub ProductionMemoToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionMemoToolStripMenuItem.Click
-        ftr_mp.MdiParent = Me
-        ftr_mp.Show()
-        ftr_mp.BringToFront()
+        openformcommon(ftr_mp)
     End Sub
 
     Private Sub RequestMemoToWarehouseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RequestMemoToWarehouseToolStripMenuItem.Click
@@ -1446,14 +1437,14 @@ Public Class frmMAIN
     End Sub
   
     Private Sub FormCostingToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FormCostingToolStripMenuItem.Click
-        ftr_scosting.MdiParent = Me
-        ftr_scosting.Show()
-        ftr_scosting.BringToFront()
+        openformcommon(ftr_scosting)
     End Sub
 
     Private Sub ModuleIssuesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ModuleIssuesToolStripMenuItem.Click
-        frmModule.MdiParent = Me
-        frmModule.Show()
-        frmModule.BringToFront()
+        openformcommon(frmModule)
+    End Sub
+
+    Private Sub ProductionProcessControlToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionProcessControlToolStripMenuItem.Click
+        openformcommon(frmOrderProcess)
     End Sub
 End Class
