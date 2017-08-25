@@ -463,13 +463,14 @@ Module modFunction
                         End If
                     Next ctrl
                     sqlComm.Parameters.AddWithValue("@action", action)
-                    sqlComm.Parameters.AddWithValue(outputid, 0)
+                    sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int)
                     sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
                     sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
-
+                    'Dim paramoutput As SqlParameter = sqlComm.Parameters.Contains(outputid)
                     If action = "insert" Then
+                        'paramoutput.Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        txtid.Text = sqlComm.Parameters(outputid).SqlValue.ToString
+                        txtid.Text = System.Convert.ToInt32(sqlComm.Parameters(outputid).Value) 'sqlComm.Parameters(outputid).SqlValue.ToString
                     ElseIf action = "update" Then
                         sqlComm.ExecuteNonQuery()
                     ElseIf action = "select" Then
