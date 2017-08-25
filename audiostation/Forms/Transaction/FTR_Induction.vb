@@ -195,6 +195,7 @@ Public Class FTR_Induction
     End Function
     Private Sub FTR_Induction_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         On Error Resume Next
+        Me.Top = 0 : Me.Left = 0
         If cn.State = ConnectionState.Closed Then cn.Open()
         If Me.txtguid.Text = "" Then
             kosong()
