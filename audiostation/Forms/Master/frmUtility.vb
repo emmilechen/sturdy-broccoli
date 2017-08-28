@@ -35,14 +35,9 @@ Public Class frmUtility
         Me.txtguid.Text = ""
         Me.btndelete.Enabled = False
         Me.btncancel.Enabled = False
-        Me.btnsave.Enabled = True
+        Me.btnsave.Enabled = False
         Me.btnnew.Enabled = True
-        'loaddata(Me.txtopenargs.Text, "")
-        'Me.cmddel.Enabled = False
-        'Me.cmdfind.Enabled = False
-        'Me.ListView2.Items.Clear()
-        'Me.Width = 544
-        Me.txtseq.Focus()
+        Me.txtseq.BackColor = Color.Aqua : Me.txtseq.Select()
     End Sub
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         On Error Resume Next
@@ -50,7 +45,7 @@ Public Class frmUtility
         Dim str(10) As String, strsql As String
         Dim itm As ListViewItem
         Dim dr As SqlDataReader
-
+        If cn.State = ConnectionState.Closed Then cn.Open()
         With namalistview
             .Items.Clear()
             strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
@@ -74,13 +69,12 @@ Public Class frmUtility
     Private Sub loaddata(openargs As String, cari As String)
         'Select Case openargs
         'Case Is = "unit_user_dept", "unit_user_div", "unit_uom_machine_elec", "unit_uom_machine_size", "unit_uom_machine_speed", "machine_cat", "machine_subcat", "machine_division" 'apa aj
-        opensearchform(Me.ListView1, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')" & cari, "sys_dropdown_sort", 0) : frfield = "3" : fr = "y.catcode" : frtable = "m_member x inner join M_Event_Category y on x.kodemember=y.catname " : Me.btndelete.Enabled = False : Me.btnsave.Enabled = False : Me.btnnew.Enabled = False
-        autocompleteteks(Me.txtkode, "distinct sys_dropdown_id", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')", "sys_dropdown_id")
+        opensearchform(Me.ListView1, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')" & IIf(cari <> "", " AND (sys_dropdown_id like '%" & cari & "%' OR sys_dropdown_val like '%" & cari & "%')", ""), "sys_dropdown_sort", 0) : frfield = "3" : fr = "y.catcode" : frtable = "m_member x inner join M_Event_Category y on x.kodemember=y.catname " : Me.btndelete.Enabled = False : Me.btnsave.Enabled = False : Me.btnnew.Enabled = False
+        If cari = "" Then autocompleteteks(Me.txtkode, "distinct sys_dropdown_id", "sys_dropdown", "sys_dropdown_whr in ('" & openargs & "')", "sys_dropdown_id")
         'End Select
         'kosong()
         Me.lblreckiri.Text = Me.ListView1.Items.Count & " records"
     End Sub
-
     Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
         Dim cmd1 As SqlCommand
         Dim strsql As String
@@ -101,6 +95,7 @@ Public Class frmUtility
         End If
         cmd1.Dispose()
         dr1.Close()
+        Me.txtseq.Select() : Me.txtseq.BackColor = Color.White
         Me.btndelete.Enabled = True
         Me.btncancel.Enabled = True
         Me.btnsave.Enabled = True
@@ -142,5 +137,47 @@ Public Class frmUtility
 
     Private Sub btnexit_Click(sender As System.Object, e As System.EventArgs) Handles btnexit.Click
         Me.Close()
+    End Sub
+
+    Private Sub txtseq_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtseq.KeyDown
+        If e.KeyCode = Keys.Enter Then Me.txtkode.Select()
+        If e.KeyCode = Keys.Right Then Me.txtkode.Select()
+    End Sub
+
+    Private Sub txtseq_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txtseq.KeyPress
+        '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+    Private Sub txtkode_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtkode.KeyDown
+        If e.KeyCode = Keys.Enter Then Me.txtket.Select()
+        If e.KeyCode = Keys.Right Then Me.txtket.Select()
+        If e.KeyCode = Keys.Left Then Me.txtseq.Select()
+    End Sub
+
+    Private Sub txtket_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtket.KeyDown
+        If e.KeyCode = Keys.Enter Then Me.btnsave.Select()
+        If e.KeyCode = Keys.Right Then Me.btnsave.Select()
+        If e.KeyCode = Keys.Left Then Me.txtkode.Select()
+    End Sub
+
+    Private Sub txtkode_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtkode.TextChanged
+        Me.btnsave.Enabled = Len(Me.txtkode.Text) > 3
+        Me.txtket.Text = Me.txtkode.Text
+    End Sub
+
+    Private Sub txtsearch_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles txtsearch.KeyDown
+        If e.KeyCode = Keys.Escape Then Me.btnnew.Enabled = True
+    End Sub
+
+    Private Sub txtsearch_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtsearch.TextChanged
+        loaddata(Me.txtopenargs.Text, Me.txtsearch.Text)
+    End Sub
+
+    Private Sub txtseq_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtseq.TextChanged
+
     End Sub
 End Class

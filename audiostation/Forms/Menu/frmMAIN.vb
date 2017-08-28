@@ -106,6 +106,7 @@ Public Class frmMAIN
         namaform.MdiParent = Me
         namaform.Show()
         namaform.BringToFront()
+        namaform.Top = 0 : namaform.Left = 0
     End Function
     Private Function openformutility(openargs As String, judul As String)
         Me.Cursor = Cursors.AppStarting
@@ -136,7 +137,6 @@ Public Class frmMAIN
             stringReader = fileReader.ReadLine()
             ' "k0t4r0m1n4m1" '
             If stringReader = "k0t4r0m1n4m1" Then
-
                 Dim userCount As Integer
                 Dim userEncrypt As String
                 Dim userVal As Integer
@@ -1321,15 +1321,11 @@ Public Class frmMAIN
     End Sub
 
     Private Sub PurchasePitchingApprovalToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchasePitchingApprovalToolStripMenuItem.Click
-        frmPPitchingApprovalList.MdiParent = Me
-        frmPPitchingApprovalList.Show()
-        frmPPitchingApprovalList.BringToFront()
+        openformcommon(frmPPitchingApprovalList)
     End Sub
 
     Private Sub UtilityFormToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UtilityFormToolStripMenuItem.Click
-        frmFormmod.MdiParent = Me
-        frmFormmod.Show()
-        frmFormmod.BringToFront()
+        openformcommon(frmFormmod)
     End Sub
     Private Sub DepartementToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DepartementToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
@@ -1353,9 +1349,7 @@ Public Class frmMAIN
 
     End Sub
     Private Sub UnitOfMeasurementToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UnitOfMeasurementToolStripMenuItem.Click
-        frmSKUUoM.MdiParent = Me
-        frmSKUUoM.Show()
-        frmSKUUoM.BringToFront()
+        openformcommon(frmSKUUoM)
     End Sub
 
     Private Sub UserToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserToolStripMenuItem.Click
@@ -1363,11 +1357,7 @@ Public Class frmMAIN
     End Sub
 
     Private Sub UserLevelToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserLevelToolStripMenuItem.Click
-        If Not GetPermission("frmUserLevel") = False Then
-            frmUserLevel.MdiParent = Me
-            frmUserLevel.Show()
-            frmUserLevel.BringToFront()
-        End If
+        openformcommon(frmUserLevel)
     End Sub
 
     Private Sub UOMElectricalToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UOMElectricalToolStripMenuItem.Click
@@ -1407,9 +1397,6 @@ Public Class frmMAIN
     End Sub
 
     Private Sub RequestMemoToWarehouseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RequestMemoToWarehouseToolStripMenuItem.Click
-        'ftr_mrq.MdiParent = Me
-        'ftr_mrq.Show()
-        'ftr_mrq.BringToFront()
     End Sub
 
     Private Sub CustomerCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerCategoryToolStripMenuItem.Click
@@ -1446,5 +1433,9 @@ Public Class frmMAIN
 
     Private Sub ProductionProcessControlToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionProcessControlToolStripMenuItem.Click
         openformcommon(frmOrderProcess)
+    End Sub
+
+    Private Sub ProductionCostComponentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionCostComponentsToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
 End Class

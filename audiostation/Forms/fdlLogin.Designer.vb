@@ -22,160 +22,131 @@ Partial Class fdlLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(fdlLogin))
-        Me.txtUserName = New System.Windows.Forms.TextBox()
-        Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.cmdLogin = New System.Windows.Forms.Button()
-        Me.cmdCancel = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'txtUserName
-        '
-        Me.txtUserName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserName.Location = New System.Drawing.Point(262, 52)
-        Me.txtUserName.Name = "txtUserName"
-        Me.txtUserName.Size = New System.Drawing.Size(188, 21)
-        Me.txtUserName.TabIndex = 0
-        '
-        'txtPassword
-        '
-        Me.txtPassword.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(262, 104)
-        Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(188, 21)
-        Me.txtPassword.TabIndex = 1
-        '
-        'cmdLogin
-        '
-        Me.cmdLogin.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdLogin.Location = New System.Drawing.Point(262, 151)
-        Me.cmdLogin.Name = "cmdLogin"
-        Me.cmdLogin.Size = New System.Drawing.Size(90, 23)
-        Me.cmdLogin.TabIndex = 2
-        Me.cmdLogin.Text = "Login"
-        Me.cmdLogin.UseVisualStyleBackColor = True
-        '
-        'cmdCancel
-        '
-        Me.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.cmdCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdCancel.Location = New System.Drawing.Point(360, 151)
-        Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(90, 23)
-        Me.cmdCancel.TabIndex = 3
-        Me.cmdCancel.Text = "Cancel"
-        Me.cmdCancel.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(259, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Username"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(261, 88)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Password"
         '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.ErrorImage = Nothing
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(14, 36)
+        Me.PictureBox1.Image = Global.boxtree.My.Resources.Resources.btp_img
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(83, 73)
+        Me.PictureBox1.Size = New System.Drawing.Size(371, 78)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox2
+        'Label1
         '
-        Me.PictureBox2.ErrorImage = Nothing
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(16, 113)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(213, 43)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(7, 102)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 25)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "User"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.DarkCyan
+        Me.TextBox1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(12, 130)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(368, 33)
+        Me.TextBox1.TabIndex = 2
+        '
+        'TextBox2
+        '
+        Me.TextBox2.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.TextBox2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(12, 210)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox2.Size = New System.Drawing.Size(368, 33)
+        Me.TextBox2.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(7, 182)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(115, 25)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Password"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 203)
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(9, 357)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 11)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "App 1.00"
+        Me.Label3.Size = New System.Drawing.Size(44, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Label3"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 216)
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(336, 357)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(18, 11)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "DB"
+        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Label4"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Turquoise
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(12, 277)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(368, 55)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Submit"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'fdlLogin
         '
-        Me.AcceptButton = Me.cmdLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.cmdCancel
-        Me.ClientSize = New System.Drawing.Size(483, 238)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(393, 384)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cmdCancel)
-        Me.Controls.Add(Me.cmdLogin)
-        Me.Controls.Add(Me.txtPassword)
-        Me.Controls.Add(Me.txtUserName)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Controls.Add(Me.PictureBox1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "fdlLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Login"
+        Me.Text = "Login Form"
+        Me.TopMost = True
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txtUserName As System.Windows.Forms.TextBox
-    Friend WithEvents txtPassword As System.Windows.Forms.TextBox
-    Friend WithEvents cmdLogin As System.Windows.Forms.Button
-    Friend WithEvents cmdCancel As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

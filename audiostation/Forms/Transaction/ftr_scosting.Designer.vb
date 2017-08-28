@@ -339,8 +339,6 @@ Partial Class ftr_scosting
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.txtguid_d)
-        Me.TabPage1.Controls.Add(Me.btnAddD)
-        Me.TabPage1.Controls.Add(Me.btnDeleteD)
         Me.TabPage1.Controls.Add(Me.btnSaveD)
         Me.TabPage1.Controls.Add(Me.TextBox19)
         Me.TabPage1.Controls.Add(Me.ComboBox13)
@@ -364,6 +362,8 @@ Partial Class ftr_scosting
         Me.TabPage1.Controls.Add(Me.TextBox12)
         Me.TabPage1.Controls.Add(Me.ComboBox6)
         Me.TabPage1.Controls.Add(Me.ListView1)
+        Me.TabPage1.Controls.Add(Me.btnAddD)
+        Me.TabPage1.Controls.Add(Me.btnDeleteD)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -375,7 +375,7 @@ Partial Class ftr_scosting
         'txtguid_d
         '
         Me.txtguid_d.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid_d.Location = New System.Drawing.Point(1067, 9)
+        Me.txtguid_d.Location = New System.Drawing.Point(6, 8)
         Me.txtguid_d.Name = "txtguid_d"
         Me.txtguid_d.Size = New System.Drawing.Size(84, 21)
         Me.txtguid_d.TabIndex = 75

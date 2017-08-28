@@ -101,7 +101,6 @@ Public Class frmUser
             Me.txtguid.Text = child.txtChildText0.Text
         End If
     End Sub
-
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         Try
             If MsgBox("Data akan disimpan, lajutkan ?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "User") = MsgBoxResult.Yes Then

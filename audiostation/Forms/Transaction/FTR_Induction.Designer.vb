@@ -243,9 +243,10 @@ Partial Class FTR_Induction
         Me.cmdfind = New System.Windows.Forms.ToolStripButton()
         Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
         Me.cmddelete = New System.Windows.Forms.ToolStripButton()
-        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
         Me.cmdnew = New System.Windows.Forms.ToolStripButton()
         Me.cmdexit = New System.Windows.Forms.ToolStripButton()
+        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -2467,7 +2468,7 @@ Partial Class FTR_Induction
         'ToolStrip1
         '
         Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdprint, Me.cmdnew, Me.cmdexit})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdnew, Me.cmdexit, Me.ToolStripSeparator1, Me.cmdprint})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1264, 25)
@@ -2516,14 +2517,6 @@ Partial Class FTR_Induction
         Me.cmddelete.Size = New System.Drawing.Size(70, 22)
         Me.cmddelete.Text = "&Delete"
         '
-        'cmdprint
-        '
-        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
-        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdprint.Name = "cmdprint"
-        Me.cmdprint.Size = New System.Drawing.Size(59, 22)
-        Me.cmdprint.Text = "&Print"
-        '
         'cmdnew
         '
         Me.cmdnew.Image = CType(resources.GetObject("cmdnew.Image"), System.Drawing.Image)
@@ -2539,6 +2532,19 @@ Partial Class FTR_Induction
         Me.cmdexit.Name = "cmdexit"
         Me.cmdexit.Size = New System.Drawing.Size(51, 22)
         Me.cmdexit.Text = "&Exit"
+        '
+        'cmdprint
+        '
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
+        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdprint.Name = "cmdprint"
+        Me.cmdprint.Size = New System.Drawing.Size(59, 22)
+        Me.cmdprint.Text = "&Print"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'FTR_Induction
         '
@@ -2833,4 +2839,5 @@ Partial Class FTR_Induction
     Friend WithEvents cmdnew As System.Windows.Forms.ToolStripButton
     Friend WithEvents cmdexit As System.Windows.Forms.ToolStripButton
     Friend WithEvents cmdprint As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
 End Class

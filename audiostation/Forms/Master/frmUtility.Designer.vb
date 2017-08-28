@@ -65,6 +65,8 @@ Partial Class frmUtility
         '
         'txtkode
         '
+        Me.txtkode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtkode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtkode.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtkode.Location = New System.Drawing.Point(78, 90)
         Me.txtkode.Name = "txtkode"
@@ -178,7 +180,7 @@ Partial Class frmUtility
         Me.btncancel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(83, 23)
-        Me.btncancel.Text = "Cancel"
+        Me.btncancel.Text = "&Cancel"
         '
         'btndelete
         '
@@ -186,7 +188,7 @@ Partial Class frmUtility
         Me.btndelete.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(83, 23)
-        Me.btndelete.Text = "Delete"
+        Me.btndelete.Text = "&Delete"
         '
         'btnnew
         '
@@ -194,7 +196,7 @@ Partial Class frmUtility
         Me.btnnew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnnew.Name = "btnnew"
         Me.btnnew.Size = New System.Drawing.Size(65, 23)
-        Me.btnnew.Text = "New"
+        Me.btnnew.Text = "&New"
         '
         'btnexit
         '

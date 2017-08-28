@@ -79,9 +79,8 @@ Public Class frmdashboard
         Dim dr3 As SqlDataReader
         Dim strfield As String
         Me.Timer1.Enabled = True
-        If cn.State = ConnectionState.Closed Then
-            cn.Open()
-        End If
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        Me.Cursor = Cursors.WaitCursor
         Me.Label4.Text = GetSysInit("sys_marquee")
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
@@ -102,10 +101,8 @@ Public Class frmdashboard
 
         list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
 
-
-        'End If
-
         'SELECT a.formname, a.fieldname, a.signlevelid,b.fieldpk,b.fieldno,b.fielddate,b.fieldnote FROM  where(a.userid = 10)
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub frmdashboard_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize

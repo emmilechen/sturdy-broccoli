@@ -138,6 +138,7 @@ Partial Class frmMAIN
         Me.ProductionMemoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestMemoToWarehouseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductionToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductionProcessControlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BankToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BankCardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
@@ -197,18 +198,22 @@ Partial Class frmMAIN
         Me.UOMSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UOMSpeedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.PrintToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.PrintPreviewToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ProductionProcessControlToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripSeparator28 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator29 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator30 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ProductionCostComponentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator31 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -235,19 +240,19 @@ Partial Class frmMAIN
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'SignOutToolStripMenuItem
         '
         Me.SignOutToolStripMenuItem.Name = "SignOutToolStripMenuItem"
-        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SignOutToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.SignOutToolStripMenuItem.Text = "Sign Out"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'UserToolStripMenuItem1
@@ -829,7 +834,7 @@ Partial Class frmMAIN
         '
         'ProductionToolStripMenuItem
         '
-        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem, Me.ToolStripSeparator17, Me.UnitOfMeasurementElectricalToolStripMenuItem, Me.UnitOfMeasurementSizeToolStripMenuItem, Me.UnitOfMeasurementSpeedToolStripMenuItem, Me.ToolStripSeparator23, Me.ShiftToolStripMenuItem, Me.ToolStripSeparator26, Me.ProductionMemoToolStripMenuItem, Me.RequestMemoToWarehouseToolStripMenuItem, Me.ProductionToolStripMenuItem1, Me.ProductionProcessControlToolStripMenuItem})
+        Me.ProductionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MachineToolStripMenuItem, Me.ToolStripSeparator17, Me.UnitOfMeasurementElectricalToolStripMenuItem, Me.UnitOfMeasurementSizeToolStripMenuItem, Me.UnitOfMeasurementSpeedToolStripMenuItem, Me.ToolStripSeparator31, Me.ProductionCostComponentsToolStripMenuItem, Me.ToolStripSeparator23, Me.ShiftToolStripMenuItem, Me.ToolStripSeparator26, Me.ProductionMemoToolStripMenuItem, Me.RequestMemoToWarehouseToolStripMenuItem, Me.ProductionToolStripMenuItem1, Me.ProductionProcessControlToolStripMenuItem})
         Me.ProductionToolStripMenuItem.Name = "ProductionToolStripMenuItem"
         Me.ProductionToolStripMenuItem.Size = New System.Drawing.Size(78, 20)
         Me.ProductionToolStripMenuItem.Text = "Production"
@@ -900,6 +905,12 @@ Partial Class frmMAIN
         Me.ProductionToolStripMenuItem1.Name = "ProductionToolStripMenuItem1"
         Me.ProductionToolStripMenuItem1.Size = New System.Drawing.Size(247, 22)
         Me.ProductionToolStripMenuItem1.Text = "Production Daily Process Access "
+        '
+        'ProductionProcessControlToolStripMenuItem
+        '
+        Me.ProductionProcessControlToolStripMenuItem.Name = "ProductionProcessControlToolStripMenuItem"
+        Me.ProductionProcessControlToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
+        Me.ProductionProcessControlToolStripMenuItem.Text = "Production Process Control"
         '
         'BankToolStripMenuItem
         '
@@ -1094,7 +1105,7 @@ Partial Class frmMAIN
         '
         'OtherToolStripMenuItem
         '
-        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CurrencyToolStripMenuItem1, Me.CurrencyRevaluationToolStripMenuItem, Me.ExpenseIncomeToolStripMenuItem, Me.UtilityFormToolStripMenuItem, Me.ReportToolStripMenuItem})
+        Me.OtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CurrencyToolStripMenuItem1, Me.CurrencyRevaluationToolStripMenuItem, Me.ToolStripSeparator28, Me.ExpenseIncomeToolStripMenuItem, Me.ToolStripSeparator30, Me.UtilityFormToolStripMenuItem, Me.ToolStripSeparator29, Me.ReportToolStripMenuItem})
         Me.OtherToolStripMenuItem.Name = "OtherToolStripMenuItem"
         Me.OtherToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.OtherToolStripMenuItem.Text = "Other"
@@ -1264,31 +1275,6 @@ Partial Class frmMAIN
         Me.ToolStrip.Text = "ToolStrip"
         Me.ToolStrip.Visible = False
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'StatusStrip
-        '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
-        Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1103, 22)
-        Me.StatusStrip.TabIndex = 7
-        Me.StatusStrip.Text = "StatusStrip"
-        '
-        'ToolStripStatusLabel
-        '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
-        Me.ToolStripStatusLabel.Text = "User"
-        '
         'NewToolStripButton
         '
         Me.NewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1316,6 +1302,11 @@ Partial Class frmMAIN
         Me.SaveToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.SaveToolStripButton.Text = "Save"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
         'PrintToolStripButton
         '
         Me.PrintToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1334,6 +1325,11 @@ Partial Class frmMAIN
         Me.PrintPreviewToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.PrintPreviewToolStripButton.Text = "Print Preview"
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'HelpToolStripButton
         '
         Me.HelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1343,11 +1339,47 @@ Partial Class frmMAIN
         Me.HelpToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.HelpToolStripButton.Text = "Help"
         '
-        'ProductionProcessControlToolStripMenuItem
+        'StatusStrip
         '
-        Me.ProductionProcessControlToolStripMenuItem.Name = "ProductionProcessControlToolStripMenuItem"
-        Me.ProductionProcessControlToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
-        Me.ProductionProcessControlToolStripMenuItem.Text = "Production Process Control"
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(1103, 22)
+        Me.StatusStrip.TabIndex = 7
+        Me.StatusStrip.Text = "StatusStrip"
+        '
+        'ToolStripStatusLabel
+        '
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
+        Me.ToolStripStatusLabel.Text = "User"
+        '
+        'ToolStripSeparator28
+        '
+        Me.ToolStripSeparator28.Name = "ToolStripSeparator28"
+        Me.ToolStripSeparator28.Size = New System.Drawing.Size(184, 6)
+        '
+        'ToolStripSeparator29
+        '
+        Me.ToolStripSeparator29.Name = "ToolStripSeparator29"
+        Me.ToolStripSeparator29.Size = New System.Drawing.Size(184, 6)
+        '
+        'ToolStripSeparator30
+        '
+        Me.ToolStripSeparator30.Name = "ToolStripSeparator30"
+        Me.ToolStripSeparator30.Size = New System.Drawing.Size(184, 6)
+        '
+        'ProductionCostComponentsToolStripMenuItem
+        '
+        Me.ProductionCostComponentsToolStripMenuItem.Name = "ProductionCostComponentsToolStripMenuItem"
+        Me.ProductionCostComponentsToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
+        Me.ProductionCostComponentsToolStripMenuItem.Tag = "production_cost_component"
+        Me.ProductionCostComponentsToolStripMenuItem.Text = "Production Cost Components"
+        '
+        'ToolStripSeparator31
+        '
+        Me.ToolStripSeparator31.Name = "ToolStripSeparator31"
+        Me.ToolStripSeparator31.Size = New System.Drawing.Size(244, 6)
         '
         'frmMAIN
         '
@@ -1560,4 +1592,9 @@ Partial Class frmMAIN
     Friend WithEvents ToolStripSeparator27 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ModuleIssuesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProductionProcessControlToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator31 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ProductionCostComponentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator28 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator30 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator29 As System.Windows.Forms.ToolStripSeparator
 End Class
