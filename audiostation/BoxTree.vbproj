@@ -143,6 +143,12 @@
     <Compile Include="Forms\Dialog\frmSupplierD.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\fdlLogin.Designer.vb">
+      <DependentUpon>fdlLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fdlLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\LvtAboutBox.Designer.vb">
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
     </Compile>
@@ -606,6 +612,12 @@
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\frmabsenproduksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmOrderProcess.Designer.vb">
+      <DependentUpon>frmOrderProcess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmOrderProcess.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
@@ -1371,12 +1383,6 @@
       <DependentUpon>frmPO.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fdlLogin.Designer.vb">
-      <DependentUpon>fdlLogin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\fdlLogin.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Master\frmSKU.Designer.vb">
       <DependentUpon>frmSKU.vb</DependentUpon>
     </Compile>
@@ -1659,7 +1665,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\fdlLogin.resx">
       <DependentUpon>fdlLogin.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LvtAboutBox.en.resx">
       <DependentUpon>LvtAboutBox.vb</DependentUpon>
@@ -1912,6 +1917,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmOrderProcess.resx">
+      <DependentUpon>frmOrderProcess.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
@@ -2445,6 +2453,7 @@
   <ItemGroup>
     <Content Include="BoxTree_Icon.ico" />
     <Content Include="Levate_Icon.ico" />
+    <None Include="Resources\btp_img.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\up24.png" />
     <None Include="Resources\Save.png" />
