@@ -379,7 +379,6 @@ Module modFunction
         End If
 
         dr.Close()
-
         cmd.Dispose()
         'Exit Function
     End Function
@@ -463,7 +462,7 @@ Module modFunction
                         End If
                     Next ctrl
                     sqlComm.Parameters.AddWithValue("@action", action)
-                    sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int)
+                    sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int) 'If action = "select" Then sqlComm.Parameters.AddWithValue(outputid, 0) Else sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int)
                     sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
                     sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
                     'Dim paramoutput As SqlParameter = sqlComm.Parameters.Contains(outputid)
@@ -684,6 +683,26 @@ Module modFunction
         If File.Exists(fileName) Then
             getfiledate = File.GetLastWriteTime(fileName).ToString
         End If
+    End Function
+    Public Function CountRecordnya(ByVal namafield As String, ByVal Namatable As String, ByVal kondisi As String, ByVal strwhrlangsung As Boolean) As Integer
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim dr As SqlDataReader
+
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        CountRecordnya = 0
+        cmd = New SqlCommand("Select " & namafield & " from " & Namatable & " where " & kondisi, cn)
+        dr = cmd.ExecuteReader()
+        If dr.HasRows() Then
+            While dr.Read
+                CountRecordnya = CountRecordnya + 1
+            End While
+        Else
+            CountRecordnya = 0
+        End If
+        dr.Close()
+        cmd.Dispose()
+        Exit Function
     End Function
 End Module
 
