@@ -608,12 +608,6 @@
     <Compile Include="Forms\Transaction\fdlCUtility.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmOrderProcess.Designer.vb">
-      <DependentUpon>frmOrderProcess.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\frmOrderProcess.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Transaction\frmabsenproduksi.Designer.vb">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </Compile>
@@ -1470,6 +1464,12 @@
     <Compile Include="Forms\Transaction\frmWorkOrderList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\ftr_mrq.Designer.vb">
+      <DependentUpon>ftr_mrq.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mrq.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\ftr_scosting.Designer.vb">
       <DependentUpon>ftr_scosting.vb</DependentUpon>
     </Compile>
@@ -1926,9 +1926,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmOrderProcess.resx">
-      <DependentUpon>frmOrderProcess.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
