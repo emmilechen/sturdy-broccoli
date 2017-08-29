@@ -608,6 +608,12 @@
     <Compile Include="Forms\Transaction\fdlCUtility.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\frmOrderProcess.Designer.vb">
+      <DependentUpon>frmOrderProcess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmOrderProcess.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\frmabsenproduksi.Designer.vb">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </Compile>
@@ -1612,6 +1618,12 @@
       <DependentUpon>RPT_Sls_Customer_List.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\RPT_Sls_Invoice_Form.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Sls_Invoice_Form.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\RPT_Sls_OrderInv_Form.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1914,6 +1926,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmOrderProcess.resx">
+      <DependentUpon>frmOrderProcess.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
@@ -2409,6 +2424,10 @@
     <EmbeddedResource Include="Reports\RPT_Sls_Customer_List.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_Sls_Customer_List.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT_Sls_Invoice_Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Sls_Invoice_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Sls_OrderInv_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
