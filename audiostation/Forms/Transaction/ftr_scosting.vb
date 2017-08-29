@@ -66,8 +66,8 @@ Public Class ftr_scosting
         Me.TextBox17.Text = "0"
         Me.TextBox18.Text = "0"
         'opensearchform(Me.ListView1, "rt_form_id", "formname", "tablename, fieldname, signlevelid, userid", "rt_form_sign", "rt_form_sign.userid in ('" & Me.txtguid.Text & "')", "formname", 0)
-        Me.ComboBox1.Focus()
         Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False ': Me.btnprint.Enabled = False
+        Me.ComboBox1.Select()
     End Function
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         'On Error Resume Next
@@ -104,7 +104,7 @@ Public Class ftr_scosting
         kosong()
     End Sub
     Private Function isirecord(ByVal guidno As Integer)
-        Me.txtguid.Text = guidno
+        'Me.txtguid.Text = guidno
 
         Fillobject(Me.txtguid, Me, "select", "sp_tr_costing", Me.txtguid.Text, "@c_id")
         'opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
@@ -141,7 +141,7 @@ Public Class ftr_scosting
                 'Me.txtguid.Tag = "cost_id"
             Else
                 'Update
-                updheader = Fillobject(Me.txtguid, Me.Panel1, "update", "sp_tr_costing", "", "@cost_id") 'update header
+                updheader = Fillobject(Me.txtguid, Me, "update", "sp_tr_costing", "", "@cost_id") 'update header
                 upddetil = True 'Executestr("EXEC sp_tr_costing_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.datetimepicker1.Text & "','0'")'update detil
                 If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, "MP") Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, "MP")
             End If
@@ -184,8 +184,7 @@ err_cmdsave_Click:
     End Sub
 
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub
-        isirecord(Me.txtguid.Text)
+        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub Else isirecord(Me.txtguid.Text)
     End Sub
 
     Private Sub TextBox12_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
