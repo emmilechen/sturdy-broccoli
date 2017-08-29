@@ -458,6 +458,7 @@ Module modFunction
                             If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
                             If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
                             If TypeOf ctrl Is CheckBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, CheckBox).Checked)
+                            Debug.Print(ctrl.Tag)
                         Else
                         End If
                     Next ctrl
