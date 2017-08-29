@@ -136,6 +136,7 @@ Public Class frmMAIN
             Dim stringReader As String
             stringReader = fileReader.ReadLine()
             ' "k0t4r0m1n4m1" '
+            Me.Text = "Box Tree Project "
             If stringReader = "k0t4r0m1n4m1" Then
                 Dim userCount As Integer
                 Dim userEncrypt As String
@@ -171,18 +172,10 @@ Public Class frmMAIN
                 Dim wrapper As New Dencrypt(password)
                 userVal = CInt(wrapper.DecryptData(cipherText))
                 '-------------------------END OF DECRYPT--------------------------------
-
-                'If userCount <= userVal Then
                 fdlLogin.ShowDialog()
-
-                frmdashboard.MdiParent = Me
-                frmdashboard.Show()
-                frmdashboard.BringToFront()
-
-                'Else
-                '    MsgBox("User is more than " + CStr(userVal - 1) + " user please purchase additional user, contact support@mybrightsolution.com(Er:03)", MsgBoxStyle.Critical)
-                '    End
-                'End If
+                Me.Cursor = Cursors.WaitCursor
+                openformcommon(frmdashboard)
+                Me.Cursor = Cursors.Default
             End If
         Catch ex As Exception
             MsgBox("Unable to start Box Tree, please check :" + vbCrLf + "1.License" + vbCrLf + "2.Connection to server" + vbCrLf + "3.Server database" + vbCrLf + "For help please contact us at support@mybrightsolution.com" + vbCrLf + vbCrLf + "Error Message :" + vbCrLf + ex.Message, MsgBoxStyle.Critical)
