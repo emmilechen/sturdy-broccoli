@@ -455,17 +455,18 @@ Module modFunction
                     For Each ctrl As Control In root.Controls
                         If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
                             If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CInt(ctrl.Text))
-                            If (TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
+                            If (TypeOf ctrl Is TextBox Or (TypeOf ctrl Is DateTimePicker)) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
+                            'If (TypeOf ctrl Is DateTimePicker) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CDate(ctrl.Text))
                             If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
                             If TypeOf ctrl Is CheckBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, CheckBox).Checked)
-                            Debug.Print(ctrl.Tag)
+                            'Debug.Print(ctrl.Tag)
                         Else
                         End If
                     Next ctrl
                     sqlComm.Parameters.AddWithValue("@action", action)
                     sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int) 'If action = "select" Then sqlComm.Parameters.AddWithValue(outputid, 0) Else sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int)
-                    sqlComm.Parameters.AddWithValue("@created", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
-                    sqlComm.Parameters.AddWithValue("@modified", Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt")) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
+                    sqlComm.Parameters.AddWithValue("@created", (Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt"))) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
+                    sqlComm.Parameters.AddWithValue("@modified", (Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt"))) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
                     'Dim paramoutput As SqlParameter = sqlComm.Parameters.Contains(outputid)
                     If action = "insert" Then
                         'paramoutput.Direction = ParameterDirection.Output
@@ -704,6 +705,12 @@ Module modFunction
         dr.Close()
         cmd.Dispose()
         Exit Function
+    End Function
+    Public Function loopthroughlistview(ByVal namalistview As ListView, ByVal kolom As Integer, Optional strskip As String = "") As String
+        For a As Integer = 0 To namalistview.Items.Count - 1
+            If strskip <> namalistview.Items(a).SubItems(kolom).Text Then loopthroughlistview = loopthroughlistview + namalistview.Items(a).SubItems(kolom).Text + ","
+        Next
+        loopthroughlistview = loopthroughlistview.Substring(0, loopthroughlistview.Length - 1)
     End Function
 End Module
 
