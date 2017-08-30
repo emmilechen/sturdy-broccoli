@@ -118,6 +118,11 @@ Partial Class ftr_scosting
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -336,6 +341,9 @@ Partial Class ftr_scosting
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.TextBox32)
+        Me.TabPage1.Controls.Add(Me.TextBox31)
+        Me.TabPage1.Controls.Add(Me.TextBox30)
         Me.TabPage1.Controls.Add(Me.txtguid_d)
         Me.TabPage1.Controls.Add(Me.btnSaveD)
         Me.TabPage1.Controls.Add(Me.TextBox19)
@@ -372,12 +380,15 @@ Partial Class ftr_scosting
         '
         'txtguid_d
         '
+        Me.txtguid_d.BackColor = System.Drawing.Color.IndianRed
         Me.txtguid_d.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid_d.Location = New System.Drawing.Point(6, 8)
+        Me.txtguid_d.Location = New System.Drawing.Point(209, 45)
         Me.txtguid_d.Name = "txtguid_d"
+        Me.txtguid_d.ReadOnly = True
         Me.txtguid_d.Size = New System.Drawing.Size(84, 21)
         Me.txtguid_d.TabIndex = 75
         Me.txtguid_d.Tag = "cost_d_id"
+        Me.txtguid_d.Visible = False
         '
         'btnSaveD
         '
@@ -408,6 +419,7 @@ Partial Class ftr_scosting
         Me.TextBox19.ReadOnly = True
         Me.TextBox19.Size = New System.Drawing.Size(125, 21)
         Me.TextBox19.TabIndex = 71
+        Me.TextBox19.TabStop = False
         '
         'ComboBox13
         '
@@ -808,12 +820,15 @@ Partial Class ftr_scosting
         '
         'txtguid
         '
+        Me.txtguid.BackColor = System.Drawing.Color.IndianRed
         Me.txtguid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtguid.Location = New System.Drawing.Point(676, 23)
         Me.txtguid.Name = "txtguid"
+        Me.txtguid.ReadOnly = True
         Me.txtguid.Size = New System.Drawing.Size(84, 21)
         Me.txtguid.TabIndex = 73
         Me.txtguid.Tag = "cost_id"
+        Me.txtguid.Visible = False
         '
         'ComboBox8
         '
@@ -910,6 +925,7 @@ Partial Class ftr_scosting
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(45, 21)
         Me.ComboBox5.TabIndex = 92
+        Me.ComboBox5.Tag = "areacetak_uom"
         '
         'TextBox9
         '
@@ -918,6 +934,7 @@ Partial Class ftr_scosting
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(59, 21)
         Me.TextBox9.TabIndex = 91
+        Me.TextBox9.Tag = "areacetak3_val"
         '
         'TextBox10
         '
@@ -926,6 +943,7 @@ Partial Class ftr_scosting
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(59, 21)
         Me.TextBox10.TabIndex = 90
+        Me.TextBox10.Tag = "areacetak2_val"
         '
         'TextBox11
         '
@@ -934,6 +952,7 @@ Partial Class ftr_scosting
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(59, 21)
         Me.TextBox11.TabIndex = 89
+        Me.TextBox11.Tag = "areacetak1_val"
         '
         'Label3
         '
@@ -963,6 +982,7 @@ Partial Class ftr_scosting
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(45, 21)
         Me.ComboBox4.TabIndex = 86
+        Me.ComboBox4.Tag = "terbuka_uom"
         '
         'TextBox6
         '
@@ -971,6 +991,7 @@ Partial Class ftr_scosting
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(59, 21)
         Me.TextBox6.TabIndex = 85
+        Me.TextBox6.Tag = "terbuka3_val"
         '
         'TextBox7
         '
@@ -979,6 +1000,7 @@ Partial Class ftr_scosting
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(59, 21)
         Me.TextBox7.TabIndex = 84
+        Me.TextBox7.Tag = "terbuka2_val"
         '
         'TextBox8
         '
@@ -987,6 +1009,7 @@ Partial Class ftr_scosting
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(59, 21)
         Me.TextBox8.TabIndex = 83
+        Me.TextBox8.Tag = "terbuka1_val"
         '
         'Label2
         '
@@ -1016,6 +1039,7 @@ Partial Class ftr_scosting
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(45, 21)
         Me.ComboBox3.TabIndex = 80
+        Me.ComboBox3.Tag = "dimensi_uom"
         '
         'TextBox5
         '
@@ -1024,6 +1048,7 @@ Partial Class ftr_scosting
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(59, 21)
         Me.TextBox5.TabIndex = 79
+        Me.TextBox5.Tag = "dimensi3_val"
         '
         'TextBox4
         '
@@ -1032,6 +1057,7 @@ Partial Class ftr_scosting
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(59, 21)
         Me.TextBox4.TabIndex = 78
+        Me.TextBox4.Tag = "dimensi2_val"
         '
         'TextBox3
         '
@@ -1040,12 +1066,65 @@ Partial Class ftr_scosting
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(59, 21)
         Me.TextBox3.TabIndex = 77
+        Me.TextBox3.Tag = "dimensi1_val"
+        '
+        'Label30
+        '
+        Me.Label30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.Location = New System.Drawing.Point(1032, 31)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(84, 13)
+        Me.Label30.TabIndex = 101
+        Me.Label30.Text = "Out Value"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'TextBox29
+        '
+        Me.TextBox29.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox29.Location = New System.Drawing.Point(1032, 47)
+        Me.TextBox29.Name = "TextBox29"
+        Me.TextBox29.Size = New System.Drawing.Size(84, 21)
+        Me.TextBox29.TabIndex = 100
+        Me.TextBox29.Tag = "out_val"
+        '
+        'TextBox30
+        '
+        Me.TextBox30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox30.Location = New System.Drawing.Point(14, 45)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox30.TabIndex = 76
+        Me.TextBox30.Tag = "sku_id_desc2"
+        Me.TextBox30.Visible = False
+        '
+        'TextBox31
+        '
+        Me.TextBox31.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox31.Location = New System.Drawing.Point(80, 45)
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox31.TabIndex = 77
+        Me.TextBox31.Tag = "sku_id_desc1"
+        Me.TextBox31.Visible = False
+        '
+        'TextBox32
+        '
+        Me.TextBox32.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TextBox32.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox32.Location = New System.Drawing.Point(145, 45)
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox32.TabIndex = 78
+        Me.TextBox32.Tag = "cost_id_f"
+        Me.TextBox32.Visible = False
         '
         'ftr_scosting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 561)
+        Me.Controls.Add(Me.Label30)
+        Me.Controls.Add(Me.TextBox29)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.TextBox28)
         Me.Controls.Add(Me.Label9)
@@ -1206,4 +1285,9 @@ Partial Class ftr_scosting
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents TextBox29 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox32 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
 End Class
