@@ -7,6 +7,7 @@ Public Class ftr_scosting
     Private m_guid As String, m_d_guid As String
     Private namatable As String, namafieldPK As String
     Private Function kosong()
+        Me.cmdsave.Tag = "F"
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_name+', '+c_title", "mt_customer", "c_code<>''", "c_name")
         AssignValuetoCombo(Me.ComboBox14, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=1", "sku_name")
@@ -137,14 +138,14 @@ Public Class ftr_scosting
         Fillobject(Me.txtguid, Me, "select", "sp_tr_costing", Me.txtguid.Text, "@c_id")
         Me.ComboBox8.SelectedValue = 1 'default value STATUS=OPEN
         opensearchform(Me.ListView1, "cost_d_id", "sku_id_f", "sku_id_desc1, sku_qty, sku_uom_f, harga1_val, nilai1_val, nilai1_uom, nilai2_val, nilai2_uom, nilai3_val, nilai3_uom, nilai4_val, nilai4_uom, nilai5_val, nilai5_uom", "tr_costing_d a", "a.cost_id_f in ('" & guidno & "')", "a.created", 0)
-        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True
+        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True : Me.cmdsave.Tag = "S"
     End Function
     Private Sub cmdcancel_Click(sender As System.Object, e As System.EventArgs) Handles cmdcancel.Click
         kosong()
     End Sub
     Private Sub cmdsave_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
         'save
-        Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String
+        Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String, noindex As Integer
         On Error GoTo err_cmdsave_Click
         If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
         If Me.ComboBox1.Text = "" Or Me.ComboBox14.Text = "" Or Me.TextBox2.Text = "" Then
@@ -153,29 +154,34 @@ Public Class ftr_scosting
             Exit Sub
         End If
         If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, Me.Text) = MsgBoxResult.Yes Then
-            namatable = "tr_costing" : namafieldPK = "cost_no" : Me.ComboBox8.SelectedValue = 2
+            namatable = "tr_costing" : namafieldPK = "cost_no" : Me.ComboBox8.SelectedValue = 2 : Me.cmdsave.Tag = "F"
             If (Me.txtguid.Text = "0") Then
                 'Insert new
                 Me.TextBox1.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("CO", namatable, namafieldPK, "cost_date", CDate(Me.DateTimePicker1.Text), False, 4, 1, "", ""), Me.TextBox1.Text)
                 updheader = Fillobject(Me.txtguid, Me, "insert", "sp_tr_costing", "", "@c_id") 'update header
+                noindex = GetCurrentID("cost_id", namatable, namafieldPK & "='" & Me.TextBox1.Text & "'")
                 For i As Integer = 0 To Me.ListView1.Items.Count - 1
                     'kl blm ada, INSERT
                     upddetil = Executestr("EXEC sp_tr_costing_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & _
-                                          Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & Me.ListView1.Items(i).SubItems(2).Text & "','" & ListView1.Items(i).SubItems(2).Text & "','" & _
-                                          ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & ListView1.Items(i).SubItems(6).Text & "','" & _
-                                          ListView1.Items(i).SubItems(7).Text & "','" & ListView1.Items(i).SubItems(8).Text & "','" & _
-                                          ListView1.Items(i).SubItems(10).Text & "','" & ListView1.Items(i).SubItems(11).Text & "','" & _
-                                          ListView1.Items(i).SubItems(13).Text & "','" & ListView1.Items(i).SubItems(14).Text & "','" & _
-                                          ListView1.Items(i).SubItems(16).Text & "','" & ListView1.Items(i).SubItems(17).Text & "','" & _
-                                          ListView1.Items(i).SubItems(19).Text & "','" & ListView1.Items(i).SubItems(20).Text & "','" & ListView1.Items(i).SubItems(22).Text & "'")
+                                          Me.txtguid_d.Text & "','" & noindex & "'," & ListView1.Items(i).SubItems(1).Text & ",'" & Me.ListView1.Items(i).SubItems(2).Text & "','" & ListView1.Items(i).SubItems(2).Text & "'," & _
+                                          ListView1.Items(i).SubItems(3).Text & "," & ListView1.Items(i).SubItems(4).Text & "," & ListView1.Items(i).SubItems(6).Text & "," & _
+                                          ListView1.Items(i).SubItems(7).Text & "," & ListView1.Items(i).SubItems(8).Text & "," & _
+                                          ListView1.Items(i).SubItems(10).Text & "," & ListView1.Items(i).SubItems(11).Text & "," & _
+                                          ListView1.Items(i).SubItems(13).Text & "," & ListView1.Items(i).SubItems(14).Text & "," & _
+                                          ListView1.Items(i).SubItems(16).Text & "," & ListView1.Items(i).SubItems(17).Text & "," & _
+                                          ListView1.Items(i).SubItems(19).Text & "," & ListView1.Items(i).SubItems(20).Text & "," & CDec(ListView1.Items(i).SubItems(22).Text))
                 Next
                 If updheader And upddetil Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, Me.Text)
             Else
                 'Update
+                noindex = Me.txtguid.Text
                 updheader = Fillobject(Me.txtguid, Me, "update", "sp_tr_costing", "", "@c_id") 'update header
                 upddetil = True
                 If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, Me.Text) Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, Me.Text)
             End If
+            kosong()
+            Me.txtguid.Text = noindex
+            'isirecord(noindex)
         Else
             MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Costing")
         End If
@@ -209,7 +215,7 @@ err_cmdsave_Click:
 
     End Sub
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub Else isirecord(Me.txtguid.Text)
+        If Me.cmdsave.Tag = "F" And (Me.txtguid.Text = "0" Or Me.txtguid.Text = "") Then Exit Sub Else isirecord(Me.txtguid.Text)
     End Sub
     Private Sub TextBox12_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
@@ -268,6 +274,7 @@ err_cmdsave_Click:
     Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
         Dim li As ListViewItem, i As Integer, urutan As Integer
         'If Me.txtguid.Text = "0" Then Exit Sub
+        'Exit Sub
         urutan = 0
         If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then 'header dan detail siap diedit
             Fillobject(Me.txtguid_d, Me.TabPage1, "update", "sp_tr_costing_dtl", Me.txtguid_d.Text, "@c_id") 'update detil
@@ -337,7 +344,7 @@ err_cmdsave_Click:
         Me.TextBox18.Text = "0"
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = ""
-        If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox20.Text = FormatNumber(Me.TextBox20.Text, 2)
+        If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox20.Text = FormatNumber(IIf(Me.TextBox20.Text = "", 0, Me.TextBox20.Text), 2)
         Me.btnSaveD.Tag = "N" : Me.btnSaveD.Enabled = False
     End Sub
     Private Function FindSubItem(ByVal lv As ListView, ByVal SearchString As String) As Boolean
@@ -386,7 +393,6 @@ err_cmdsave_Click:
 
         End If
     End Sub
-
     Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Me.ComboBox6.Enabled = Me.ComboBox1.SelectedIndex >= 0
     End Sub
