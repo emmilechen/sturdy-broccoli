@@ -391,7 +391,7 @@ Partial Class ftr_mp
         '
         'ToolStripButton1
         '
-        Me.ToolStripButton1.Image = Global.boxtree.My.Resources.Resources.Save
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(56, 22)
@@ -399,7 +399,7 @@ Partial Class ftr_mp
         '
         'ToolStripButton2
         '
-        Me.ToolStripButton2.Image = Global.boxtree.My.Resources.Resources.find
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(55, 22)
@@ -407,7 +407,7 @@ Partial Class ftr_mp
         '
         'cmdcancel
         '
-        Me.cmdcancel.Image = Global.boxtree.My.Resources.Resources.cancel
+        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
         Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdcancel.Name = "cmdcancel"
         Me.cmdcancel.Size = New System.Drawing.Size(68, 22)
@@ -415,7 +415,7 @@ Partial Class ftr_mp
         '
         'cmddel
         '
-        Me.cmddel.Image = Global.boxtree.My.Resources.Resources.Delete
+        Me.cmddel.Image = CType(resources.GetObject("cmddel.Image"), System.Drawing.Image)
         Me.cmddel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmddel.Name = "cmddel"
         Me.cmddel.Size = New System.Drawing.Size(68, 22)
@@ -423,7 +423,7 @@ Partial Class ftr_mp
         '
         'ToolStripButton5
         '
-        Me.ToolStripButton5.Image = Global.boxtree.My.Resources.Resources.new_rec
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
         Me.ToolStripButton5.Size = New System.Drawing.Size(55, 22)
@@ -431,7 +431,7 @@ Partial Class ftr_mp
         '
         'ToolStripButton6
         '
-        Me.ToolStripButton6.Image = Global.boxtree.My.Resources.Resources._exit
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton6.Name = "ToolStripButton6"
         Me.ToolStripButton6.Size = New System.Drawing.Size(51, 22)
@@ -444,7 +444,7 @@ Partial Class ftr_mp
         '
         'cmdprint
         '
-        Me.cmdprint.Image = Global.boxtree.My.Resources.Resources.printer
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
         Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdprint.Name = "cmdprint"
         Me.cmdprint.Size = New System.Drawing.Size(58, 22)

@@ -46,6 +46,9 @@ Partial Class ftr_scosting
         Me.TextBox27 = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.TextBox31 = New System.Windows.Forms.TextBox()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
         Me.txtguid_d = New System.Windows.Forms.TextBox()
         Me.btnSaveD = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
@@ -120,9 +123,6 @@ Partial Class ftr_scosting
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.TextBox29 = New System.Windows.Forms.TextBox()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
-        Me.TextBox31 = New System.Windows.Forms.TextBox()
-        Me.TextBox32 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -164,7 +164,7 @@ Partial Class ftr_scosting
         Me.TextBox2.Location = New System.Drawing.Point(763, 47)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(122, 21)
-        Me.TextBox2.TabIndex = 3
+        Me.TextBox2.TabIndex = 4
         Me.TextBox2.Tag = "cost_qty_val"
         '
         'ComboBox2
@@ -174,7 +174,7 @@ Partial Class ftr_scosting
         Me.ComboBox2.Location = New System.Drawing.Point(891, 47)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.ComboBox2.TabIndex = 5
         Me.ComboBox2.Tag = "cost_qty_uom"
         '
         'TextBox20
@@ -184,7 +184,7 @@ Partial Class ftr_scosting
         Me.TextBox20.Location = New System.Drawing.Point(11, 528)
         Me.TextBox20.Name = "TextBox20"
         Me.TextBox20.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox20.TabIndex = 49
+        Me.TextBox20.TabIndex = 23
         Me.TextBox20.Tag = "jumlah_val"
         '
         'TextBox21
@@ -194,7 +194,7 @@ Partial Class ftr_scosting
         Me.TextBox21.Location = New System.Drawing.Point(165, 528)
         Me.TextBox21.Name = "TextBox21"
         Me.TextBox21.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox21.TabIndex = 50
+        Me.TextBox21.TabIndex = 24
         Me.TextBox21.Tag = "hpp_val"
         '
         'TextBox22
@@ -203,7 +203,7 @@ Partial Class ftr_scosting
         Me.TextBox22.Location = New System.Drawing.Point(316, 528)
         Me.TextBox22.Name = "TextBox22"
         Me.TextBox22.Size = New System.Drawing.Size(54, 21)
-        Me.TextBox22.TabIndex = 51
+        Me.TextBox22.TabIndex = 25
         Me.TextBox22.Tag = "profit_pct_val"
         '
         'TextBox23
@@ -213,7 +213,7 @@ Partial Class ftr_scosting
         Me.TextBox23.Location = New System.Drawing.Point(376, 528)
         Me.TextBox23.Name = "TextBox23"
         Me.TextBox23.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox23.TabIndex = 52
+        Me.TextBox23.TabIndex = 26
         Me.TextBox23.Tag = "profit_val"
         '
         'TextBox24
@@ -223,7 +223,7 @@ Partial Class ftr_scosting
         Me.TextBox24.Location = New System.Drawing.Point(527, 528)
         Me.TextBox24.Name = "TextBox24"
         Me.TextBox24.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox24.TabIndex = 53
+        Me.TextBox24.TabIndex = 27
         Me.TextBox24.Tag = "komisi_val"
         '
         'TextBox25
@@ -233,7 +233,7 @@ Partial Class ftr_scosting
         Me.TextBox25.Location = New System.Drawing.Point(676, 528)
         Me.TextBox25.Name = "TextBox25"
         Me.TextBox25.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox25.TabIndex = 54
+        Me.TextBox25.TabIndex = 28
         Me.TextBox25.Tag = "over_head_val"
         '
         'TextBox26
@@ -243,7 +243,7 @@ Partial Class ftr_scosting
         Me.TextBox26.Location = New System.Drawing.Point(1107, 528)
         Me.TextBox26.Name = "TextBox26"
         Me.TextBox26.Size = New System.Drawing.Size(145, 21)
-        Me.TextBox26.TabIndex = 55
+        Me.TextBox26.TabIndex = 29
         Me.TextBox26.Tag = "harga_jual_val"
         '
         'Label16
@@ -293,7 +293,7 @@ Partial Class ftr_scosting
         Me.ComboBox14.Location = New System.Drawing.Point(523, 47)
         Me.ComboBox14.Name = "ComboBox14"
         Me.ComboBox14.Size = New System.Drawing.Size(234, 21)
-        Me.ComboBox14.TabIndex = 59
+        Me.ComboBox14.TabIndex = 3
         Me.ComboBox14.Tag = "sku_id_f"
         '
         'Label20
@@ -322,7 +322,7 @@ Partial Class ftr_scosting
         Me.TextBox27.Location = New System.Drawing.Point(942, 47)
         Me.TextBox27.Name = "TextBox27"
         Me.TextBox27.Size = New System.Drawing.Size(84, 21)
-        Me.TextBox27.TabIndex = 62
+        Me.TextBox27.TabIndex = 6
         Me.TextBox27.Tag = "insheet_val"
         '
         'TabControl1
@@ -337,7 +337,7 @@ Partial Class ftr_scosting
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1240, 358)
-        Me.TabControl1.TabIndex = 64
+        Me.TabControl1.TabIndex = 22
         '
         'TabPage1
         '
@@ -378,6 +378,37 @@ Partial Class ftr_scosting
         Me.TabPage1.Text = "Perincian Biaya"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'TextBox32
+        '
+        Me.TextBox32.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TextBox32.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox32.Location = New System.Drawing.Point(145, 45)
+        Me.TextBox32.Name = "TextBox32"
+        Me.TextBox32.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox32.TabIndex = 78
+        Me.TextBox32.Tag = "cost_id_f"
+        Me.TextBox32.Visible = False
+        '
+        'TextBox31
+        '
+        Me.TextBox31.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox31.Location = New System.Drawing.Point(80, 45)
+        Me.TextBox31.Name = "TextBox31"
+        Me.TextBox31.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox31.TabIndex = 77
+        Me.TextBox31.Tag = "sku_id_desc1"
+        Me.TextBox31.Visible = False
+        '
+        'TextBox30
+        '
+        Me.TextBox30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox30.Location = New System.Drawing.Point(14, 45)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(59, 21)
+        Me.TextBox30.TabIndex = 76
+        Me.TextBox30.Tag = "sku_id_desc2"
+        Me.TextBox30.Visible = False
+        '
         'txtguid_d
         '
         Me.txtguid_d.BackColor = System.Drawing.Color.IndianRed
@@ -399,7 +430,7 @@ Partial Class ftr_scosting
         Me.btnSaveD.Location = New System.Drawing.Point(1197, 6)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
-        Me.btnSaveD.TabIndex = 72
+        Me.btnSaveD.TabIndex = 15
         Me.btnSaveD.UseVisualStyleBackColor = True
         '
         'ImageList1
@@ -418,7 +449,7 @@ Partial Class ftr_scosting
         Me.TextBox19.Name = "TextBox19"
         Me.TextBox19.ReadOnly = True
         Me.TextBox19.Size = New System.Drawing.Size(125, 21)
-        Me.TextBox19.TabIndex = 71
+        Me.TextBox19.TabIndex = 14
         Me.TextBox19.TabStop = False
         '
         'ComboBox13
@@ -428,7 +459,7 @@ Partial Class ftr_scosting
         Me.ComboBox13.Location = New System.Drawing.Point(1016, 9)
         Me.ComboBox13.Name = "ComboBox13"
         Me.ComboBox13.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox13.TabIndex = 70
+        Me.ComboBox13.TabIndex = 13
         Me.ComboBox13.Tag = "nilai5_uom"
         '
         'TextBox18
@@ -437,7 +468,7 @@ Partial Class ftr_scosting
         Me.TextBox18.Location = New System.Drawing.Point(951, 9)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox18.TabIndex = 69
+        Me.TextBox18.TabIndex = 12
         Me.TextBox18.Tag = "nilai5_val"
         '
         'Label15
@@ -457,7 +488,7 @@ Partial Class ftr_scosting
         Me.ComboBox12.Location = New System.Drawing.Point(886, 9)
         Me.ComboBox12.Name = "ComboBox12"
         Me.ComboBox12.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox12.TabIndex = 67
+        Me.ComboBox12.TabIndex = 11
         Me.ComboBox12.Tag = "nilai4_uom"
         '
         'TextBox17
@@ -466,7 +497,7 @@ Partial Class ftr_scosting
         Me.TextBox17.Location = New System.Drawing.Point(821, 9)
         Me.TextBox17.Name = "TextBox17"
         Me.TextBox17.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox17.TabIndex = 66
+        Me.TextBox17.TabIndex = 10
         Me.TextBox17.Tag = "nilai4_val"
         '
         'Label14
@@ -486,7 +517,7 @@ Partial Class ftr_scosting
         Me.ComboBox11.Location = New System.Drawing.Point(760, 9)
         Me.ComboBox11.Name = "ComboBox11"
         Me.ComboBox11.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox11.TabIndex = 64
+        Me.ComboBox11.TabIndex = 9
         Me.ComboBox11.Tag = "nilai3_uom"
         '
         'TextBox16
@@ -495,7 +526,7 @@ Partial Class ftr_scosting
         Me.TextBox16.Location = New System.Drawing.Point(692, 9)
         Me.TextBox16.Name = "TextBox16"
         Me.TextBox16.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox16.TabIndex = 63
+        Me.TextBox16.TabIndex = 8
         Me.TextBox16.Tag = "nilai3_val"
         '
         'Label13
@@ -515,7 +546,7 @@ Partial Class ftr_scosting
         Me.ComboBox10.Location = New System.Drawing.Point(629, 9)
         Me.ComboBox10.Name = "ComboBox10"
         Me.ComboBox10.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox10.TabIndex = 61
+        Me.ComboBox10.TabIndex = 7
         Me.ComboBox10.Tag = "nilai2_uom"
         '
         'TextBox15
@@ -524,7 +555,7 @@ Partial Class ftr_scosting
         Me.TextBox15.Location = New System.Drawing.Point(564, 9)
         Me.TextBox15.Name = "TextBox15"
         Me.TextBox15.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox15.TabIndex = 60
+        Me.TextBox15.TabIndex = 6
         Me.TextBox15.Tag = "nilai2_val"
         '
         'Label12
@@ -544,7 +575,7 @@ Partial Class ftr_scosting
         Me.ComboBox9.Location = New System.Drawing.Point(501, 9)
         Me.ComboBox9.Name = "ComboBox9"
         Me.ComboBox9.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox9.TabIndex = 58
+        Me.ComboBox9.TabIndex = 5
         Me.ComboBox9.Tag = "nilai1_uom"
         '
         'TextBox14
@@ -553,7 +584,7 @@ Partial Class ftr_scosting
         Me.TextBox14.Location = New System.Drawing.Point(436, 9)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox14.TabIndex = 57
+        Me.TextBox14.TabIndex = 4
         Me.TextBox14.Tag = "nilai1_val"
         '
         'Label11
@@ -572,7 +603,7 @@ Partial Class ftr_scosting
         Me.TextBox13.Location = New System.Drawing.Point(309, 9)
         Me.TextBox13.Name = "TextBox13"
         Me.TextBox13.Size = New System.Drawing.Size(105, 21)
-        Me.TextBox13.TabIndex = 54
+        Me.TextBox13.TabIndex = 3
         Me.TextBox13.Tag = "harga1_val"
         '
         'Label10
@@ -592,7 +623,7 @@ Partial Class ftr_scosting
         Me.ComboBox7.Location = New System.Drawing.Point(251, 9)
         Me.ComboBox7.Name = "ComboBox7"
         Me.ComboBox7.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox7.TabIndex = 52
+        Me.ComboBox7.TabIndex = 2
         Me.ComboBox7.Tag = "sku_uom_f"
         '
         'TextBox12
@@ -601,7 +632,7 @@ Partial Class ftr_scosting
         Me.TextBox12.Location = New System.Drawing.Point(186, 9)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox12.TabIndex = 51
+        Me.TextBox12.TabIndex = 1
         Me.TextBox12.Tag = "sku_qty"
         '
         'ComboBox6
@@ -611,7 +642,7 @@ Partial Class ftr_scosting
         Me.ComboBox6.Location = New System.Drawing.Point(6, 9)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(174, 21)
-        Me.ComboBox6.TabIndex = 50
+        Me.ComboBox6.TabIndex = 0
         Me.ComboBox6.Tag = "sku_id_f"
         '
         'ListView1
@@ -759,7 +790,7 @@ Partial Class ftr_scosting
         '
         'cmdsave
         '
-        Me.cmdsave.Image = Global.boxtree.My.Resources.Resources.Save
+        Me.cmdsave.Image = CType(resources.GetObject("cmdsave.Image"), System.Drawing.Image)
         Me.cmdsave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdsave.Name = "cmdsave"
         Me.cmdsave.Size = New System.Drawing.Size(56, 22)
@@ -767,7 +798,7 @@ Partial Class ftr_scosting
         '
         'cmdfind
         '
-        Me.cmdfind.Image = Global.boxtree.My.Resources.Resources.find
+        Me.cmdfind.Image = CType(resources.GetObject("cmdfind.Image"), System.Drawing.Image)
         Me.cmdfind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdfind.Name = "cmdfind"
         Me.cmdfind.Size = New System.Drawing.Size(55, 22)
@@ -775,7 +806,7 @@ Partial Class ftr_scosting
         '
         'cmdcancel
         '
-        Me.cmdcancel.Image = Global.boxtree.My.Resources.Resources.cancel
+        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
         Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdcancel.Name = "cmdcancel"
         Me.cmdcancel.Size = New System.Drawing.Size(68, 22)
@@ -783,7 +814,7 @@ Partial Class ftr_scosting
         '
         'cmddel
         '
-        Me.cmddel.Image = Global.boxtree.My.Resources.Resources.Delete
+        Me.cmddel.Image = CType(resources.GetObject("cmddel.Image"), System.Drawing.Image)
         Me.cmddel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmddel.Name = "cmddel"
         Me.cmddel.Size = New System.Drawing.Size(68, 22)
@@ -791,7 +822,7 @@ Partial Class ftr_scosting
         '
         'cmdnew
         '
-        Me.cmdnew.Image = Global.boxtree.My.Resources.Resources.new_rec
+        Me.cmdnew.Image = CType(resources.GetObject("cmdnew.Image"), System.Drawing.Image)
         Me.cmdnew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdnew.Name = "cmdnew"
         Me.cmdnew.Size = New System.Drawing.Size(55, 22)
@@ -799,7 +830,7 @@ Partial Class ftr_scosting
         '
         'cmdexit
         '
-        Me.cmdexit.Image = Global.boxtree.My.Resources.Resources._exit
+        Me.cmdexit.Image = CType(resources.GetObject("cmdexit.Image"), System.Drawing.Image)
         Me.cmdexit.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdexit.Name = "cmdexit"
         Me.cmdexit.Size = New System.Drawing.Size(51, 22)
@@ -812,7 +843,7 @@ Partial Class ftr_scosting
         '
         'cmdprint
         '
-        Me.cmdprint.Image = Global.boxtree.My.Resources.Resources.printer
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
         Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdprint.Name = "cmdprint"
         Me.cmdprint.Size = New System.Drawing.Size(58, 22)
@@ -836,7 +867,7 @@ Partial Class ftr_scosting
         Me.ComboBox8.Location = New System.Drawing.Point(1128, 47)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 75
+        Me.ComboBox8.TabIndex = 8
         Me.ComboBox8.Tag = "cost_status"
         '
         'Label28
@@ -864,7 +895,7 @@ Partial Class ftr_scosting
         Me.TextBox28.Location = New System.Drawing.Point(891, 95)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(358, 20)
-        Me.TextBox28.TabIndex = 98
+        Me.TextBox28.TabIndex = 21
         Me.TextBox28.Tag = "cost_note"
         '
         'Label9
@@ -924,7 +955,7 @@ Partial Class ftr_scosting
         Me.ComboBox5.Location = New System.Drawing.Point(840, 94)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox5.TabIndex = 92
+        Me.ComboBox5.TabIndex = 20
         Me.ComboBox5.Tag = "areacetak_uom"
         '
         'TextBox9
@@ -933,7 +964,7 @@ Partial Class ftr_scosting
         Me.TextBox9.Location = New System.Drawing.Point(775, 94)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox9.TabIndex = 91
+        Me.TextBox9.TabIndex = 19
         Me.TextBox9.Tag = "areacetak3_val"
         '
         'TextBox10
@@ -942,7 +973,7 @@ Partial Class ftr_scosting
         Me.TextBox10.Location = New System.Drawing.Point(690, 94)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox10.TabIndex = 90
+        Me.TextBox10.TabIndex = 18
         Me.TextBox10.Tag = "areacetak2_val"
         '
         'TextBox11
@@ -951,7 +982,7 @@ Partial Class ftr_scosting
         Me.TextBox11.Location = New System.Drawing.Point(605, 94)
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox11.TabIndex = 89
+        Me.TextBox11.TabIndex = 17
         Me.TextBox11.Tag = "areacetak1_val"
         '
         'Label3
@@ -981,7 +1012,7 @@ Partial Class ftr_scosting
         Me.ComboBox4.Location = New System.Drawing.Point(546, 94)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox4.TabIndex = 86
+        Me.ComboBox4.TabIndex = 16
         Me.ComboBox4.Tag = "terbuka_uom"
         '
         'TextBox6
@@ -990,7 +1021,7 @@ Partial Class ftr_scosting
         Me.TextBox6.Location = New System.Drawing.Point(481, 94)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox6.TabIndex = 85
+        Me.TextBox6.TabIndex = 15
         Me.TextBox6.Tag = "terbuka3_val"
         '
         'TextBox7
@@ -999,7 +1030,7 @@ Partial Class ftr_scosting
         Me.TextBox7.Location = New System.Drawing.Point(396, 94)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox7.TabIndex = 84
+        Me.TextBox7.TabIndex = 14
         Me.TextBox7.Tag = "terbuka2_val"
         '
         'TextBox8
@@ -1008,7 +1039,7 @@ Partial Class ftr_scosting
         Me.TextBox8.Location = New System.Drawing.Point(311, 94)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox8.TabIndex = 83
+        Me.TextBox8.TabIndex = 13
         Me.TextBox8.Tag = "terbuka1_val"
         '
         'Label2
@@ -1038,7 +1069,7 @@ Partial Class ftr_scosting
         Me.ComboBox3.Location = New System.Drawing.Point(247, 94)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(45, 21)
-        Me.ComboBox3.TabIndex = 80
+        Me.ComboBox3.TabIndex = 12
         Me.ComboBox3.Tag = "dimensi_uom"
         '
         'TextBox5
@@ -1047,7 +1078,7 @@ Partial Class ftr_scosting
         Me.TextBox5.Location = New System.Drawing.Point(182, 94)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox5.TabIndex = 79
+        Me.TextBox5.TabIndex = 11
         Me.TextBox5.Tag = "dimensi3_val"
         '
         'TextBox4
@@ -1056,7 +1087,7 @@ Partial Class ftr_scosting
         Me.TextBox4.Location = New System.Drawing.Point(97, 94)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox4.TabIndex = 78
+        Me.TextBox4.TabIndex = 10
         Me.TextBox4.Tag = "dimensi2_val"
         '
         'TextBox3
@@ -1065,7 +1096,7 @@ Partial Class ftr_scosting
         Me.TextBox3.Location = New System.Drawing.Point(12, 94)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox3.TabIndex = 77
+        Me.TextBox3.TabIndex = 9
         Me.TextBox3.Tag = "dimensi1_val"
         '
         'Label30
@@ -1084,39 +1115,8 @@ Partial Class ftr_scosting
         Me.TextBox29.Location = New System.Drawing.Point(1032, 47)
         Me.TextBox29.Name = "TextBox29"
         Me.TextBox29.Size = New System.Drawing.Size(84, 21)
-        Me.TextBox29.TabIndex = 100
+        Me.TextBox29.TabIndex = 7
         Me.TextBox29.Tag = "out_val"
-        '
-        'TextBox30
-        '
-        Me.TextBox30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox30.Location = New System.Drawing.Point(14, 45)
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox30.TabIndex = 76
-        Me.TextBox30.Tag = "sku_id_desc2"
-        Me.TextBox30.Visible = False
-        '
-        'TextBox31
-        '
-        Me.TextBox31.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox31.Location = New System.Drawing.Point(80, 45)
-        Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox31.TabIndex = 77
-        Me.TextBox31.Tag = "sku_id_desc1"
-        Me.TextBox31.Visible = False
-        '
-        'TextBox32
-        '
-        Me.TextBox32.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.TextBox32.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox32.Location = New System.Drawing.Point(145, 45)
-        Me.TextBox32.Name = "TextBox32"
-        Me.TextBox32.Size = New System.Drawing.Size(59, 21)
-        Me.TextBox32.TabIndex = 78
-        Me.TextBox32.Tag = "cost_id_f"
-        Me.TextBox32.Visible = False
         '
         'ftr_scosting
         '

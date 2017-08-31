@@ -62,17 +62,11 @@ Public Class ftr_scosting
         End With
         Me.txtguid.Text = "0" : Me.txtguid_d.Text = "0" : Me.btnSaveD.Tag = "N"
         Me.ListView1.Items.Clear()
-        Me.TextBox30.Text = "" : Me.TextBox31.Text = "" : Me.TextBox32.Text = "0"
-        Me.TextBox12.Text = "0"
-        Me.TextBox13.Text = "0"
-        Me.TextBox14.Text = "0"
-        Me.TextBox15.Text = "0"
-        Me.TextBox16.Text = "0"
-        Me.TextBox17.Text = "0"
-        Me.TextBox18.Text = "0"
-        Me.TextBox29.Text = "0"
-        'opensearchform(Me.ListView1, "rt_form_id", "formname", "tablename, fieldname, signlevelid, userid", "rt_form_sign", "rt_form_sign.userid in ('" & Me.txtguid.Text & "')", "formname", 0)
-        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False ': Me.btnprint.Enabled = False
+        Me.TextBox30.Text = "" : Me.TextBox31.Text = "" : Me.TextBox32.Text = "0" : Me.TextBox2.Text = "0" : Me.TextBox27.Text = "0"
+        Me.TextBox3.Text = 0 : Me.TextBox4.Text = 0 : Me.TextBox5.Text = 0 : Me.TextBox6.Text = 0 : Me.TextBox7.Text = 0 : Me.TextBox8.Text = 0 : Me.TextBox9.Text = 0 : Me.TextBox10.Text = 0 : Me.TextBox11.Text = 0
+        Me.TextBox12.Text = 0 : Me.TextBox13.Text = 0 : Me.TextBox14.Text = 0 : Me.TextBox15.Text = 0 : Me.TextBox16.Text = 0 : Me.TextBox17.Text = 0 : Me.TextBox18.Text = 0 : Me.TextBox29.Text = 0
+        Me.TextBox20.Text = 0 : Me.TextBox21.Text = 0 : Me.TextBox22.Text = 0 : Me.TextBox23.Text = 0 : Me.TextBox24.Text = 0 : Me.TextBox25.Text = 0 : Me.TextBox26.Text = 0
+        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False : Me.btnSaveD.Enabled = False : Me.ComboBox6.Enabled = False
         Me.ComboBox1.Select()
     End Function
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
@@ -152,7 +146,7 @@ Public Class ftr_scosting
         'save
         Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String
         On Error GoTo err_cmdsave_Click
-        'If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
+        If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
         If Me.ComboBox1.Text = "" Or Me.ComboBox14.Text = "" Or Me.TextBox2.Text = "" Then
             MsgBox("Code, Name and Qty are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             ComboBox1.Focus()
@@ -163,18 +157,23 @@ Public Class ftr_scosting
             If (Me.txtguid.Text = "0") Then
                 'Insert new
                 Me.TextBox1.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("CO", namatable, namafieldPK, "cost_date", CDate(Me.DateTimePicker1.Text), False, 4, 1, "", ""), Me.TextBox1.Text)
-                'Me.txtguid.Tag = ""
                 updheader = Fillobject(Me.txtguid, Me, "insert", "sp_tr_costing", "", "@c_id") 'update header
-                'For i As Integer = 0 To Me.ListView1.Items.Count - 1
-                '    'kl blm ada, INSERT
-                '    upddetil = Executestr("EXEC sp_tr_costing_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & Me.DateTimePicker1.Text & "','0'")
-                'Next'upddetil
-                If updheader Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, Me.Text)
-                'Me.txtguid.Tag = "cost_id"
+                For i As Integer = 0 To Me.ListView1.Items.Count - 1
+                    'kl blm ada, INSERT
+                    upddetil = Executestr("EXEC sp_tr_costing_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & _
+                                          Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & Me.ListView1.Items(i).SubItems(2).Text & "','" & ListView1.Items(i).SubItems(2).Text & "','" & _
+                                          ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & ListView1.Items(i).SubItems(6).Text & "','" & _
+                                          ListView1.Items(i).SubItems(7).Text & "','" & ListView1.Items(i).SubItems(8).Text & "','" & _
+                                          ListView1.Items(i).SubItems(10).Text & "','" & ListView1.Items(i).SubItems(11).Text & "','" & _
+                                          ListView1.Items(i).SubItems(13).Text & "','" & ListView1.Items(i).SubItems(14).Text & "','" & _
+                                          ListView1.Items(i).SubItems(16).Text & "','" & ListView1.Items(i).SubItems(17).Text & "','" & _
+                                          ListView1.Items(i).SubItems(19).Text & "','" & ListView1.Items(i).SubItems(20).Text & "','" & ListView1.Items(i).SubItems(22).Text & "'")
+                Next
+                If updheader And upddetil Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, Me.Text)
             Else
                 'Update
                 updheader = Fillobject(Me.txtguid, Me, "update", "sp_tr_costing", "", "@c_id") 'update header
-                upddetil = True 'Executestr("EXEC sp_tr_costing_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.datetimepicker1.Text & "','0'")'update detil
+                upddetil = True
                 If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, Me.Text) Else Me.TextBox1.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, Me.Text)
             End If
         Else
@@ -214,60 +213,62 @@ err_cmdsave_Click:
     End Sub
     Private Sub TextBox12_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox13_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox13.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".") 'If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
     End Sub
     Private Sub TextBox14_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox14.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox15_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox15.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox16_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox16.KeyPress
        '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox17_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox17.KeyPress
          '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox18_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox18.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
     Private Sub TextBox12_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox12.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Function HITUNGDETAIL() As Decimal
         'Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString)
-        HITUNGDETAIL = FormatNumber((Decimal.Ceiling(IIf(Me.TextBox12.Text = "", 0, Me.TextBox12.Text)) * Decimal.Ceiling(IIf(Me.TextBox13.Text = "", 0, Me.TextBox13.Text)) * Decimal.Ceiling(IIf(Me.TextBox14.Text = "", 0, Me.TextBox14.Text)) * Decimal.Ceiling(IIf(Me.TextBox15.Text = "", 0, Me.TextBox15.Text))) - (Decimal.Ceiling(IIf(Me.TextBox16.Text = "", 0, Me.TextBox16.Text)) * Decimal.Ceiling(IIf(Me.TextBox17.Text = "", 0, Me.TextBox17.Text)) * Decimal.Ceiling(IIf(Me.TextBox18.Text = "", 0, Me.TextBox18.Text))), 2)
+        On Error Resume Next
+        HITUNGDETAIL = ((IIf(Me.TextBox12.Text = "", 0, CDec(Me.TextBox12.Text))) * (IIf(Me.TextBox13.Text = "", 0, CDec(Me.TextBox13.Text))) * (IIf(Me.TextBox14.Text = "", 0, CDec(Me.TextBox14.Text))) * (IIf(Me.TextBox15.Text = "", 0, CDec(Me.TextBox15.Text))) - (IIf(Me.TextBox16.Text = "", 0, CDec(Me.TextBox16.Text)))) * ((IIf(Me.TextBox17.Text = "", 0, CDec(Me.TextBox17.Text))) * (IIf(Me.TextBox18.Text = "", 0, CDec(Me.TextBox18.Text))))
     End Function
     Private Sub TextBox13_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox13.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub TextBox14_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox14.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub TextBox15_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox15.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub TextBox16_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox16.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub TextBox17_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox17.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub TextBox18_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox18.TextChanged
-        Me.TextBox19.Text = HITUNGDETAIL()
+        Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
-        Dim li As ListViewItem, i As Integer
+        Dim li As ListViewItem, i As Integer, urutan As Integer
         'If Me.txtguid.Text = "0" Then Exit Sub
+        urutan = 0
         If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then 'header dan detail siap diedit
             Fillobject(Me.txtguid_d, Me.TabPage1, "update", "sp_tr_costing_dtl", Me.txtguid_d.Text, "@c_id") 'update detil
             opensearchform(Me.ListView1, "cost_d_id", "sku_id_f", "sku_id_desc1, sku_qty, sku_uom_f, harga1_val, nilai1_val, nilai1_uom, nilai2_val, nilai2_uom, nilai3_val, nilai3_uom, nilai4_val, nilai4_uom, nilai5_val, nilai5_uom", "tr_costing_d a", "a.cost_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
@@ -285,10 +286,13 @@ err_cmdsave_Click:
                 If Me.btnSaveD.Tag = "N" Then
 
                 Else
+                    urutan = ListView1.FocusedItem.Index
                     For a As Integer = ListView1.SelectedItems.Count - 1 To 0
                         ListView1.SelectedItems(a).Remove()
                     Next
                 End If
+                'Me.ListView1.Items(ListView1.FocusedItem.Index).Text
+                'li = Me.ListView1.Items(urutan)
 
                 li = ListView1.Items.Add(Me.txtguid_d.Text)
                 li.SubItems.Add(Me.ComboBox6.SelectedValue)
@@ -323,7 +327,6 @@ err_cmdsave_Click:
                 li.SubItems.Add(Me.TextBox19.Text)
             End If
         End If
-        loopthroughlistview(Me.ListView1, 1)
         Me.txtguid_d.Text = "0"
         Me.TextBox12.Text = "0"
         Me.TextBox13.Text = "0"
@@ -332,7 +335,9 @@ err_cmdsave_Click:
         Me.TextBox16.Text = "0"
         Me.TextBox17.Text = "0"
         Me.TextBox18.Text = "0"
+        AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = ""
+        If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox20.Text = FormatNumber(Me.TextBox20.Text, 2)
         Me.btnSaveD.Tag = "N" : Me.btnSaveD.Enabled = False
     End Sub
     Private Function FindSubItem(ByVal lv As ListView, ByVal SearchString As String) As Boolean
@@ -380,5 +385,9 @@ err_cmdsave_Click:
             Me.btnSaveD.Tag = "E" : Me.btnSaveD.Enabled = True
 
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Me.ComboBox6.Enabled = Me.ComboBox1.SelectedIndex >= 0
     End Sub
 End Class
