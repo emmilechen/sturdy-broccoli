@@ -471,7 +471,7 @@ Module modFunction
                     If action = "insert" Then
                         'paramoutput.Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        txtid.Text = System.Convert.ToInt32(sqlComm.Parameters(outputid).Value) 'sqlComm.Parameters(outputid).SqlValue.ToString
+                        'txtid.Text = System.Convert.ToInt32(sqlComm.Parameters(outputid).Value) 'sqlComm.Parameters(outputid).SqlValue.ToString
                     ElseIf action = "update" Then
                         sqlComm.ExecuteNonQuery()
                     ElseIf action = "select" Then
@@ -706,11 +706,22 @@ Module modFunction
         cmd.Dispose()
         Exit Function
     End Function
-    Public Function loopthroughlistview(ByVal namalistview As ListView, ByVal kolom As Integer, Optional strskip As String = "") As String
+    Public Function loopthroughlistview(ByVal namalistview As ListView, ByVal kolom As Integer, Optional strskip As String = "", Optional penjumlahan As Boolean = False) As String
+        On Error Resume Next
+        Dim jmlsementara As Decimal
         For a As Integer = 0 To namalistview.Items.Count - 1
-            If strskip <> namalistview.Items(a).SubItems(kolom).Text Then loopthroughlistview = loopthroughlistview + namalistview.Items(a).SubItems(kolom).Text + ","
+            If penjumlahan Then
+                jmlsementara = jmlsementara + CDec(namalistview.Items(a).SubItems(kolom).Text)
+            Else
+                If strskip <> namalistview.Items(a).SubItems(kolom).Text Then loopthroughlistview = loopthroughlistview + namalistview.Items(a).SubItems(kolom).Text + "," Else loopthroughlistview = loopthroughlistview + "0,"
+            End If
         Next
-        loopthroughlistview = loopthroughlistview.Substring(0, loopthroughlistview.Length - 1)
+        If loopthroughlistview = Nothing And penjumlahan = False Then Exit Function
+        If penjumlahan Then
+            loopthroughlistview = jmlsementara
+        Else
+            loopthroughlistview = loopthroughlistview.Substring(0, loopthroughlistview.Length - 1)
+        End If
     End Function
 End Module
 
