@@ -205,8 +205,8 @@ Public Class frmSupplier
         NewFormDialog.ShowDialog()
     End Sub
     Private Sub btnsave_Click_1(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
-        If txtSCode.Text = "" Or txtSName.Text = "" Or txtSCurrCode.Text = "" Then
-            MsgBox("Code, Name, Currency and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+        If Me.cmbCTitle.Text = "" Or txtSName.Text = "" Or txtSCurrCode.Text = "" Then
+            MsgBox("Title, Name, Currency and Category are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
             txtSCode.Focus()
             Exit Sub
         End If
