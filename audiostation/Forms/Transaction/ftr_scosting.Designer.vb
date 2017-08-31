@@ -74,8 +74,6 @@ Partial Class ftr_scosting
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.ComboBox6 = New System.Windows.Forms.ComboBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.btnAddD = New System.Windows.Forms.Button()
-        Me.btnDeleteD = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
@@ -123,6 +121,8 @@ Partial Class ftr_scosting
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.btnAddD = New System.Windows.Forms.Button()
+        Me.btnDeleteD = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -368,8 +368,6 @@ Partial Class ftr_scosting
         Me.TabPage1.Controls.Add(Me.TextBox12)
         Me.TabPage1.Controls.Add(Me.ComboBox6)
         Me.TabPage1.Controls.Add(Me.ListView1)
-        Me.TabPage1.Controls.Add(Me.btnAddD)
-        Me.TabPage1.Controls.Add(Me.btnDeleteD)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -656,30 +654,6 @@ Partial Class ftr_scosting
         Me.ListView1.TabIndex = 49
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
-        '
-        'btnAddD
-        '
-        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddD.ImageIndex = 0
-        Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(1163, 5)
-        Me.btnAddD.Name = "btnAddD"
-        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
-        Me.btnAddD.TabIndex = 74
-        Me.btnAddD.UseVisualStyleBackColor = True
-        Me.btnAddD.Visible = False
-        '
-        'btnDeleteD
-        '
-        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteD.ImageIndex = 2
-        Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(1132, 5)
-        Me.btnDeleteD.Name = "btnDeleteD"
-        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
-        Me.btnDeleteD.TabIndex = 73
-        Me.btnDeleteD.UseVisualStyleBackColor = True
-        Me.btnDeleteD.Visible = False
         '
         'TabPage2
         '
@@ -1118,11 +1092,37 @@ Partial Class ftr_scosting
         Me.TextBox29.TabIndex = 7
         Me.TextBox29.Tag = "out_val"
         '
+        'btnAddD
+        '
+        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD.ImageIndex = 0
+        Me.btnAddD.ImageList = Me.ImageList1
+        Me.btnAddD.Location = New System.Drawing.Point(1214, 121)
+        Me.btnAddD.Name = "btnAddD"
+        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD.TabIndex = 103
+        Me.btnAddD.UseVisualStyleBackColor = True
+        Me.btnAddD.Visible = False
+        '
+        'btnDeleteD
+        '
+        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD.ImageIndex = 2
+        Me.btnDeleteD.ImageList = Me.ImageList1
+        Me.btnDeleteD.Location = New System.Drawing.Point(1183, 121)
+        Me.btnDeleteD.Name = "btnDeleteD"
+        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD.TabIndex = 102
+        Me.btnDeleteD.UseVisualStyleBackColor = True
+        Me.btnDeleteD.Visible = False
+        '
         'ftr_scosting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1264, 561)
+        Me.Controls.Add(Me.btnAddD)
+        Me.Controls.Add(Me.btnDeleteD)
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.TextBox29)
         Me.Controls.Add(Me.Label29)
@@ -1245,8 +1245,6 @@ Partial Class ftr_scosting
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents btnAddD As System.Windows.Forms.Button
-    Friend WithEvents btnDeleteD As System.Windows.Forms.Button
     Friend WithEvents btnSaveD As System.Windows.Forms.Button
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
@@ -1290,4 +1288,6 @@ Partial Class ftr_scosting
     Friend WithEvents TextBox32 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
+    Friend WithEvents btnAddD As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD As System.Windows.Forms.Button
 End Class

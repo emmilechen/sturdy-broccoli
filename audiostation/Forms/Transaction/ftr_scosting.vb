@@ -154,7 +154,7 @@ Public Class ftr_scosting
             Exit Sub
         End If
         If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, Me.Text) = MsgBoxResult.Yes Then
-            namatable = "tr_costing" : namafieldPK = "cost_no" : Me.ComboBox8.SelectedValue = 2 : Me.cmdsave.Tag = "F"
+            namatable = "tr_costing" : namafieldPK = "cost_no" : Me.ComboBox8.SelectedValue = 2 : Me.cmdsave.Tag = "X"
             If (Me.txtguid.Text = "0") Then
                 'Insert new
                 Me.TextBox1.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("CO", namatable, namafieldPK, "cost_date", CDate(Me.DateTimePicker1.Text), False, 4, 1, "", ""), Me.TextBox1.Text)
@@ -163,7 +163,7 @@ Public Class ftr_scosting
                 For i As Integer = 0 To Me.ListView1.Items.Count - 1
                     'kl blm ada, INSERT
                     upddetil = Executestr("EXEC sp_tr_costing_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & _
-                                          Me.txtguid_d.Text & "','" & noindex & "'," & ListView1.Items(i).SubItems(1).Text & ",'" & Me.ListView1.Items(i).SubItems(2).Text & "','" & ListView1.Items(i).SubItems(2).Text & "'," & _
+                                          Me.txtguid_d.Text & "','" & Me.txtguid.Text & "'," & ListView1.Items(i).SubItems(1).Text & ",'" & Me.ListView1.Items(i).SubItems(2).Text & "','" & ListView1.Items(i).SubItems(2).Text & "'," & _
                                           ListView1.Items(i).SubItems(3).Text & "," & ListView1.Items(i).SubItems(4).Text & "," & ListView1.Items(i).SubItems(6).Text & "," & _
                                           ListView1.Items(i).SubItems(7).Text & "," & ListView1.Items(i).SubItems(8).Text & "," & _
                                           ListView1.Items(i).SubItems(10).Text & "," & ListView1.Items(i).SubItems(11).Text & "," & _
@@ -215,6 +215,7 @@ err_cmdsave_Click:
 
     End Sub
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+        If Me.cmdsave.Tag = "X" Then Exit Sub
         If Me.cmdsave.Tag = "F" And (Me.txtguid.Text = "0" Or Me.txtguid.Text = "") Then Exit Sub Else isirecord(Me.txtguid.Text)
     End Sub
     Private Sub TextBox12_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
@@ -395,5 +396,22 @@ err_cmdsave_Click:
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Me.ComboBox6.Enabled = Me.ComboBox1.SelectedIndex >= 0
+    End Sub
+    Private Sub btnAddD_Click(sender As System.Object, e As System.EventArgs) Handles btnAddD.Click
+        Me.txtguid_d.Text = "0"
+        Me.TextBox12.Text = "0"
+        Me.TextBox13.Text = "0"
+        Me.TextBox14.Text = "0"
+        Me.TextBox15.Text = "0"
+        Me.TextBox16.Text = "0"
+        Me.TextBox17.Text = "0"
+        Me.TextBox18.Text = "0"
+        Me.TextBox19.Text = "0"
+        AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
+        Me.ComboBox6.SelectedValue = ""
+    End Sub
+
+    Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
+        MsgBox("Temporarily this function is disabled !", MsgBoxStyle.Information, "Costing")
     End Sub
 End Class
