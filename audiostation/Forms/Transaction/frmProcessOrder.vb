@@ -10,71 +10,123 @@ Public Class frmProcessOrder
     Private sqlCon As SqlConnection
     Dim cn As SqlConnection = New SqlConnection(strConnection)
 
-    '    Private Function kosong()
-    '        ClearObjectonForm(Me)
-    '        AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
-    '        AssignValuetoCombo(Me.cmbmp_st, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='wo_status'", "sys_dropdown_sort")
-    '        With Me
-    '            .ListView1.Columns.Clear()
-    '            .ListView1.Columns.Add("Kolom 0", "guid", 0)
-    '            .ListView1.Columns.Add("Kolom 1", "skuid", 0)
-    '            .ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
-    '            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
-    '            .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
-    '            .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
-    '            .ListView1.Columns.Add("Kolom 6", "Tgl_Permintaan", Me.TextBox7.Width + 5)
-    '            .ListView1.Columns.Add("Kolom 7", "Tgl_Perjanjian", Me.TextBox8.Width + 5)
-    '            .ListView1.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
-    '        End With
-    '        Me.ListView1.Items.Clear()
+    Private Function kosong()
+        ClearObjectonForm(Me)
+        '        AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
+        '        AssignValuetoCombo(Me.cmbmp_st, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='wo_status'", "sys_dropdown_sort")
+        With Me
+            .ListView1.Columns.Clear()
+            .ListView1.Columns.Add("Kolom 0", "guid1", 0)
+            .ListView1.Columns.Add("Kolom 1", "skuid", 0)
+            '.ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
+            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
+            .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
+            .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
+            .ListView1.Columns.Add("Kolom 6", "Tgl_Permintaan", Me.TextBox7.Width + 5)
+            .ListView1.Columns.Add("Kolom 7", "Tgl_Perjanjian", Me.TextBox8.Width + 5)
+            '.ListView1.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
 
-    '        Me.dttpmp_tgl.Focus()
-    '        Me.txtguid.Text = "0"
-    '        Me.btnSaveD.Tag = "N"
-    '        Me.ToolStrip2.Enabled = False
-    '        Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False : Me.cmdprint.Enabled = False
-    '    End Function
-    '    Private Function isirecord(ByVal guidno As Integer)
-    '        Me.txtguid.Text = guidno
+            .ListView2.Columns.Clear()
+            .ListView2.Columns.Add("Kolom 0", "guid2", 0)
+            .ListView2.Columns.Add("Kolom 1", "skuid", 0)
+            '.ListView2.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
+            .ListView2.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
+            .ListView2.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
+            .ListView2.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
+            .ListView2.Columns.Add("Kolom 6", "Tgl_Permintaan", Me.TextBox7.Width + 5)
+            .ListView2.Columns.Add("Kolom 7", "Tgl_Perjanjian", Me.TextBox8.Width + 5)
+            '.ListView2.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
+        End With
+        Me.ListView1.Items.Clear()
+        Me.ListView2.Items.Clear()
+        Me.txtguid.Text = "0"
+        Me.btnSaveD1.Tag = "N"
+        Me.btnSaveD2.Tag = "N"
+        '        Me.ToolStrip2.Enabled = False
+        Me.cmdcancel.Enabled = False : Me.cmddelete.Enabled = False : Me.cmdprint.Enabled = False
+        'Tab1
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+        TextBox6.Text = ""
+        TextBox14.Text = ""
+        dtp1.Value = Now.Date
 
-    '        Fillobject(Me.txtguid, Me.Panel1, "select", "sp_tr_mp", Me.txtguid.Text, "@mp_pk")
-    '        opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
-    '        Me.btnCustomer.Enabled = False
-    '        'Me.Text = "Machine - " & Me.txtnama.Text
+        'Tab2
+        TextBox8.Text = ""
+        TextBox9.Text = ""
+        TextBox10.Text = ""
 
-    '        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True
-    '    End Function
-    '    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional ByVal openargs As Integer = 0) As String
-    '        'On Error Resume Next
-    '        Dim cmd As SqlCommand
-    '        Dim str(10) As String, strsql As String
-    '        Dim itm As ListViewItem
-    '        Dim dr As SqlDataReader
-    '        If cn.State = ConnectionState.Closed Then cn.Open()
-    '        With namalistview
-    '            .Items.Clear()
-    '            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
-    '            cmd = New SqlCommand(strsql, cn)
-    '            dr = cmd.ExecuteReader()
-    '            If dr.HasRows Then
-    '                Do While dr.Read()
-    '                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
-    '                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString())
-    '                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
-    '                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
-    '                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
-    '                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
-    '                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", Format(CDate(dr.Item(6).ToString()), "yyyy-MM-dd"))
-    '                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", Format(CDate(dr.Item(7).ToString()), "yyyy-MM-dd"))
-    '                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", Format(CDate(dr.Item(8).ToString()), "yyyy-MM-dd"))
-    '                    itm = New ListViewItem(str)
-    '                    .Items.Add(itm)
-    '                Loop
-    '            End If
-    '            dr.Close()
-    '            cmd.Dispose()
-    '        End With
-    '    End Function
+        'Tab3
+        TextBox7.Text = ""
+        TextBox11.Text = ""
+        TextBox12.Text = ""
+        TextBox15.Text = ""
+        TextBox16.Text = ""
+        TextBox17.Text = ""
+        TextBox18.Text = ""
+
+        For Each ctrl As Control In TabPage1.Controls
+            If TypeOf ctrl Is TextBox Then
+                CType(ctrl, TextBox).Text = String.Empty
+            End If
+
+        Next
+
+        Dim ctrlstr As String = ""
+        For Each ctrl As Control In root.Controls
+            If TypeOf ctrl Is TextBox Or (TypeOf ctrl Is ComboBox) Then ctrlstr &= "," & ctrl.Name
+            ClearObjectonForm(ctrl)
+            If TypeOf ctrl Is TextBox Then
+                CType(ctrl, TextBox).Text = String.Empty
+            End If
+            If TypeOf ctrl Is DateTimePicker Then
+                CType(ctrl, DateTimePicker).Format = DateTimePickerFormat.Custom : CType(ctrl, DateTimePicker).CustomFormat = "yyyy-MM-dd" : CType(ctrl, DateTimePicker).Text = Now.Date
+            End If
+        Next ctrl
+    End Function
+    Private Function isirecord(ByVal guidno As Integer)
+        '        Me.txtguid.Text = guidno
+
+        '        Fillobject(Me.txtguid, Me.Panel1, "select", "sp_tr_mp", Me.txtguid.Text, "@mp_pk")
+        '        opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & guidno & "')", "a.created", 0)
+        '        Me.btnCustomer.Enabled = False
+        '        'Me.Text = "Machine - " & Me.txtnama.Text
+
+        '        Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True
+    End Function
+    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional ByVal openargs As Integer = 0) As String
+        '        'On Error Resume Next
+        '        Dim cmd As SqlCommand
+        '        Dim str(10) As String, strsql As String
+        '        Dim itm As ListViewItem
+        '        Dim dr As SqlDataReader
+        '        If cn.State = ConnectionState.Closed Then cn.Open()
+        '        With namalistview
+        '            .Items.Clear()
+        '            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+        '            cmd = New SqlCommand(strsql, cn)
+        '            dr = cmd.ExecuteReader()
+        '            If dr.HasRows Then
+        '                Do While dr.Read()
+        '                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+        '                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString())
+        '                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
+        '                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
+        '                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
+        '                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
+        '                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", Format(CDate(dr.Item(6).ToString()), "yyyy-MM-dd"))
+        '                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", Format(CDate(dr.Item(7).ToString()), "yyyy-MM-dd"))
+        '                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", Format(CDate(dr.Item(8).ToString()), "yyyy-MM-dd"))
+        '                    itm = New ListViewItem(str)
+        '                    .Items.Add(itm)
+        '                Loop
+        '            End If
+        '            dr.Close()
+        '            cmd.Dispose()
+        '        End With
+    End Function
     '    Private Sub ftr_mp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
     '        Me.Top = 0 : Me.Left = 0
     '        If cn.State = ConnectionState.Closed Then cn.Open()
@@ -186,57 +238,8 @@ Public Class frmProcessOrder
     '        End If
     '    End Sub
     '    Private Sub btnAddD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddD.Click
-    '        If Me.txtso_id_f.Text = "" Then Exit Sub
-    '        Me.txtguid_d.Text = ""
-    '        Me.txtskuid.Text = ""
-    '        Me.TextBox4.Text = ""
-    '        Me.TextBox5.Text = ""
-    '        Me.TextBox6.Text = ""
-    '        Me.TextBox1.Text = ""
-    '        Me.TextBox7.Text = ""
-    '        Me.TextBox8.Text = ""
-    '        Me.btnSaveD.Tag = "N"
+    
     '    End Sub
-    '    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
-    '        'save
-    '        Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String
-    '        On Error GoTo err_ToolStripButton1_Click
-    '        If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
-    '        If Me.cmbcust.Text = "" Or Me.txtsono.Text = "" Then
-    '            MsgBox("Customer Code, Customer Name and SO # are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
-    '            cmbcust.Focus()
-    '            Exit Sub
-    '        End If
-    '        If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
-    '            namatable = "tr_mp" : namafieldPK = "mp_no"
-    '            If (Me.txtguid.Text = "0") Then
-    '                'Insert new
-    '                Me.txtmp_no.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("MP", namatable, namafieldPK, "mp_tgl", CDate(Me.dttpmp_tgl.Text), False, 4, 1, "", ""), Me.txtmp_no.Text)
-    '                updheader = Fillobject(Me.txtguid, Me.Panel1, "insert", "sp_tr_mp", "", "@mp_pk") 'update header
-    '                For i As Integer = 0 To Me.ListView1.Items.Count - 1
-    '                    'kl blm ada, INSERT
-    '                    upddetil = Executestr("EXEC sp_tr_mp_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & Me.dttpmp_tgl.Text & "','0'")
-    '                Next
-    '                If updheader And upddetil Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, "MP")
-    '            Else
-    '                'Update
-    '                updheader = Fillobject(Me.txtguid, Me.Panel1, "update", "sp_tr_mp", "", "@mp_pk") 'update header
-    '                upddetil = True 'Executestr("EXEC sp_tr_mp_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")'update detil
-    '                If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, "MP")
-    '            End If
-    '        Else
-    '            MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "MP")
-    '        End If
-    'exit_ToolStripButton1_Click:
-    '        If ConnectionState.Open = 1 Then cn.Close()
-    '        Exit Sub
-
-    'err_ToolStripButton1_Click:
-    '        MsgBox(Err.Description)
-    '        Resume exit_ToolStripButton1_Click
-
-    '    End Sub
-
     '    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
     '        'find
     '        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
@@ -252,31 +255,9 @@ Public Class frmProcessOrder
     '    End Sub
 
     '    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddel.Click
-    '        'delete
-    '        On Error GoTo err_ToolStripButton4_Click
-    '        If Me.txtguid.Text = "" Then Exit Sub
-    '        If MsgBox("Data akan dihapus, lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
-    '            If Fillobject(Me.txtguid, Me.Panel1, "delete", "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah dihapus !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal dihapus !", MsgBoxStyle.Critical, "MP")
-    '        Else
-    '            MsgBox("Data belum dihapus !", MsgBoxStyle.Critical, "MP")
-    '        End If
-
-    'exit_ToolStripButton4_Click:
-    '        If ConnectionState.Open = 1 Then cn.Close()
-    '        Exit Sub
-
-    'err_ToolStripButton4_Click:
-    '        MsgBox(Err.Description)
-    '        Resume exit_ToolStripButton4_Click
-
+    
 
     '    End Sub
-
-    '    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
-    '        'new
-    '        kosong()
-    '    End Sub
-
     '    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
     '        Me.Close()
     '    End Sub
@@ -306,36 +287,120 @@ Public Class frmProcessOrder
     '        End If
     '    End Sub
     '    Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
-    '        Dim strConnection As String = My.Settings.ConnStr
-    '        Dim Connection As New SqlConnection(strConnection)
-    '        Dim strSQL As String
-    '        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub
-    '        'strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
-    '        strSQL = "exec RPT_MP_Form " & Me.txtguid.Text & ", 'mp'"
-    '        Dim DA As New SqlDataAdapter(strSQL, Connection)
-    '        Dim DS As New DataSet
-
-    '        DA.Fill(DS, "MP_")
-
-    '        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_MP_Form.rpt"
-
-    '        If Not IO.File.Exists(strReportPath) Then
-    '            Throw (New Exception("Unable to locate report file:" & _
-    '              vbCrLf & strReportPath))
-    '        End If
-
-    '        Dim cr As New ReportDocument
-    '        Dim NewMDIChild As New frmDocViewer()
-    '        NewMDIChild.Text = "Memo Produksi"
-    '        NewMDIChild.Show()
-
-    '        cr.Load(strReportPath)
-    '        cr.SetDataSource(DS.Tables("MP_"))
-    '        With NewMDIChild
-    '            .myCrystalReportViewer.ShowRefreshButton = False
-    '            .myCrystalReportViewer.ShowCloseButton = False
-    '            .myCrystalReportViewer.ShowGroupTreeButton = False
-    '            .myCrystalReportViewer.ReportSource = cr
-    '        End With
+    
     '    End Sub
+
+    Private Sub frmProcessOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        kosong()
+    End Sub
+
+    Private Sub cmdsave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdsave.Click
+        'save
+        'Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String
+        '        On Error GoTo err_ToolStripButton1_Click
+        'If Me.ListView1.Items.Count = 0 Then MsgBox("Data tidak dapat disimpan, karena detil barang masih kosong !", vbCritical + vbOKOnly, Me.Text) : Exit Sub
+        '        If Me.cmbcust.Text = "" Or Me.txtsono.Text = "" Then
+        '            MsgBox("Customer Code, Customer Name and SO # are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+        '            cmbcust.Focus()
+        '            Exit Sub
+        '        End If
+        '        If MsgBox("Data akan di" & IIf(Me.txtguid.Text = "0", "simpan", "simpan ulang") & ", lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
+        '            namatable = "tr_mp" : namafieldPK = "mp_no"
+        '            If (Me.txtguid.Text = "0") Then
+        '                'Insert new
+        '                Me.txtmp_no.Text = IIf(Me.txtguid.Text = "0", GETGeneralcode("MP", namatable, namafieldPK, "mp_tgl", CDate(Me.dttpmp_tgl.Text), False, 4, 1, "", ""), Me.txtmp_no.Text)
+        '                updheader = Fillobject(Me.txtguid, Me.Panel1, "insert", "sp_tr_mp", "", "@mp_pk") 'update header
+        '                For i As Integer = 0 To Me.ListView1.Items.Count - 1
+        '                    'kl blm ada, INSERT
+        '                    upddetil = Executestr("EXEC sp_tr_mp_dtl 'insert', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & ListView1.Items(i).SubItems(1).Text & "','" & ListView1.Items(i).SubItems(3).Text & "','" & ListView1.Items(i).SubItems(4).Text & "','" & Me.dttpmp_tgl.Text & "','0'")
+        '                Next
+        '                If updheader And upddetil Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan !", MsgBoxStyle.Critical, "MP")
+        '            Else
+        '                'Update
+        '                updheader = Fillobject(Me.txtguid, Me.Panel1, "update", "sp_tr_mp", "", "@mp_pk") 'update header
+        '                upddetil = True 'Executestr("EXEC sp_tr_mp_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")'update detil
+        '                If updheader And upddetil Then MsgBox("Data telah disimpan ulang !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal disimpan ulang !", MsgBoxStyle.Critical, "MP")
+        '            End If
+        '        Else
+        '            MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "MP")
+        '        End If
+        'exit_ToolStripButton1_Click:
+        '        If ConnectionState.Open = 1 Then cn.Close()
+        '        Exit Sub
+
+        'err_ToolStripButton1_Click:
+        '        MsgBox(Err.Description)
+        '        Resume exit_ToolStripButton1_Click
+    End Sub
+
+    Private Sub cmdnew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdnew.Click
+        'new
+        kosong()
+    End Sub
+
+    Private Sub cmddelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddelete.Click
+        '        'delete
+        '        On Error GoTo err_ToolStripButton4_Click
+        '        If Me.txtguid.Text = "" Then Exit Sub
+        '        If MsgBox("Data akan dihapus, lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
+        '            If Fillobject(Me.txtguid, Me.Panel1, "delete", "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah dihapus !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal dihapus !", MsgBoxStyle.Critical, "MP")
+        '        Else
+        '            MsgBox("Data belum dihapus !", MsgBoxStyle.Critical, "MP")
+        '        End If
+
+        'exit_ToolStripButton4_Click:
+        '        If ConnectionState.Open = 1 Then cn.Close()
+        '        Exit Sub
+
+        'err_ToolStripButton4_Click:
+        '        MsgBox(Err.Description)
+        '        Resume exit_ToolStripButton4_Click
+    End Sub
+
+    Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
+        '        Dim strConnection As String = My.Settings.ConnStr
+        '        Dim Connection As New SqlConnection(strConnection)
+        '        Dim strSQL As String
+        '        If Me.txtguid.Text = "0" Or Me.txtguid.Text = "" Then Exit Sub
+        '        'strSQL = "exec RPT_Sls_Order_Form '" & txtSONo.Text & "', 'so'"
+        '        strSQL = "exec RPT_MP_Form " & Me.txtguid.Text & ", 'mp'"
+        '        Dim DA As New SqlDataAdapter(strSQL, Connection)
+        '        Dim DS As New DataSet
+
+        '        DA.Fill(DS, "MP_")
+
+        '        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_MP_Form.rpt"
+
+        '        If Not IO.File.Exists(strReportPath) Then
+        '            Throw (New Exception("Unable to locate report file:" & _
+        '              vbCrLf & strReportPath))
+        '        End If
+
+        '        Dim cr As New ReportDocument
+        '        Dim NewMDIChild As New frmDocViewer()
+        '        NewMDIChild.Text = "Memo Produksi"
+        '        NewMDIChild.Show()
+
+        '        cr.Load(strReportPath)
+        '        cr.SetDataSource(DS.Tables("MP_"))
+        '        With NewMDIChild
+        '            .myCrystalReportViewer.ShowRefreshButton = False
+        '            .myCrystalReportViewer.ShowCloseButton = False
+        '            .myCrystalReportViewer.ShowGroupTreeButton = False
+        '            .myCrystalReportViewer.ReportSource = cr
+        '        End With
+    End Sub
+
+    Private Sub btnSaveD1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD1.Click
+        '        If Me.txtso_id_f.Text = "" Then Exit Sub
+        Me.txtguid_d1.Text = ""
+        '        Me.txtskuid.Text = ""
+        '        Me.TextBox4.Text = ""
+        '        Me.TextBox5.Text = ""
+        '        Me.TextBox6.Text = ""
+        '        Me.TextBox1.Text = ""
+        '        Me.TextBox7.Text = ""
+        '        Me.TextBox8.Text = ""
+        Me.btnSaveD1.Tag = "N"
+    End Sub
 End Class
