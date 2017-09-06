@@ -95,10 +95,23 @@ Partial Class frmProcessOrder
         Me.Button4 = New System.Windows.Forms.Button()
         Me.txtguid_d1 = New System.Windows.Forms.TextBox()
         Me.txtguid_d2 = New System.Windows.Forms.TextBox()
+        Me.btnSaveD3 = New System.Windows.Forms.Button()
+        Me.btnAddD3 = New System.Windows.Forms.Button()
+        Me.btnDeleteD3 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -316,6 +329,8 @@ Partial Class frmProcessOrder
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label25)
+        Me.TabPage2.Controls.Add(Me.TextBox22)
         Me.TabPage2.Controls.Add(Me.txtguid_d1)
         Me.TabPage2.Controls.Add(Me.btnSKU)
         Me.TabPage2.Controls.Add(Me.btnSaveD1)
@@ -398,9 +413,9 @@ Partial Class frmProcessOrder
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(309, 21)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(69, 13)
+        Me.Label10.Size = New System.Drawing.Size(73, 13)
         Me.Label10.TabIndex = 77
-        Me.Label10.Text = "Raw Material"
+        Me.Label10.Text = "Plano Amount"
         '
         'TextBox10
         '
@@ -482,7 +497,7 @@ Partial Class frmProcessOrder
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(387, 24)
+        Me.Label20.Location = New System.Drawing.Point(318, 24)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(51, 13)
         Me.Label20.TabIndex = 118
@@ -490,7 +505,7 @@ Partial Class frmProcessOrder
         '
         'TextBox18
         '
-        Me.TextBox18.Location = New System.Drawing.Point(390, 40)
+        Me.TextBox18.Location = New System.Drawing.Point(321, 40)
         Me.TextBox18.Name = "TextBox18"
         Me.TextBox18.Size = New System.Drawing.Size(54, 21)
         Me.TextBox18.TabIndex = 117
@@ -544,7 +559,7 @@ Partial Class frmProcessOrder
         '
         Me.TextBox15.Location = New System.Drawing.Point(258, 40)
         Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(126, 21)
+        Me.TextBox15.Size = New System.Drawing.Size(57, 21)
         Me.TextBox15.TabIndex = 112
         '
         'Label17
@@ -637,6 +652,16 @@ Partial Class frmProcessOrder
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.Label24)
+        Me.TabPage4.Controls.Add(Me.TextBox21)
+        Me.TabPage4.Controls.Add(Me.btnSaveD3)
+        Me.TabPage4.Controls.Add(Me.btnAddD3)
+        Me.TabPage4.Controls.Add(Me.btnDeleteD3)
+        Me.TabPage4.Controls.Add(Me.Label21)
+        Me.TabPage4.Controls.Add(Me.TextBox19)
+        Me.TabPage4.Controls.Add(Me.Label22)
+        Me.TabPage4.Controls.Add(Me.TextBox20)
+        Me.TabPage4.Controls.Add(Me.ListView3)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
@@ -761,7 +786,7 @@ Partial Class frmProcessOrder
         '
         Me.txtguid_d1.BackColor = System.Drawing.Color.IndianRed
         Me.txtguid_d1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid_d1.Location = New System.Drawing.Point(441, 37)
+        Me.txtguid_d1.Location = New System.Drawing.Point(504, 39)
         Me.txtguid_d1.Name = "txtguid_d1"
         Me.txtguid_d1.ReadOnly = True
         Me.txtguid_d1.Size = New System.Drawing.Size(84, 21)
@@ -780,6 +805,114 @@ Partial Class frmProcessOrder
         Me.txtguid_d2.TabIndex = 120
         Me.txtguid_d2.Tag = "cost_d_id"
         Me.txtguid_d2.Visible = False
+        '
+        'btnSaveD3
+        '
+        Me.btnSaveD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD3.ImageIndex = 4
+        Me.btnSaveD3.ImageList = Me.ImageList1
+        Me.btnSaveD3.Location = New System.Drawing.Point(662, 30)
+        Me.btnSaveD3.Name = "btnSaveD3"
+        Me.btnSaveD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD3.TabIndex = 125
+        Me.btnSaveD3.UseVisualStyleBackColor = True
+        '
+        'btnAddD3
+        '
+        Me.btnAddD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD3.ImageIndex = 3
+        Me.btnAddD3.ImageList = Me.ImageList1
+        Me.btnAddD3.Location = New System.Drawing.Point(731, 30)
+        Me.btnAddD3.Name = "btnAddD3"
+        Me.btnAddD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD3.TabIndex = 127
+        Me.btnAddD3.UseVisualStyleBackColor = True
+        Me.btnAddD3.Visible = False
+        '
+        'btnDeleteD3
+        '
+        Me.btnDeleteD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD3.ImageIndex = 2
+        Me.btnDeleteD3.ImageList = Me.ImageList1
+        Me.btnDeleteD3.Location = New System.Drawing.Point(697, 30)
+        Me.btnDeleteD3.Name = "btnDeleteD3"
+        Me.btnDeleteD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD3.TabIndex = 126
+        Me.btnDeleteD3.UseVisualStyleBackColor = True
+        Me.btnDeleteD3.Visible = False
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(149, 17)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(35, 13)
+        Me.Label21.TabIndex = 124
+        Me.Label21.Text = "Text2"
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(152, 34)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(125, 21)
+        Me.TextBox19.TabIndex = 123
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(17, 18)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(35, 13)
+        Me.Label22.TabIndex = 122
+        Me.Label22.Text = "Text1"
+        '
+        'TextBox20
+        '
+        Me.TextBox20.Location = New System.Drawing.Point(20, 34)
+        Me.TextBox20.Name = "TextBox20"
+        Me.TextBox20.Size = New System.Drawing.Size(126, 21)
+        Me.TextBox20.TabIndex = 121
+        '
+        'ListView3
+        '
+        Me.ListView3.Location = New System.Drawing.Point(21, 67)
+        Me.ListView3.Name = "ListView3"
+        Me.ListView3.Size = New System.Drawing.Size(749, 136)
+        Me.ListView3.TabIndex = 120
+        Me.ListView3.UseCompatibleStateImageBehavior = False
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(280, 17)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(35, 13)
+        Me.Label24.TabIndex = 130
+        Me.Label24.Text = "Text3"
+        '
+        'TextBox21
+        '
+        Me.TextBox21.Location = New System.Drawing.Point(283, 33)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(125, 21)
+        Me.TextBox21.TabIndex = 129
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(438, 23)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(28, 13)
+        Me.Label25.TabIndex = 115
+        Me.Label25.Text = "UoM"
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(441, 39)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox22.TabIndex = 114
         '
         'frmProcessOrder
         '
@@ -809,6 +942,8 @@ Partial Class frmProcessOrder
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -886,4 +1021,16 @@ Partial Class frmProcessOrder
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents txtguid_d1 As System.Windows.Forms.TextBox
     Friend WithEvents txtguid_d2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents TextBox21 As System.Windows.Forms.TextBox
+    Friend WithEvents btnSaveD3 As System.Windows.Forms.Button
+    Friend WithEvents btnAddD3 As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD3 As System.Windows.Forms.Button
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents TextBox20 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView3 As System.Windows.Forms.ListView
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
 End Class

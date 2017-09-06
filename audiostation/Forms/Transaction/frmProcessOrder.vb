@@ -18,30 +18,32 @@ Public Class frmProcessOrder
             .ListView1.Columns.Clear()
             .ListView1.Columns.Add("Kolom 0", "guid1", 0)
             .ListView1.Columns.Add("Kolom 1", "skuid", 0)
-            '.ListView1.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
-            .ListView1.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
-            .ListView1.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
-            .ListView1.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
-            .ListView1.Columns.Add("Kolom 6", "Tgl_Permintaan", Me.TextBox7.Width + 5)
-            .ListView1.Columns.Add("Kolom 7", "Tgl_Perjanjian", Me.TextBox8.Width + 5)
-            '.ListView1.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
+            .ListView1.Columns.Add("Kolom 2", "Code", Me.TextBox8.Width + 5)
+            .ListView1.Columns.Add("Kolom 3", "Plano Size", Me.TextBox9.Width + 5)
+            .ListView1.Columns.Add("Kolom 4", "Plano Amount", Me.TextBox6.Width + 5)
+            .ListView1.Columns.Add("Kolom 5", "UoM", Me.TextBox1.Width + 5)
 
             .ListView2.Columns.Clear()
             .ListView2.Columns.Add("Kolom 0", "guid2", 0)
             .ListView2.Columns.Add("Kolom 1", "skuid", 0)
-            '.ListView2.Columns.Add("Kolom 2", "Kode", Me.TextBox4.Width + Me.btnCustomer.Width + 5)
-            .ListView2.Columns.Add("Kolom 3", "Keterangan", Me.TextBox5.Width + 10)
-            .ListView2.Columns.Add("Kolom 4", "Qty", Me.TextBox6.Width + 5)
-            .ListView2.Columns.Add("Kolom 5", "UOM", Me.TextBox1.Width + 5)
-            .ListView2.Columns.Add("Kolom 6", "Tgl_Permintaan", Me.TextBox7.Width + 5)
-            .ListView2.Columns.Add("Kolom 7", "Tgl_Perjanjian", Me.TextBox8.Width + 5)
-            '.ListView2.Columns.Add("Kolom 8", "Tgl_Realisasi", Me.DateTimePicker1.Width + 5)
+            .ListView2.Columns.Add("Kolom 2", "Code", Me.TextBox17.Width + 5)
+            .ListView2.Columns.Add("Kolom 3", "Qty", Me.TextBox16.Width + 5)
+            .ListView2.Columns.Add("Kolom 4", "UoM", Me.TextBox15.Width + 5)
+            .ListView2.Columns.Add("Kolom 5", "Group By", Me.TextBox18.Width + 5)
+
+            .ListView3.Columns.Clear()
+            .ListView3.Columns.Add("Kolom 0", "guid3", 0)
+            .ListView3.Columns.Add("Kolom 1", "Text1", Me.TextBox20.Width + 5)
+            .ListView3.Columns.Add("Kolom 2", "Text2", Me.TextBox19.Width + 5)
+            .ListView3.Columns.Add("Kolom 3", "Text3", Me.TextBox21.Width + 10)
         End With
         Me.ListView1.Items.Clear()
         Me.ListView2.Items.Clear()
+        Me.ListView3.Items.Clear()
         Me.txtguid.Text = "0"
         Me.btnSaveD1.Tag = "N"
         Me.btnSaveD2.Tag = "N"
+        Me.btnSaveD3.Tag = "N"
         '        Me.ToolStrip2.Enabled = False
         Me.cmdcancel.Enabled = False : Me.cmddelete.Enabled = False : Me.cmdprint.Enabled = False
         'Tab1
@@ -57,6 +59,7 @@ Public Class frmProcessOrder
         TextBox8.Text = ""
         TextBox9.Text = ""
         TextBox10.Text = ""
+        TextBox22.Text = ""
 
         'Tab3
         TextBox7.Text = ""
@@ -67,24 +70,6 @@ Public Class frmProcessOrder
         TextBox17.Text = ""
         TextBox18.Text = ""
 
-        For Each ctrl As Control In TabPage1.Controls
-            If TypeOf ctrl Is TextBox Then
-                CType(ctrl, TextBox).Text = String.Empty
-            End If
-
-        Next
-
-        Dim ctrlstr As String = ""
-        For Each ctrl As Control In root.Controls
-            If TypeOf ctrl Is TextBox Or (TypeOf ctrl Is ComboBox) Then ctrlstr &= "," & ctrl.Name
-            ClearObjectonForm(ctrl)
-            If TypeOf ctrl Is TextBox Then
-                CType(ctrl, TextBox).Text = String.Empty
-            End If
-            If TypeOf ctrl Is DateTimePicker Then
-                CType(ctrl, DateTimePicker).Format = DateTimePickerFormat.Custom : CType(ctrl, DateTimePicker).CustomFormat = "yyyy-MM-dd" : CType(ctrl, DateTimePicker).Text = Now.Date
-            End If
-        Next ctrl
     End Function
     Private Function isirecord(ByVal guidno As Integer)
         '        Me.txtguid.Text = guidno
