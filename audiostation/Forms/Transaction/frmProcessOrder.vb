@@ -138,51 +138,53 @@ Public Class frmProcessOrder
     '        NewFormDialog.ShowDialog()
     '    End Sub
 
-    '    Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
-    '        Dim li As ListViewItem, i As Integer
-    '        If Me.txtguid.Text = "0" Then Exit Sub
-    '        If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then
-    '            Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
-    '            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
-    '            Executestr("EXEC sp_tr_mp_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")
-    '            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
-    '        Else
-    '            'insert
-    '            If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD.Tag = "N" Then
-    '                'it is a duplicate do something
-    '                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
-    '                Exit Sub
-    '            Else
-    '                'it is not a duplicate, go ahead and add it.
-    '                If Me.btnSaveD.Tag = "N" Then
+    Private Sub btnSaveD1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD1.Click
+        Dim li As ListViewItem, i As Integer
+        If Me.txtguid.Text = "0" Then Exit Sub
+        '        If Me.txtguid.Text <> "0" And Me.txtguid_d.Text <> "0" Then
+        '            Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+        '            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+        '            Executestr("EXEC sp_tr_mp_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox5.Text & "','" & CDbl(Me.TextBox6.Text) & "','" & Me.dttpmp_tgl.Text & "','0'")
+        '            opensearchform(Me.ListView1, "mp_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
+        '        Else
+        '            'insert
+        '            If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD.Tag = "N" Then
+        '                'it is a duplicate do something
+        '                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+        '                Exit Sub
+        '            Else
+        '                'it is not a duplicate, go ahead and add it.
+        '                If Me.btnSaveD.Tag = "N" Then
 
-    '                Else
-    '                    For a As Integer = ListView1.SelectedItems.Count - 1 To 0
-    '                        ListView1.SelectedItems(a).Remove()
-    '                    Next
-    '                End If
-    '                i = Me.ListView1.Items.Count + 1
-    '                li = ListView1.Items.Add(Me.txtguid_d.Text)
-    '                li.SubItems.Add(Me.txtskuid.Text)
-    '                li.SubItems.Add(Me.TextBox4.Text)
-    '                li.SubItems.Add(Me.TextBox5.Text)
-    '                li.SubItems.Add(Me.TextBox6.Text)
-    '                li.SubItems.Add(Me.TextBox1.Text)
-    '                li.SubItems.Add(Me.TextBox7.Text)
-    '                li.SubItems.Add(Me.TextBox8.Text)
-    '                li.SubItems.Add(Me.DateTimePicker1.Text)
-    '            End If
-    '        End If
-    '        Me.txtguid_d.Text = ""
-    '        Me.txtskuid.Text = ""
-    '        Me.TextBox4.Text = ""
-    '        Me.TextBox5.Text = ""
-    '        Me.TextBox6.Text = ""
-    '        Me.TextBox1.Text = ""
-    '        Me.TextBox7.Text = ""
-    '        Me.TextBox8.Text = ""
-    '        Me.btnSaveD.Tag = "N"
-    '    End Sub
+        '                Else
+        '                    For a As Integer = ListView1.SelectedItems.Count - 1 To 0
+        '                        ListView1.SelectedItems(a).Remove()
+        '                    Next
+        '                End If
+        '                i = Me.ListView1.Items.Count + 1
+        '                li = ListView1.Items.Add(Me.txtguid_d.Text)
+        '                li.SubItems.Add(Me.txtskuid.Text)
+        '                li.SubItems.Add(Me.TextBox4.Text)
+        '                li.SubItems.Add(Me.TextBox5.Text)
+        '                li.SubItems.Add(Me.TextBox6.Text)
+        '                li.SubItems.Add(Me.TextBox1.Text)
+        '                li.SubItems.Add(Me.TextBox7.Text)
+        '                li.SubItems.Add(Me.TextBox8.Text)
+        '                li.SubItems.Add(Me.DateTimePicker1.Text)
+        '            End If
+        '        End If
+        Me.txtguid_d1.Text = ""
+        
+        'Tab2
+        TextBox8.Text = ""
+        TextBox9.Text = ""
+        TextBox10.Text = ""
+        TextBox22.Text = ""
+
+        Me.btnSaveD1.Tag = "N"
+        Me.btnSaveD2.Tag = "N"
+        Me.btnSaveD3.Tag = "N"
+    End Sub
     '    Private Function FindSubItem(ByVal lv As ListView, ByVal SearchString As String) As Boolean
     '        'find column index in listview by name "acctcode"
     '        Dim idx = (From c In ListView1.Columns Where c.Text = "skuid" Select c = c.Index).First()
@@ -223,7 +225,7 @@ Public Class frmProcessOrder
     '        End If
     '    End Sub
     '    Private Sub btnAddD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddD.Click
-    
+
     '    End Sub
     '    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
     '        'find
@@ -240,7 +242,7 @@ Public Class frmProcessOrder
     '    End Sub
 
     '    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddel.Click
-    
+
 
     '    End Sub
     '    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
@@ -272,7 +274,7 @@ Public Class frmProcessOrder
     '        End If
     '    End Sub
     '    Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
-    
+
     '    End Sub
 
     Private Sub frmProcessOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -374,18 +376,5 @@ Public Class frmProcessOrder
         '            .myCrystalReportViewer.ShowGroupTreeButton = False
         '            .myCrystalReportViewer.ReportSource = cr
         '        End With
-    End Sub
-
-    Private Sub btnSaveD1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD1.Click
-        '        If Me.txtso_id_f.Text = "" Then Exit Sub
-        Me.txtguid_d1.Text = ""
-        '        Me.txtskuid.Text = ""
-        '        Me.TextBox4.Text = ""
-        '        Me.TextBox5.Text = ""
-        '        Me.TextBox6.Text = ""
-        '        Me.TextBox1.Text = ""
-        '        Me.TextBox7.Text = ""
-        '        Me.TextBox8.Text = ""
-        Me.btnSaveD1.Tag = "N"
     End Sub
 End Class
