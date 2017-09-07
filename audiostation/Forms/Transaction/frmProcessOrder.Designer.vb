@@ -48,6 +48,9 @@ Partial Class frmProcessOrder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.txtguid_d1 = New System.Windows.Forms.TextBox()
         Me.btnSKU = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.btnSaveD1 = New System.Windows.Forms.Button()
@@ -61,6 +64,7 @@ Partial Class frmProcessOrder
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d2 = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TextBox18 = New System.Windows.Forms.TextBox()
         Me.btnSaveD2 = New System.Windows.Forms.Button()
@@ -80,6 +84,17 @@ Partial Class frmProcessOrder
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d3 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.btnSaveD3 = New System.Windows.Forms.Button()
+        Me.btnAddD3 = New System.Windows.Forms.Button()
+        Me.btnDeleteD3 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.TextBox20 = New System.Windows.Forms.TextBox()
+        Me.ListView3 = New System.Windows.Forms.ListView()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.cmdsave = New System.Windows.Forms.ToolStripButton()
         Me.cmdfind = New System.Windows.Forms.ToolStripButton()
@@ -89,24 +104,15 @@ Partial Class frmProcessOrder
         Me.cmdexit = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdprint = New System.Windows.Forms.ToolStripButton()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.txtSONo = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtguid = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.txtguid_d1 = New System.Windows.Forms.TextBox()
-        Me.txtguid_d2 = New System.Windows.Forms.TextBox()
-        Me.btnSaveD3 = New System.Windows.Forms.Button()
-        Me.btnAddD3 = New System.Windows.Forms.Button()
-        Me.btnDeleteD3 = New System.Windows.Forms.Button()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox20 = New System.Windows.Forms.TextBox()
-        Me.ListView3 = New System.Windows.Forms.ListView()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.txtProderNo = New System.Windows.Forms.TextBox()
+        Me.dtpProderDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.btnSO = New System.Windows.Forms.Button()
+        Me.txtskuid = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -118,7 +124,7 @@ Partial Class frmProcessOrder
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(19, 75)
+        Me.Label23.Location = New System.Drawing.Point(17, 121)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(83, 13)
         Me.Label23.TabIndex = 71
@@ -127,7 +133,7 @@ Partial Class frmProcessOrder
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(19, 49)
+        Me.Label1.Location = New System.Drawing.Point(17, 94)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(81, 13)
         Me.Label1.TabIndex = 70
@@ -135,7 +141,7 @@ Partial Class frmProcessOrder
         '
         'txtCCode
         '
-        Me.txtCCode.Location = New System.Drawing.Point(113, 44)
+        Me.txtCCode.Location = New System.Drawing.Point(150, 90)
         Me.txtCCode.Name = "txtCCode"
         Me.txtCCode.ReadOnly = True
         Me.txtCCode.Size = New System.Drawing.Size(80, 21)
@@ -144,7 +150,7 @@ Partial Class frmProcessOrder
         '
         'txtCName
         '
-        Me.txtCName.Location = New System.Drawing.Point(113, 72)
+        Me.txtCName.Location = New System.Drawing.Point(150, 117)
         Me.txtCName.Name = "txtCName"
         Me.txtCName.ReadOnly = True
         Me.txtCName.Size = New System.Drawing.Size(217, 21)
@@ -154,7 +160,7 @@ Partial Class frmProcessOrder
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(19, 129)
+        Me.Label18.Location = New System.Drawing.Point(438, 66)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(26, 13)
         Me.Label18.TabIndex = 75
@@ -162,7 +168,7 @@ Partial Class frmProcessOrder
         '
         'txtSKUCode
         '
-        Me.txtSKUCode.Location = New System.Drawing.Point(113, 126)
+        Me.txtSKUCode.Location = New System.Drawing.Point(532, 63)
         Me.txtSKUCode.MaxLength = 50
         Me.txtSKUCode.Name = "txtSKUCode"
         Me.txtSKUCode.ReadOnly = True
@@ -171,7 +177,7 @@ Partial Class frmProcessOrder
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(189, 126)
+        Me.TextBox1.Location = New System.Drawing.Point(608, 63)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(217, 21)
@@ -184,10 +190,10 @@ Partial Class frmProcessOrder
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
-        Me.TabControl1.Location = New System.Drawing.Point(23, 166)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 166)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(806, 323)
+        Me.TabControl1.Size = New System.Drawing.Size(817, 323)
         Me.TabControl1.TabIndex = 78
         '
         'TabPage1
@@ -209,7 +215,7 @@ Partial Class frmProcessOrder
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(798, 297)
+        Me.TabPage1.Size = New System.Drawing.Size(809, 297)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Preparation1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -217,7 +223,7 @@ Partial Class frmProcessOrder
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(362, 48)
+        Me.Label15.Location = New System.Drawing.Point(344, 48)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(42, 13)
         Me.Label15.TabIndex = 84
@@ -225,7 +231,7 @@ Partial Class frmProcessOrder
         '
         'TextBox14
         '
-        Me.TextBox14.Location = New System.Drawing.Point(423, 45)
+        Me.TextBox14.Location = New System.Drawing.Point(405, 45)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(43, 21)
         Me.TextBox14.TabIndex = 83
@@ -233,7 +239,7 @@ Partial Class frmProcessOrder
         'dtp1
         '
         Me.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp1.Location = New System.Drawing.Point(423, 98)
+        Me.dtp1.Location = New System.Drawing.Point(405, 72)
         Me.dtp1.Name = "dtp1"
         Me.dtp1.Size = New System.Drawing.Size(97, 21)
         Me.dtp1.TabIndex = 82
@@ -241,7 +247,7 @@ Partial Class frmProcessOrder
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(362, 102)
+        Me.Label7.Location = New System.Drawing.Point(344, 76)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 13)
         Me.Label7.TabIndex = 81
@@ -266,7 +272,7 @@ Partial Class frmProcessOrder
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(362, 75)
+        Me.Label5.Location = New System.Drawing.Point(551, 48)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 13)
         Me.Label5.TabIndex = 77
@@ -274,7 +280,7 @@ Partial Class frmProcessOrder
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(423, 72)
+        Me.TextBox5.Location = New System.Drawing.Point(612, 45)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(126, 21)
         Me.TextBox5.TabIndex = 76
@@ -284,9 +290,9 @@ Partial Class frmProcessOrder
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(11, 75)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(128, 13)
+        Me.Label4.Size = New System.Drawing.Size(105, 13)
         Me.Label4.TabIndex = 75
-        Me.Label4.Text = "Print on the machine plan"
+        Me.Label4.Text = "Print on the machine"
         '
         'TextBox4
         '
@@ -329,6 +335,7 @@ Partial Class frmProcessOrder
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.txtskuid)
         Me.TabPage2.Controls.Add(Me.Label25)
         Me.TabPage2.Controls.Add(Me.TextBox22)
         Me.TabPage2.Controls.Add(Me.txtguid_d1)
@@ -346,10 +353,38 @@ Partial Class frmProcessOrder
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(798, 297)
+        Me.TabPage2.Size = New System.Drawing.Size(809, 297)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Preparation2"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(438, 23)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(28, 13)
+        Me.Label25.TabIndex = 115
+        Me.Label25.Text = "UoM"
+        '
+        'TextBox22
+        '
+        Me.TextBox22.Location = New System.Drawing.Point(441, 39)
+        Me.TextBox22.Name = "TextBox22"
+        Me.TextBox22.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox22.TabIndex = 114
+        '
+        'txtguid_d1
+        '
+        Me.txtguid_d1.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d1.Location = New System.Drawing.Point(504, 39)
+        Me.txtguid_d1.Name = "txtguid_d1"
+        Me.txtguid_d1.ReadOnly = True
+        Me.txtguid_d1.Size = New System.Drawing.Size(84, 21)
+        Me.txtguid_d1.TabIndex = 108
+        Me.txtguid_d1.Tag = "cost_d_id"
+        Me.txtguid_d1.Visible = False
         '
         'btnSKU
         '
@@ -467,7 +502,6 @@ Partial Class frmProcessOrder
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.txtguid_d2)
-        Me.TabPage3.Controls.Add(Me.Button4)
         Me.TabPage3.Controls.Add(Me.Label20)
         Me.TabPage3.Controls.Add(Me.TextBox18)
         Me.TabPage3.Controls.Add(Me.btnSaveD2)
@@ -489,10 +523,22 @@ Partial Class frmProcessOrder
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(798, 297)
+        Me.TabPage3.Size = New System.Drawing.Size(809, 297)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Preparation3"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'txtguid_d2
+        '
+        Me.txtguid_d2.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d2.Location = New System.Drawing.Point(450, 41)
+        Me.txtguid_d2.Name = "txtguid_d2"
+        Me.txtguid_d2.ReadOnly = True
+        Me.txtguid_d2.Size = New System.Drawing.Size(84, 21)
+        Me.txtguid_d2.TabIndex = 120
+        Me.txtguid_d2.Tag = "cost_d_id"
+        Me.txtguid_d2.Visible = False
         '
         'Label20
         '
@@ -583,15 +629,15 @@ Partial Class frmProcessOrder
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(23, 24)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(69, 13)
+        Me.Label19.Size = New System.Drawing.Size(47, 13)
         Me.Label19.TabIndex = 109
-        Me.Label19.Text = "Raw Material"
+        Me.Label19.Text = "Print Ink"
         '
         'TextBox17
         '
         Me.TextBox17.Location = New System.Drawing.Point(26, 40)
         Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(126, 21)
+        Me.TextBox17.Size = New System.Drawing.Size(160, 21)
         Me.TextBox17.TabIndex = 108
         '
         'ListView2
@@ -652,6 +698,7 @@ Partial Class frmProcessOrder
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.txtguid_d3)
         Me.TabPage4.Controls.Add(Me.Label24)
         Me.TabPage4.Controls.Add(Me.TextBox21)
         Me.TabPage4.Controls.Add(Me.btnSaveD3)
@@ -665,146 +712,38 @@ Partial Class frmProcessOrder
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(798, 297)
+        Me.TabPage4.Size = New System.Drawing.Size(809, 297)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "After printing"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
-        'ToolStrip1
+        'txtguid_d3
         '
-        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdnew, Me.cmdexit, Me.ToolStripSeparator1, Me.cmdprint})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(837, 25)
-        Me.ToolStrip1.TabIndex = 79
-        Me.ToolStrip1.Text = "ToolStrip1"
+        Me.txtguid_d3.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d3.Location = New System.Drawing.Point(414, 33)
+        Me.txtguid_d3.Name = "txtguid_d3"
+        Me.txtguid_d3.ReadOnly = True
+        Me.txtguid_d3.Size = New System.Drawing.Size(84, 21)
+        Me.txtguid_d3.TabIndex = 131
+        Me.txtguid_d3.Tag = "cost_d_id"
+        Me.txtguid_d3.Visible = False
         '
-        'cmdsave
+        'Label24
         '
-        Me.cmdsave.Image = CType(resources.GetObject("cmdsave.Image"), System.Drawing.Image)
-        Me.cmdsave.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdsave.Name = "cmdsave"
-        Me.cmdsave.Size = New System.Drawing.Size(60, 22)
-        Me.cmdsave.Text = "&Save"
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(280, 17)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(35, 13)
+        Me.Label24.TabIndex = 130
+        Me.Label24.Text = "Text3"
         '
-        'cmdfind
+        'TextBox21
         '
-        Me.cmdfind.Image = CType(resources.GetObject("cmdfind.Image"), System.Drawing.Image)
-        Me.cmdfind.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdfind.Name = "cmdfind"
-        Me.cmdfind.Size = New System.Drawing.Size(53, 22)
-        Me.cmdfind.Text = "&Find"
-        '
-        'cmdcancel
-        '
-        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
-        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdcancel.Name = "cmdcancel"
-        Me.cmdcancel.Size = New System.Drawing.Size(70, 22)
-        Me.cmdcancel.Text = "&Cancel"
-        '
-        'cmddelete
-        '
-        Me.cmddelete.Image = CType(resources.GetObject("cmddelete.Image"), System.Drawing.Image)
-        Me.cmddelete.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmddelete.Name = "cmddelete"
-        Me.cmddelete.Size = New System.Drawing.Size(70, 22)
-        Me.cmddelete.Text = "&Delete"
-        '
-        'cmdnew
-        '
-        Me.cmdnew.Image = CType(resources.GetObject("cmdnew.Image"), System.Drawing.Image)
-        Me.cmdnew.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdnew.Name = "cmdnew"
-        Me.cmdnew.Size = New System.Drawing.Size(55, 22)
-        Me.cmdnew.Text = "&New"
-        '
-        'cmdexit
-        '
-        Me.cmdexit.Image = CType(resources.GetObject("cmdexit.Image"), System.Drawing.Image)
-        Me.cmdexit.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdexit.Name = "cmdexit"
-        Me.cmdexit.Size = New System.Drawing.Size(51, 22)
-        Me.cmdexit.Text = "&Exit"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'cmdprint
-        '
-        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
-        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdprint.Name = "cmdprint"
-        Me.cmdprint.Size = New System.Drawing.Size(59, 22)
-        Me.cmdprint.Text = "&Print"
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Location = New System.Drawing.Point(113, 99)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.ReadOnly = True
-        Me.TextBox13.Size = New System.Drawing.Size(217, 21)
-        Me.TextBox13.TabIndex = 81
-        Me.TextBox13.TabStop = False
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(20, 102)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(29, 13)
-        Me.Label14.TabIndex = 80
-        Me.Label14.Text = "MP#"
-        '
-        'txtguid
-        '
-        Me.txtguid.BackColor = System.Drawing.Color.IndianRed
-        Me.txtguid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid.Location = New System.Drawing.Point(199, 44)
-        Me.txtguid.Name = "txtguid"
-        Me.txtguid.ReadOnly = True
-        Me.txtguid.Size = New System.Drawing.Size(84, 21)
-        Me.txtguid.TabIndex = 83
-        Me.txtguid.Tag = "process_order_id"
-        Me.txtguid.Visible = False
-        '
-        'Button4
-        '
-        Me.Button4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ImageIndex = 1
-        Me.Button4.ImageList = Me.ImageList1
-        Me.Button4.Location = New System.Drawing.Point(157, 37)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(29, 25)
-        Me.Button4.TabIndex = 119
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'txtguid_d1
-        '
-        Me.txtguid_d1.BackColor = System.Drawing.Color.IndianRed
-        Me.txtguid_d1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid_d1.Location = New System.Drawing.Point(504, 39)
-        Me.txtguid_d1.Name = "txtguid_d1"
-        Me.txtguid_d1.ReadOnly = True
-        Me.txtguid_d1.Size = New System.Drawing.Size(84, 21)
-        Me.txtguid_d1.TabIndex = 108
-        Me.txtguid_d1.Tag = "cost_d_id"
-        Me.txtguid_d1.Visible = False
-        '
-        'txtguid_d2
-        '
-        Me.txtguid_d2.BackColor = System.Drawing.Color.IndianRed
-        Me.txtguid_d2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtguid_d2.Location = New System.Drawing.Point(450, 41)
-        Me.txtguid_d2.Name = "txtguid_d2"
-        Me.txtguid_d2.ReadOnly = True
-        Me.txtguid_d2.Size = New System.Drawing.Size(84, 21)
-        Me.txtguid_d2.TabIndex = 120
-        Me.txtguid_d2.Tag = "cost_d_id"
-        Me.txtguid_d2.Visible = False
+        Me.TextBox21.Location = New System.Drawing.Point(283, 33)
+        Me.TextBox21.Name = "TextBox21"
+        Me.TextBox21.Size = New System.Drawing.Size(125, 21)
+        Me.TextBox21.TabIndex = 129
         '
         'btnSaveD3
         '
@@ -882,45 +821,174 @@ Partial Class frmProcessOrder
         Me.ListView3.TabIndex = 120
         Me.ListView3.UseCompatibleStateImageBehavior = False
         '
-        'Label24
+        'ToolStrip1
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(280, 17)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(35, 13)
-        Me.Label24.TabIndex = 130
-        Me.Label24.Text = "Text3"
+        Me.ToolStrip1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdsave, Me.cmdfind, Me.cmdcancel, Me.cmddelete, Me.cmdnew, Me.cmdexit, Me.ToolStripSeparator1, Me.cmdprint})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(837, 25)
+        Me.ToolStrip1.TabIndex = 79
+        Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'TextBox21
+        'cmdsave
         '
-        Me.TextBox21.Location = New System.Drawing.Point(283, 33)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(125, 21)
-        Me.TextBox21.TabIndex = 129
+        Me.cmdsave.Image = CType(resources.GetObject("cmdsave.Image"), System.Drawing.Image)
+        Me.cmdsave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdsave.Name = "cmdsave"
+        Me.cmdsave.Size = New System.Drawing.Size(60, 22)
+        Me.cmdsave.Text = "&Save"
         '
-        'Label25
+        'cmdfind
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(438, 23)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(28, 13)
-        Me.Label25.TabIndex = 115
-        Me.Label25.Text = "UoM"
+        Me.cmdfind.Image = CType(resources.GetObject("cmdfind.Image"), System.Drawing.Image)
+        Me.cmdfind.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdfind.Name = "cmdfind"
+        Me.cmdfind.Size = New System.Drawing.Size(53, 22)
+        Me.cmdfind.Text = "&Find"
         '
-        'TextBox22
+        'cmdcancel
         '
-        Me.TextBox22.Location = New System.Drawing.Point(441, 39)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(57, 21)
-        Me.TextBox22.TabIndex = 114
+        Me.cmdcancel.Image = CType(resources.GetObject("cmdcancel.Image"), System.Drawing.Image)
+        Me.cmdcancel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdcancel.Name = "cmdcancel"
+        Me.cmdcancel.Size = New System.Drawing.Size(70, 22)
+        Me.cmdcancel.Text = "&Cancel"
+        '
+        'cmddelete
+        '
+        Me.cmddelete.Image = CType(resources.GetObject("cmddelete.Image"), System.Drawing.Image)
+        Me.cmddelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmddelete.Name = "cmddelete"
+        Me.cmddelete.Size = New System.Drawing.Size(70, 22)
+        Me.cmddelete.Text = "&Delete"
+        '
+        'cmdnew
+        '
+        Me.cmdnew.Image = CType(resources.GetObject("cmdnew.Image"), System.Drawing.Image)
+        Me.cmdnew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdnew.Name = "cmdnew"
+        Me.cmdnew.Size = New System.Drawing.Size(55, 22)
+        Me.cmdnew.Text = "&New"
+        '
+        'cmdexit
+        '
+        Me.cmdexit.Image = CType(resources.GetObject("cmdexit.Image"), System.Drawing.Image)
+        Me.cmdexit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdexit.Name = "cmdexit"
+        Me.cmdexit.Size = New System.Drawing.Size(51, 22)
+        Me.cmdexit.Text = "&Exit"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'cmdprint
+        '
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
+        Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdprint.Name = "cmdprint"
+        Me.cmdprint.Size = New System.Drawing.Size(59, 22)
+        Me.cmdprint.Text = "&Print"
+        '
+        'txtSONo
+        '
+        Me.txtSONo.Location = New System.Drawing.Point(532, 36)
+        Me.txtSONo.Name = "txtSONo"
+        Me.txtSONo.ReadOnly = True
+        Me.txtSONo.Size = New System.Drawing.Size(127, 21)
+        Me.txtSONo.TabIndex = 81
+        Me.txtSONo.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(439, 39)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(83, 13)
+        Me.Label14.TabIndex = 80
+        Me.Label14.Text = "Sales Order No."
+        '
+        'txtguid
+        '
+        Me.txtguid.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid.Location = New System.Drawing.Point(283, 36)
+        Me.txtguid.Name = "txtguid"
+        Me.txtguid.ReadOnly = True
+        Me.txtguid.Size = New System.Drawing.Size(84, 21)
+        Me.txtguid.TabIndex = 83
+        Me.txtguid.Tag = "process_order_id"
+        Me.txtguid.Visible = False
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(17, 39)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(106, 13)
+        Me.Label26.TabIndex = 85
+        Me.Label26.Text = "Process Order No."
+        '
+        'txtProderNo
+        '
+        Me.txtProderNo.Location = New System.Drawing.Point(150, 36)
+        Me.txtProderNo.Name = "txtProderNo"
+        Me.txtProderNo.Size = New System.Drawing.Size(127, 21)
+        Me.txtProderNo.TabIndex = 84
+        '
+        'dtpProderDate
+        '
+        Me.dtpProderDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpProderDate.Location = New System.Drawing.Point(150, 63)
+        Me.dtpProderDate.Name = "dtpProderDate"
+        Me.dtpProderDate.Size = New System.Drawing.Size(97, 21)
+        Me.dtpProderDate.TabIndex = 87
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(17, 66)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(101, 13)
+        Me.Label27.TabIndex = 86
+        Me.Label27.Text = "Process Order Date"
+        '
+        'btnSO
+        '
+        Me.btnSO.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSO.ImageIndex = 0
+        Me.btnSO.ImageList = Me.ImageList1
+        Me.btnSO.Location = New System.Drawing.Point(665, 33)
+        Me.btnSO.Name = "btnSO"
+        Me.btnSO.Size = New System.Drawing.Size(29, 25)
+        Me.btnSO.TabIndex = 88
+        Me.btnSO.UseVisualStyleBackColor = True
+        '
+        'txtskuid
+        '
+        Me.txtskuid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtskuid.Location = New System.Drawing.Point(592, 38)
+        Me.txtskuid.Name = "txtskuid"
+        Me.txtskuid.Size = New System.Drawing.Size(35, 21)
+        Me.txtskuid.TabIndex = 116
+        Me.txtskuid.Tag = "sku_id_f"
+        Me.txtskuid.Visible = False
         '
         'frmProcessOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(837, 521)
+        Me.Controls.Add(Me.btnSO)
+        Me.Controls.Add(Me.dtpProderDate)
+        Me.Controls.Add(Me.Label27)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.txtProderNo)
         Me.Controls.Add(Me.txtguid)
-        Me.Controls.Add(Me.TextBox13)
+        Me.Controls.Add(Me.txtSONo)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
@@ -996,7 +1064,7 @@ Partial Class frmProcessOrder
     Friend WithEvents cmdexit As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdprint As System.Windows.Forms.ToolStripButton
-    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSONo As System.Windows.Forms.TextBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents txtguid As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
@@ -1018,7 +1086,6 @@ Partial Class frmProcessOrder
     Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
     Friend WithEvents ListView2 As System.Windows.Forms.ListView
     Friend WithEvents btnSKU As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents txtguid_d1 As System.Windows.Forms.TextBox
     Friend WithEvents txtguid_d2 As System.Windows.Forms.TextBox
     Friend WithEvents Label24 As System.Windows.Forms.Label
@@ -1033,4 +1100,11 @@ Partial Class frmProcessOrder
     Friend WithEvents ListView3 As System.Windows.Forms.ListView
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents txtProderNo As System.Windows.Forms.TextBox
+    Friend WithEvents dtpProderDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents btnSO As System.Windows.Forms.Button
+    Friend WithEvents txtguid_d3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtskuid As System.Windows.Forms.TextBox
 End Class
