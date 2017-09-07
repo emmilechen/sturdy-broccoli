@@ -10,7 +10,6 @@ Module modFunction
     Dim strConnection As String = My.Settings.ConnStr
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand
-
     'Function used to left split user fields
     Public Function LeftSplitUF(ByVal srcUF As String) As String
         If srcUF = "*~~~~~*" Then LeftSplitUF = "" : Exit Function
@@ -454,7 +453,7 @@ Module modFunction
                     sqlComm.CommandType = CommandType.StoredProcedure
                     For Each ctrl As Control In root.Controls
                         If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
-                            If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CInt(ctrl.Text))
+                            If TypeOf ctrl Is TextBox And (ctrl.Name = txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CInt(IIf(ctrl.Text = "", 0, ctrl.Text)))
                             If (TypeOf ctrl Is TextBox Or (TypeOf ctrl Is DateTimePicker)) And (ctrl.Name <> txtid.Name) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, ctrl.Text)
                             'If (TypeOf ctrl Is DateTimePicker) Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CDate(ctrl.Text))
                             If TypeOf ctrl Is ComboBox Then sqlComm.Parameters.AddWithValue("@" & ctrl.Tag, CType(ctrl, ComboBox).SelectedValue)
@@ -467,11 +466,15 @@ Module modFunction
                     sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int) 'If action = "select" Then sqlComm.Parameters.AddWithValue(outputid, 0) Else sqlComm.Parameters.AddWithValue(outputid, SqlDbType.Int)
                     sqlComm.Parameters.AddWithValue("@created", (Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt"))) : sqlComm.Parameters.AddWithValue("@createdby", My.Settings.UserName)
                     sqlComm.Parameters.AddWithValue("@modified", (Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt"))) : sqlComm.Parameters.AddWithValue("@modifiedby", My.Settings.UserName)
-                    'Dim paramoutput As SqlParameter = sqlComm.Parameters.Contains(outputid)
+                    Dim paramoutput As SqlParameter = sqlComm.Parameters(outputid)
                     If action = "insert" Then
-                        'paramoutput.Direction = ParameterDirection.Output
+                        paramoutput.Direction = ParameterDirection.Output
+                        'Dim prm17 As SqlParameter = cmd.Parameters.Add("@so_id", SqlDbType.Int)
+
+                        'If m_SOId = 0 Then
+                        '    prm17.Direction = ParameterDirection.Output
                         sqlComm.ExecuteNonQuery()
-                        'txtid.Text = System.Convert.ToInt32(sqlComm.Parameters(outputid).Value) 'sqlComm.Parameters(outputid).SqlValue.ToString
+                        txtid.Text = System.Convert.ToInt32(sqlComm.Parameters(outputid).Value) 'sqlComm.Parameters(outputid).SqlValue.ToString
                     ElseIf action = "update" Then
                         sqlComm.ExecuteNonQuery()
                     ElseIf action = "select" Then
