@@ -346,6 +346,7 @@ err_cmdsave_Click:
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = ""
         If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox20.Text = FormatNumber(IIf(Me.TextBox20.Text = "", 0, Me.TextBox20.Text), 2)
+        Me.ComboBox6.Select
         Me.btnSaveD.Tag = "N" : Me.btnSaveD.Enabled = False
     End Sub
     Private Function FindSubItem(ByVal lv As ListView, ByVal SearchString As String) As Boolean
@@ -408,9 +409,8 @@ err_cmdsave_Click:
         Me.TextBox18.Text = "0"
         Me.TextBox19.Text = "0"
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
-        Me.ComboBox6.SelectedValue = ""
+        Me.ComboBox6.SelectedValue = "" : Me.ComboBox6.Select()
     End Sub
-
     Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
         MsgBox("Temporarily this function is disabled !", MsgBoxStyle.Information, "Costing")
     End Sub

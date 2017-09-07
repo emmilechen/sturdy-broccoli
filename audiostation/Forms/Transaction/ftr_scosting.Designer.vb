@@ -166,6 +166,7 @@ Partial Class ftr_scosting
         Me.TextBox2.Size = New System.Drawing.Size(122, 21)
         Me.TextBox2.TabIndex = 4
         Me.TextBox2.Tag = "cost_qty_val"
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ComboBox2
         '
@@ -186,6 +187,7 @@ Partial Class ftr_scosting
         Me.TextBox20.Size = New System.Drawing.Size(145, 21)
         Me.TextBox20.TabIndex = 23
         Me.TextBox20.Tag = "jumlah_val"
+        Me.TextBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox21
         '
@@ -196,6 +198,7 @@ Partial Class ftr_scosting
         Me.TextBox21.Size = New System.Drawing.Size(145, 21)
         Me.TextBox21.TabIndex = 24
         Me.TextBox21.Tag = "hpp_val"
+        Me.TextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox22
         '
@@ -205,6 +208,7 @@ Partial Class ftr_scosting
         Me.TextBox22.Size = New System.Drawing.Size(54, 21)
         Me.TextBox22.TabIndex = 25
         Me.TextBox22.Tag = "profit_pct_val"
+        Me.TextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox23
         '
@@ -215,6 +219,7 @@ Partial Class ftr_scosting
         Me.TextBox23.Size = New System.Drawing.Size(145, 21)
         Me.TextBox23.TabIndex = 26
         Me.TextBox23.Tag = "profit_val"
+        Me.TextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox24
         '
@@ -225,6 +230,7 @@ Partial Class ftr_scosting
         Me.TextBox24.Size = New System.Drawing.Size(145, 21)
         Me.TextBox24.TabIndex = 27
         Me.TextBox24.Tag = "komisi_val"
+        Me.TextBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox25
         '
@@ -235,6 +241,7 @@ Partial Class ftr_scosting
         Me.TextBox25.Size = New System.Drawing.Size(145, 21)
         Me.TextBox25.TabIndex = 28
         Me.TextBox25.Tag = "over_head_val"
+        Me.TextBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox26
         '
@@ -245,6 +252,7 @@ Partial Class ftr_scosting
         Me.TextBox26.Size = New System.Drawing.Size(145, 21)
         Me.TextBox26.TabIndex = 29
         Me.TextBox26.Tag = "harga_jual_val"
+        Me.TextBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label16
         '
@@ -324,6 +332,7 @@ Partial Class ftr_scosting
         Me.TextBox27.Size = New System.Drawing.Size(84, 21)
         Me.TextBox27.TabIndex = 6
         Me.TextBox27.Tag = "insheet_val"
+        Me.TextBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TabControl1
         '
@@ -449,6 +458,7 @@ Partial Class ftr_scosting
         Me.TextBox19.Size = New System.Drawing.Size(125, 21)
         Me.TextBox19.TabIndex = 14
         Me.TextBox19.TabStop = False
+        Me.TextBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ComboBox13
         '
@@ -468,6 +478,7 @@ Partial Class ftr_scosting
         Me.TextBox18.Size = New System.Drawing.Size(59, 21)
         Me.TextBox18.TabIndex = 12
         Me.TextBox18.Tag = "nilai5_val"
+        Me.TextBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label15
         '
@@ -497,6 +508,7 @@ Partial Class ftr_scosting
         Me.TextBox17.Size = New System.Drawing.Size(59, 21)
         Me.TextBox17.TabIndex = 10
         Me.TextBox17.Tag = "nilai4_val"
+        Me.TextBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label14
         '
@@ -526,6 +538,7 @@ Partial Class ftr_scosting
         Me.TextBox16.Size = New System.Drawing.Size(59, 21)
         Me.TextBox16.TabIndex = 8
         Me.TextBox16.Tag = "nilai3_val"
+        Me.TextBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label13
         '
@@ -555,6 +568,7 @@ Partial Class ftr_scosting
         Me.TextBox15.Size = New System.Drawing.Size(59, 21)
         Me.TextBox15.TabIndex = 6
         Me.TextBox15.Tag = "nilai2_val"
+        Me.TextBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label12
         '
@@ -584,6 +598,7 @@ Partial Class ftr_scosting
         Me.TextBox14.Size = New System.Drawing.Size(59, 21)
         Me.TextBox14.TabIndex = 4
         Me.TextBox14.Tag = "nilai1_val"
+        Me.TextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label11
         '
@@ -603,6 +618,7 @@ Partial Class ftr_scosting
         Me.TextBox13.Size = New System.Drawing.Size(105, 21)
         Me.TextBox13.TabIndex = 3
         Me.TextBox13.Tag = "harga1_val"
+        Me.TextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
         '
@@ -632,6 +648,7 @@ Partial Class ftr_scosting
         Me.TextBox12.Size = New System.Drawing.Size(59, 21)
         Me.TextBox12.TabIndex = 1
         Me.TextBox12.Tag = "sku_qty"
+        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ComboBox6
         '
@@ -940,6 +957,7 @@ Partial Class ftr_scosting
         Me.TextBox9.Size = New System.Drawing.Size(59, 21)
         Me.TextBox9.TabIndex = 19
         Me.TextBox9.Tag = "areacetak3_val"
+        Me.TextBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox10
         '
@@ -949,6 +967,7 @@ Partial Class ftr_scosting
         Me.TextBox10.Size = New System.Drawing.Size(59, 21)
         Me.TextBox10.TabIndex = 18
         Me.TextBox10.Tag = "areacetak2_val"
+        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox11
         '
@@ -958,6 +977,7 @@ Partial Class ftr_scosting
         Me.TextBox11.Size = New System.Drawing.Size(59, 21)
         Me.TextBox11.TabIndex = 17
         Me.TextBox11.Tag = "areacetak1_val"
+        Me.TextBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label3
         '
@@ -997,6 +1017,7 @@ Partial Class ftr_scosting
         Me.TextBox6.Size = New System.Drawing.Size(59, 21)
         Me.TextBox6.TabIndex = 15
         Me.TextBox6.Tag = "terbuka3_val"
+        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox7
         '
@@ -1006,6 +1027,7 @@ Partial Class ftr_scosting
         Me.TextBox7.Size = New System.Drawing.Size(59, 21)
         Me.TextBox7.TabIndex = 14
         Me.TextBox7.Tag = "terbuka2_val"
+        Me.TextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox8
         '
@@ -1015,6 +1037,7 @@ Partial Class ftr_scosting
         Me.TextBox8.Size = New System.Drawing.Size(59, 21)
         Me.TextBox8.TabIndex = 13
         Me.TextBox8.Tag = "terbuka1_val"
+        Me.TextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label2
         '
@@ -1054,6 +1077,7 @@ Partial Class ftr_scosting
         Me.TextBox5.Size = New System.Drawing.Size(59, 21)
         Me.TextBox5.TabIndex = 11
         Me.TextBox5.Tag = "dimensi3_val"
+        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox4
         '
@@ -1063,6 +1087,7 @@ Partial Class ftr_scosting
         Me.TextBox4.Size = New System.Drawing.Size(59, 21)
         Me.TextBox4.TabIndex = 10
         Me.TextBox4.Tag = "dimensi2_val"
+        Me.TextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBox3
         '
@@ -1072,6 +1097,7 @@ Partial Class ftr_scosting
         Me.TextBox3.Size = New System.Drawing.Size(59, 21)
         Me.TextBox3.TabIndex = 9
         Me.TextBox3.Tag = "dimensi1_val"
+        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label30
         '
@@ -1091,6 +1117,7 @@ Partial Class ftr_scosting
         Me.TextBox29.Size = New System.Drawing.Size(84, 21)
         Me.TextBox29.TabIndex = 7
         Me.TextBox29.Tag = "out_val"
+        Me.TextBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'btnAddD
         '
@@ -1102,7 +1129,6 @@ Partial Class ftr_scosting
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD.TabIndex = 103
         Me.btnAddD.UseVisualStyleBackColor = True
-        Me.btnAddD.Visible = False
         '
         'btnDeleteD
         '
@@ -1114,7 +1140,6 @@ Partial Class ftr_scosting
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD.TabIndex = 102
         Me.btnDeleteD.UseVisualStyleBackColor = True
-        Me.btnDeleteD.Visible = False
         '
         'ftr_scosting
         '
