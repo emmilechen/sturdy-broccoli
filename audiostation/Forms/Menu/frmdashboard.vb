@@ -81,7 +81,8 @@ Public Class frmdashboard
         Me.Timer1.Enabled = True
         If cn.State = ConnectionState.Closed Then cn.Open()
         Me.Cursor = Cursors.WaitCursor
-        Me.Label4.Text = GetSysInit("sys_marquee")
+        Me.Label6.Text = GetSysInit("sys_marquee")
+        Me.TextBox1.Text = " Welcome " & My.Settings.UserName
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         '**************TO BE CHECKED******************
@@ -102,22 +103,38 @@ Public Class frmdashboard
         list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
 
         'SELECT a.formname, a.fieldname, a.signlevelid,b.fieldpk,b.fieldno,b.fielddate,b.fieldnote FROM  where(a.userid = 10)
+
         Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub frmdashboard_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize
-        Dim lebarform As Decimal = (Me.Width / 2) - 25, tinggiform As Decimal = (Me.Height / 2) - 50, tinggiformkanan As Decimal = (Me.Height / 2) - 50
+        Dim lebarform As Decimal = (frmMAIN.Width / 2) - 25, tinggiform As Decimal = (frmMAIN.Height / 2) - Me.TextBox1.Height, tinggiformkanan As Decimal = (frmMAIN.Height / 2) - 175
         Me.Top = 0 : Me.Left = 0
-        Me.ListView1.Width = lebarform : Me.ListView2.Width = lebarform : Me.ListView3.Width = Me.Width - 40
+        Me.TextBox1.Top = 0 : Me.TextBox1.Left = 0 : Me.TextBox1.Width = frmMAIN.Width
+
+        Me.ListView1.Width = lebarform : Me.ListView2.Width = lebarform : Me.ListView5.Width = lebarform 'Me.Width - 40
         Me.ListView1.Height = tinggiform : Me.ListView2.Height = tinggiform
+
         Me.ListView2.Top = Me.ListView1.Top : Me.ListView2.Left = Me.ListView1.Width + 25
+        Me.Label2.Top = Me.Label1.Top : Me.Label5.Top = Me.ListView1.Height + Me.Label1.Top + 25
+        Me.Label2.Left = Me.ListView2.Left : Me.Label5.Left = Me.Label1.Left
 
-        Me.ListView3.Height = tinggiformkanan - 25
-        Me.ListView3.Left = Me.ListView1.Left
-        Me.ListView3.Top = Me.ListView1.Top + Me.ListView1.Height + 25
+        Me.ListView5.Height = tinggiformkanan
+        Me.ListView5.Left = Me.ListView1.Left
+        Me.ListView5.Top = Me.ListView1.Top + Me.ListView1.Height + 25
 
-        Me.Label2.Top = Me.Label1.Top : Me.Label3.Top = Me.ListView1.Height + Me.Label1.Top + 25 : Me.Label4.Top = Me.ListView3.Height + Me.Label3.Top + 25
-        Me.Label2.Left = Me.ListView2.Left : Me.Label3.Left = Me.Label1.Left : Me.Label4.Left = Me.Label3.Left : Me.Label4.Width = Me.ListView3.Width
+        Me.Label6.Top = Me.ListView5.Height + Me.Label5.Top + 25 : Me.Label6.Left = Me.Label5.Left
+
+        Me.Label3.Top = Me.Label5.Top : Me.Label3.Left = Me.Label2.Left
+        Me.ListView3.Top = Me.ListView5.Top : Me.ListView3.Left = Me.ListView2.Left : Me.ListView3.Width = Me.ListView2.Width : Me.ListView3.Height = Me.ListView5.Height / 2
+
+        Me.ListView4.Top = Me.ListView3.Top + Me.ListView3.Height
+        Me.ListView4.Height = Me.ListView5.Height / 2 : Me.ListView4.Left = Me.ListView2.Left : Me.ListView4.Width = Me.ListView3.Width
+
+        Me.Label4.Left = Me.Label3.Left : Me.Label4.Top = Me.ListView4.Top - 20
+        Me.ListView3.Height = Me.ListView3.Height - 25
+        Me.ListView3.Visible = True : Me.ListView4.Visible = True : Me.Label3.Visible = True : Me.Label4.Visible = True
+        Me.Label6.Width = Me.TextBox1.Width
     End Sub
 
     Private Sub DataGridView1_CellFormatting(sender As Object, e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
@@ -187,7 +204,7 @@ Public Class frmdashboard
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-        Me.Label4.Text = MarqueeLeft(Label4.Text)
+        Me.Label6.Text = MarqueeLeft(Label6.Text)
     End Sub
     Private Function list3returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         'On Error Resume Next
