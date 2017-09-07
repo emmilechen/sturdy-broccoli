@@ -359,7 +359,7 @@ Partial Class frmMesin
         Me.txttgtmax.Name = "txttgtmax"
         Me.txttgtmax.Size = New System.Drawing.Size(85, 21)
         Me.txttgtmax.TabIndex = 30
-        Me.txttgtmax.Tag = "targetmaxval"
+        Me.txttgtmax.Tag = "targetmax"
         '
         'txttgtmin
         '
@@ -367,7 +367,7 @@ Partial Class frmMesin
         Me.txttgtmin.Name = "txttgtmin"
         Me.txttgtmin.Size = New System.Drawing.Size(85, 21)
         Me.txttgtmin.TabIndex = 28
-        Me.txttgtmin.Tag = "targetminval"
+        Me.txttgtmin.Tag = "targetmin"
         '
         'txttype
         '
@@ -383,7 +383,7 @@ Partial Class frmMesin
         Me.txtspeedmax.Name = "txtspeedmax"
         Me.txtspeedmax.Size = New System.Drawing.Size(85, 21)
         Me.txtspeedmax.TabIndex = 26
-        Me.txtspeedmax.Tag = "speedmaxval"
+        Me.txtspeedmax.Tag = "speedmax"
         '
         'txtspeedmin
         '
@@ -391,7 +391,7 @@ Partial Class frmMesin
         Me.txtspeedmin.Name = "txtspeedmin"
         Me.txtspeedmin.Size = New System.Drawing.Size(85, 21)
         Me.txtspeedmin.TabIndex = 24
-        Me.txtspeedmin.Tag = "speedminval"
+        Me.txtspeedmin.Tag = "speedmin"
         '
         'txtsizemax
         '
@@ -399,7 +399,7 @@ Partial Class frmMesin
         Me.txtsizemax.Name = "txtsizemax"
         Me.txtsizemax.Size = New System.Drawing.Size(85, 21)
         Me.txtsizemax.TabIndex = 22
-        Me.txtsizemax.Tag = "sizemaxval"
+        Me.txtsizemax.Tag = "sizemax"
         '
         'txtsizemin
         '
@@ -407,7 +407,7 @@ Partial Class frmMesin
         Me.txtsizemin.Name = "txtsizemin"
         Me.txtsizemin.Size = New System.Drawing.Size(85, 21)
         Me.txtsizemin.TabIndex = 20
-        Me.txtsizemin.Tag = "sizeminval"
+        Me.txtsizemin.Tag = "sizemin"
         '
         'txtimgmin
         '
@@ -415,7 +415,7 @@ Partial Class frmMesin
         Me.txtimgmin.Name = "txtimgmin"
         Me.txtimgmin.Size = New System.Drawing.Size(85, 21)
         Me.txtimgmin.TabIndex = 18
-        Me.txtimgmin.Tag = "imageareaval"
+        Me.txtimgmin.Tag = "imagearea"
         '
         'txtcolour
         '
@@ -423,7 +423,7 @@ Partial Class frmMesin
         Me.txtcolour.Name = "txtcolour"
         Me.txtcolour.Size = New System.Drawing.Size(85, 21)
         Me.txtcolour.TabIndex = 16
-        Me.txtcolour.Tag = "colourmesinval"
+        Me.txtcolour.Tag = "colourmesin"
         '
         'txttegangan
         '

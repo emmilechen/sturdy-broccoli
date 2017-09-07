@@ -9,6 +9,17 @@ Public Class frmMesin
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim cmd As SqlCommand, ctrlstr As String = ""
     Private namatable As String, namafieldPK As String
+    Dim m_GUID As String
+    Public Property pk_lib() As Integer
+        Get
+            Return m_GUID
+        End Get
+        Set(ByVal Value As Integer)
+            If Value <> 0 Then kosong()
+            m_GUID = Value
+            isirecord(m_GUID)
+        End Set
+    End Property
     Private Function kosong()
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.cmbkat, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='machine_cat'", "sys_dropdown_sort")
@@ -92,7 +103,9 @@ Public Class frmMesin
         Me.Left = 0 : Me.Top = 0
     End Sub
     Private Function isirecord(ByVal guidno As Integer)
+        'kosong()
         Me.txtguid.Text = guidno : Me.txtkode.Text = guidno
+        Me.txtguid.Tag = "primarykey"
         Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_mesin", Me.txtguid.Text, "@c_id")
         opensearchform(Me.ListViewa, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey not in (select pk_mesin_idf from rt_mesin_div where flag_id=0 and pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
         opensearchform(Me.ListViewb, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division') and primarykey in (select pk_mesin_idf from rt_mesin_div where flag_id=0 and pk_mesin_id='" & Me.txtguid.Text & "')", "sys_dropdown_sort", 0)
@@ -100,9 +113,6 @@ Public Class frmMesin
         Me.Btnup.Enabled = True : Me.Btndown.Enabled = True
         Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
     End Function
-    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
-        If Me.txtguid.Text <> "" Then Me.txtguid.Tag = "primarykey" : isirecord(Me.txtguid.Text)
-    End Sub
 
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         On Error GoTo err_btnsave_Click
@@ -129,7 +139,9 @@ err_btnsave_Click:
         Dim child As New FDLSearch()
         child.txtopenargs.Text = "1"
         If child.ShowDialog() = DialogResult.OK Then
-            Me.txtguid.Text = child.txtChildText0.Text
+            'kosong()
+            pk_lib = child.txtChildText0.Text
+
         End If
     End Sub
 
