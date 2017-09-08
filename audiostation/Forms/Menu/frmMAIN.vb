@@ -1390,6 +1390,7 @@ Public Class frmMAIN
     End Sub
 
     Private Sub RequestMemoToWarehouseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RequestMemoToWarehouseToolStripMenuItem.Click
+        openformcommon(frmPRequestList)
     End Sub
 
     Private Sub CustomerCategoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CustomerCategoryToolStripMenuItem.Click
@@ -1419,16 +1420,16 @@ Public Class frmMAIN
     Private Sub FormCostingToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FormCostingToolStripMenuItem.Click
         openformcommon(ftr_scosting)
     End Sub
-
     Private Sub ModuleIssuesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ModuleIssuesToolStripMenuItem.Click
         openformcommon(frmModule)
     End Sub
-
     Private Sub ProductionProcessControlToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionProcessControlToolStripMenuItem.Click
         openformcommon(frmOrderProcess)
     End Sub
-
     Private Sub ProductionCostComponentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionCostComponentsToolStripMenuItem.Click
+        openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+    Private Sub MachineDivisionToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles MachineDivisionToolStripMenuItem1.Click
         openformutility(sender.Tag.ToString, sender.ToString)
     End Sub
 End Class
