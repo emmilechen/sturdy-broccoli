@@ -668,6 +668,12 @@
     <Compile Include="Forms\Transaction\frmBankReceiptPostList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\frmProcessOrder.Designer.vb">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmProcessOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\frmSQuote.Designer.vb">
       <DependentUpon>frmSQuote.vb</DependentUpon>
     </Compile>
@@ -1956,6 +1962,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmBankReceiptPostList.resx">
       <DependentUpon>frmBankReceiptPostList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmProcessOrder.resx">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmSQuote.resx">
       <DependentUpon>frmSQuote.vb</DependentUpon>
