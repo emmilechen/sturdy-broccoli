@@ -113,7 +113,6 @@ Public Class frmMesin
         Me.Btnup.Enabled = True : Me.Btndown.Enabled = True
         Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
     End Function
-
     Private Sub btnsave_Click(sender As System.Object, e As System.EventArgs) Handles btnsave.Click
         On Error GoTo err_btnsave_Click
         If cmbkat.Text = "" Or cmbsubkat.Text = "" Or txttype.Text = "" Or txtnama.Text = "" Then
