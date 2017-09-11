@@ -33,9 +33,9 @@ Public Class frmProcessOrder
 
             .ListView3.Columns.Clear()
             .ListView3.Columns.Add("Kolom 0", "guid3", 0)
-            .ListView3.Columns.Add("Kolom 1", "Text1", Me.TextBox20.Width + 5)
-            .ListView3.Columns.Add("Kolom 2", "Text2", Me.TextBox19.Width + 5)
-            .ListView3.Columns.Add("Kolom 3", "Text3", Me.TextBox21.Width + 10)
+            .ListView3.Columns.Add("Kolom 1", "Col1", Me.TextBox20.Width + 5)
+            .ListView3.Columns.Add("Kolom 2", "Col2", Me.TextBox19.Width + 5)
+            .ListView3.Columns.Add("Kolom 3", "Col3", Me.TextBox21.Width + 10)
         End With
         Me.ListView1.Items.Clear()
         Me.ListView2.Items.Clear()
@@ -109,31 +109,6 @@ Public Class frmProcessOrder
             cmd.Dispose()
         End With
     End Function
-    '    Private Sub ftr_mp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-    '        Me.Top = 0 : Me.Left = 0
-    '        If cn.State = ConnectionState.Closed Then cn.Open()
-    '        kosong()
-    '    End Sub
-    '    Private Sub btnCustomer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCustomer.Click
-    '        Dim NewFormDialog As New fdlCUtility
-    '        NewFormDialog.FrmCallerId = Me.Name
-    '        NewFormDialog.Tag = "1"
-    '        NewFormDialog.ShowDialog()
-    '    End Sub
-
-    '    Private Sub cmbcust_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbcust.SelectedIndexChanged
-    '        On Error Resume Next
-    '        ' Me.btnCustomer.Enabled = Me.cmbcust.SelectedValue <> "0" ' Me.cmbcust.SelectedIndex > 0
-    '        Me.btnCustomer.Enabled = Me.cmbcust.SelectedIndex >= 0
-    '    End Sub
-
-    '    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-    '        If Me.txtsono.Text = "" Then Exit Sub
-    '        Dim NewFormDialog As New fdlCUtility
-    '        NewFormDialog.FrmCallerId = Me.Name
-    '        NewFormDialog.Tag = "2"
-    '        NewFormDialog.ShowDialog()
-    '    End Sub
 
     Private Sub btnSaveD1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD1.Click
         Dim li As ListViewItem, i As Integer
@@ -142,33 +117,30 @@ Public Class frmProcessOrder
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView1, "proder_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
         Else
             'insert
-            '            If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD.Tag = "N" Then
-            '                'it is a duplicate do something
-            '                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
-            '                Exit Sub
-            '            Else
-            '                'it is not a duplicate, go ahead and add it.
-            '                If Me.btnSaveD.Tag = "N" Then
+            If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD1.Tag = "N" Then
+                'it is a duplicate do something
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                Exit Sub
+            Else
+                'it is not a duplicate, go ahead and add it.
+                If Me.btnSaveD1.Tag = "N" Then
 
-            '                Else
-            '                    For a As Integer = ListView1.SelectedItems.Count - 1 To 0
-            '                        ListView1.SelectedItems(a).Remove()
-            '                    Next
-            '                End If
-            '                i = Me.ListView1.Items.Count + 1
-            '                li = ListView1.Items.Add(Me.txtguid_d.Text)
-            '                li.SubItems.Add(Me.txtskuid.Text)
-            '                li.SubItems.Add(Me.TextBox4.Text)
-            '                li.SubItems.Add(Me.TextBox5.Text)
-            '                li.SubItems.Add(Me.TextBox6.Text)
-            '                li.SubItems.Add(Me.TextBox1.Text)
-            '                li.SubItems.Add(Me.TextBox7.Text)
-            '                li.SubItems.Add(Me.TextBox8.Text)
-            '                li.SubItems.Add(Me.DateTimePicker1.Text)
-            '            End If
+                Else
+                    For a As Integer = ListView1.SelectedItems.Count - 1 To 0
+                        ListView1.SelectedItems(a).Remove()
+                    Next
+                End If
+                i = Me.ListView1.Items.Count + 1
+                li = ListView1.Items.Add(Me.txtguid_d1.Text)
+                li.SubItems.Add(Me.txtskuid.Text)
+                li.SubItems.Add(Me.TextBox8.Text)
+                li.SubItems.Add(Me.TextBox9.Text)
+                li.SubItems.Add(Me.TextBox10.Text)
+                li.SubItems.Add(Me.TextBox22.Text)
+            End If
         End If
         Me.txtguid_d1.Text = ""
 
@@ -195,14 +167,11 @@ Public Class frmProcessOrder
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
         If ListView1.SelectedItems.Count > 0 Then
             Me.txtguid_d1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).Text
-            'Me.txtskuid.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
-            'Me.TextBox4.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
-            'Me.TextBox5.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
-            'Me.TextBox6.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
-            'Me.TextBox1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
-            'Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(6).Text
-            'Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(7).Text
-            'Me.DateTimePicker1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(8).Text
+            Me.txtskuid.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox9.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox10.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
+            Me.TextBox22.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
             Me.btnSaveD1.Tag = "E"
         End If
     End Sub
@@ -210,14 +179,10 @@ Public Class frmProcessOrder
     Private Sub ListView2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView2.SelectedIndexChanged
         If ListView2.SelectedItems.Count > 0 Then
             Me.txtguid_d2.Text = Me.ListView2.Items(ListView2.FocusedItem.Index).Text
-            'Me.txtskuid.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
-            'Me.TextBox4.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
-            'Me.TextBox5.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
-            'Me.TextBox6.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
-            'Me.TextBox1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
-            'Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(6).Text
-            'Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(7).Text
-            'Me.DateTimePicker1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(8).Text
+            TextBox17.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox16.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox15.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox18.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
             Me.btnSaveD2.Tag = "E"
         End If
     End Sub
@@ -225,14 +190,9 @@ Public Class frmProcessOrder
     Private Sub ListView3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView3.SelectedIndexChanged
         If ListView3.SelectedItems.Count > 0 Then
             Me.txtguid_d3.Text = Me.ListView3.Items(ListView1.FocusedItem.Index).Text
-            'Me.txtskuid.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
-            'Me.TextBox4.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
-            'Me.TextBox5.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
-            'Me.TextBox6.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
-            'Me.TextBox1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
-            'Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(6).Text
-            'Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(7).Text
-            'Me.DateTimePicker1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(8).Text
+            TextBox20.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox19.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox21.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
             Me.btnSaveD3.Tag = "E"
         End If
     End Sub
@@ -243,7 +203,7 @@ Public Class frmProcessOrder
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
-            opensearchform(Me.ListView1, "proder_dtl_pk", "sku_id_f", "sku_code, sku_id_desc, mp_qty, uom_code, required_delivery_date, delivery_plan_date, tgl_realisasi_kirim", "tr_mp_dtl a inner join tr_mp b on a.mp_id_f=b.mp_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_id_f=e.so_id", "a.mp_id_f in ('" & Me.txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
         Else
             If ListView1.SelectedItems.Count > 0 Then
                 For a As Integer = ListView1.SelectedItems.Count - 1 To 0
@@ -414,7 +374,118 @@ err_ToolStripButton1_Click:
         '        End With
     End Sub
 
-    Private Sub btnSaveD2_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD2.Click
+    Private Sub btnSaveD2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD2.Click
+        Dim li As ListViewItem, i As Integer
+        If Me.txtguid.Text = "0" Then Exit Sub
+        If Me.txtguid.Text <> "0" And Me.txtguid_d2.Text <> "0" Then
+            Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
+            opensearchform(Me.ListView2, "proder_dtl_pk1", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+        Else
+            'insert
+            If FindSubItem(ListView2, Me.txtskuid.Text) = True And Me.btnSaveD2.Tag = "N" Then
+                'it is a duplicate do something
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                Exit Sub
+            Else
+                'it is not a duplicate, go ahead and add it.
+                If Me.btnSaveD2.Tag = "N" Then
 
+                Else
+                    For a As Integer = ListView2.SelectedItems.Count - 1 To 0
+                        ListView2.SelectedItems(a).Remove()
+                    Next
+                End If
+                i = Me.ListView2.Items.Count + 1
+                li = ListView2.Items.Add(Me.txtguid_d2.Text)
+                li.SubItems.Add(TextBox15.Text)
+                li.SubItems.Add(Me.TextBox16.Text)
+                li.SubItems.Add(Me.TextBox17.Text)
+                li.SubItems.Add(Me.TextBox18.Text)
+            End If
+        End If
+        Me.txtguid_d2.Text = ""
+
+        'Tab3
+        TextBox15.Text = ""
+        TextBox16.Text = ""
+        TextBox17.Text = ""
+        TextBox18.Text = ""
+
+        Me.btnSaveD1.Tag = "N"
+        Me.btnSaveD2.Tag = "N"
+        Me.btnSaveD3.Tag = "N"
+    End Sub
+
+    Private Sub btnSaveD3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD3.Click
+        Dim li As ListViewItem, i As Integer
+        If Me.txtguid.Text = "0" Then Exit Sub
+        If Me.txtguid.Text <> "0" And Me.txtguid_d3.Text <> "0" Then
+            Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
+            opensearchform(Me.ListView3, "proder_dtl_pk1", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+        Else
+            'insert
+            If FindSubItem(ListView3, Me.txtskuid.Text) = True And Me.btnSaveD3.Tag = "N" Then
+                'it is a duplicate do something
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                Exit Sub
+            Else
+                'it is not a duplicate, go ahead and add it.
+                If Me.btnSaveD3.Tag = "N" Then
+
+                Else
+                    For a As Integer = ListView3.SelectedItems.Count - 1 To 0
+                        ListView3.SelectedItems(a).Remove()
+                    Next
+                End If
+                i = Me.ListView3.Items.Count + 1
+                li = ListView3.Items.Add(Me.txtguid_d3.Text)
+                li.SubItems.Add(TextBox19.Text)
+                li.SubItems.Add(Me.TextBox20.Text)
+                li.SubItems.Add(Me.TextBox21.Text)
+            End If
+        End If
+        Me.txtguid_d3.Text = ""
+
+        'Tab3
+        TextBox19.Text = ""
+        TextBox20.Text = ""
+        TextBox21.Text = ""
+        Me.btnSaveD3.Tag = "N"
+    End Sub
+
+    Private Sub btnDeleteD2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD2.Click
+        If Me.txtSONo.Text = "" Or Me.txtguid.Text = "0" Then Exit Sub
+        If Me.txtguid.Text <> "0" And Me.txtguid_d2.Text <> "0" Then
+            Dim xguid As Integer = GetCurrentID("proder_dtl_pk2", "tr_proder_dtl2", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            Executestr("EXEC usp_tr_proder_dtl2 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+        Else
+            If ListView2.SelectedItems.Count > 0 Then
+                For a As Integer = ListView2.SelectedItems.Count - 1 To 0
+                    ListView2.SelectedItems(a).Remove()
+                Next
+            End If
+        End If
+    End Sub
+
+    Private Sub btnDeleteD3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD3.Click
+        If Me.txtSONo.Text = "" Or Me.txtguid.Text = "0" Then Exit Sub
+        If Me.txtguid.Text <> "0" And Me.txtguid_d3.Text <> "0" Then
+            Dim xguid As Integer = GetCurrentID("proder_dtl_pk3", "tr_proder_dtl3", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            Executestr("EXEC usp_tr_proder_dtl3 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
+            opensearchform(Me.ListView3, "proder_dtl_pk3", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+        Else
+            If ListView3.SelectedItems.Count > 0 Then
+                For a As Integer = ListView3.SelectedItems.Count - 1 To 0
+                    ListView3.SelectedItems(a).Remove()
+                Next
+            End If
+        End If
     End Sub
 End Class
