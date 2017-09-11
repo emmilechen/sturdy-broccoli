@@ -48,6 +48,7 @@ Partial Class frmProcessOrder
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.txtskuid = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.TextBox22 = New System.Windows.Forms.TextBox()
         Me.txtguid_d1 = New System.Windows.Forms.TextBox()
@@ -112,7 +113,6 @@ Partial Class frmProcessOrder
         Me.dtpProderDate = New System.Windows.Forms.DateTimePicker()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.btnSO = New System.Windows.Forms.Button()
-        Me.txtskuid = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -357,6 +357,16 @@ Partial Class frmProcessOrder
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Preparation2"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'txtskuid
+        '
+        Me.txtskuid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtskuid.Location = New System.Drawing.Point(592, 38)
+        Me.txtskuid.Name = "txtskuid"
+        Me.txtskuid.Size = New System.Drawing.Size(35, 21)
+        Me.txtskuid.TabIndex = 116
+        Me.txtskuid.Tag = "sku_id_f"
+        Me.txtskuid.Visible = False
         '
         'Label25
         '
@@ -627,7 +637,7 @@ Partial Class frmProcessOrder
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(23, 24)
+        Me.Label19.Location = New System.Drawing.Point(14, 24)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(47, 13)
         Me.Label19.TabIndex = 109
@@ -635,14 +645,14 @@ Partial Class frmProcessOrder
         '
         'TextBox17
         '
-        Me.TextBox17.Location = New System.Drawing.Point(26, 40)
+        Me.TextBox17.Location = New System.Drawing.Point(17, 40)
         Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(160, 21)
+        Me.TextBox17.Size = New System.Drawing.Size(169, 21)
         Me.TextBox17.TabIndex = 108
         '
         'ListView2
         '
-        Me.ListView2.Location = New System.Drawing.Point(27, 73)
+        Me.ListView2.Location = New System.Drawing.Point(17, 68)
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Size = New System.Drawing.Size(749, 136)
         Me.ListView2.TabIndex = 107
@@ -966,16 +976,6 @@ Partial Class frmProcessOrder
         Me.btnSO.Size = New System.Drawing.Size(29, 25)
         Me.btnSO.TabIndex = 88
         Me.btnSO.UseVisualStyleBackColor = True
-        '
-        'txtskuid
-        '
-        Me.txtskuid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtskuid.Location = New System.Drawing.Point(592, 38)
-        Me.txtskuid.Name = "txtskuid"
-        Me.txtskuid.Size = New System.Drawing.Size(35, 21)
-        Me.txtskuid.TabIndex = 116
-        Me.txtskuid.Tag = "sku_id_f"
-        Me.txtskuid.Visible = False
         '
         'frmProcessOrder
         '

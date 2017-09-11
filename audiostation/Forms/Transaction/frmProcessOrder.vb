@@ -413,4 +413,8 @@ err_ToolStripButton1_Click:
         '            .myCrystalReportViewer.ReportSource = cr
         '        End With
     End Sub
+
+    Private Sub btnSaveD2_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD2.Click
+
+    End Sub
 End Class
