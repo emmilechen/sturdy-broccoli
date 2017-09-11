@@ -70,7 +70,7 @@ Public Class ftr_scosting
         Me.cmdcancel.Enabled = False : Me.cmddel.Enabled = False : Me.btnSaveD.Enabled = False : Me.ComboBox6.Enabled = False
         Me.ComboBox1.Select()
     End Function
-    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional ByVal openargs As Integer = 0) As String
         'On Error Resume Next
         Dim cmd As SqlCommand
         Dim str(22) As String, strsql As String
@@ -129,7 +129,7 @@ Public Class ftr_scosting
             cmd.Dispose()
         End With
     End Function
-    Private Sub ftr_scosting_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub ftr_scosting_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Top = 0 : Me.Left = 0
         kosong()
     End Sub
@@ -140,10 +140,10 @@ Public Class ftr_scosting
         opensearchform(Me.ListView1, "cost_d_id", "sku_id_f", "sku_id_desc1, sku_qty, sku_uom_f, harga1_val, nilai1_val, nilai1_uom, nilai2_val, nilai2_uom, nilai3_val, nilai3_uom, nilai4_val, nilai4_uom, nilai5_val, nilai5_uom", "tr_costing_d a", "a.cost_id_f in ('" & guidno & "')", "a.created", 0)
         Me.cmdcancel.Enabled = True : Me.cmddel.Enabled = True : Me.cmdprint.Enabled = True : Me.cmdsave.Tag = "S"
     End Function
-    Private Sub cmdcancel_Click(sender As System.Object, e As System.EventArgs) Handles cmdcancel.Click
+    Private Sub cmdcancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdcancel.Click
         kosong()
     End Sub
-    Private Sub cmdsave_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
+    Private Sub cmdsave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdsave.Click
         'save
         Dim updheader As Boolean, upddetil As Boolean, str1 As String, str2 As String, noindex As Integer
         On Error GoTo err_cmdsave_Click
@@ -194,7 +194,7 @@ err_cmdsave_Click:
         Resume exit_cmdsave_Click
 
     End Sub
-    Private Sub cmdfind_Click(sender As System.Object, e As System.EventArgs) Handles cmdfind.Click
+    Private Sub cmdfind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdfind.Click
         'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
         Dim child As New FDLSearch()
         child.txtopenargs.Text = "7"
@@ -202,51 +202,51 @@ err_cmdsave_Click:
             Me.txtguid.Text = child.txtChildText0.Text
         End If
     End Sub
-    Private Sub cmddel_Click(sender As System.Object, e As System.EventArgs) Handles cmddel.Click
+    Private Sub cmddel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddel.Click
         'del
     End Sub
-    Private Sub cmdnew_Click(sender As System.Object, e As System.EventArgs) Handles cmdnew.Click
+    Private Sub cmdnew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdnew.Click
         kosong()
     End Sub
-    Private Sub cmdexit_Click(sender As System.Object, e As System.EventArgs) Handles cmdexit.Click
+    Private Sub cmdexit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdexit.Click
         Me.Close()
     End Sub
-    Private Sub cmdprint_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
+    Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
 
     End Sub
-    Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
+    Private Sub txtguid_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtguid.TextChanged
         If Me.cmdsave.Tag = "X" Then Exit Sub
         If Me.cmdsave.Tag = "F" And (Me.txtguid.Text = "0" Or Me.txtguid.Text = "") Then Exit Sub Else isirecord(Me.txtguid.Text)
     End Sub
-    Private Sub TextBox12_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
+    Private Sub TextBox12_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox12.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
         e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
-    Private Sub TextBox13_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox13.KeyPress
+    Private Sub TextBox13_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox13.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
         e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".") 'If Asc(e.KeyChar) <> 8 Then If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then e.Handled = True
     End Sub
-    Private Sub TextBox14_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox14.KeyPress
+    Private Sub TextBox14_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox14.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
         e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
-    Private Sub TextBox15_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox15.KeyPress
+    Private Sub TextBox15_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox15.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
         e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
-    Private Sub TextBox16_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox16.KeyPress
-       '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
-    End Sub
-    Private Sub TextBox17_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox17.KeyPress
-         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
-        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
-    End Sub
-    Private Sub TextBox18_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox18.KeyPress
+    Private Sub TextBox16_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox16.KeyPress
         '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
         e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
     End Sub
-    Private Sub TextBox12_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox12.TextChanged
+    Private Sub TextBox17_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox17.KeyPress
+        '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
+    End Sub
+    Private Sub TextBox18_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TextBox18.KeyPress
+        '97 - 122 = Ascii codes for simple letters, '65 - 90  = Ascii codes for capital letters, '48 - 57  = Ascii codes for numbers
+        e.Handled = Not (Char.IsDigit(e.KeyChar) Or e.KeyChar = ".")
+    End Sub
+    Private Sub TextBox12_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox12.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
     Private Function HITUNGDETAIL() As Decimal
@@ -254,25 +254,25 @@ err_cmdsave_Click:
         On Error Resume Next
         HITUNGDETAIL = ((IIf(Me.TextBox12.Text = "", 0, CDec(Me.TextBox12.Text))) * (IIf(Me.TextBox13.Text = "", 0, CDec(Me.TextBox13.Text))) * (IIf(Me.TextBox14.Text = "", 0, CDec(Me.TextBox14.Text))) * (IIf(Me.TextBox15.Text = "", 0, CDec(Me.TextBox15.Text))) - (IIf(Me.TextBox16.Text = "", 0, CDec(Me.TextBox16.Text)))) * ((IIf(Me.TextBox17.Text = "", 0, CDec(Me.TextBox17.Text))) * (IIf(Me.TextBox18.Text = "", 0, CDec(Me.TextBox18.Text))))
     End Function
-    Private Sub TextBox13_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox13.TextChanged
+    Private Sub TextBox13_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox13.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub TextBox14_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox14.TextChanged
+    Private Sub TextBox14_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox14.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub TextBox15_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox15.TextChanged
+    Private Sub TextBox15_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox15.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub TextBox16_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox16.TextChanged
+    Private Sub TextBox16_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox16.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub TextBox17_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox17.TextChanged
+    Private Sub TextBox17_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox17.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub TextBox18_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox18.TextChanged
+    Private Sub TextBox18_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox18.TextChanged
         Me.TextBox19.Text = FormatNumber(HITUNGDETAIL(), 2)
     End Sub
-    Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
+    Private Sub btnSaveD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD.Click
         Dim li As ListViewItem, i As Integer, urutan As Integer
         'If Me.txtguid.Text = "0" Then Exit Sub
         'Exit Sub
@@ -358,10 +358,10 @@ err_cmdsave_Click:
         Next
         Return False
     End Function
-    Private Sub ComboBox6_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
+    Private Sub ComboBox6_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox6.SelectedIndexChanged
         If Me.ComboBox6.SelectedIndex >= 0 Then Me.TextBox30.Text = Me.ComboBox6.Text : Me.TextBox31.Text = Me.ComboBox6.Text : Me.btnSaveD.Enabled = True
     End Sub
-    Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
         If ListView1.SelectedItems.Count > 0 Then
             AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text) & ")", "sys_dropdown_sort")
 
@@ -395,10 +395,10 @@ err_cmdsave_Click:
 
         End If
     End Sub
-    Private Sub ComboBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         Me.ComboBox6.Enabled = Me.ComboBox1.SelectedIndex >= 0
     End Sub
-    Private Sub btnAddD_Click(sender As System.Object, e As System.EventArgs) Handles btnAddD.Click
+    Private Sub btnAddD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddD.Click
         Me.txtguid_d.Text = "0"
         Me.TextBox12.Text = "0"
         Me.TextBox13.Text = "0"
@@ -411,7 +411,7 @@ err_cmdsave_Click:
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = "" : Me.ComboBox6.Select()
     End Sub
-    Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
+    Private Sub btnDeleteD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD.Click
         MsgBox("Temporarily this function is disabled !", MsgBoxStyle.Information, "Costing")
     End Sub
 End Class

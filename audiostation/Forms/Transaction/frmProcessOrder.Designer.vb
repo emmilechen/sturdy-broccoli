@@ -734,9 +734,9 @@ Partial Class frmProcessOrder
         Me.Label24.AutoSize = True
         Me.Label24.Location = New System.Drawing.Point(280, 17)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(35, 13)
+        Me.Label24.Size = New System.Drawing.Size(48, 13)
         Me.Label24.TabIndex = 130
-        Me.Label24.Text = "Text3"
+        Me.Label24.Text = "Column3"
         '
         'TextBox21
         '
@@ -786,9 +786,9 @@ Partial Class frmProcessOrder
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(149, 17)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(35, 13)
+        Me.Label21.Size = New System.Drawing.Size(48, 13)
         Me.Label21.TabIndex = 124
-        Me.Label21.Text = "Text2"
+        Me.Label21.Text = "Column2"
         '
         'TextBox19
         '
@@ -802,9 +802,9 @@ Partial Class frmProcessOrder
         Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(17, 18)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(35, 13)
+        Me.Label22.Size = New System.Drawing.Size(48, 13)
         Me.Label22.TabIndex = 122
-        Me.Label22.Text = "Text1"
+        Me.Label22.Text = "Column1"
         '
         'TextBox20
         '

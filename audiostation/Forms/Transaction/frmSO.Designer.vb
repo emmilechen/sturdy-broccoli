@@ -363,7 +363,7 @@ Partial Class frmSO
         Me.btnDeleteD.Location = New System.Drawing.Point(1196, 171)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
-        Me.btnDeleteD.TabIndex = 34
+        Me.btnDeleteD.TabIndex = 35
         Me.btnDeleteD.UseVisualStyleBackColor = True
         '
         'ImageList1
@@ -385,7 +385,7 @@ Partial Class frmSO
         Me.btnSaveD.Location = New System.Drawing.Point(1164, 171)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
-        Me.btnSaveD.TabIndex = 33
+        Me.btnSaveD.TabIndex = 34
         Me.btnSaveD.UseVisualStyleBackColor = True
         '
         'btnSKU
@@ -443,7 +443,7 @@ Partial Class frmSO
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(84, 26)
         Me.btnPrint.TabIndex = 54
-        Me.btnPrint.Text = "Print SO"
+        Me.btnPrint.Text = "Print"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
         'cmbSOType
@@ -610,7 +610,7 @@ Partial Class frmSO
         Me.btnAddD.Location = New System.Drawing.Point(1227, 171)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
-        Me.btnAddD.TabIndex = 35
+        Me.btnAddD.TabIndex = 36
         Me.btnAddD.UseVisualStyleBackColor = True
         '
         'txtSOStatus
@@ -627,7 +627,7 @@ Partial Class frmSO
         Me.txtSONetAmt.Name = "txtSONetAmt"
         Me.txtSONetAmt.ReadOnly = True
         Me.txtSONetAmt.Size = New System.Drawing.Size(93, 21)
-        Me.txtSONetAmt.TabIndex = 32
+        Me.txtSONetAmt.TabIndex = 33
         Me.txtSONetAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSOTaxAmt
@@ -636,7 +636,7 @@ Partial Class frmSO
         Me.txtSOTaxAmt.Name = "txtSOTaxAmt"
         Me.txtSOTaxAmt.ReadOnly = True
         Me.txtSOTaxAmt.Size = New System.Drawing.Size(76, 21)
-        Me.txtSOTaxAmt.TabIndex = 31
+        Me.txtSOTaxAmt.TabIndex = 32
         Me.txtSOTaxAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSOGrossAmt
@@ -645,7 +645,7 @@ Partial Class frmSO
         Me.txtSOGrossAmt.Name = "txtSOGrossAmt"
         Me.txtSOGrossAmt.ReadOnly = True
         Me.txtSOGrossAmt.Size = New System.Drawing.Size(82, 21)
-        Me.txtSOGrossAmt.TabIndex = 26
+        Me.txtSOGrossAmt.TabIndex = 27
         Me.txtSOGrossAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtSOGrossAfterDiscAmt
@@ -654,7 +654,7 @@ Partial Class frmSO
         Me.txtSOGrossAfterDiscAmt.Name = "txtSOGrossAfterDiscAmt"
         Me.txtSOGrossAfterDiscAmt.ReadOnly = True
         Me.txtSOGrossAfterDiscAmt.Size = New System.Drawing.Size(97, 21)
-        Me.txtSOGrossAfterDiscAmt.TabIndex = 29
+        Me.txtSOGrossAfterDiscAmt.TabIndex = 30
         Me.txtSOGrossAfterDiscAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label26
@@ -779,7 +779,7 @@ Partial Class frmSO
         Me.txtLotJobNo.MaxLength = 50
         Me.txtLotJobNo.Name = "txtLotJobNo"
         Me.txtLotJobNo.Size = New System.Drawing.Size(58, 21)
-        Me.txtLotJobNo.TabIndex = 24
+        Me.txtLotJobNo.TabIndex = 25
         '
         'txtCurrCode
         '
@@ -997,7 +997,7 @@ Partial Class frmSO
         Me.dtpDeliveryPlanDate.Name = "dtpDeliveryPlanDate"
         Me.dtpDeliveryPlanDate.ShowCheckBox = True
         Me.dtpDeliveryPlanDate.Size = New System.Drawing.Size(97, 21)
-        Me.dtpDeliveryPlanDate.TabIndex = 122
+        Me.dtpDeliveryPlanDate.TabIndex = 24
         '
         'ntbSOCurrRate
         '
@@ -1016,7 +1016,7 @@ Partial Class frmSO
         Me.ntbSOTaxPercent.MaxLength = 3
         Me.ntbSOTaxPercent.Name = "ntbSOTaxPercent"
         Me.ntbSOTaxPercent.Size = New System.Drawing.Size(40, 21)
-        Me.ntbSOTaxPercent.TabIndex = 30
+        Me.ntbSOTaxPercent.TabIndex = 31
         Me.ntbSOTaxPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ntbSODiscAmt
@@ -1026,7 +1026,7 @@ Partial Class frmSO
         Me.ntbSODiscAmt.MaxLength = 14
         Me.ntbSODiscAmt.Name = "ntbSODiscAmt"
         Me.ntbSODiscAmt.Size = New System.Drawing.Size(81, 21)
-        Me.ntbSODiscAmt.TabIndex = 28
+        Me.ntbSODiscAmt.TabIndex = 29
         Me.ntbSODiscAmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ntbSODiscPercent
@@ -1036,7 +1036,7 @@ Partial Class frmSO
         Me.ntbSODiscPercent.MaxLength = 3
         Me.ntbSODiscPercent.Name = "ntbSODiscPercent"
         Me.ntbSODiscPercent.Size = New System.Drawing.Size(40, 21)
-        Me.ntbSODiscPercent.TabIndex = 27
+        Me.ntbSODiscPercent.TabIndex = 28
         Me.ntbSODiscPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ntbPaymentTerms
@@ -1056,7 +1056,7 @@ Partial Class frmSO
         Me.ntbSOPrice.MaxLength = 18
         Me.ntbSOPrice.Name = "ntbSOPrice"
         Me.ntbSOPrice.Size = New System.Drawing.Size(80, 21)
-        Me.ntbSOPrice.TabIndex = 25
+        Me.ntbSOPrice.TabIndex = 26
         Me.ntbSOPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ntbSOQty
