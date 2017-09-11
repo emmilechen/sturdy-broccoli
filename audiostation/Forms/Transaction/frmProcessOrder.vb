@@ -322,22 +322,22 @@ err_ToolStripButton1_Click:
     End Sub
 
     Private Sub cmddelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddelete.Click
-        '        'delete
-        '        On Error GoTo err_ToolStripButton4_Click
-        '        If Me.txtguid.Text = "" Then Exit Sub
-        '        If MsgBox("Data akan dihapus, lanjutkan ?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "MP") = MsgBoxResult.Yes Then
-        '            If Fillobject(Me.txtguid, Me.Panel1, "delete", "sp_tr_mp", "", "@mp_pk") Then MsgBox("Data telah dihapus !", MsgBoxStyle.Information, "MP") Else Me.txtmp_no.Text = "" : MsgBox("Data gagal dihapus !", MsgBoxStyle.Critical, "MP")
-        '        Else
-        '            MsgBox("Data belum dihapus !", MsgBoxStyle.Critical, "MP")
-        '        End If
+        'delete
+        On Error GoTo err_ToolStripButton4_Click
+        If Me.txtguid.Text = "" Then Exit Sub
+        If MsgBox("Are you sure you want to delete this record?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, Me.Text) = MsgBoxResult.Yes Then
+            If Fillobject(Me.txtguid, Me, "delete", "usp_tr_proder", "", "@proder_pk") Then MsgBox("Record has been deleted!", MsgBoxStyle.Information, Me.Text) Else txtProderNo.Text = "" : MsgBox("Record can't be deleted!", MsgBoxStyle.Critical, Me.Text)
+        Else
+            MsgBox("Record has not been deleted!", MsgBoxStyle.Critical, Me.Text)
+        End If
 
-        'exit_ToolStripButton4_Click:
-        '        If ConnectionState.Open = 1 Then cn.Close()
-        '        Exit Sub
+exit_ToolStripButton4_Click:
+        If ConnectionState.Open = 1 Then cn.Close()
+        Exit Sub
 
-        'err_ToolStripButton4_Click:
-        '        MsgBox(Err.Description)
-        '        Resume exit_ToolStripButton4_Click
+err_ToolStripButton4_Click:
+        MsgBox(Err.Description)
+        Resume exit_ToolStripButton4_Click
     End Sub
 
     Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
