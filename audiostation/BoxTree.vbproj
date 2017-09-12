@@ -614,10 +614,10 @@
     <Compile Include="Forms\Transaction\frmabsenproduksi.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmOrderProcess.Designer.vb">
-      <DependentUpon>frmOrderProcess.vb</DependentUpon>
+    <Compile Include="Forms\Transaction\frmProcessOrder.Designer.vb">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmOrderProcess.vb">
+    <Compile Include="Forms\Transaction\frmProcessOrder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
@@ -1936,8 +1936,8 @@
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmOrderProcess.resx">
-      <DependentUpon>frmOrderProcess.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Transaction\frmProcessOrder.resx">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
