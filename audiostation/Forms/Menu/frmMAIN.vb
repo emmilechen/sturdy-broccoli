@@ -1424,7 +1424,7 @@ Public Class frmMAIN
         openformcommon(frmModule)
     End Sub
     Private Sub ProductionProcessControlToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionProcessControlToolStripMenuItem.Click
-        openformcommon(frmOrderProcess)
+        openformcommon(frmProcessOrder)
     End Sub
     Private Sub ProductionCostComponentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ProductionCostComponentsToolStripMenuItem.Click
         openformutility(sender.Tag.ToString, sender.ToString)
