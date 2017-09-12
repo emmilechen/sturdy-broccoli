@@ -234,7 +234,7 @@ Partial Class frmProcessOrder
         Me.TextBox14.Location = New System.Drawing.Point(405, 45)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(43, 21)
-        Me.TextBox14.TabIndex = 83
+        Me.TextBox14.TabIndex = 4
         '
         'dtp1
         '
@@ -242,7 +242,7 @@ Partial Class frmProcessOrder
         Me.dtp1.Location = New System.Drawing.Point(405, 72)
         Me.dtp1.Name = "dtp1"
         Me.dtp1.Size = New System.Drawing.Size(97, 21)
-        Me.dtp1.TabIndex = 82
+        Me.dtp1.TabIndex = 5
         '
         'Label7
         '
@@ -267,7 +267,7 @@ Partial Class frmProcessOrder
         Me.TextBox6.Location = New System.Drawing.Point(145, 99)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(126, 21)
-        Me.TextBox6.TabIndex = 78
+        Me.TextBox6.TabIndex = 3
         '
         'Label5
         '
@@ -275,7 +275,7 @@ Partial Class frmProcessOrder
         Me.Label5.Location = New System.Drawing.Point(551, 48)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 13)
-        Me.Label5.TabIndex = 77
+        Me.Label5.TabIndex = 6
         Me.Label5.Text = "Consist of"
         '
         'TextBox5
@@ -283,7 +283,7 @@ Partial Class frmProcessOrder
         Me.TextBox5.Location = New System.Drawing.Point(612, 45)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(126, 21)
-        Me.TextBox5.TabIndex = 76
+        Me.TextBox5.TabIndex = 7
         '
         'Label4
         '
@@ -299,7 +299,7 @@ Partial Class frmProcessOrder
         Me.TextBox4.Location = New System.Drawing.Point(145, 72)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(126, 21)
-        Me.TextBox4.TabIndex = 74
+        Me.TextBox4.TabIndex = 2
         '
         'Label3
         '
@@ -315,7 +315,7 @@ Partial Class frmProcessOrder
         Me.TextBox3.Location = New System.Drawing.Point(145, 45)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(126, 21)
-        Me.TextBox3.TabIndex = 72
+        Me.TextBox3.TabIndex = 1
         '
         'Label2
         '
@@ -508,6 +508,7 @@ Partial Class frmProcessOrder
         Me.ListView1.Size = New System.Drawing.Size(749, 199)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'TabPage3
         '
@@ -657,6 +658,7 @@ Partial Class frmProcessOrder
         Me.ListView2.Size = New System.Drawing.Size(749, 136)
         Me.ListView2.TabIndex = 107
         Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
         '
         'Label13
         '
@@ -830,6 +832,7 @@ Partial Class frmProcessOrder
         Me.ListView3.Size = New System.Drawing.Size(749, 136)
         Me.ListView3.TabIndex = 120
         Me.ListView3.UseCompatibleStateImageBehavior = False
+        Me.ListView3.View = System.Windows.Forms.View.Details
         '
         'ToolStrip1
         '
@@ -947,7 +950,7 @@ Partial Class frmProcessOrder
         Me.txtProderNo.Location = New System.Drawing.Point(150, 36)
         Me.txtProderNo.Name = "txtProderNo"
         Me.txtProderNo.Size = New System.Drawing.Size(127, 21)
-        Me.txtProderNo.TabIndex = 84
+        Me.txtProderNo.TabIndex = 0
         '
         'dtpProderDate
         '
@@ -955,7 +958,7 @@ Partial Class frmProcessOrder
         Me.dtpProderDate.Location = New System.Drawing.Point(150, 63)
         Me.dtpProderDate.Name = "dtpProderDate"
         Me.dtpProderDate.Size = New System.Drawing.Size(97, 21)
-        Me.dtpProderDate.TabIndex = 87
+        Me.dtpProderDate.TabIndex = 1
         '
         'Label27
         '
@@ -974,7 +977,7 @@ Partial Class frmProcessOrder
         Me.btnSO.Location = New System.Drawing.Point(665, 33)
         Me.btnSO.Name = "btnSO"
         Me.btnSO.Size = New System.Drawing.Size(29, 25)
-        Me.btnSO.TabIndex = 88
+        Me.btnSO.TabIndex = 2
         Me.btnSO.UseVisualStyleBackColor = True
         '
         'frmProcessOrder

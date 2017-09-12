@@ -1371,7 +1371,7 @@ Public Class frmPPitching
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'ppit'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1451,13 +1451,13 @@ Public Class frmPPitching
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'ppit'"
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
         DA.Fill(DS, "POPreview_")
 
-        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Pch_Order_Form.rpt"
+        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Pch_Pitching_Form.rpt"
 
         If Not IO.File.Exists(strReportPath) Then
             Throw (New Exception("Unable to locate report file:" & _
@@ -1466,7 +1466,7 @@ Public Class frmPPitching
 
         Dim cr As New ReportDocument
         Dim NewMDIChild As New frmDocViewer()
-        NewMDIChild.Text = "Purchase Order"
+        NewMDIChild.Text = "Purchase Pitching"
         NewMDIChild.Show()
 
         cr.Load(strReportPath)

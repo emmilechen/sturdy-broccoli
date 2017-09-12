@@ -37,9 +37,6 @@ Public Class frmProcessOrder
             .ListView3.Columns.Add("Kolom 2", "Col2", Me.TextBox19.Width + 5)
             .ListView3.Columns.Add("Kolom 3", "Col3", Me.TextBox21.Width + 10)
         End With
-        Me.ListView1.Items.Clear()
-        Me.ListView2.Items.Clear()
-        Me.ListView3.Items.Clear()
         Me.txtguid.Text = "0"
         Me.btnSaveD1.Tag = "N"
         Me.btnSaveD2.Tag = "N"
@@ -487,5 +484,12 @@ err_ToolStripButton4_Click:
                 Next
             End If
         End If
+    End Sub
+
+    Private Sub btnSO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSO.Click
+        Dim NewFormDialog As New fdlCUtility
+        NewFormDialog.FrmCallerId = Me.Name
+        NewFormDialog.Tag = "1"
+        NewFormDialog.ShowDialog()
     End Sub
 End Class
