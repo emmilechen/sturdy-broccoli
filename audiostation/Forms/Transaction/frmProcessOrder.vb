@@ -117,7 +117,7 @@ Public Class frmProcessOrder
             Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD1.Tag = "N" Then
@@ -203,7 +203,7 @@ Public Class frmProcessOrder
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
-            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             If ListView1.SelectedItems.Count > 0 Then
                 For a As Integer = ListView1.SelectedItems.Count - 1 To 0
@@ -381,7 +381,7 @@ err_ToolStripButton4_Click:
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView2, "proder_dtl_pk1", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView2, "proder_dtl_pk1", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView2, Me.txtskuid.Text) = True And Me.btnSaveD2.Tag = "N" Then
@@ -425,7 +425,7 @@ err_ToolStripButton4_Click:
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView3, "proder_dtl_pk1", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView3, "proder_dtl_pk1", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView3, Me.txtskuid.Text) = True And Me.btnSaveD3.Tag = "N" Then
@@ -463,7 +463,7 @@ err_ToolStripButton4_Click:
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk2", "tr_proder_dtl2", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl2 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
-            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             If ListView2.SelectedItems.Count > 0 Then
                 For a As Integer = ListView2.SelectedItems.Count - 1 To 0
@@ -479,7 +479,7 @@ err_ToolStripButton4_Click:
             Dim xguid As Integer = GetCurrentID("proder_dtl_pk3", "tr_proder_dtl3", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             Executestr("EXEC usp_tr_proder_dtl3 'delete', null,null," & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid.Text)
-            opensearchform(Me.ListView3, "proder_dtl_pk3", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & guidno & "')", "a.created", 0)
+            opensearchform(Me.ListView3, "proder_dtl_pk3", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             If ListView3.SelectedItems.Count > 0 Then
                 For a As Integer = ListView3.SelectedItems.Count - 1 To 0
