@@ -22,6 +22,7 @@ Partial Class frmabsenproduksi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmabsenproduksi))
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -268,7 +269,7 @@ Partial Class frmabsenproduksi
         '
         'btnsave
         '
-        Me.btnsave.Image = Global.boxtree.My.Resources.Resources.Save
+        Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
         Me.btnsave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(78, 34)
@@ -276,7 +277,7 @@ Partial Class frmabsenproduksi
         '
         'btnfind
         '
-        Me.btnfind.Image = Global.boxtree.My.Resources.Resources.find
+        Me.btnfind.Image = CType(resources.GetObject("btnfind.Image"), System.Drawing.Image)
         Me.btnfind.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnfind.Name = "btnfind"
         Me.btnfind.Size = New System.Drawing.Size(76, 34)
@@ -284,7 +285,7 @@ Partial Class frmabsenproduksi
         '
         'btncancel
         '
-        Me.btncancel.Image = Global.boxtree.My.Resources.Resources.cancel
+        Me.btncancel.Image = CType(resources.GetObject("btncancel.Image"), System.Drawing.Image)
         Me.btncancel.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btncancel.Name = "btncancel"
         Me.btncancel.Size = New System.Drawing.Size(97, 34)
@@ -292,7 +293,7 @@ Partial Class frmabsenproduksi
         '
         'btndelete
         '
-        Me.btndelete.Image = Global.boxtree.My.Resources.Resources.Delete
+        Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
         Me.btndelete.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(95, 34)
@@ -300,7 +301,7 @@ Partial Class frmabsenproduksi
         '
         'btnnew
         '
-        Me.btnnew.Image = Global.boxtree.My.Resources.Resources.new_rec
+        Me.btnnew.Image = CType(resources.GetObject("btnnew.Image"), System.Drawing.Image)
         Me.btnnew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnnew.Name = "btnnew"
         Me.btnnew.Size = New System.Drawing.Size(78, 34)
@@ -308,7 +309,7 @@ Partial Class frmabsenproduksi
         '
         'btnexit
         '
-        Me.btnexit.Image = Global.boxtree.My.Resources.Resources._exit
+        Me.btnexit.Image = CType(resources.GetObject("btnexit.Image"), System.Drawing.Image)
         Me.btnexit.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnexit.Name = "btnexit"
         Me.btnexit.Size = New System.Drawing.Size(70, 34)
@@ -321,7 +322,7 @@ Partial Class frmabsenproduksi
         '
         'cmdprint
         '
-        Me.cmdprint.Image = Global.boxtree.My.Resources.Resources.printer
+        Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
         Me.cmdprint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdprint.Name = "cmdprint"
         Me.cmdprint.Size = New System.Drawing.Size(81, 34)
