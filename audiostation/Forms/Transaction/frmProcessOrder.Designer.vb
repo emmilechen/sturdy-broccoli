@@ -30,7 +30,7 @@ Partial Class frmProcessOrder
         Me.txtCName = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtSKUCode = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtSKUName = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -175,14 +175,14 @@ Partial Class frmProcessOrder
         Me.txtSKUCode.Size = New System.Drawing.Size(70, 21)
         Me.txtSKUCode.TabIndex = 72
         '
-        'TextBox1
+        'txtSKUName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(608, 63)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(217, 21)
-        Me.TextBox1.TabIndex = 77
-        Me.TextBox1.TabStop = False
+        Me.txtSKUName.Location = New System.Drawing.Point(608, 63)
+        Me.txtSKUName.Name = "txtSKUName"
+        Me.txtSKUName.ReadOnly = True
+        Me.txtSKUName.Size = New System.Drawing.Size(217, 21)
+        Me.txtSKUName.TabIndex = 77
+        Me.txtSKUName.TabStop = False
         '
         'TabControl1
         '
@@ -995,7 +995,7 @@ Partial Class frmProcessOrder
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtSKUName)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.txtSKUCode)
         Me.Controls.Add(Me.Label23)
@@ -1027,7 +1027,7 @@ Partial Class frmProcessOrder
     Friend WithEvents txtCName As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents txtSKUCode As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSKUName As System.Windows.Forms.TextBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents Label7 As System.Windows.Forms.Label

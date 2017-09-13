@@ -9,6 +9,61 @@ Public Class frmProcessOrder
     Private strConn As String = My.Settings.ConnStr
     Private sqlCon As SqlConnection
     Dim cn As SqlConnection = New SqlConnection(strConnection)
+    Dim m_SODtlID As Integer
+
+    Public Property SODtlID() As Integer
+        Get
+            Return m_SODtlID
+        End Get
+        Set(ByVal Value As Integer)
+            m_SODtlID = Value
+        End Set
+    End Property
+
+    Public Property SONo() As String
+        Get
+            Return txtSONo.Text
+        End Get
+        Set(ByVal Value As String)
+            txtSONo.Text = Value
+        End Set
+    End Property
+
+    Public Property CustomerCode() As String
+        Get
+            Return txtCCode.Text
+        End Get
+        Set(ByVal Value As String)
+            txtCCode.Text = Value
+        End Set
+    End Property
+
+    Public Property CustomerName() As String
+        Get
+            Return txtCName.Text
+        End Get
+        Set(ByVal Value As String)
+            txtCName.Text = Value
+        End Set
+    End Property
+
+    Public Property SKUCode() As String
+        Get
+            Return txtSKUCode.Text
+        End Get
+        Set(ByVal Value As String)
+            txtSKUCode.Text = Value
+        End Set
+    End Property
+
+    Public Property SKUName() As String
+        Get
+            Return txtSKUName.Text
+        End Get
+        Set(ByVal Value As String)
+            txtSKUName.Text = Value
+        End Set
+    End Property
 
     Private Function kosong()
         ClearObjectonForm(Me)
@@ -21,7 +76,7 @@ Public Class frmProcessOrder
             .ListView1.Columns.Add("Kolom 2", "Code", Me.TextBox8.Width + 5)
             .ListView1.Columns.Add("Kolom 3", "Plano Size", Me.TextBox9.Width + 5)
             .ListView1.Columns.Add("Kolom 4", "Plano Amount", Me.TextBox6.Width + 5)
-            .ListView1.Columns.Add("Kolom 5", "UoM", Me.TextBox1.Width + 5)
+            .ListView1.Columns.Add("Kolom 5", "UoM", Me.txtSKUName.Width + 5)
 
             .ListView2.Columns.Clear()
             .ListView2.Columns.Add("Kolom 0", "guid2", 0)
@@ -38,6 +93,7 @@ Public Class frmProcessOrder
             .ListView3.Columns.Add("Kolom 3", "Col3", Me.TextBox21.Width + 10)
         End With
         Me.txtguid.Text = "0"
+        m_SODtlID = 0
         Me.btnSaveD1.Tag = "N"
         Me.btnSaveD2.Tag = "N"
         Me.btnSaveD3.Tag = "N"
@@ -487,9 +543,11 @@ err_ToolStripButton4_Click:
     End Sub
 
     Private Sub btnSO_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSO.Click
-        Dim NewFormDialog As New fdlCUtility
-        NewFormDialog.FrmCallerId = Me.Name
-        NewFormDialog.Tag = "1"
+        'Dim NewFormDialog As New fdlCUtility
+        'NewFormDialog.FrmCallerId = Me.Name
+        'NewFormDialog.Tag = "1"
+        'NewFormDialog.ShowDialog()
+        Dim NewFormDialog As New fdlSOProder
         NewFormDialog.ShowDialog()
     End Sub
 End Class
