@@ -602,12 +602,6 @@
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\fdlSOProder.Designer.vb">
-      <DependentUpon>fdlSOProder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\fdlSOProder.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Transaction\fdlCUtility.Designer.vb">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
     </Compile>
@@ -1582,12 +1576,6 @@
     <Compile Include="ReportDocs\frmDocViewer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\RPT_Pch_Pitching_Form.vb">
-      <DependentUpon>RPT_Pch_Pitching_Form.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Reports\RPT_MP_Form.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1604,6 +1592,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPT_Pch_Order_Form.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT_Pch_Pitching_Form.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Pch_Pitching_Form.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\RPT_Pch_Request_Form.vb">
@@ -1941,9 +1935,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\fdlSOProder.resx">
-      <DependentUpon>fdlSOProder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
@@ -2414,10 +2405,6 @@
     <EmbeddedResource Include="ReportDocs\frmDocViewer.resx">
       <DependentUpon>frmDocViewer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RPT_Pch_Pitching_Form.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPT_Pch_Pitching_Form.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_MP_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_MP_Form.vb</LastGenOutput>
@@ -2429,6 +2416,10 @@
     <EmbeddedResource Include="Reports\RPT_Pch_Order_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_Pch_Order_Form.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT_Pch_Pitching_Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Pch_Pitching_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Pch_Request_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
