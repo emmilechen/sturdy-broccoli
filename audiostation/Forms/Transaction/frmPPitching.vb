@@ -1375,8 +1375,8 @@ Public Class frmPPitching
         Dim DS As New DataSet
 
         DA.Fill(DS, "PO_")
-
-        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Pch_Pitching_Form.rpt"
+        'RPT_Pch_Pitching_Form.rpt
+        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Pch_Order_Form.rpt"
 
         If Not IO.File.Exists(strReportPath) Then
             Throw (New Exception("Unable to locate report file:" & _
@@ -1454,7 +1454,7 @@ Public Class frmPPitching
         Dim DS As New DataSet
 
         DA.Fill(DS, "POPreview_")
-
+        'RPT_Pch_Pitching_Form.rpt
         Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Pch_Pitching_Form.rpt"
 
         If Not IO.File.Exists(strReportPath) Then
