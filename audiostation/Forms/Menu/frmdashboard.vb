@@ -85,7 +85,7 @@ Public Class frmdashboard
         Me.TextBox1.Text = " Welcome " & My.Settings.UserName
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
-        '**************TO BE CHECKED******************
+        '**************TO BE CHECKED******************LIST3
         With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
             .ListView3.Columns.Clear()
             .ListView3.Columns.Add("Kolom 0", "formname", 0)
@@ -96,21 +96,22 @@ Public Class frmdashboard
             .ListView3.Columns.Add("Kolom 5", "fielddate", 100)
             .ListView3.Columns.Add("Kolom 6", "fieldnote", 100)
         End With
-        'cmd3 = New SqlCommand("SELECT a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote FROM rt_form_sign a inner join mt_form b on b.form_name=a.formname where a.userid in ('" & My.Settings.UserID & "') order by a.formname", cn)
-        'dr3 = cmd3.ExecuteReader()
-        'If dr3.Read() Then
-
         list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
-
-        'SELECT a.formname, a.fieldname, a.signlevelid,b.fieldpk,b.fieldno,b.fielddate,b.fieldnote FROM  where(a.userid = 10)
-
+        With Me 'List4
+            .ListView4.Columns.Clear()
+            .ListView4.Columns.Add("Kolom 0", "User", 75)
+            .ListView4.Columns.Add("Kolom 1", "Komputer", 100)
+            .ListView4.Columns.Add("Kolom 2", "Keterangan", 225)
+            .ListView4.Columns.Add("Kolom 3", "Tanggal", 175)
+            .ListView4.Columns.Add("Kolom 4", "Modul", 100)
+        End With
+        list4returnvalue(Me.ListView4, "namauser, namakomputer, keterangan, tanggal, NamaEvent", "tr_logFile", "CONVERT(date, Tanggal)=CONVERT(date, getdate())", "tanggal desc", 0)
         Me.Cursor = Cursors.Default
     End Sub
-
     Private Sub frmdashboard_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize
         Dim lebarform As Decimal = (frmMAIN.Width / 2) - 25, tinggiform As Decimal = (frmMAIN.Height / 2) - Me.TextBox1.Height, tinggiformkanan As Decimal = (frmMAIN.Height / 2) - 175
         Me.Top = 0 : Me.Left = 0
-        Me.TextBox1.Top = 0 : Me.TextBox1.Left = 0 : Me.TextBox1.Width = frmMAIN.Width
+        Me.TextBox1.Top = 0 : Me.TextBox1.Left = 0 : Me.TextBox1.Width = frmMAIN.Width : Me.TextBox1.BackColor = Color.White
 
         Me.ListView1.Width = lebarform : Me.ListView2.Width = lebarform : Me.ListView5.Width = lebarform 'Me.Width - 40
         Me.ListView1.Height = tinggiform : Me.ListView2.Height = tinggiform
@@ -135,12 +136,11 @@ Public Class frmdashboard
         Me.ListView3.Height = Me.ListView3.Height - 25
         Me.ListView3.Visible = True : Me.ListView4.Visible = True : Me.Label3.Visible = True : Me.Label4.Visible = True
         Me.Label6.Width = Me.TextBox1.Width
+        Me.PictureBox1.Top = Me.TextBox1.Top + 2 : Me.PictureBox1.Height = Me.TextBox1.Height - 4 : Me.PictureBox1.Left = Me.TextBox1.Width - (Me.PictureBox1.Width + 20)
     End Sub
-
     Private Sub DataGridView1_CellFormatting(sender As Object, e As System.Windows.Forms.DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
 
     End Sub
-
     Private Sub DataGridView1_CellPainting(sender As Object, e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridView1.CellPainting
         Dim low_score_style As New DataGridViewCellStyle()
         low_score_style.BackColor = Color.Pink
@@ -202,7 +202,6 @@ Public Class frmdashboard
         'End If
 
     End Sub
-
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         Me.Label6.Text = MarqueeLeft(Label6.Text)
     End Sub
@@ -236,4 +235,37 @@ Public Class frmdashboard
             cmd.Dispose()
         End With
     End Function
+    Private Function list4returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'NamaUser
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'NamaKomputer
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'Keterangan
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'Tanggal
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'NamaEvent
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
+    Private Sub Label4_Click(sender As System.Object, e As System.EventArgs) Handles Label4.Click
+        list4returnvalue(Me.ListView4, "namauser, namakomputer, keterangan, tanggal, NamaEvent", "tr_logFile", "CONVERT(date, Tanggal)=CONVERT(date, getdate())", "tanggal desc", 0)
+    End Sub
+    Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
+        list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
+    End Sub
 End Class
