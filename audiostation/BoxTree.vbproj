@@ -614,6 +614,12 @@
     <Compile Include="Forms\Transaction\fdlCUtility.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\fdlSOProder.Designer.vb">
+      <DependentUpon>fdlSOProder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\fdlSOProder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\frmabsenproduksi.Designer.vb">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </Compile>
@@ -1941,6 +1947,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\fdlSOProder.resx">
+      <DependentUpon>fdlSOProder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
