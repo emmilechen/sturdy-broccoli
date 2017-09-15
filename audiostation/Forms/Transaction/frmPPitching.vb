@@ -997,7 +997,7 @@ Public Class frmPPitching
             'End If
             If ConnectionState.Open = 1 Then cn.Close()
         End Try
-        autoRefresh()
+        'autoRefresh()
 
         For i As Integer = 0 To DataGridView1.RowCount
 
@@ -1370,8 +1370,7 @@ Public Class frmPPitching
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
-
-        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'ppit'"
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1450,14 +1449,7 @@ Public Class frmPPitching
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
-
-<<<<<<< .mine
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "','Purchase Pitching'"
-||||||| .r214
-        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
-=======
-        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'ppit'"
->>>>>>> .r228
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
