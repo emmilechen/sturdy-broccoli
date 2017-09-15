@@ -946,13 +946,14 @@ Partial Class frmPPitching
         '
         'btnConvertToPO
         '
+        Me.btnConvertToPO.BackColor = System.Drawing.Color.YellowGreen
         Me.btnConvertToPO.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConvertToPO.Location = New System.Drawing.Point(122, 556)
+        Me.btnConvertToPO.Location = New System.Drawing.Point(12, 556)
         Me.btnConvertToPO.Name = "btnConvertToPO"
         Me.btnConvertToPO.Size = New System.Drawing.Size(94, 26)
         Me.btnConvertToPO.TabIndex = 112
         Me.btnConvertToPO.Text = "Convert to PO"
-        Me.btnConvertToPO.UseVisualStyleBackColor = True
+        Me.btnConvertToPO.UseVisualStyleBackColor = False
         '
         'ntbPOCurrRate
         '
