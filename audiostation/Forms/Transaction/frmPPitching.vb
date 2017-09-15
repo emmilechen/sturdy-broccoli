@@ -908,82 +908,82 @@ Public Class frmPPitching
                 MsgBox("Warning,Purchase Order total is 0 !", vbInformation, Me.Text)
             End If
 
-            'If m_POId = 0 Then
-            '    If txtPPitchingNo.Text = "" Then
-            '        txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
-            '        isGetNum = True
-            '    Else
-            '        isGetNum = False
-            '    End If
-            'End If
+            If m_POId = 0 Then
+                If txtPPitchingNo.Text = "" Then
+                    txtPPitchingNo.Text = GetSysNumber("ppit", Now.Date)
+                    isGetNum = True
+                Else
+                    isGetNum = False
+                End If
+            End If
 
-            'cmd = New SqlCommand(IIf(m_POId = 0, "usp_tr_po_INS", "usp_tr_po_UPD"), cn)
-            'cmd.CommandType = CommandType.StoredProcedure
+            cmd = New SqlCommand(IIf(m_POId = 0, "usp_tr_po_INS", "usp_tr_po_UPD"), cn)
+            cmd.CommandType = CommandType.StoredProcedure
 
-            'Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
-            'prm1.Value = txtPPitchingNo.Text
-            'Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
-            'prm2.Value = dtpPPitchingDate.Value.Date
-            'Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
-            'prm3.Value = m_SId
-            'Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
-            'prm11.Value = m_CurrId
-            'Dim prm12 As SqlParameter = cmd.Parameters.Add("@po_curr_rate", SqlDbType.Money)
-            'prm12.Value = FormatNumber(ntbPOCurrRate.Text)
-            'Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_type", SqlDbType.NVarChar, 50)
-            'prm4.Value = cmbPOType.Items(cmbPOType.SelectedIndex).ItemData
-            'Dim prm13 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
-            'prm13.Value = m_PchCodeId
-            'Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
-            'prm5.Value = dtpDeliveryDate.Value.Date
-            'Dim prm6 As SqlParameter = cmd.Parameters.Add("@ship_via", SqlDbType.NVarChar, 50)
-            'prm6.Value = IIf(txtShipVia.Text = "", DBNull.Value, txtShipVia.Text)
-            'Dim prm7 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
-            'prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
-            'Dim prm8 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
-            'prm8.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
-            'Dim prm9 As SqlParameter = cmd.Parameters.Add("@payment_method", SqlDbType.NVarChar, 50)
-            'prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
-            'Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
-            'prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
+            Dim prm1 As SqlParameter = cmd.Parameters.Add("@ppitching_no", SqlDbType.NVarChar, 50)
+            prm1.Value = txtPPitchingNo.Text
+            Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_date", SqlDbType.SmallDateTime)
+            prm2.Value = dtpPPitchingDate.Value.Date
+            Dim prm3 As SqlParameter = cmd.Parameters.Add("@s_id", SqlDbType.Int)
+            prm3.Value = m_SId
+            Dim prm11 As SqlParameter = cmd.Parameters.Add("@curr_id", SqlDbType.Int)
+            prm11.Value = m_CurrId
+            Dim prm12 As SqlParameter = cmd.Parameters.Add("@po_curr_rate", SqlDbType.Money)
+            prm12.Value = FormatNumber(ntbPOCurrRate.Text)
+            Dim prm4 As SqlParameter = cmd.Parameters.Add("@po_type", SqlDbType.NVarChar, 50)
+            prm4.Value = cmbPOType.Items(cmbPOType.SelectedIndex).ItemData
+            Dim prm13 As SqlParameter = cmd.Parameters.Add("@pch_code_id", SqlDbType.Int)
+            prm13.Value = m_PchCodeId
+            Dim prm5 As SqlParameter = cmd.Parameters.Add("@delivery_date", SqlDbType.SmallDateTime)
+            prm5.Value = dtpDeliveryDate.Value.Date
+            Dim prm6 As SqlParameter = cmd.Parameters.Add("@ship_via", SqlDbType.NVarChar, 50)
+            prm6.Value = IIf(txtShipVia.Text = "", DBNull.Value, txtShipVia.Text)
+            Dim prm7 As SqlParameter = cmd.Parameters.Add("@ref_no", SqlDbType.NVarChar, 50)
+            prm7.Value = IIf(txtRefNo.Text = "", DBNull.Value, txtRefNo.Text)
+            Dim prm8 As SqlParameter = cmd.Parameters.Add("@payment_terms", SqlDbType.Int, 50)
+            prm8.Value = IIf(ntbPaymentTerms.Text = "", 0, ntbPaymentTerms.Text)
+            Dim prm9 As SqlParameter = cmd.Parameters.Add("@payment_method", SqlDbType.NVarChar, 50)
+            prm9.Value = cmbPaymentMethod.Items(cmbPaymentMethod.SelectedIndex).ItemData
+            Dim prm10 As SqlParameter = cmd.Parameters.Add("@po_remarks", SqlDbType.NVarChar)
+            prm10.Value = IIf(txtPORemarks.Text = "", DBNull.Value, txtPORemarks.Text)
 
-            'If isConvertToPO = True Then
-            '    m_PONo = GetSysNumber("pord", Now.Date)
-            '    Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
-            '    prm21.Value = m_PONo
-            '    Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
-            '    prm22.Value = Now.Date
-            '    Dim prm23 As SqlParameter = cmd.Parameters.Add("@po_status", SqlDbType.NVarChar, 50)
-            '    prm23.Value = "O"
-            'End If
+            If isConvertToPO = True Then
+                m_PONo = GetSysNumber("pord", Now.Date)
+                Dim prm21 As SqlParameter = cmd.Parameters.Add("@po_no", SqlDbType.NVarChar, 50)
+                prm21.Value = m_PONo
+                Dim prm22 As SqlParameter = cmd.Parameters.Add("@po_date", SqlDbType.SmallDateTime)
+                prm22.Value = Now.Date
+                Dim prm23 As SqlParameter = cmd.Parameters.Add("@po_status", SqlDbType.NVarChar, 50)
+                prm23.Value = "O"
+            End If
 
-            'Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-            'prm15.Value = My.Settings.UserName
-            'Dim prm16 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
+            Dim prm15 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
+            prm15.Value = My.Settings.UserName
+            Dim prm16 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int)
 
-            'If m_POId = 0 Then
-            '    prm16.Direction = ParameterDirection.Output
+            If m_POId = 0 Then
+                prm16.Direction = ParameterDirection.Output
 
-            '    cn.Open()
-            '    cmd.ExecuteReader()
-            '    m_POId = prm16.Value
-            '    'MessageBox.Show(m_POId)
-            '    cn.Close()
-            '    If isGetNum = True Then UpdSysNumber("ppit")
-            'Else
-            '    prm16.Value = m_POId
-            '    If CInt(txtPrinted.Text) > 0 Then txtRevise.Text = CInt(txtRevise.Text) + 1 : txtPrinted.Text = "0"
-            '    Dim prm17 As SqlParameter = cmd.Parameters.Add("@revise", SqlDbType.SmallInt)
-            '    prm17.Value = txtRevise.Text
-            '    Dim prm14 As SqlParameter = cmd.Parameters.Add("@printed", SqlDbType.SmallInt)
-            '    prm14.Value = txtPrinted.Text
+                cn.Open()
+                cmd.ExecuteReader()
+                m_POId = prm16.Value
+                'MessageBox.Show(m_POId)
+                cn.Close()
+                If isGetNum = True Then UpdSysNumber("ppit")
+            Else
+                prm16.Value = m_POId
+                If CInt(txtPrinted.Text) > 0 Then txtRevise.Text = CInt(txtRevise.Text) + 1 : txtPrinted.Text = "0"
+                Dim prm17 As SqlParameter = cmd.Parameters.Add("@revise", SqlDbType.SmallInt)
+                prm17.Value = txtRevise.Text
+                Dim prm14 As SqlParameter = cmd.Parameters.Add("@printed", SqlDbType.SmallInt)
+                prm14.Value = txtPrinted.Text
 
-            '    cn.Open()
-            '    cmd.ExecuteReader()
-            '    cn.Close()
-            '    'clear_lvw()
-            '    If CDbl(ntbPOCurrRate.Text) <> m_POCurrRateBefore Then refresh_total()
-            'End If
+                cn.Open()
+                cmd.ExecuteReader()
+                cn.Close()
+                'clear_lvw()
+                If CDbl(ntbPOCurrRate.Text) <> m_POCurrRateBefore Then refresh_total()
+            End If
 
             lock_obj(True)
             lock_objD(True)
@@ -1451,7 +1451,13 @@ Public Class frmPPitching
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
+<<<<<<< .mine
+        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "','Purchase Pitching'"
+||||||| .r214
+        strSQL = "exec RPT_Pch_Order_Form '" & txtPPitchingNo.Text & "'"
+=======
         strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'ppit'"
+>>>>>>> .r228
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
