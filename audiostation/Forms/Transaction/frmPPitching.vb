@@ -1365,7 +1365,6 @@ Public Class frmPPitching
         End If
         refresh_totalD()
     End Sub
-
     Private Sub btnPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrint.Click
         Dim strConnection As String = My.Settings.ConnStr
         Dim Connection As New SqlConnection(strConnection)
@@ -1397,7 +1396,6 @@ Public Class frmPPitching
             .myCrystalReportViewer.ReportSource = cr
         End With
     End Sub
-
     Private Sub btnPRequest_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPRequest.Click
         If m_SId = 0 Or m_PchCodeId = 0 Then
             MsgBox("Purchase Code & Supplier information are primary fields that should be entered. Please enter those fields before you do the selection.", vbCritical + vbOKOnly, Me.Text)

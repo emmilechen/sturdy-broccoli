@@ -238,15 +238,15 @@ Partial Class FTR_Induction
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.cmdsave = New System.Windows.Forms.ToolStripButton()
         Me.cmdfind = New System.Windows.Forms.ToolStripButton()
         Me.cmdcancel = New System.Windows.Forms.ToolStripButton()
         Me.cmddelete = New System.Windows.Forms.ToolStripButton()
         Me.cmdnew = New System.Windows.Forms.ToolStripButton()
         Me.cmdexit = New System.Windows.Forms.ToolStripButton()
-        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.cmdprint = New System.Windows.Forms.ToolStripButton()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -2391,7 +2391,7 @@ Partial Class FTR_Induction
         Me.ComboBox6.FormattingEnabled = True
         Me.ComboBox6.Location = New System.Drawing.Point(133, 108)
         Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(104, 21)
+        Me.ComboBox6.Size = New System.Drawing.Size(280, 21)
         Me.ComboBox6.TabIndex = 4
         '
         'TextBox8
@@ -2475,16 +2475,6 @@ Partial Class FTR_Induction
         Me.ToolStrip1.TabIndex = 31
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
-        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
-        Me.ImageList1.Images.SetKeyName(2, "Box.png")
-        Me.ImageList1.Images.SetKeyName(3, "Search.png")
-        Me.ImageList1.Images.SetKeyName(4, "add.png")
-        '
         'cmdsave
         '
         Me.cmdsave.Image = CType(resources.GetObject("cmdsave.Image"), System.Drawing.Image)
@@ -2533,6 +2523,11 @@ Partial Class FTR_Induction
         Me.cmdexit.Size = New System.Drawing.Size(51, 22)
         Me.cmdexit.Text = "&Exit"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
         'cmdprint
         '
         Me.cmdprint.Image = CType(resources.GetObject("cmdprint.Image"), System.Drawing.Image)
@@ -2541,10 +2536,15 @@ Partial Class FTR_Induction
         Me.cmdprint.Size = New System.Drawing.Size(59, 22)
         Me.cmdprint.Text = "&Print"
         '
-        'ToolStripSeparator1
+        'ImageList1
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Checkmark.png")
+        Me.ImageList1.Images.SetKeyName(1, "Remove.png")
+        Me.ImageList1.Images.SetKeyName(2, "Box.png")
+        Me.ImageList1.Images.SetKeyName(3, "Search.png")
+        Me.ImageList1.Images.SetKeyName(4, "add.png")
         '
         'FTR_Induction
         '

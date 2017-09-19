@@ -22,6 +22,14 @@ Public Class FTR_Induction
         AssignValuetoCombo(Me.ComboBox3, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=1", "sku_name")
         AssignValuetoCombo(Me.ComboBox4, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
         AssignValuetoCombo(Me.ComboBox5, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
+
+        AssignValuetoCombo(Me.ComboBox6, "", "user_fname", "user_fname", "mt_user", "user_fname<>''", "user_fname")
+
+        AssignValuetoCombo(Me.ComboBox7, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
+        AssignValuetoCombo(Me.ComboBox8, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
+        AssignValuetoCombo(Me.ComboBox9, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
+        AssignValuetoCombo(Me.ComboBox10, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
+
         AssignValuetoCombo(Me.ComboBox11, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
         Me.cmdsave.Text = "&Save" : Me.cmddelete.Enabled = False : Me.cmdcancel.Enabled = False : Me.cmdprint.Enabled = False
         Me.TabControl1.SelectedTab = TabPage1
@@ -188,8 +196,7 @@ Public Class FTR_Induction
 
         dr.Close()
         cmd.Dispose()
-        Me.cmddelete.Enabled = True
-        Me.cmdsave.Enabled = True : Me.cmdsave.Text = "&Update"
+        Me.cmdsave.Enabled = True : Me.cmdsave.Text = "&Update" : Me.cmdprint.Enabled = True : Me.cmddelete.Enabled = True
         'Me.cmdinfo.Enabled = Me.txteventno.Text <> ""
         Me.TextBox1.Focus()
     End Function
@@ -323,7 +330,7 @@ Public Class FTR_Induction
                 Me.TextBox1.Text = GetSysNumber("sinduction", Now.Date)
                 strsql = "Insert Into tr_induction(ind_no,ind_tgl,ind_c_id,ind_sls_code_id,ind_sku_id,ind_mc_id," & _
                 "ind_tgl_kirim,ind_target_price,ind_target_status,ind_qty_po,ind_last_price,ind_komisi," & _
-                "ind_kompetitor1, ind_kompetitor2, ind_kompetitor3, Created, createdby, " & _
+                "ind_kompetitor1, ind_kompetitor2, ind_kompetitor3, created, createdby, " & _
                 "material1_st, material1_id, " & _
                 "material2_st, material2_id, " & _
                 "singleface1_st, singleface1_id, " & _
@@ -359,7 +366,7 @@ Public Class FTR_Induction
                 "modified, modifiedby) values ('" & _
                 TextBox1.Text & "','" & DateTimePicker1.Text & "','" & ComboBox1.SelectedValue & "','" & ComboBox2.SelectedValue & "','" & ComboBox3.SelectedValue & "','" & ComboBox4.SelectedValue & "','" & _
                 DateTimePicker2.Text & "','" & TextBox2.Text & "','" & ComboBox5.SelectedValue & "','" & TextBox3.Text & "','" & TextBox4.Text & "','" & TextBox5.Text & "','" & _
-                TextBox6.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "','" & TextBox9.Text & "','" & ComboBox6.SelectedValue & "','" & _
+                TextBox6.Text & "','" & TextBox7.Text & "','" & TextBox8.Text & "',GETDATE(),'" & ComboBox6.SelectedValue & "','" & _
                 getvalcheck(CheckBox1.Checked) & "','" & ComboBox7.SelectedValue & "','" & _
                 getvalcheck(CheckBox2.Checked) & "','" & ComboBox8.SelectedValue & "','" & _
                 getvalcheck(CheckBox3.Checked) & "','" & ComboBox9.SelectedValue & "','" & _
@@ -396,6 +403,8 @@ Public Class FTR_Induction
             Else
                 'update strsql
                 strsql = "Update tr_induction set " & _
+                "modified=GETDATE()," & _
+                "modifiedby='" & My.Settings.UserName & "'," & _
                 "ind_tgl='" & Me.DateTimePicker1.Text & "'," & _
                 "ind_c_id='" & Me.ComboBox1.SelectedValue & "'," & _
                 "ind_sls_code_id='" & Me.ComboBox2.SelectedValue & "'," & _
@@ -490,7 +499,7 @@ Public Class FTR_Induction
                 "user_submit='" & Me.TextBox22.Text & "'," & _
                 "time_submit='" & DateTimePicker4.Text & "'," & _
                 "ind_keterangan='" & Me.TextBox23.Text & "'" & _
-                "where ind_no='" & Me.TextBox1.Text & "'"
+                " where ind_no='" & Me.TextBox1.Text & "'"
                 If Executestr(strsql) Then MsgBox("Data telah diperbaharui !", MsgBoxStyle.Information, "Induction")
 
             End If
