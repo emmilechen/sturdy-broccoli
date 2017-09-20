@@ -191,17 +191,23 @@ Public Class frmProcessOrder
 
     Private Sub btnSaveD1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD1.Click
         Dim li As ListViewItem, i As Integer
-        If Me.txtguid.Text = "0" Then Exit Sub
+        'If Me.txtguid.Text = "0" Then Exit Sub
         If Me.txtguid.Text <> "0" And Me.txtguid_d1.Text <> "0" Then
-            Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
-            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
-            Executestr("EXEC usp_tr_proder_dtl1 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+            'Dim xguid As Integer = GetCurrentID("mp_dtl_pk", "tr_mp_dtl", "mp_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            ''update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            'Executestr("EXEC usp_tr_proder_dtl1 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
+
+            Fillobject(Me.txtguid_d1, Me.TabPage2, "update", "usp_tr_proder_dtl1", Me.txtguid_d1.Text, "@c_id") 'update detil
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+        ElseIf Me.txtguid.Text <> "0" And Me.txtguid_d1.Text = "0" Then
+            'insert
+            Fillobject(Me.txtguid_d1, Me.TabPage2, "insert", "usp_tr_proder_dtl1", Me.txtguid_d1.Text, "@c_id") 'update detil
+            opensearchform(Me.ListView1, "proder_dtl_pk1", "sku_id_f", "sku_code, raw_description, plano_size, plano_amount, uom_name", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView1, Me.txtskuid.Text) = True And Me.btnSaveD1.Tag = "N" Then
                 'it is a duplicate do something
-                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, Me.Text)
                 Exit Sub
             Else
                 'it is not a duplicate, go ahead and add it.
@@ -455,15 +461,20 @@ err_ToolStripButton4_Click:
 
     Private Sub btnSaveD2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD2.Click
         Dim li As ListViewItem, i As Integer
-        If Me.txtguid.Text = "0" Then Exit Sub
+        'If Me.txtguid.Text = "0" Then Exit Sub
         If Me.txtguid.Text <> "0" And Me.txtguid_d2.Text <> "0" Then
-            Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
-            'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
-            Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView2, "proder_dtl_pk1", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+            'Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            ''update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
+            'Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
+
+            Fillobject(Me.txtguid_d2, Me.TabPage3, "update", "usp_tr_proder_dtl2", Me.txtguid_d2.Text, "@c_id") 'update detil
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+        ElseIf Me.txtguid.Text <> "0" And Me.txtguid_d2.Text = "0" Then
+            Fillobject(Me.txtguid_d2, Me.TabPage3, "insert", "usp_tr_proder_dtl2", Me.txtguid_d1.Text, "@c_id") 'update detil
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
-            If FindSubItem(ListView2, Me.txtskuid.Text) = True And Me.btnSaveD2.Tag = "N" Then
+            If FindSubItem(ListView2, TextBox17.Text) = True And Me.btnSaveD2.Tag = "N" Then
                 'it is a duplicate do something
                 MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
                 Exit Sub
@@ -499,15 +510,16 @@ err_ToolStripButton4_Click:
 
     Private Sub btnSaveD3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSaveD3.Click
         Dim li As ListViewItem, i As Integer
-        If Me.txtguid.Text = "0" Then Exit Sub
+        'If Me.txtguid.Text = "0" Then Exit Sub
         If Me.txtguid.Text <> "0" And Me.txtguid_d3.Text <> "0" Then
-            Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
+            'Dim xguid As Integer = GetCurrentID("proder_dtl_pk", "tr_proder_dtl", "proder_id_f=" & Me.txtguid.Text & " and sku_id_f=" & Me.txtskuid.Text)
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
-            Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
-            opensearchform(Me.ListView3, "proder_dtl_pk1", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl1 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk  inner join mt_sku c on c.sku_id=a.sku_id_f inner join mt_sku_uom d on d.uom_id=c.uom_id inner join tr_so_dtl e on b.so_dtl_id_f=e.so_dtl_id", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+            'Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
+            Fillobject(Me.txtguid_d3, Me.TabPage4, "update", "usp_tr_proder_dtl3", Me.txtguid_d3.Text, "@c_id") 'update detil
+            opensearchform(Me.ListView3, "proder_dtl_pk3", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
-            If FindSubItem(ListView3, Me.txtskuid.Text) = True And Me.btnSaveD3.Tag = "N" Then
+            If FindSubItem(ListView3, TextBox20.Text) = True And Me.btnSaveD3.Tag = "N" Then
                 'it is a duplicate do something
                 MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
                 Exit Sub
