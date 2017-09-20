@@ -439,7 +439,6 @@ Partial Class frmProcessOrder
         Me.btnAddD1.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD1.TabIndex = 106
         Me.btnAddD1.UseVisualStyleBackColor = True
-        Me.btnAddD1.Visible = False
         '
         'btnDeleteD1
         '
@@ -451,7 +450,6 @@ Partial Class frmProcessOrder
         Me.btnDeleteD1.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD1.TabIndex = 105
         Me.btnDeleteD1.UseVisualStyleBackColor = True
-        Me.btnDeleteD1.Visible = False
         '
         'Label10
         '
@@ -589,7 +587,6 @@ Partial Class frmProcessOrder
         Me.btnAddD2.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD2.TabIndex = 116
         Me.btnAddD2.UseVisualStyleBackColor = True
-        Me.btnAddD2.Visible = False
         '
         'btnDeleteD2
         '
@@ -601,7 +598,6 @@ Partial Class frmProcessOrder
         Me.btnDeleteD2.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD2.TabIndex = 115
         Me.btnDeleteD2.UseVisualStyleBackColor = True
-        Me.btnDeleteD2.Visible = False
         '
         'Label16
         '
@@ -779,7 +775,6 @@ Partial Class frmProcessOrder
         Me.btnAddD3.Size = New System.Drawing.Size(29, 25)
         Me.btnAddD3.TabIndex = 127
         Me.btnAddD3.UseVisualStyleBackColor = True
-        Me.btnAddD3.Visible = False
         '
         'btnDeleteD3
         '
@@ -791,7 +786,6 @@ Partial Class frmProcessOrder
         Me.btnDeleteD3.Size = New System.Drawing.Size(29, 25)
         Me.btnDeleteD3.TabIndex = 126
         Me.btnDeleteD3.UseVisualStyleBackColor = True
-        Me.btnDeleteD3.Visible = False
         '
         'Label21
         '

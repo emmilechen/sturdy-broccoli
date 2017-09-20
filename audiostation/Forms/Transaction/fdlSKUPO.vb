@@ -39,6 +39,7 @@ Public Class fdlSKUPO
         cmbSKUType.Items.Add("Product")
         cmbSKUType.Items.Add("Stock Set")
         cmbSKUType.SelectedIndex = 0
+
         'populateCbCategory()
 
         'Populate Sub-Category
@@ -137,6 +138,15 @@ Public Class fdlSKUPO
                         .ReturnCost = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(8).Text) / .ntbSInvCurrRate.DecimalValue)
                         .SInvoicePrice = FormatNumber(CDbl(ListView1.SelectedItems.Item(0).SubItems.Item(9).Text) / .ntbSInvCurrRate.DecimalValue)
                     End With
+
+                Case "frmProcessOrder"
+                    With frmProcessOrder
+                        .SKUId = LeftSplitUF(ListView1.SelectedItems.Item(0).Tag)
+                        .SKUCode2 = ListView1.SelectedItems.Item(0).SubItems.Item(1).Text
+                        '.SKUName = ListView1.SelectedItems.Item(0).SubItems.Item(2).Text
+                        .SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(12).Text
+                    End With
+
             End Select
         Else
             'Insert Stock Set

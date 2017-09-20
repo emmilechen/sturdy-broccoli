@@ -11,6 +11,24 @@ Public Class frmProcessOrder
     Dim cn As SqlConnection = New SqlConnection(strConnection)
     Dim m_SODtlID As Integer
 
+    Public Property SKUID() As Integer
+        Get
+            Return txtskuid.Text
+        End Get
+        Set(ByVal Value As Integer)
+            txtskuid.Text = Value
+        End Set
+    End Property
+
+    Public Property SKUUoM() As String
+        Get
+            Return TextBox22.Text
+        End Get
+        Set(ByVal Value As String)
+            TextBox22.Text = Value
+        End Set
+    End Property
+
     Public Property SODtlID() As Integer
         Get
             Return m_SODtlID
@@ -65,6 +83,14 @@ Public Class frmProcessOrder
         End Set
     End Property
 
+    Public Property SKUCode2() As String
+        Get
+            Return TextBox8.Text
+        End Get
+        Set(ByVal Value As String)
+            TextBox8.Text = Value
+        End Set
+    End Property
     Private Function kosong()
         ClearObjectonForm(Me)
         '        AssignValuetoCombo(Me.cmbcust, "", "c_id", "c_code+'-'+c_name", "mt_customer", "c_code<>''", "c_name")
@@ -548,6 +574,13 @@ err_ToolStripButton4_Click:
         'NewFormDialog.Tag = "1"
         'NewFormDialog.ShowDialog()
         Dim NewFormDialog As New fdlSOProder
+        NewFormDialog.FrmCallerId = Me.Name
+        NewFormDialog.ShowDialog()
+    End Sub
+
+    Private Sub btnSKU_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSKU.Click
+        Dim NewFormDialog As New fdlSKUPO
+        NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
 End Class
