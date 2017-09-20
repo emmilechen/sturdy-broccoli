@@ -42,7 +42,6 @@ Partial Class frmProcessOrder
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -113,6 +112,7 @@ Partial Class frmProcessOrder
         Me.dtpProderDate = New System.Windows.Forms.DateTimePicker()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.btnSO = New System.Windows.Forms.Button()
+        Me.cmbMachineID = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -198,6 +198,7 @@ Partial Class frmProcessOrder
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.cmbMachineID)
         Me.TabPage1.Controls.Add(Me.Label15)
         Me.TabPage1.Controls.Add(Me.TextBox14)
         Me.TabPage1.Controls.Add(Me.dtp1)
@@ -207,7 +208,6 @@ Partial Class frmProcessOrder
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.TextBox5)
         Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Controls.Add(Me.TextBox4)
         Me.TabPage1.Controls.Add(Me.Label3)
         Me.TabPage1.Controls.Add(Me.TextBox3)
         Me.TabPage1.Controls.Add(Me.Label2)
@@ -293,13 +293,6 @@ Partial Class frmProcessOrder
         Me.Label4.Size = New System.Drawing.Size(105, 13)
         Me.Label4.TabIndex = 75
         Me.Label4.Text = "Print on the machine"
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(145, 72)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(126, 21)
-        Me.TextBox4.TabIndex = 2
         '
         'Label3
         '
@@ -974,6 +967,15 @@ Partial Class frmProcessOrder
         Me.btnSO.TabIndex = 2
         Me.btnSO.UseVisualStyleBackColor = True
         '
+        'cmbMachineID
+        '
+        Me.cmbMachineID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMachineID.FormattingEnabled = True
+        Me.cmbMachineID.Location = New System.Drawing.Point(145, 72)
+        Me.cmbMachineID.Name = "cmbMachineID"
+        Me.cmbMachineID.Size = New System.Drawing.Size(126, 21)
+        Me.cmbMachineID.TabIndex = 85
+        '
         'frmProcessOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1030,7 +1032,6 @@ Partial Class frmProcessOrder
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -1104,4 +1105,5 @@ Partial Class frmProcessOrder
     Friend WithEvents btnSO As System.Windows.Forms.Button
     Friend WithEvents txtguid_d3 As System.Windows.Forms.TextBox
     Friend WithEvents txtskuid As System.Windows.Forms.TextBox
+    Friend WithEvents cmbMachineID As System.Windows.Forms.ComboBox
 End Class
