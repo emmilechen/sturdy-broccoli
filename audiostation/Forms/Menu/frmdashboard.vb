@@ -82,7 +82,7 @@ Public Class frmdashboard
         If cn.State = ConnectionState.Closed Then cn.Open()
         Me.Cursor = Cursors.WaitCursor
         Me.Label6.Text = GetSysInit("sys_marquee")
-        Me.TextBox1.Text = " Welcome " & My.Settings.UserName
+        Me.TextBox1.Text = " Welcome " & GetCurrentID("user_fname", "mt_user", "user_id=" & My.Settings.UserID)
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         '**************TO BE CHECKED******************LIST3

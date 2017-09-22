@@ -345,7 +345,7 @@ err_cmdsave_Click:
         Me.TextBox18.Text = "0"
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = ""
-        If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox20.Text = FormatNumber(IIf(Me.TextBox20.Text = "", 0, Me.TextBox20.Text), 2)
+        If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox21.Text = Me.TextBox20.Text / Me.TextBox2.Text : Me.TextBox22.Text = ((Me.TextBox26.Text - Me.TextBox21.Text) / Me.TextBox26.Text) * 100 : Me.TextBox20.Text = FormatNumber(IIf(Me.TextBox20.Text = "", 0, Me.TextBox20.Text), 2)
         Me.ComboBox6.Select
         Me.btnSaveD.Tag = "N" : Me.btnSaveD.Enabled = False
     End Sub

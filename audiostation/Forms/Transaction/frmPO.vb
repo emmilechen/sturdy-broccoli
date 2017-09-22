@@ -1320,7 +1320,7 @@ Public Class frmPO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'po'"
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
@@ -1395,7 +1395,7 @@ Public Class frmPO
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Pch_Order_Form " & m_POId & ", 'po'"
+        strSQL = "exec RPT_Pch_Order_Form " & m_POId
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 

@@ -22,6 +22,7 @@ Public Class fdlLogin
         Me.TextBox2.Enabled = False : Me.Button1.Enabled = False : Me.TextBox2.BackColor = Color.Gray : Me.Button1.BackColor = Color.Gray
         Label3.Text = "App " & lokasicur
         Label4.Text = "DB " & GetSysInit("db_version") : Me.TextBox1.Select()
+        ' Me.Text = BulanAbjad(Now.Date)
     End Sub
     Private Sub TextBox1_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles TextBox1.KeyDown
         If e.KeyCode = 13 Then Me.TextBox2.Select()

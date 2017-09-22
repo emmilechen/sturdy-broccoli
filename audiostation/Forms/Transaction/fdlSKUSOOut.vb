@@ -128,7 +128,7 @@ Public Class fdlSKUSOOut
             .Columns.Add("Delivery Plan Date", 90)
             .Columns.Add("avg_cost", 0)
         End With
-
+        '                     usp_tr_so_dtl_SEL
         cmd = New SqlCommand("usp_tr_so_dtl_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
@@ -224,7 +224,7 @@ Public Class fdlSKUSOOut
             .SDeliveryQty = ListView1.SelectedItems.Item(0).SubItems.Item(6).Text
             .SKUUoM = ListView1.SelectedItems.Item(0).SubItems.Item(7).Text
             .IncomeId = IIf(ListView1.SelectedItems.Item(0).SubItems.Item(2).Text = "I", ListView1.SelectedItems.Item(0).SubItems.Item(3).Text, 0)
-            .SKUAverageCost = ListView1.SelectedItems.Item(0).SubItems.Item(12).Text
+            .SKUAverageCost = ListView1.SelectedItems.Item(0).SubItems.Item(13).Text
         End With
         Me.Close()
     End Sub

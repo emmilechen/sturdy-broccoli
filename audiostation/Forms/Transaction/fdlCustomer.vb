@@ -73,7 +73,6 @@ Public Class fdlCustomer
         myReader.Close()
         cn.Close()
     End Sub
-
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Select Case m_FrmCallerId
             Case "frmSQuote"
