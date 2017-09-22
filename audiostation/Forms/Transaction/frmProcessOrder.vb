@@ -297,59 +297,7 @@ Public Class frmProcessOrder
         '    End If
         'End If
     End Sub
-    '    Private Sub btnAddD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddD.Click
-
-    '    End Sub
-    '    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
-    '        'find
-    '        'If Not CheckAuthor(curlevel, "isallowfilter", "FDLCreateEvent", True) Then Exit Sub
-    '        Dim child As New FDLSearch()
-    '        child.txtopenargs.Text = "3"
-    '        If child.ShowDialog() = DialogResult.OK Then
-    '            Me.txt_mp_pk.Text = child.txtChildText0.Text
-    '        End If
-    '    End Sub
-
-    '    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdcancel.Click
-    '        'cancel
-    '    End Sub
-
-    '    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmddel.Click
-
-
-    '    End Sub
-    '    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
-    '        Me.Close()
-    '    End Sub
-
-    '    Private Sub txtguid_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtguid.TextChanged
-    '        Me.txtmp_id_f.Text = Me.txtguid.Text
-    '    End Sub
-
-    '    Private Sub txt_mp_pk_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_mp_pk.TextChanged
-    '        If Me.txt_mp_pk.Text = "0" Or Me.txt_mp_pk.Text = "" Then
-    '            'kosong
-    '            kosong()
-    '        Else
-    '            'isi-record
-    '            isirecord(Me.txt_mp_pk.Text)
-    '        End If
-    '    End Sub
-
-    '    Private Sub txtso_id_f_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtso_id_f.TextChanged
-    '        If Me.txtso_id_f.Text <> "" And Me.txt_mp_pk.Text <> "0" Then
-    '            'isi
-    '            Me.txtsono.Text = GetCurrentID("so_no", "tr_so", "so_id=" & Me.txtso_id_f.Text)
-    '            Me.txtpono.Text = GetCurrentID("ref_no", "tr_so", "so_id=" & Me.txtso_id_f.Text)
-    '            Me.cmbcust.SelectedValue = GetCurrentID("c_id", "tr_so", "so_id=" & Me.txtso_id_f.Text)
-    '        Else
-
-    '        End If
-    '    End Sub
-    '    Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
-
-    '    End Sub
-
+   
     Private Sub frmProcessOrder_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         kosong()
     End Sub
@@ -468,10 +416,10 @@ err_ToolStripButton4_Click:
             'Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
 
             Fillobject(Me.txtguid_d2, Me.TabPage3, "update", "usp_tr_proder_dtl2", Me.txtguid_d2.Text, "@c_id") 'update detil
-            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "print_ink", "print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         ElseIf Me.txtguid.Text <> "0" And Me.txtguid_d2.Text = "0" Then
             Fillobject(Me.txtguid_d2, Me.TabPage3, "insert", "usp_tr_proder_dtl2", Me.txtguid_d1.Text, "@c_id") 'update detil
-            opensearchform(Me.ListView2, "proder_dtl_pk2", "", "print_ink, print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+            opensearchform(Me.ListView2, "proder_dtl_pk2", "print_ink", "print_qty, uom_name, record_group", "tr_proder_dtl2 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk ", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
         Else
             'insert
             If FindSubItem(ListView2, TextBox17.Text) = True And Me.btnSaveD2.Tag = "N" Then
@@ -516,8 +464,10 @@ err_ToolStripButton4_Click:
             'update SET modified=@modified, modifiedby=@modifiedby, sku_id_f=@sku_id_f, sku_id_desc=@sku_id_desc, mp_qty=@mp_qty, tgl_realisasi_kirim=@tgl_realisasi_kirim
             'Executestr("EXEC usp_tr_proder_dtl 'update', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Me.txtguid_d1.Text & "','" & Me.txtguid.Text & "','" & Me.txtskuid.Text & "','" & Me.TextBox9.Text & "','" & CDbl(Me.TextBox10.Text) & "','" & TextBox22.Text & "','0'")
             Fillobject(Me.txtguid_d3, Me.TabPage4, "update", "usp_tr_proder_dtl3", Me.txtguid_d3.Text, "@c_id") 'update detil
-            opensearchform(Me.ListView3, "proder_dtl_pk3", "", "proder_dtl_text1, proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
-        Else
+            opensearchform(Me.ListView3, "proder_dtl_pk3", "proder_dtl_text1", "proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
+        ElseIf Me.txtguid.Text <> "0" And Me.txtguid_d3.Text = "0" Then
+            Fillobject(Me.txtguid_d3, Me.TabPage4, "insert", "usp_tr_proder_dtl3", Me.txtguid_d3.Text, "@c_id") 'insert detil
+            opensearchform(Me.ListView3, "proder_dtl_pk3", "proder_dtl_text1", "proder_dtl_text2, proder_dtl_text3", "tr_proder_dtl3 a inner join tr_proder b on a.proder_id_f=b.proder_id_pk", "a.proder_id_f in ('" & txtguid.Text & "')", "a.created", 0)
             'insert
             If FindSubItem(ListView3, TextBox20.Text) = True And Me.btnSaveD3.Tag = "N" Then
                 'it is a duplicate do something
