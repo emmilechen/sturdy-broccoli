@@ -417,13 +417,45 @@ Module modFunction
                                  " FROM " & namatable & " GROUP BY SUBSTRING(CONVERT(varchar, " & strtgl & ", 112), 1, 6) Having SUBSTRING(CONVERT(varchar, " & strtgl & ", 112), 1, 6) ='" & Format(requestcode, "yyyyMM") & "'", cn)
             dr = cmd.ExecuteReader()
             If dr.Read() Then
-                GETGeneralcode = kodetrx & Format(requestcode, "yyMM") & Right("0000" & Right(dr.Item("LastBatch").ToString, panjangangka) + 1, panjangangka)
+                GETGeneralcode = kodetrx & BulanAbjad(CDate(requestcode)) & Right("0000" & Right(dr.Item("LastBatch").ToString, panjangangka) + 1, panjangangka)
             Else
-                GETGeneralcode = kodetrx & Format(requestcode, "yyMM") & "0001"
+                GETGeneralcode = kodetrx & BulanAbjad(CDate(requestcode)) & "0001" 'Format(requestcode, "yyMM") 
             End If
             dr.Close()
             cmd.Dispose()
         End If
+    End Function
+    Public Function BulanAbjad(Tanggal As Date) As String
+        Dim BULAN As Integer
+        Dim BranchID As Integer = 1
+        BULAN = Month(Tanggal)
+        Select Case BULAN
+            Case 1
+                BulanAbjad = "A"
+            Case 2
+                BulanAbjad = "B"
+            Case 3
+                BulanAbjad = "C"
+            Case 4
+                BulanAbjad = "D"
+            Case 5
+                BulanAbjad = "E"
+            Case 6
+                BulanAbjad = "F"
+            Case 7
+                BulanAbjad = "G"
+            Case 8
+                BulanAbjad = "H"
+            Case 9 ' ngak ada I, krn rancu dgn angka 1
+                BulanAbjad = "J"
+            Case 10
+                BulanAbjad = "K"
+            Case 11
+                BulanAbjad = "L"
+            Case 12
+                BulanAbjad = "M"
+        End Select
+        BulanAbjad = BranchID & Right(Year(Tanggal), 2) & BulanAbjad
     End Function
     Public Function getpwd(ByVal pwd As String, ByVal parampwd As String, ByVal formathash As String) As String
         Dim plainText As String = pwd
