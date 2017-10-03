@@ -85,6 +85,32 @@ Public Class frmdashboard
         Me.TextBox1.Text = " Welcome " & GetCurrentID("user_fname", "mt_user", "user_id=" & My.Settings.UserID)
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
+        With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .ListView1.Columns.Clear()
+            .ListView1.Columns.Add("Kolom 0", "ID", 0)
+            .ListView1.Columns.Add("Kolom 1", "No", 100)
+            .ListView1.Columns.Add("Kolom 2", "Tgl", 100)
+            .ListView1.Columns.Add("Kolom 3", "Keterangan 1", 100)
+            .ListView1.Columns.Add("Kolom 4", "Keterangan 2", 100)
+            .ListView1.Columns.Add("Kolom 5", "Qty", 100)
+            .ListView1.Columns.Add("Kolom 6", "UOM", 100)
+            .ListView1.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+        End With
+        list1returnvalue(Me.ListView1, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), 0)
+
+        With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .ListView2.Columns.Clear()
+            .ListView2.Columns.Add("Kolom 0", "ID", 0)
+            .ListView2.Columns.Add("Kolom 1", "No", 100)
+            .ListView2.Columns.Add("Kolom 2", "Tgl", 100)
+            .ListView2.Columns.Add("Kolom 3", "Keterangan 1", 100)
+            .ListView2.Columns.Add("Kolom 4", "Keterangan 2", 100)
+            .ListView2.Columns.Add("Kolom 5", "Qty", 100)
+            .ListView2.Columns.Add("Kolom 6", "UOM", 100)
+            .ListView2.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+        End With
+        list2returnvalue(Me.ListView2, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), 0)
+
         '**************TO BE CHECKED******************LIST3
         With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
             .ListView3.Columns.Clear()
@@ -97,6 +123,7 @@ Public Class frmdashboard
             .ListView3.Columns.Add("Kolom 6", "fieldnote", 100)
         End With
         list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
+
         With Me 'List4
             .ListView4.Columns.Clear()
             .ListView4.Columns.Add("Kolom 0", "User", 75)
@@ -106,6 +133,20 @@ Public Class frmdashboard
             .ListView4.Columns.Add("Kolom 4", "Modul", 100)
         End With
         list4returnvalue(Me.ListView4, "namauser, namakomputer, keterangan, tanggal, NamaEvent", "tr_logFile", "CONVERT(date, Tanggal)=CONVERT(date, getdate())", "tanggal desc", 0)
+
+        With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .ListView5.Columns.Clear()
+            .ListView5.Columns.Add("Kolom 0", "ID", 0)
+            .ListView5.Columns.Add("Kolom 1", "No", 100)
+            .ListView5.Columns.Add("Kolom 2", "Tgl", 100)
+            .ListView5.Columns.Add("Kolom 3", "Keterangan 1", 100)
+            .ListView5.Columns.Add("Kolom 4", "Keterangan 2", 100)
+            .ListView5.Columns.Add("Kolom 5", "Qty", 100)
+            .ListView5.Columns.Add("Kolom 6", "UOM", 100)
+            .ListView5.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+        End With
+        list5returnvalue(Me.ListView5, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), 0)
+
         Me.Cursor = Cursors.Default
     End Sub
     Private Sub frmdashboard_Resize(sender As Object, e As System.EventArgs) Handles Me.Resize
@@ -205,6 +246,99 @@ Public Class frmdashboard
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         Me.Label6.Text = MarqueeLeft(Label6.Text)
     End Sub
+    Private Function list1returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            If strfield1 = Nothing Then Exit Function
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'guid
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'formid
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'formname
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'tablename
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'fieldname
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
+                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
+    Private Function list2returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            If strfield1 = Nothing Then Exit Function
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'guid
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'formid
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'formname
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'tablename
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'fieldname
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
+                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
+    Private Function list5returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        'On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            If strfield1 = Nothing Then Exit Function
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'guid
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'formid
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'formname
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'tablename
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'fieldname
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
+                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
     Private Function list3returnvalue(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         'On Error Resume Next
         Dim cmd As SqlCommand
@@ -263,9 +397,24 @@ Public Class frmdashboard
         End With
     End Function
     Private Sub Label4_Click(sender As System.Object, e As System.EventArgs) Handles Label4.Click
+        'refresh list 4
         list4returnvalue(Me.ListView4, "namauser, namakomputer, keterangan, tanggal, NamaEvent", "tr_logFile", "CONVERT(date, Tanggal)=CONVERT(date, getdate())", "tanggal desc", 0)
     End Sub
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
+        'refresh list 3
         list3returnvalue(Me.ListView3, "a.formname, a.fieldname, a.tablename, b.fieldpk, b.fieldno, b.fielddate, b.fieldnote", "rt_form_sign a inner join mt_form b on b.form_name=a.formname", "a.userid in ('" & My.Settings.UserID & "')", "a.formname", 0)
+    End Sub
+    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
+        'refresh list 1
+        list1returnvalue(Me.ListView1, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), 0)
+    End Sub
+    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
+        'refresh list 2
+        list2returnvalue(Me.ListView2, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), 0)
+    End Sub
+    Private Sub Label5_Click(sender As System.Object, e As System.EventArgs) Handles Label5.Click
+        'refresh list 5
+        list5returnvalue(Me.ListView5, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), 0)
+
     End Sub
 End Class

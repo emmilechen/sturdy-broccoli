@@ -33,6 +33,8 @@ Partial Class frmUser
         Me.btnexit = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.txtguid = New System.Windows.Forms.TextBox()
         Me.txtac = New System.Windows.Forms.TextBox()
         Me.txtuserid = New System.Windows.Forms.TextBox()
@@ -62,12 +64,27 @@ Partial Class frmUser
         Me.txtUserPassword = New System.Windows.Forms.TextBox()
         Me.txtUserName = New System.Windows.Forms.TextBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.btnAddD = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.btnDeleteD = New System.Windows.Forms.Button()
+        Me.btnSaveD = New System.Windows.Forms.Button()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -177,6 +194,27 @@ Partial Class frmUser
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "User Detail"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(15, 262)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(76, 13)
+        Me.Label12.TabIndex = 141
+        Me.Label12.Text = "Sales Person ?"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(129, 258)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(150, 17)
+        Me.CheckBox1.TabIndex = 140
+        Me.CheckBox1.Tag = "issales"
+        Me.CheckBox1.Text = "(Sales Person = Checked)"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'txtguid
         '
@@ -461,13 +499,111 @@ Partial Class frmUser
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.TextBox11)
+        Me.TabPage2.Controls.Add(Me.TextBox10)
+        Me.TabPage2.Controls.Add(Me.Label18)
+        Me.TabPage2.Controls.Add(Me.Label17)
+        Me.TabPage2.Controls.Add(Me.Label16)
+        Me.TabPage2.Controls.Add(Me.Label14)
+        Me.TabPage2.Controls.Add(Me.Label13)
+        Me.TabPage2.Controls.Add(Me.TextBox9)
+        Me.TabPage2.Controls.Add(Me.btnAddD)
+        Me.TabPage2.Controls.Add(Me.btnDeleteD)
+        Me.TabPage2.Controls.Add(Me.btnSaveD)
+        Me.TabPage2.Controls.Add(Me.TextBox8)
+        Me.TabPage2.Controls.Add(Me.TextBox7)
+        Me.TabPage2.Controls.Add(Me.TextBox4)
+        Me.TabPage2.Controls.Add(Me.TextBox1)
+        Me.TabPage2.Controls.Add(Me.ListView1)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(710, 409)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Others"
+        Me.TabPage2.Text = "Dashboard Settings"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Enabled = False
+        Me.TextBox11.Location = New System.Drawing.Point(543, 14)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(37, 21)
+        Me.TextBox11.TabIndex = 47
+        Me.TextBox11.Tag = "useridh"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Enabled = False
+        Me.TextBox10.Location = New System.Drawing.Point(399, 14)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(37, 21)
+        Me.TextBox10.TabIndex = 46
+        Me.TextBox10.Tag = "pk_spotid"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(473, 25)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(50, 13)
+        Me.Label18.TabIndex = 45
+        Me.Label18.Text = "Order by"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(341, 25)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(52, 13)
+        Me.Label17.TabIndex = 44
+        Me.Label17.Text = "Condition"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(166, 25)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(63, 13)
+        Me.Label16.TabIndex = 43
+        Me.Label16.Text = "Table Name"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(58, 25)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(59, 13)
+        Me.Label14.TabIndex = 42
+        Me.Label14.Text = "Field Name"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(13, 25)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(39, 13)
+        Me.Label13.TabIndex = 41
+        Me.Label13.Text = "Box ID"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(16, 41)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(37, 21)
+        Me.TextBox9.TabIndex = 40
+        Me.TextBox9.Tag = "spotid"
+        '
+        'btnAddD
+        '
+        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD.ImageIndex = 0
+        Me.btnAddD.ImageList = Me.ImageList1
+        Me.btnAddD.Location = New System.Drawing.Point(661, 37)
+        Me.btnAddD.Name = "btnAddD"
+        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD.TabIndex = 39
+        Me.btnAddD.UseVisualStyleBackColor = True
         '
         'ImageList1
         '
@@ -478,26 +614,71 @@ Partial Class frmUser
         Me.ImageList1.Images.SetKeyName(2, "Remove.png")
         Me.ImageList1.Images.SetKeyName(3, "Search.png")
         '
-        'CheckBox1
+        'btnDeleteD
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(129, 258)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(150, 17)
-        Me.CheckBox1.TabIndex = 140
-        Me.CheckBox1.Tag = "issales"
-        Me.CheckBox1.Text = "(Sales Person = Checked)"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD.ImageIndex = 2
+        Me.btnDeleteD.ImageList = Me.ImageList1
+        Me.btnDeleteD.Location = New System.Drawing.Point(630, 37)
+        Me.btnDeleteD.Name = "btnDeleteD"
+        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD.TabIndex = 38
+        Me.btnDeleteD.UseVisualStyleBackColor = True
         '
-        'Label12
+        'btnSaveD
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(15, 262)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(76, 13)
-        Me.Label12.TabIndex = 141
-        Me.Label12.Text = "Sales Person ?"
+        Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD.ImageIndex = 1
+        Me.btnSaveD.ImageList = Me.ImageList1
+        Me.btnSaveD.Location = New System.Drawing.Point(598, 37)
+        Me.btnSaveD.Name = "btnSaveD"
+        Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD.TabIndex = 37
+        Me.btnSaveD.UseVisualStyleBackColor = True
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(476, 41)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(104, 21)
+        Me.TextBox8.TabIndex = 4
+        Me.TextBox8.Tag = "seqname"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(344, 41)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(126, 21)
+        Me.TextBox7.TabIndex = 3
+        Me.TextBox7.Tag = "condname"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(169, 41)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(169, 21)
+        Me.TextBox4.TabIndex = 2
+        Me.TextBox4.Tag = "tablename"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(59, 41)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(104, 21)
+        Me.TextBox1.TabIndex = 1
+        Me.TextBox1.Tag = "fieldname"
+        '
+        'ListView1
+        '
+        Me.ListView1.FullRowSelect = True
+        Me.ListView1.GridLines = True
+        Me.ListView1.Location = New System.Drawing.Point(16, 68)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(674, 325)
+        Me.ListView1.TabIndex = 0
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'frmUser
         '
@@ -516,6 +697,8 @@ Partial Class frmUser
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -561,4 +744,20 @@ Partial Class frmUser
     Friend WithEvents txtUserName As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents btnAddD As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD As System.Windows.Forms.Button
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
 End Class

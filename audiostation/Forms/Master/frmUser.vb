@@ -17,7 +17,15 @@ Public Class frmUser
         AssignValuetoCombo(Me.cmbUserLevelID, "", "user_level_id", "user_level_description", "mt_user_level", "AC=0", "user_level_id")
         AssignValuetoCombo(Me.cmbdept, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_user_dept'", "sys_dropdown_sort")
         AssignValuetoCombo(Me.cmbdiv, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='unit_user_div'", "sys_dropdown_sort")
-
+        With Me
+            .ListView1.Columns.Clear()
+            .ListView1.Columns.Add("Kolom 0", "guid", 0)
+            .ListView1.Columns.Add("Kolom 1", "ID", Me.TextBox9.Width + 5)
+            .ListView1.Columns.Add("Kolom 2", "Field", Me.TextBox1.Width + 5)
+            .ListView1.Columns.Add("Kolom 3", "Table", Me.TextBox4.Width + 5)
+            .ListView1.Columns.Add("Kolom 4", "Where", Me.TextBox7.Width + 5)
+            .ListView1.Columns.Add("Kolom 5", "Order by", Me.TextBox8.Width + 5)
+        End With
         
         Me.cmbUserLevelID.SelectedIndex = 0 : Me.txtac.Text = 0
         Me.btndelete.Text = "Delete"
@@ -29,39 +37,41 @@ Public Class frmUser
     Private Function isirecord(ByVal guidno As String)
         Me.txtguid.Text = guidno : Me.txtuserid.Text = guidno
         Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_user", Me.txtguid.Text, "@c_id")
+        Me.TextBox11.Text = Me.txtguid.Text
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
         Me.btndelete.Text = IIf(Me.txtac.Text <> 0, "Un-", "") & "Delete"
         'ListView1.Items(k).ForeColor = Color.Black
     End Function
-    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
-        'On Error Resume Next
-        Dim cmd As SqlCommand
-        Dim str(10) As String, strsql As String
-        Dim itm As ListViewItem
-        Dim dr As SqlDataReader
-        If cn.State = ConnectionState.Closed Then cn.Open()
-        With namalistview
-            .Items.Clear()
-            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
-            cmd = New SqlCommand(strsql, cn)
-            dr = cmd.ExecuteReader()
-            If dr.HasRows Then
-                Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
-                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'guid
-                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'formid
-                    str(2) = GetCurrentID("form_description", "mt_form", "form_name='" & dr.Item(1).ToString() & "'") 'formname
-                    str(3) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'tablename
-                    str(4) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'fieldname
-                    str(5) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'signlevelid
-                    str(6) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'userid
-                    str(7) = GetCurrentID("user_fname", "mt_user", "user_id=" & dr.Item(5).ToString()) 'username
-                    itm = New ListViewItem(str)
-                    .Items.Add(itm)
-                Loop
-            End If
-            dr.Close()
-            cmd.Dispose()
-        End With
-    End Function
+    'Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+    '    'On Error Resume Next
+    '    Dim cmd As SqlCommand
+    '    Dim str(10) As String, strsql As String
+    '    Dim itm As ListViewItem
+    '    Dim dr As SqlDataReader
+    '    If cn.State = ConnectionState.Closed Then cn.Open()
+    '    With namalistview
+    '        .Items.Clear()
+    '        strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+    '        cmd = New SqlCommand(strsql, cn)
+    '        dr = cmd.ExecuteReader()
+    '        If dr.HasRows Then
+    '            Do While dr.Read() 'SELECT rt_form_id, formname, tablename, fieldname, signlevelid, userid FROM rt_form_sign where rt_form_sign.userid in ('1') order by formname
+    '                str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString()) 'guid
+    '                str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString()) 'formid
+    '                str(2) = GetCurrentID("form_description", "mt_form", "form_name='" & dr.Item(1).ToString() & "'") 'formname
+    '                str(3) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString()) 'tablename
+    '                str(4) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString()) 'fieldname
+    '                str(5) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString()) 'signlevelid
+    '                str(6) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'userid
+    '                str(7) = GetCurrentID("user_fname", "mt_user", "user_id=" & dr.Item(5).ToString()) 'username
+    '                itm = New ListViewItem(str)
+    '                .Items.Add(itm)
+    '            Loop
+    '        End If
+    '        dr.Close()
+    '        cmd.Dispose()
+    '    End With
+    'End Function
     Private Sub frmUser_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         isAllowDelete = canDelete(Me.Name)
         namatable = "mt_user" : namafieldPK = "user_id"
@@ -182,5 +192,57 @@ Public Class frmUser
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs)
 
+    End Sub
+
+    Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
+        If TextBox9.Text = "" Or TextBox1.Text = "" Or TextBox4.Text = "" Or TextBox7.Text = "" Then
+            MsgBox("ID, Field and Table are primary fields that should be entered. Please enter those fields before you save it.", vbCritical + vbOKOnly, Me.Text)
+            TextBox9.Focus()
+            Exit Sub
+        End If
+        If Fillobject(Me.TextBox10, Me.TabPage2, IIf(Me.TextBox10.Text = "", "insert", "update"), "sp_rt_spotdashboard", "", "@c_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Dashboard")
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
+        ClearObjectonForm(Me.TabPage2) : Me.TextBox9.Select() : Me.TextBox11.Text = Me.txtguid.Text
+    End Sub
+    Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader
+
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            If cn.State = ConnectionState.Closed Then cn.Open()
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read()
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString())
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
+    '"pk_spotid", "spotid", "fieldname, tablename, condname, seqname"
+    Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+        If ListView1.SelectedItems.Count > 0 Then
+            Me.TextBox10.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).Text
+            Me.TextBox9.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox1.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox4.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
+            Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
+            Me.btnSaveD.Tag = "E"
+        End If
     End Sub
 End Class
