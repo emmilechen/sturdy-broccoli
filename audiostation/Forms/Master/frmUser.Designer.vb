@@ -81,10 +81,22 @@ Partial Class frmUser
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CopyThisDashboardToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
+        Me.DeleteThisDashboardItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SUBMITToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -93,8 +105,8 @@ Partial Class frmUser
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnsave, Me.btnfind, Me.btncancel, Me.btndelete, Me.btnnew, Me.btnexit})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(736, 25)
-        Me.ToolStrip1.TabIndex = 89
+        Me.ToolStrip1.Size = New System.Drawing.Size(1120, 25)
+        Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'btnsave
@@ -152,8 +164,8 @@ Partial Class frmUser
         Me.TabControl1.Location = New System.Drawing.Point(12, 28)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(718, 435)
-        Me.TabControl1.TabIndex = 90
+        Me.TabControl1.Size = New System.Drawing.Size(1099, 435)
+        Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
@@ -190,7 +202,7 @@ Partial Class frmUser
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(710, 409)
+        Me.TabPage1.Size = New System.Drawing.Size(1091, 409)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "User Detail"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -488,6 +500,7 @@ Partial Class frmUser
         '
         'txtUserName
         '
+        Me.txtUserName.BackColor = System.Drawing.Color.GreenYellow
         Me.txtUserName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUserName.Location = New System.Drawing.Point(129, 15)
         Me.txtUserName.MaxLength = 50
@@ -499,6 +512,12 @@ Partial Class frmUser
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Label21)
+        Me.TabPage2.Controls.Add(Me.Label20)
+        Me.TabPage2.Controls.Add(Me.TextBox14)
+        Me.TabPage2.Controls.Add(Me.TextBox13)
+        Me.TabPage2.Controls.Add(Me.Label19)
+        Me.TabPage2.Controls.Add(Me.TextBox12)
         Me.TabPage2.Controls.Add(Me.TextBox11)
         Me.TabPage2.Controls.Add(Me.TextBox10)
         Me.TabPage2.Controls.Add(Me.Label18)
@@ -518,7 +537,7 @@ Partial Class frmUser
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(710, 409)
+        Me.TabPage2.Size = New System.Drawing.Size(1091, 409)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Dashboard Settings"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -526,11 +545,12 @@ Partial Class frmUser
         'TextBox11
         '
         Me.TextBox11.Enabled = False
-        Me.TextBox11.Location = New System.Drawing.Point(543, 14)
+        Me.TextBox11.Location = New System.Drawing.Point(442, 14)
         Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(37, 21)
+        Me.TextBox11.Size = New System.Drawing.Size(28, 21)
         Me.TextBox11.TabIndex = 47
         Me.TextBox11.Tag = "useridh"
+        Me.TextBox11.Visible = False
         '
         'TextBox10
         '
@@ -540,6 +560,7 @@ Partial Class frmUser
         Me.TextBox10.Size = New System.Drawing.Size(37, 21)
         Me.TextBox10.TabIndex = 46
         Me.TextBox10.Tag = "pk_spotid"
+        Me.TextBox10.Visible = False
         '
         'Label18
         '
@@ -555,9 +576,9 @@ Partial Class frmUser
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(341, 25)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(52, 13)
+        Me.Label17.Size = New System.Drawing.Size(87, 13)
         Me.Label17.TabIndex = 44
-        Me.Label17.Text = "Condition"
+        Me.Label17.Text = "Where Condition"
         '
         'Label16
         '
@@ -591,7 +612,7 @@ Partial Class frmUser
         Me.TextBox9.Location = New System.Drawing.Point(16, 41)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(37, 21)
-        Me.TextBox9.TabIndex = 40
+        Me.TextBox9.TabIndex = 0
         Me.TextBox9.Tag = "spotid"
         '
         'btnAddD
@@ -599,10 +620,10 @@ Partial Class frmUser
         Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddD.ImageIndex = 0
         Me.btnAddD.ImageList = Me.ImageList1
-        Me.btnAddD.Location = New System.Drawing.Point(661, 37)
+        Me.btnAddD.Location = New System.Drawing.Point(1046, 37)
         Me.btnAddD.Name = "btnAddD"
         Me.btnAddD.Size = New System.Drawing.Size(29, 25)
-        Me.btnAddD.TabIndex = 39
+        Me.btnAddD.TabIndex = 10
         Me.btnAddD.UseVisualStyleBackColor = True
         '
         'ImageList1
@@ -619,10 +640,10 @@ Partial Class frmUser
         Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeleteD.ImageIndex = 2
         Me.btnDeleteD.ImageList = Me.ImageList1
-        Me.btnDeleteD.Location = New System.Drawing.Point(630, 37)
+        Me.btnDeleteD.Location = New System.Drawing.Point(1015, 37)
         Me.btnDeleteD.Name = "btnDeleteD"
         Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
-        Me.btnDeleteD.TabIndex = 38
+        Me.btnDeleteD.TabIndex = 9
         Me.btnDeleteD.UseVisualStyleBackColor = True
         '
         'btnSaveD
@@ -631,10 +652,10 @@ Partial Class frmUser
         Me.btnSaveD.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSaveD.ImageIndex = 1
         Me.btnSaveD.ImageList = Me.ImageList1
-        Me.btnSaveD.Location = New System.Drawing.Point(598, 37)
+        Me.btnSaveD.Location = New System.Drawing.Point(983, 37)
         Me.btnSaveD.Name = "btnSaveD"
         Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
-        Me.btnSaveD.TabIndex = 37
+        Me.btnSaveD.TabIndex = 8
         Me.btnSaveD.UseVisualStyleBackColor = True
         '
         'TextBox8
@@ -671,20 +692,107 @@ Partial Class frmUser
         '
         'ListView1
         '
+        Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(16, 68)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(674, 325)
-        Me.ListView1.TabIndex = 0
+        Me.ListView1.Size = New System.Drawing.Size(1059, 325)
+        Me.ListView1.TabIndex = 11
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyThisDashboardToToolStripMenuItem, Me.DeleteThisDashboardItemToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(242, 48)
+        '
+        'CopyThisDashboardToToolStripMenuItem
+        '
+        Me.CopyThisDashboardToToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripComboBox1, Me.SUBMITToolStripMenuItem})
+        Me.CopyThisDashboardToToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CopyThisDashboardToToolStripMenuItem.ForeColor = System.Drawing.Color.Blue
+        Me.CopyThisDashboardToToolStripMenuItem.Name = "CopyThisDashboardToToolStripMenuItem"
+        Me.CopyThisDashboardToToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
+        Me.CopyThisDashboardToToolStripMenuItem.Text = "Copy this Dashboard to"
+        '
+        'ToolStripComboBox1
+        '
+        Me.ToolStripComboBox1.BackColor = System.Drawing.Color.GreenYellow
+        Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
+        Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 23)
+        '
+        'DeleteThisDashboardItemToolStripMenuItem
+        '
+        Me.DeleteThisDashboardItemToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteThisDashboardItemToolStripMenuItem.ForeColor = System.Drawing.Color.Red
+        Me.DeleteThisDashboardItemToolStripMenuItem.Name = "DeleteThisDashboardItemToolStripMenuItem"
+        Me.DeleteThisDashboardItemToolStripMenuItem.Size = New System.Drawing.Size(241, 22)
+        Me.DeleteThisDashboardItemToolStripMenuItem.Text = "Delete this Dashboard item"
+        '
+        'SUBMITToolStripMenuItem
+        '
+        Me.SUBMITToolStripMenuItem.Name = "SUBMITToolStripMenuItem"
+        Me.SUBMITToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.SUBMITToolStripMenuItem.Text = "<<-SUBMIT->>"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(583, 25)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(84, 13)
+        Me.Label19.TabIndex = 49
+        Me.Label19.Text = "Form Parameter"
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(586, 41)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(104, 21)
+        Me.TextBox12.TabIndex = 5
+        Me.TextBox12.Tag = "formnamep"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(693, 25)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(72, 13)
+        Me.Label20.TabIndex = 51
+        Me.Label20.Text = "PK Parameter"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(696, 41)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(104, 21)
+        Me.TextBox13.TabIndex = 6
+        Me.TextBox13.Tag = "pkidp"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(803, 25)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(51, 13)
+        Me.Label21.TabIndex = 92
+        Me.Label21.Text = "Box Title "
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(806, 41)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(171, 21)
+        Me.TextBox14.TabIndex = 7
+        Me.TextBox14.Tag = "spotcaption"
         '
         'frmUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(736, 469)
+        Me.ClientSize = New System.Drawing.Size(1120, 473)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -699,6 +807,7 @@ Partial Class frmUser
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -760,4 +869,15 @@ Partial Class frmUser
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CopyThisDashboardToToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripComboBox1 As System.Windows.Forms.ToolStripComboBox
+    Friend WithEvents DeleteThisDashboardItemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SUBMITToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
 End Class

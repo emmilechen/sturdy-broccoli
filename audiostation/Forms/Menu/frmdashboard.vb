@@ -86,6 +86,7 @@ Public Class frmdashboard
         'Bagian Procurement : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         'Bagian Sales : 1;Semua Data Purchase Request yang belum di Pitching (No.Req, Tgl, Requester, Nama Barang, Qty);2; Semua Pitching yang belum dibuat PO;3;Semua data PO yang belum datang (Partial, belum Lunas)
         With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .Label1.Text = GetCurrentID("spotcaption", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID)
             .ListView1.Columns.Clear()
             .ListView1.Columns.Add("Kolom 0", "ID", 0)
             .ListView1.Columns.Add("Kolom 1", "No", 100)
@@ -95,10 +96,12 @@ Public Class frmdashboard
             .ListView1.Columns.Add("Kolom 5", "Qty", 100)
             .ListView1.Columns.Add("Kolom 6", "UOM", 100)
             .ListView1.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+            .ListView1.Columns.Add("Kolom 8", "Ref #", 100)
         End With
         list1returnvalue(Me.ListView1, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), 0)
 
         With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .Label2.Text = GetCurrentID("spotcaption", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID)
             .ListView2.Columns.Clear()
             .ListView2.Columns.Add("Kolom 0", "ID", 0)
             .ListView2.Columns.Add("Kolom 1", "No", 100)
@@ -108,6 +111,7 @@ Public Class frmdashboard
             .ListView2.Columns.Add("Kolom 5", "Qty", 100)
             .ListView2.Columns.Add("Kolom 6", "UOM", 100)
             .ListView2.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+            .ListView2.Columns.Add("Kolom 8", "Ref #", 100)
         End With
         list2returnvalue(Me.ListView2, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), 0)
 
@@ -135,6 +139,7 @@ Public Class frmdashboard
         list4returnvalue(Me.ListView4, "namauser, namakomputer, keterangan, tanggal, NamaEvent", "tr_logFile", "CONVERT(date, Tanggal)=CONVERT(date, getdate())", "tanggal desc", 0)
 
         With Me 'formname=@formname, fieldname=@fieldname, signlevelid=@signlevelid, userid=@userid
+            .Label5.Text = GetCurrentID("spotcaption", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID)
             .ListView5.Columns.Clear()
             .ListView5.Columns.Add("Kolom 0", "ID", 0)
             .ListView5.Columns.Add("Kolom 1", "No", 100)
@@ -144,6 +149,7 @@ Public Class frmdashboard
             .ListView5.Columns.Add("Kolom 5", "Qty", 100)
             .ListView5.Columns.Add("Kolom 6", "UOM", 100)
             .ListView5.Columns.Add("Kolom 7", "Keterangan Lain", 100)
+            .ListView5.Columns.Add("Kolom 8", "Ref #", 100)
         End With
         list5returnvalue(Me.ListView5, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), 0)
 
@@ -269,6 +275,7 @@ Public Class frmdashboard
                     str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
                     str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
                     str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", dr.Item(8).ToString()) 'userid
                     itm = New ListViewItem(str)
                     .Items.Add(itm)
                 Loop
@@ -300,6 +307,7 @@ Public Class frmdashboard
                     str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
                     str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
                     str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", dr.Item(8).ToString()) 'userid
                     itm = New ListViewItem(str)
                     .Items.Add(itm)
                 Loop
@@ -331,6 +339,7 @@ Public Class frmdashboard
                     str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString()) 'signlevelid
                     str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString()) 'userid
                     str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString()) 'userid
+                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", dr.Item(8).ToString()) 'userid
                     itm = New ListViewItem(str)
                     .Items.Add(itm)
                 Loop
@@ -406,15 +415,20 @@ Public Class frmdashboard
     End Sub
     Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
         'refresh list 1
+        Me.Cursor = Cursors.WaitCursor
         list1returnvalue(Me.ListView1, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=1 AND useridh=" & My.Settings.UserID), 0)
+        Me.Cursor = Cursors.Default
     End Sub
     Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
         'refresh list 2
+        Me.Cursor = Cursors.WaitCursor
         list2returnvalue(Me.ListView2, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=2 AND useridh=" & My.Settings.UserID), 0)
+        Me.Cursor = Cursors.Default
     End Sub
     Private Sub Label5_Click(sender As System.Object, e As System.EventArgs) Handles Label5.Click
         'refresh list 5
+        Me.Cursor = Cursors.WaitCursor
         list5returnvalue(Me.ListView5, GetCurrentID("fieldname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("tablename", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("condname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), GetCurrentID("seqname", "rt_spotdashboard", "spotid=3 AND useridh=" & My.Settings.UserID), 0)
-
+        Me.Cursor = Cursors.Default
     End Sub
 End Class

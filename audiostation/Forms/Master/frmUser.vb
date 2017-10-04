@@ -25,21 +25,27 @@ Public Class frmUser
             .ListView1.Columns.Add("Kolom 3", "Table", Me.TextBox4.Width + 5)
             .ListView1.Columns.Add("Kolom 4", "Where", Me.TextBox7.Width + 5)
             .ListView1.Columns.Add("Kolom 5", "Order by", Me.TextBox8.Width + 5)
+            .ListView1.Columns.Add("Kolom 6", "Form Name", Me.TextBox12.Width + 5)
+            .ListView1.Columns.Add("Kolom 7", "PK ID", Me.TextBox13.Width + 5)
+            .ListView1.Columns.Add("Kolom 8", "Title", Me.TextBox14.Width + 5)
+            .ListView1.Items.Clear()
         End With
         
         Me.cmbUserLevelID.SelectedIndex = 0 : Me.txtac.Text = 0
         Me.btndelete.Text = "Delete"
         Me.btndelete.Enabled = False : Me.btncancel.Enabled = False
         Me.TabControl1.SelectedTab = TabPage1
-        
+        Me.TabPage2.Enabled = False
         Me.txtfname.Focus()
     End Function
     Private Function isirecord(ByVal guidno As String)
         Me.txtguid.Text = guidno : Me.txtuserid.Text = guidno
         Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_user", Me.txtguid.Text, "@c_id")
         Me.TextBox11.Text = Me.txtguid.Text
-        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname, formnamep, pkidp, spotcaption", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
         Me.btndelete.Text = IIf(Me.txtac.Text <> 0, "Un-", "") & "Delete"
+        Me.Text = "User - " & UCase(Me.txtfname.Text)
+        Me.TabPage2.Enabled = True
         'ListView1.Items(k).ForeColor = Color.Black
     End Function
     'Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
@@ -201,7 +207,7 @@ Public Class frmUser
             Exit Sub
         End If
         If Fillobject(Me.TextBox10, Me.TabPage2, IIf(Me.TextBox10.Text = "", "insert", "update"), "sp_rt_spotdashboard", "", "@c_id") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "Machine") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "Dashboard")
-        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname, formnamep, pkidp, spotcaption", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
         ClearObjectonForm(Me.TabPage2) : Me.TextBox9.Select() : Me.TextBox11.Text = Me.txtguid.Text
     End Sub
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
@@ -225,6 +231,9 @@ Public Class frmUser
                     str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
                     str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
                     str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString())
+                    str(7) = IIf(IsDBNull(dr.Item(7).ToString()), "#", dr.Item(7).ToString())
+                    str(8) = IIf(IsDBNull(dr.Item(8).ToString()), "#", dr.Item(8).ToString())
                     itm = New ListViewItem(str)
                     .Items.Add(itm)
                 Loop
@@ -242,7 +251,56 @@ Public Class frmUser
             Me.TextBox4.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(3).Text
             Me.TextBox7.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(4).Text
             Me.TextBox8.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(5).Text
+            Me.TextBox12.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(6).Text
+            Me.TextBox13.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(7).Text
+            Me.TextBox14.Text = Me.ListView1.Items(ListView1.FocusedItem.Index).SubItems(8).Text
             Me.btnSaveD.Tag = "E"
         End If
+    End Sub
+    Private Sub DeleteThisDashboardItemToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteThisDashboardItemToolStripMenuItem.Click
+        If Me.ListView1.SelectedItems.Count = 0 Or Me.TextBox10.Text = "" Then Exit Sub
+        'Dim emailaddr As String = GetCurrentID("emailaddress", "m_member", "kodemember='" & Me.ListView2.SelectedItems(0).SubItems(1).Text & "'")
+        Me.Cursor = Cursors.WaitCursor
+        If Fillobject(Me.TextBox10, Me.TabPage2, "delete", "sp_rt_spotdashboard", Me.TextBox10.Text, "@pk_spotid") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "User-Dashboard") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "User-Dashboard")
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname, formnamep, pkidp, spotcaption", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
+        ClearObjectonForm(Me.TabPage2) : Me.TextBox9.Select() : Me.TextBox11.Text = Me.txtguid.Text
+        Me.Cursor = Cursors.Default
+    End Sub
+    Private Sub CopyThisDashboardToToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CopyThisDashboardToToolStripMenuItem.Click
+        Dim DA As New SqlDataAdapter("select user_id as guidstr, UPPER(user_fname) as nama from mt_user where user_id<>" & Me.txtguid.Text & " AND ac=0 order by user_fname", cn)
+        Dim DS As New DataTable
+        DA.Fill(DS)
+        With ToolStripComboBox1
+            .ComboBox.DataSource = DS
+            .ComboBox.DisplayMember = DS.Columns(1).ToString
+            .ComboBox.ValueMember = DS.Columns(0).ToString
+            .ComboBox.BindingContext = BindingContext
+        End With
+    End Sub
+    
+    Private Sub SUBMITToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SUBMITToolStripMenuItem.Click
+        If Me.ToolStripComboBox1.SelectedIndex >= 0 Then
+            If MsgBox("Copy this dashboard data from " & Me.txtfname.Text & " to " & Me.ToolStripComboBox1.SelectedItem(1).ToString & " ?", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "User " & Me.ToolStripComboBox1.SelectedItem(0).ToString) = MsgBoxResult.Yes Then
+                Me.Cursor = Cursors.WaitCursor
+                Dim x1 As Boolean = Executestr("delete from rt_spotdashboard where useridh=" & Me.ToolStripComboBox1.SelectedItem(0).ToString)
+                Dim x2 As Boolean = Executestr("insert into rt_spotdashboard (created, createdby, modified, modifiedby, spotid, useridh, fieldname, tablename, condname, seqname) select created, createdby, modified, modifiedby, spotid, " & Me.ToolStripComboBox1.SelectedItem(0).ToString & " as useridh, fieldname, tablename, condname, seqname from rt_spotdashboard where useridh=" & Me.txtguid.Text)
+                Me.Cursor = Cursors.Default
+                If x1 And x2 Then MsgBox("Copy this dashboard data from " & Me.txtfname.Text & " to " & Me.ToolStripComboBox1.SelectedItem(1).ToString & ", SUCCESS", MsgBoxStyle.Information + MsgBoxStyle.YesNo, "User " & Me.ToolStripComboBox1.SelectedItem(0).ToString)
+            Else
+
+            End If
+        Else
+
+        End If
+    End Sub
+
+    Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
+        If Me.ListView1.SelectedItems.Count = 0 Or Me.TextBox10.Text = "" Then Exit Sub
+        'Dim emailaddr As String = GetCurrentID("emailaddress", "m_member", "kodemember='" & Me.ListView2.SelectedItems(0).SubItems(1).Text & "'")
+        Me.Cursor = Cursors.WaitCursor
+        If Fillobject(Me.TextBox10, Me.TabPage2, "delete", "sp_rt_spotdashboard", Me.TextBox10.Text, "@pk_spotid") Then MsgBox("Data telah disimpan !", MsgBoxStyle.Information, "User-Dashboard") Else MsgBox("Data Belum disimpan !", MsgBoxStyle.Critical, "User-Dashboard")
+        opensearchform(Me.ListView1, "pk_spotid", "spotid", "fieldname, tablename, condname, seqname, formnamep, pkidp, spotcaption", "rt_spotdashboard", "useridh='" & Me.txtguid.Text & "' AND spotid>0", "spotid", 0)
+        ClearObjectonForm(Me.TabPage2) : Me.TextBox9.Select() : Me.TextBox11.Text = Me.txtguid.Text
+        Me.Cursor = Cursors.Default
     End Sub
 End Class
