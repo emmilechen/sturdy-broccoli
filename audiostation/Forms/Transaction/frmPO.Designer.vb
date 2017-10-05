@@ -708,6 +708,7 @@ Partial Class frmPO
         Me.Label29.Size = New System.Drawing.Size(114, 13)
         Me.Label29.TabIndex = 83
         Me.Label29.Text = "Purchase Request No."
+        Me.Label29.Visible = False
         '
         'txtPRequestNo
         '
@@ -716,6 +717,7 @@ Partial Class frmPO
         Me.txtPRequestNo.ReadOnly = True
         Me.txtPRequestNo.Size = New System.Drawing.Size(127, 21)
         Me.txtPRequestNo.TabIndex = 18
+        Me.txtPRequestNo.Visible = False
         '
         'btnPRequest
         '
@@ -727,6 +729,7 @@ Partial Class frmPO
         Me.btnPRequest.Size = New System.Drawing.Size(29, 25)
         Me.btnPRequest.TabIndex = 19
         Me.btnPRequest.UseVisualStyleBackColor = True
+        Me.btnPRequest.Visible = False
         '
         'txtCurrCode
         '
@@ -974,7 +977,7 @@ Partial Class frmPO
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(14, 124)
+        Me.Label30.Location = New System.Drawing.Point(13, 124)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(64, 13)
         Me.Label30.TabIndex = 110

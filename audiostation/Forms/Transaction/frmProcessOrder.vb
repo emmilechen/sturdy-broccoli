@@ -424,7 +424,7 @@ err_ToolStripButton4_Click:
             'insert
             If FindSubItem(ListView2, TextBox17.Text) = True And Me.btnSaveD2.Tag = "N" Then
                 'it is a duplicate do something
-                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, Me.Text)
                 Exit Sub
             Else
                 'it is not a duplicate, go ahead and add it.
@@ -471,7 +471,7 @@ err_ToolStripButton4_Click:
             'insert
             If FindSubItem(ListView3, TextBox20.Text) = True And Me.btnSaveD3.Tag = "N" Then
                 'it is a duplicate do something
-                MsgBox("Duplicate data !", MsgBoxStyle.Critical, "Production Memo")
+                MsgBox("Duplicate data !", MsgBoxStyle.Critical, Me.Text)
                 Exit Sub
             Else
                 'it is not a duplicate, go ahead and add it.

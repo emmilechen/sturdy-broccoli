@@ -12,21 +12,9 @@ Public Class frmPPitchingApprovalList
         If ListView1.CheckedItems.Count > 0 Then
             For i = 1 To ListView1.Items.Count
                 If ListView1.Items(i - 1).Checked = True Then
+
                     exec_sp_Approval("usp_tr_po_APPROVAL", "po_id", LeftSplitUF(ListView1.Items(i - 1).Tag), "ppitching_status", "A")
 
-                    'cmd = New SqlCommand("usp_tr_po_APPROVAL", cn)
-                    'cmd.CommandType = CommandType.StoredProcedure
-
-                    'Dim prm1 As SqlParameter = cmd.Parameters.Add("@po_id", SqlDbType.Int, 255)
-                    'prm1.Value = LeftSplitUF(ListView1.Items(i - 1).Tag)
-                    'Dim prm2 As SqlParameter = cmd.Parameters.Add("@ppitching_status", SqlDbType.NVarChar)
-                    'prm2.Value = "A"
-                    'Dim prm3 As SqlParameter = cmd.Parameters.Add("@user_name", SqlDbType.NVarChar, 50)
-                    'prm3.Value = My.Settings.UserName
-
-                    'cn.Open()
-                    'cmd.ExecuteReader()
-                    'cn.Close()
                 End If
             Next
             btnFilter_Click(sender, e)
