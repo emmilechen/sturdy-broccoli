@@ -43,7 +43,7 @@ Public Class FTR_Induction
         Dim guid As Integer
         If cn.State = ConnectionState.Closed Then cn.Open()
         'fill header
-        cmd = New SqlCommand("SELECT * FROM tr_induction where ind_no='" & guidno & "'", cn)
+        cmd = New SqlCommand("SELECT * FROM tr_induction where ind_id='" & guidno & "'", cn)
         dr = cmd.ExecuteReader()
         If dr.Read() Then
             Me.txtguid.Text = guidno
@@ -318,7 +318,7 @@ Public Class FTR_Induction
     End Sub
     Private Sub txtguid_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtguid.TextChanged
         Dim xno As String
-        If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
+        'If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
     End Sub
 
     Private Sub cmdsave_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
@@ -499,7 +499,7 @@ Public Class FTR_Induction
                 "user_submit='" & Me.TextBox22.Text & "'," & _
                 "time_submit='" & DateTimePicker4.Text & "'," & _
                 "ind_keterangan='" & Me.TextBox23.Text & "'" & _
-                " where ind_no='" & Me.TextBox1.Text & "'"
+                " where ind_id='" & Me.txtguid.Text & "'"
                 If Executestr(strsql) Then MsgBox("Data telah diperbaharui !", MsgBoxStyle.Information, "Induction")
 
             End If
@@ -512,6 +512,7 @@ Public Class FTR_Induction
         child.txtopenargs.Text = "0"
         If child.ShowDialog() = DialogResult.OK Then
             Me.txtguid.Text = child.txtChildText0.Text
+            If Me.txtguid.Text <> "" Then isirecord(Me.txtguid.Text)
         End If
     End Sub
     Private Sub cmdprint_Click(sender As System.Object, e As System.EventArgs) Handles cmdprint.Click
@@ -519,7 +520,7 @@ Public Class FTR_Induction
         Dim Connection As New SqlConnection(strConnection)
         Dim strSQL As String
 
-        strSQL = "exec RPT_Induction_Form '" & TextBox1.Text & "' "
+        strSQL = "exec RPT_Induction_Form '" & Me.txtguid.Text & "' "
         Dim DA As New SqlDataAdapter(strSQL, Connection)
         Dim DS As New DataSet
 
