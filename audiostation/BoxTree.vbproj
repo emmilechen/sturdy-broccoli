@@ -1576,6 +1576,12 @@
     <Compile Include="ReportDocs\frmDocViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\RPT_Induction_Form.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPT_Induction_Form.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\RPT_MP_Form.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2404,6 +2410,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportDocs\frmDocViewer.resx">
       <DependentUpon>frmDocViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT_Induction_Form.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPT_Induction_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_MP_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
