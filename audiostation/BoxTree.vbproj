@@ -620,12 +620,6 @@
     <Compile Include="Forms\Transaction\frmabsenproduksi.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmProcessOrder.Designer.vb">
-      <DependentUpon>frmProcessOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\frmProcessOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Transaction\frmPPitchingApprovalList.Designer.vb">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
     </Compile>
@@ -672,6 +666,12 @@
       <DependentUpon>frmBankReceiptPostList.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\frmBankReceiptPostList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmProcessOrder.Designer.vb">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmProcessOrder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmSQuote.Designer.vb">
@@ -1470,6 +1470,12 @@
     <Compile Include="Forms\Transaction\frmWorkOrderList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaction\ftr_mc.Designer.vb">
+      <DependentUpon>ftr_mc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\ftr_mc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Transaction\ftr_mrq.Designer.vb">
       <DependentUpon>ftr_mrq.vb</DependentUpon>
     </Compile>
@@ -1576,12 +1582,6 @@
     <Compile Include="ReportDocs\frmDocViewer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\RPT_Induction_Form.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPT_Induction_Form.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reports\RPT_MP_Form.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1598,12 +1598,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RPT_Pch_Order_Form.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\RPT_Pch_Pitching_Form.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RPT_Pch_Pitching_Form.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\RPT_Pch_Request_Form.vb">
@@ -1951,9 +1945,6 @@
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmProcessOrder.resx">
-      <DependentUpon>frmProcessOrder.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmPPitchingApprovalList.resx">
       <DependentUpon>frmPPitchingApprovalList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1977,6 +1968,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmBankReceiptPostList.resx">
       <DependentUpon>frmBankReceiptPostList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmProcessOrder.resx">
+      <DependentUpon>frmProcessOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmSQuote.resx">
       <DependentUpon>frmSQuote.vb</DependentUpon>
@@ -2365,6 +2359,9 @@
     <EmbeddedResource Include="Forms\Transaction\FTR_Induction.resx">
       <DependentUpon>FTR_Induction.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\ftr_mc.resx">
+      <DependentUpon>ftr_mc.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\ftr_mp.resx">
       <DependentUpon>ftr_mp.vb</DependentUpon>
     </EmbeddedResource>
@@ -2411,10 +2408,6 @@
     <EmbeddedResource Include="ReportDocs\frmDocViewer.resx">
       <DependentUpon>frmDocViewer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RPT_Induction_Form.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPT_Induction_Form.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_MP_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_MP_Form.vb</LastGenOutput>
@@ -2426,10 +2419,6 @@
     <EmbeddedResource Include="Reports\RPT_Pch_Order_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RPT_Pch_Order_Form.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RPT_Pch_Pitching_Form.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RPT_Pch_Pitching_Form.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPT_Pch_Request_Form.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
