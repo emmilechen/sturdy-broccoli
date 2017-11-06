@@ -75,6 +75,22 @@ Partial Class ftr_scosting
         Me.ComboBox6 = New System.Windows.Forms.ComboBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox38 = New System.Windows.Forms.TextBox()
+        Me.TextBox37 = New System.Windows.Forms.TextBox()
+        Me.TextBox36 = New System.Windows.Forms.TextBox()
+        Me.TextBox35 = New System.Windows.Forms.TextBox()
+        Me.TextBox34 = New System.Windows.Forms.TextBox()
+        Me.TextBox33 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
@@ -123,9 +139,86 @@ Partial Class ftr_scosting
         Me.TextBox29 = New System.Windows.Forms.TextBox()
         Me.btnAddD = New System.Windows.Forms.Button()
         Me.btnDeleteD = New System.Windows.Forms.Button()
+        Me.ComboBox15 = New System.Windows.Forms.ComboBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.TextBox39 = New System.Windows.Forms.TextBox()
+        Me.TextBox40 = New System.Windows.Forms.TextBox()
+        Me.TextBox41 = New System.Windows.Forms.TextBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.TextBox42 = New System.Windows.Forms.TextBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.TextBox43 = New System.Windows.Forms.TextBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.TextBox44 = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TextBox45 = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.TextBox46 = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TextBox47 = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.TextBox48 = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.TextBox49 = New System.Windows.Forms.TextBox()
+        Me.TextBox50 = New System.Windows.Forms.TextBox()
+        Me.TextBox51 = New System.Windows.Forms.TextBox()
+        Me.TextBox52 = New System.Windows.Forms.TextBox()
+        Me.TextBox53 = New System.Windows.Forms.TextBox()
+        Me.TextBox54 = New System.Windows.Forms.TextBox()
+        Me.TextBox55 = New System.Windows.Forms.TextBox()
+        Me.TextBox56 = New System.Windows.Forms.TextBox()
+        Me.TextBox57 = New System.Windows.Forms.TextBox()
+        Me.TextBox58 = New System.Windows.Forms.TextBox()
+        Me.TextBox59 = New System.Windows.Forms.TextBox()
+        Me.TextBox60 = New System.Windows.Forms.TextBox()
+        Me.TextBox61 = New System.Windows.Forms.TextBox()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.lv_ukuran = New System.Windows.Forms.ListView()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.Label52 = New System.Windows.Forms.Label()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
+        Me.Label60 = New System.Windows.Forms.Label()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.Label62 = New System.Windows.Forms.Label()
+        Me.TextBox62 = New System.Windows.Forms.TextBox()
+        Me.TextBox63 = New System.Windows.Forms.TextBox()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.Label66 = New System.Windows.Forms.Label()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.ListView5 = New System.Windows.Forms.ListView()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.ComboBox16 = New System.Windows.Forms.ComboBox()
+        Me.Label67 = New System.Windows.Forms.Label()
+        Me.TextBox64 = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -337,9 +430,10 @@ Partial Class ftr_scosting
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(13, 130)
@@ -674,6 +768,22 @@ Partial Class ftr_scosting
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.Button2)
+        Me.TabPage2.Controls.Add(Me.Button3)
+        Me.TabPage2.Controls.Add(Me.Button1)
+        Me.TabPage2.Controls.Add(Me.ListView2)
+        Me.TabPage2.Controls.Add(Me.Label36)
+        Me.TabPage2.Controls.Add(Me.Label35)
+        Me.TabPage2.Controls.Add(Me.Label34)
+        Me.TabPage2.Controls.Add(Me.Label33)
+        Me.TabPage2.Controls.Add(Me.Label32)
+        Me.TabPage2.Controls.Add(Me.Label31)
+        Me.TabPage2.Controls.Add(Me.TextBox38)
+        Me.TabPage2.Controls.Add(Me.TextBox37)
+        Me.TabPage2.Controls.Add(Me.TextBox36)
+        Me.TabPage2.Controls.Add(Me.TextBox35)
+        Me.TabPage2.Controls.Add(Me.TextBox34)
+        Me.TabPage2.Controls.Add(Me.TextBox33)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -682,8 +792,174 @@ Partial Class ftr_scosting
         Me.TabPage2.Text = "Skema Pembagian Bahan"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageIndex = 0
+        Me.Button2.ImageList = Me.ImageList1
+        Me.Button2.Location = New System.Drawing.Point(520, 19)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(29, 25)
+        Me.Button2.TabIndex = 105
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ImageIndex = 2
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(489, 19)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(29, 25)
+        Me.Button3.TabIndex = 104
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.ImageIndex = 1
+        Me.Button1.ImageList = Me.ImageList1
+        Me.Button1.Location = New System.Drawing.Point(457, 19)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(29, 25)
+        Me.Button1.TabIndex = 16
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'ListView2
+        '
+        Me.ListView2.FullRowSelect = True
+        Me.ListView2.GridLines = True
+        Me.ListView2.Location = New System.Drawing.Point(8, 48)
+        Me.ListView2.Name = "ListView2"
+        Me.ListView2.Size = New System.Drawing.Size(544, 272)
+        Me.ListView2.TabIndex = 12
+        Me.ListView2.UseCompatibleStateImageBehavior = False
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(136, 8)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(49, 13)
+        Me.Label36.TabIndex = 11
+        Me.Label36.Text = "Qty Pcs"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(384, 8)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(27, 13)
+        Me.Label35.TabIndex = 10
+        Me.Label35.Text = "Out"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(296, 8)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(78, 13)
+        Me.Label34.TabIndex = 9
+        Me.Label34.Text = "Uk. Potong B"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(208, 8)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(79, 13)
+        Me.Label33.TabIndex = 8
+        Me.Label33.Text = "Uk. Potong A"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(56, 8)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(74, 13)
+        Me.Label32.TabIndex = 7
+        Me.Label32.Text = "Bag. Potong"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(8, 8)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(45, 13)
+        Me.Label31.TabIndex = 6
+        Me.Label31.Text = "Bagian"
+        '
+        'TextBox38
+        '
+        Me.TextBox38.Location = New System.Drawing.Point(384, 24)
+        Me.TextBox38.Name = "TextBox38"
+        Me.TextBox38.Size = New System.Drawing.Size(64, 21)
+        Me.TextBox38.TabIndex = 5
+        '
+        'TextBox37
+        '
+        Me.TextBox37.Location = New System.Drawing.Point(296, 24)
+        Me.TextBox37.Name = "TextBox37"
+        Me.TextBox37.Size = New System.Drawing.Size(80, 21)
+        Me.TextBox37.TabIndex = 4
+        '
+        'TextBox36
+        '
+        Me.TextBox36.Location = New System.Drawing.Point(208, 24)
+        Me.TextBox36.Name = "TextBox36"
+        Me.TextBox36.Size = New System.Drawing.Size(80, 21)
+        Me.TextBox36.TabIndex = 3
+        '
+        'TextBox35
+        '
+        Me.TextBox35.Location = New System.Drawing.Point(136, 24)
+        Me.TextBox35.Name = "TextBox35"
+        Me.TextBox35.Size = New System.Drawing.Size(64, 21)
+        Me.TextBox35.TabIndex = 2
+        '
+        'TextBox34
+        '
+        Me.TextBox34.Location = New System.Drawing.Point(56, 24)
+        Me.TextBox34.Name = "TextBox34"
+        Me.TextBox34.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox34.TabIndex = 1
+        '
+        'TextBox33
+        '
+        Me.TextBox33.Location = New System.Drawing.Point(8, 24)
+        Me.TextBox33.Name = "TextBox33"
+        Me.TextBox33.Size = New System.Drawing.Size(40, 21)
+        Me.TextBox33.TabIndex = 0
+        '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.ListView3)
+        Me.TabPage3.Controls.Add(Me.Button4)
+        Me.TabPage3.Controls.Add(Me.Button5)
+        Me.TabPage3.Controls.Add(Me.Button6)
+        Me.TabPage3.Controls.Add(Me.TextBox46)
+        Me.TabPage3.Controls.Add(Me.Label45)
+        Me.TabPage3.Controls.Add(Me.TextBox47)
+        Me.TabPage3.Controls.Add(Me.Label46)
+        Me.TabPage3.Controls.Add(Me.TextBox48)
+        Me.TabPage3.Controls.Add(Me.Label47)
+        Me.TabPage3.Controls.Add(Me.TextBox44)
+        Me.TabPage3.Controls.Add(Me.Label43)
+        Me.TabPage3.Controls.Add(Me.TextBox45)
+        Me.TabPage3.Controls.Add(Me.Label44)
+        Me.TabPage3.Controls.Add(Me.TextBox43)
+        Me.TabPage3.Controls.Add(Me.Label42)
+        Me.TabPage3.Controls.Add(Me.TextBox42)
+        Me.TabPage3.Controls.Add(Me.Label41)
+        Me.TabPage3.Controls.Add(Me.TextBox41)
+        Me.TabPage3.Controls.Add(Me.Label40)
+        Me.TabPage3.Controls.Add(Me.TextBox40)
+        Me.TabPage3.Controls.Add(Me.TextBox39)
+        Me.TabPage3.Controls.Add(Me.Label39)
+        Me.TabPage3.Controls.Add(Me.Label38)
+        Me.TabPage3.Controls.Add(Me.Label37)
+        Me.TabPage3.Controls.Add(Me.ComboBox15)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1232, 332)
@@ -693,11 +969,49 @@ Partial Class ftr_scosting
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.Label66)
+        Me.TabPage4.Controls.Add(Me.Label65)
+        Me.TabPage4.Controls.Add(Me.Label64)
+        Me.TabPage4.Controls.Add(Me.Label63)
+        Me.TabPage4.Controls.Add(Me.Label59)
+        Me.TabPage4.Controls.Add(Me.Label60)
+        Me.TabPage4.Controls.Add(Me.Label61)
+        Me.TabPage4.Controls.Add(Me.Label62)
+        Me.TabPage4.Controls.Add(Me.TextBox62)
+        Me.TabPage4.Controls.Add(Me.TextBox63)
+        Me.TabPage4.Controls.Add(Me.Label55)
+        Me.TabPage4.Controls.Add(Me.Label56)
+        Me.TabPage4.Controls.Add(Me.Label57)
+        Me.TabPage4.Controls.Add(Me.Label58)
+        Me.TabPage4.Controls.Add(Me.Label54)
+        Me.TabPage4.Controls.Add(Me.Label51)
+        Me.TabPage4.Controls.Add(Me.Label52)
+        Me.TabPage4.Controls.Add(Me.Label53)
+        Me.TabPage4.Controls.Add(Me.Label50)
+        Me.TabPage4.Controls.Add(Me.Label49)
+        Me.TabPage4.Controls.Add(Me.Label48)
+        Me.TabPage4.Controls.Add(Me.lv_ukuran)
+        Me.TabPage4.Controls.Add(Me.Button7)
+        Me.TabPage4.Controls.Add(Me.Button8)
+        Me.TabPage4.Controls.Add(Me.Button9)
+        Me.TabPage4.Controls.Add(Me.TextBox59)
+        Me.TabPage4.Controls.Add(Me.TextBox60)
+        Me.TabPage4.Controls.Add(Me.TextBox61)
+        Me.TabPage4.Controls.Add(Me.TextBox56)
+        Me.TabPage4.Controls.Add(Me.TextBox57)
+        Me.TabPage4.Controls.Add(Me.TextBox58)
+        Me.TabPage4.Controls.Add(Me.TextBox55)
+        Me.TabPage4.Controls.Add(Me.TextBox52)
+        Me.TabPage4.Controls.Add(Me.TextBox53)
+        Me.TabPage4.Controls.Add(Me.TextBox54)
+        Me.TabPage4.Controls.Add(Me.TextBox51)
+        Me.TabPage4.Controls.Add(Me.TextBox50)
+        Me.TabPage4.Controls.Add(Me.TextBox49)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(1232, 332)
         Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Proses"
+        Me.TabPage4.Text = "Ukuran"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'TabPage5
@@ -1141,6 +1455,645 @@ Partial Class ftr_scosting
         Me.btnDeleteD.TabIndex = 102
         Me.btnDeleteD.UseVisualStyleBackColor = True
         '
+        'ComboBox15
+        '
+        Me.ComboBox15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox15.FormattingEnabled = True
+        Me.ComboBox15.Location = New System.Drawing.Point(8, 32)
+        Me.ComboBox15.Name = "ComboBox15"
+        Me.ComboBox15.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox15.TabIndex = 4
+        Me.ComboBox15.Tag = "sku_id_f"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(8, 8)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(77, 13)
+        Me.Label37.TabIndex = 12
+        Me.Label37.Text = "Nama Bahan"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(208, 8)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(74, 13)
+        Me.Label38.TabIndex = 13
+        Me.Label38.Text = "Uk. Bahan A"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(288, 8)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(73, 13)
+        Me.Label39.TabIndex = 14
+        Me.Label39.Text = "Uk. Bahan B"
+        '
+        'TextBox39
+        '
+        Me.TextBox39.Location = New System.Drawing.Point(208, 32)
+        Me.TextBox39.Name = "TextBox39"
+        Me.TextBox39.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox39.TabIndex = 15
+        '
+        'TextBox40
+        '
+        Me.TextBox40.Location = New System.Drawing.Point(288, 32)
+        Me.TextBox40.Name = "TextBox40"
+        Me.TextBox40.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox40.TabIndex = 16
+        '
+        'TextBox41
+        '
+        Me.TextBox41.Location = New System.Drawing.Point(368, 32)
+        Me.TextBox41.Name = "TextBox41"
+        Me.TextBox41.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox41.TabIndex = 18
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(368, 8)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(73, 13)
+        Me.Label40.TabIndex = 17
+        Me.Label40.Text = "Grammatur"
+        '
+        'TextBox42
+        '
+        Me.TextBox42.Location = New System.Drawing.Point(448, 32)
+        Me.TextBox42.Name = "TextBox42"
+        Me.TextBox42.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox42.TabIndex = 20
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(448, 8)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(91, 13)
+        Me.Label41.TabIndex = 19
+        Me.Label41.Text = "Berat/Pcs (KG)"
+        '
+        'TextBox43
+        '
+        Me.TextBox43.Location = New System.Drawing.Point(544, 32)
+        Me.TextBox43.Name = "TextBox43"
+        Me.TextBox43.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox43.TabIndex = 22
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(544, 8)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(101, 13)
+        Me.Label42.TabIndex = 21
+        Me.Label42.Text = "Berat/Total (KG)"
+        '
+        'TextBox44
+        '
+        Me.TextBox44.Location = New System.Drawing.Point(744, 32)
+        Me.TextBox44.Name = "TextBox44"
+        Me.TextBox44.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox44.TabIndex = 26
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(744, 8)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(87, 13)
+        Me.Label43.TabIndex = 25
+        Me.Label43.Text = "Insheet (RIM)"
+        '
+        'TextBox45
+        '
+        Me.TextBox45.Location = New System.Drawing.Point(648, 32)
+        Me.TextBox45.Name = "TextBox45"
+        Me.TextBox45.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox45.TabIndex = 24
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(648, 8)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(78, 13)
+        Me.Label44.TabIndex = 23
+        Me.Label44.Text = "Bahan (RIM)"
+        '
+        'TextBox46
+        '
+        Me.TextBox46.Location = New System.Drawing.Point(1040, 32)
+        Me.TextBox46.Name = "TextBox46"
+        Me.TextBox46.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox46.TabIndex = 32
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(1040, 8)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(34, 13)
+        Me.Label45.TabIndex = 31
+        Me.Label45.Text = "APKI"
+        '
+        'TextBox47
+        '
+        Me.TextBox47.Location = New System.Drawing.Point(944, 32)
+        Me.TextBox47.Name = "TextBox47"
+        Me.TextBox47.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox47.TabIndex = 30
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(944, 8)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(54, 13)
+        Me.Label46.TabIndex = 29
+        Me.Label46.Text = "H. Dasar"
+        '
+        'TextBox48
+        '
+        Me.TextBox48.Location = New System.Drawing.Point(848, 32)
+        Me.TextBox48.Name = "TextBox48"
+        Me.TextBox48.Size = New System.Drawing.Size(88, 21)
+        Me.TextBox48.TabIndex = 28
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(848, 8)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(70, 13)
+        Me.Label47.TabIndex = 27
+        Me.Label47.Text = "Harga/RIM"
+        '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ImageIndex = 0
+        Me.Button4.ImageList = Me.ImageList1
+        Me.Button4.Location = New System.Drawing.Point(1196, 27)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(29, 25)
+        Me.Button4.TabIndex = 108
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ImageIndex = 2
+        Me.Button5.ImageList = Me.ImageList1
+        Me.Button5.Location = New System.Drawing.Point(1165, 27)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(29, 25)
+        Me.Button5.TabIndex = 107
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button6.ImageIndex = 1
+        Me.Button6.ImageList = Me.ImageList1
+        Me.Button6.Location = New System.Drawing.Point(1133, 27)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(29, 25)
+        Me.Button6.TabIndex = 106
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'ListView3
+        '
+        Me.ListView3.FullRowSelect = True
+        Me.ListView3.GridLines = True
+        Me.ListView3.Location = New System.Drawing.Point(8, 56)
+        Me.ListView3.Name = "ListView3"
+        Me.ListView3.Size = New System.Drawing.Size(1216, 264)
+        Me.ListView3.TabIndex = 109
+        Me.ListView3.UseCompatibleStateImageBehavior = False
+        '
+        'TextBox49
+        '
+        Me.TextBox49.Location = New System.Drawing.Point(8, 40)
+        Me.TextBox49.Name = "TextBox49"
+        Me.TextBox49.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox49.TabIndex = 0
+        '
+        'TextBox50
+        '
+        Me.TextBox50.Location = New System.Drawing.Point(64, 40)
+        Me.TextBox50.Name = "TextBox50"
+        Me.TextBox50.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox50.TabIndex = 1
+        '
+        'TextBox51
+        '
+        Me.TextBox51.Location = New System.Drawing.Point(120, 40)
+        Me.TextBox51.Name = "TextBox51"
+        Me.TextBox51.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox51.TabIndex = 2
+        '
+        'TextBox52
+        '
+        Me.TextBox52.Location = New System.Drawing.Point(184, 40)
+        Me.TextBox52.Name = "TextBox52"
+        Me.TextBox52.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox52.TabIndex = 5
+        '
+        'TextBox53
+        '
+        Me.TextBox53.Location = New System.Drawing.Point(240, 40)
+        Me.TextBox53.Name = "TextBox53"
+        Me.TextBox53.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox53.TabIndex = 4
+        '
+        'TextBox54
+        '
+        Me.TextBox54.Location = New System.Drawing.Point(296, 40)
+        Me.TextBox54.Name = "TextBox54"
+        Me.TextBox54.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox54.TabIndex = 3
+        '
+        'TextBox55
+        '
+        Me.TextBox55.Location = New System.Drawing.Point(352, 40)
+        Me.TextBox55.Name = "TextBox55"
+        Me.TextBox55.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox55.TabIndex = 6
+        '
+        'TextBox56
+        '
+        Me.TextBox56.Location = New System.Drawing.Point(416, 40)
+        Me.TextBox56.Name = "TextBox56"
+        Me.TextBox56.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox56.TabIndex = 9
+        '
+        'TextBox57
+        '
+        Me.TextBox57.Location = New System.Drawing.Point(472, 40)
+        Me.TextBox57.Name = "TextBox57"
+        Me.TextBox57.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox57.TabIndex = 8
+        '
+        'TextBox58
+        '
+        Me.TextBox58.Location = New System.Drawing.Point(528, 40)
+        Me.TextBox58.Name = "TextBox58"
+        Me.TextBox58.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox58.TabIndex = 7
+        '
+        'TextBox59
+        '
+        Me.TextBox59.Location = New System.Drawing.Point(584, 40)
+        Me.TextBox59.Name = "TextBox59"
+        Me.TextBox59.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox59.TabIndex = 12
+        '
+        'TextBox60
+        '
+        Me.TextBox60.Location = New System.Drawing.Point(648, 40)
+        Me.TextBox60.Name = "TextBox60"
+        Me.TextBox60.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox60.TabIndex = 11
+        '
+        'TextBox61
+        '
+        Me.TextBox61.Location = New System.Drawing.Point(704, 40)
+        Me.TextBox61.Name = "TextBox61"
+        Me.TextBox61.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox61.TabIndex = 10
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ImageIndex = 0
+        Me.Button7.ImageList = Me.ImageList1
+        Me.Button7.Location = New System.Drawing.Point(936, 32)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(29, 25)
+        Me.Button7.TabIndex = 111
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.ImageIndex = 2
+        Me.Button8.ImageList = Me.ImageList1
+        Me.Button8.Location = New System.Drawing.Point(905, 32)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(29, 25)
+        Me.Button8.TabIndex = 110
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button9.ImageIndex = 1
+        Me.Button9.ImageList = Me.ImageList1
+        Me.Button9.Location = New System.Drawing.Point(873, 32)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(29, 25)
+        Me.Button9.TabIndex = 109
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'lv_ukuran
+        '
+        Me.lv_ukuran.FullRowSelect = True
+        Me.lv_ukuran.GridLines = True
+        Me.lv_ukuran.Location = New System.Drawing.Point(8, 64)
+        Me.lv_ukuran.Name = "lv_ukuran"
+        Me.lv_ukuran.Size = New System.Drawing.Size(960, 248)
+        Me.lv_ukuran.TabIndex = 112
+        Me.lv_ukuran.UseCompatibleStateImageBehavior = False
+        '
+        'Label48
+        '
+        Me.Label48.Location = New System.Drawing.Point(8, 24)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(48, 16)
+        Me.Label48.TabIndex = 113
+        Me.Label48.Text = "A"
+        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label49
+        '
+        Me.Label49.Location = New System.Drawing.Point(64, 24)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(48, 16)
+        Me.Label49.TabIndex = 114
+        Me.Label49.Text = "B"
+        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label50
+        '
+        Me.Label50.Location = New System.Drawing.Point(120, 24)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(48, 16)
+        Me.Label50.TabIndex = 115
+        Me.Label50.Text = "C"
+        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label51
+        '
+        Me.Label51.Location = New System.Drawing.Point(296, 24)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(48, 16)
+        Me.Label51.TabIndex = 118
+        Me.Label51.Text = "C"
+        Me.Label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label52
+        '
+        Me.Label52.Location = New System.Drawing.Point(240, 24)
+        Me.Label52.Name = "Label52"
+        Me.Label52.Size = New System.Drawing.Size(48, 16)
+        Me.Label52.TabIndex = 117
+        Me.Label52.Text = "B"
+        Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label53
+        '
+        Me.Label53.Location = New System.Drawing.Point(184, 24)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(48, 16)
+        Me.Label53.TabIndex = 116
+        Me.Label53.Text = "A"
+        Me.Label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label54
+        '
+        Me.Label54.Location = New System.Drawing.Point(352, 24)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(48, 16)
+        Me.Label54.TabIndex = 119
+        Me.Label54.Text = "Out"
+        Me.Label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label55
+        '
+        Me.Label55.Location = New System.Drawing.Point(584, 24)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(48, 16)
+        Me.Label55.TabIndex = 123
+        Me.Label55.Text = "Out"
+        Me.Label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label56
+        '
+        Me.Label56.Location = New System.Drawing.Point(528, 24)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(48, 16)
+        Me.Label56.TabIndex = 122
+        Me.Label56.Text = "C"
+        Me.Label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label57
+        '
+        Me.Label57.Location = New System.Drawing.Point(472, 24)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(48, 16)
+        Me.Label57.TabIndex = 121
+        Me.Label57.Text = "B"
+        Me.Label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label58
+        '
+        Me.Label58.Location = New System.Drawing.Point(416, 24)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(48, 16)
+        Me.Label58.TabIndex = 120
+        Me.Label58.Text = "A"
+        Me.Label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label59
+        '
+        Me.Label59.Location = New System.Drawing.Point(816, 24)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(48, 16)
+        Me.Label59.TabIndex = 129
+        Me.Label59.Text = "Out"
+        Me.Label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label60
+        '
+        Me.Label60.Location = New System.Drawing.Point(760, 24)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(48, 16)
+        Me.Label60.TabIndex = 128
+        Me.Label60.Text = "C"
+        Me.Label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label61
+        '
+        Me.Label61.Location = New System.Drawing.Point(704, 24)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(48, 16)
+        Me.Label61.TabIndex = 127
+        Me.Label61.Text = "B"
+        Me.Label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label62
+        '
+        Me.Label62.Location = New System.Drawing.Point(648, 24)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(48, 16)
+        Me.Label62.TabIndex = 126
+        Me.Label62.Text = "A"
+        Me.Label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox62
+        '
+        Me.TextBox62.Location = New System.Drawing.Point(760, 40)
+        Me.TextBox62.Name = "TextBox62"
+        Me.TextBox62.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox62.TabIndex = 125
+        '
+        'TextBox63
+        '
+        Me.TextBox63.Location = New System.Drawing.Point(816, 40)
+        Me.TextBox63.Name = "TextBox63"
+        Me.TextBox63.Size = New System.Drawing.Size(48, 21)
+        Me.TextBox63.TabIndex = 124
+        '
+        'Label63
+        '
+        Me.Label63.Location = New System.Drawing.Point(8, 8)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(160, 16)
+        Me.Label63.TabIndex = 130
+        Me.Label63.Text = "Ukuran Dimensi"
+        Me.Label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label64
+        '
+        Me.Label64.Location = New System.Drawing.Point(184, 8)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(216, 16)
+        Me.Label64.TabIndex = 131
+        Me.Label64.Text = "Ukuran Terbuka"
+        Me.Label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label65
+        '
+        Me.Label65.Location = New System.Drawing.Point(416, 8)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(216, 16)
+        Me.Label65.TabIndex = 132
+        Me.Label65.Text = "Area Cetak I"
+        Me.Label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label66
+        '
+        Me.Label66.Location = New System.Drawing.Point(648, 8)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(216, 16)
+        Me.Label66.TabIndex = 133
+        Me.Label66.Text = "Area Cetak II"
+        Me.Label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.Label67)
+        Me.TabPage6.Controls.Add(Me.TextBox64)
+        Me.TabPage6.Controls.Add(Me.ComboBox16)
+        Me.TabPage6.Controls.Add(Me.Label85)
+        Me.TabPage6.Controls.Add(Me.ListView5)
+        Me.TabPage6.Controls.Add(Me.Button10)
+        Me.TabPage6.Controls.Add(Me.Button11)
+        Me.TabPage6.Controls.Add(Me.Button12)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(1232, 332)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Proses"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'Label85
+        '
+        Me.Label85.Location = New System.Drawing.Point(8, 8)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(48, 16)
+        Me.Label85.TabIndex = 151
+        Me.Label85.Text = "Proses"
+        Me.Label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ListView5
+        '
+        Me.ListView5.FullRowSelect = True
+        Me.ListView5.GridLines = True
+        Me.ListView5.Location = New System.Drawing.Point(8, 48)
+        Me.ListView5.Name = "ListView5"
+        Me.ListView5.Size = New System.Drawing.Size(376, 248)
+        Me.ListView5.TabIndex = 150
+        Me.ListView5.UseCompatibleStateImageBehavior = False
+        '
+        'Button10
+        '
+        Me.Button10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button10.ImageIndex = 0
+        Me.Button10.ImageList = Me.ImageList1
+        Me.Button10.Location = New System.Drawing.Point(352, 16)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(29, 25)
+        Me.Button10.TabIndex = 149
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button11.ImageIndex = 2
+        Me.Button11.ImageList = Me.ImageList1
+        Me.Button11.Location = New System.Drawing.Point(321, 16)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(29, 25)
+        Me.Button11.TabIndex = 148
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button12
+        '
+        Me.Button12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button12.ImageIndex = 1
+        Me.Button12.ImageList = Me.ImageList1
+        Me.Button12.Location = New System.Drawing.Point(289, 16)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(29, 25)
+        Me.Button12.TabIndex = 147
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'ComboBox16
+        '
+        Me.ComboBox16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox16.FormattingEnabled = True
+        Me.ComboBox16.Location = New System.Drawing.Point(8, 24)
+        Me.ComboBox16.Name = "ComboBox16"
+        Me.ComboBox16.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBox16.TabIndex = 152
+        Me.ComboBox16.Tag = "sku_id_f"
+        '
+        'Label67
+        '
+        Me.Label67.Location = New System.Drawing.Point(208, 8)
+        Me.Label67.Name = "Label67"
+        Me.Label67.Size = New System.Drawing.Size(80, 16)
+        Me.Label67.TabIndex = 154
+        Me.Label67.Text = "Keterangan"
+        Me.Label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TextBox64
+        '
+        Me.TextBox64.Location = New System.Drawing.Point(208, 24)
+        Me.TextBox64.Name = "TextBox64"
+        Me.TextBox64.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox64.TabIndex = 153
+        '
         'ftr_scosting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1210,8 +2163,16 @@ Partial Class ftr_scosting
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1315,4 +2276,93 @@ Partial Class ftr_scosting
     Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
     Friend WithEvents btnAddD As System.Windows.Forms.Button
     Friend WithEvents btnDeleteD As System.Windows.Forms.Button
+    Friend WithEvents TextBox38 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox37 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox36 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox35 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox34 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox33 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView2 As System.Windows.Forms.ListView
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents Label35 As System.Windows.Forms.Label
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ListView3 As System.Windows.Forms.ListView
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents TextBox46 As System.Windows.Forms.TextBox
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents TextBox47 As System.Windows.Forms.TextBox
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents TextBox48 As System.Windows.Forms.TextBox
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents TextBox44 As System.Windows.Forms.TextBox
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents TextBox45 As System.Windows.Forms.TextBox
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents TextBox43 As System.Windows.Forms.TextBox
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents TextBox42 As System.Windows.Forms.TextBox
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents TextBox41 As System.Windows.Forms.TextBox
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents TextBox40 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox39 As System.Windows.Forms.TextBox
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox15 As System.Windows.Forms.ComboBox
+    Friend WithEvents lv_ukuran As System.Windows.Forms.ListView
+    Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents TextBox59 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox60 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox61 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox56 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox57 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox58 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox55 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox52 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox53 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox54 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox51 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox50 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox49 As System.Windows.Forms.TextBox
+    Friend WithEvents Label59 As System.Windows.Forms.Label
+    Friend WithEvents Label60 As System.Windows.Forms.Label
+    Friend WithEvents Label61 As System.Windows.Forms.Label
+    Friend WithEvents Label62 As System.Windows.Forms.Label
+    Friend WithEvents TextBox62 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox63 As System.Windows.Forms.TextBox
+    Friend WithEvents Label55 As System.Windows.Forms.Label
+    Friend WithEvents Label56 As System.Windows.Forms.Label
+    Friend WithEvents Label57 As System.Windows.Forms.Label
+    Friend WithEvents Label58 As System.Windows.Forms.Label
+    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents Label51 As System.Windows.Forms.Label
+    Friend WithEvents Label52 As System.Windows.Forms.Label
+    Friend WithEvents Label53 As System.Windows.Forms.Label
+    Friend WithEvents Label50 As System.Windows.Forms.Label
+    Friend WithEvents Label49 As System.Windows.Forms.Label
+    Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents Label66 As System.Windows.Forms.Label
+    Friend WithEvents Label65 As System.Windows.Forms.Label
+    Friend WithEvents Label64 As System.Windows.Forms.Label
+    Friend WithEvents Label63 As System.Windows.Forms.Label
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents Label67 As System.Windows.Forms.Label
+    Friend WithEvents TextBox64 As System.Windows.Forms.TextBox
+    Friend WithEvents ComboBox16 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label85 As System.Windows.Forms.Label
+    Friend WithEvents ListView5 As System.Windows.Forms.ListView
+    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents Button12 As System.Windows.Forms.Button
 End Class

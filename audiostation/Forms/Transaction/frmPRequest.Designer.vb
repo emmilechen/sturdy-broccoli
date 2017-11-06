@@ -380,7 +380,7 @@ Partial Class frmPRequest
         'btnSubmitApproval
         '
         Me.btnSubmitApproval.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmitApproval.Location = New System.Drawing.Point(583, 431)
+        Me.btnSubmitApproval.Location = New System.Drawing.Point(493, 431)
         Me.btnSubmitApproval.Name = "btnSubmitApproval"
         Me.btnSubmitApproval.Size = New System.Drawing.Size(131, 26)
         Me.btnSubmitApproval.TabIndex = 20

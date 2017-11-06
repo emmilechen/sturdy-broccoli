@@ -22,6 +22,7 @@ Partial Class frmSupplier
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSupplier))
         Me.Label18 = New System.Windows.Forms.Label()
         Me.txtSAdvanceBalance = New System.Windows.Forms.TextBox()
@@ -75,6 +76,61 @@ Partial Class frmSupplier
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.ListView5 = New System.Windows.Forms.ListView()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.btnAddD = New System.Windows.Forms.Button()
+        Me.btnDeleteD = New System.Windows.Forms.Button()
+        Me.btnSaveD = New System.Windows.Forms.Button()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.btnsave = New System.Windows.Forms.ToolStripButton()
         Me.btnfind = New System.Windows.Forms.ToolStripButton()
@@ -86,6 +142,9 @@ Partial Class frmSupplier
         Me.TabPage1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -698,6 +757,9 @@ Partial Class frmSupplier
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(12, 28)
         Me.TabControl1.Name = "TabControl1"
@@ -728,6 +790,547 @@ Partial Class frmSupplier
         Me.ListView1.TabIndex = 1
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.Panel1)
+        Me.TabPage4.Controls.Add(Me.Label41)
+        Me.TabPage4.Controls.Add(Me.TextBox16)
+        Me.TabPage4.Controls.Add(Me.CheckBox3)
+        Me.TabPage4.Controls.Add(Me.Button4)
+        Me.TabPage4.Controls.Add(Me.Button5)
+        Me.TabPage4.Controls.Add(Me.Button6)
+        Me.TabPage4.Controls.Add(Me.Label36)
+        Me.TabPage4.Controls.Add(Me.TextBox12)
+        Me.TabPage4.Controls.Add(Me.Label37)
+        Me.TabPage4.Controls.Add(Me.TextBox13)
+        Me.TabPage4.Controls.Add(Me.Label38)
+        Me.TabPage4.Controls.Add(Me.TextBox14)
+        Me.TabPage4.Controls.Add(Me.Label39)
+        Me.TabPage4.Controls.Add(Me.TextBox15)
+        Me.TabPage4.Controls.Add(Me.ListView5)
+        Me.TabPage4.Controls.Add(Me.Label40)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(1232, 495)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Bank Account"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(0, 21)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(19, 37)
+        Me.Panel1.TabIndex = 0
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(1031, 21)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(73, 13)
+        Me.Label41.TabIndex = 54
+        Me.Label41.Text = "Keterangan"
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Location = New System.Drawing.Point(1034, 37)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(175, 21)
+        Me.TextBox16.TabIndex = 53
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(37, 37)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox3.TabIndex = 51
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ImageIndex = 4
+        Me.Button4.ImageList = Me.ImageList1
+        Me.Button4.Location = New System.Drawing.Point(1180, 9)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(29, 25)
+        Me.Button4.TabIndex = 50
+        Me.Button4.Tag = "4"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Search.png")
+        Me.ImageList1.Images.SetKeyName(1, "Box.png")
+        Me.ImageList1.Images.SetKeyName(2, "Remove.png")
+        Me.ImageList1.Images.SetKeyName(3, "Checkmark.png")
+        Me.ImageList1.Images.SetKeyName(4, "Add_Symbol.png")
+        '
+        'Button5
+        '
+        Me.Button5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ImageIndex = 2
+        Me.Button5.ImageList = Me.ImageList1
+        Me.Button5.Location = New System.Drawing.Point(1149, 9)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(29, 25)
+        Me.Button5.TabIndex = 49
+        Me.Button5.Tag = "4"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ImageIndex = 3
+        Me.Button6.ImageList = Me.ImageList1
+        Me.Button6.Location = New System.Drawing.Point(1118, 9)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(29, 25)
+        Me.Button6.TabIndex = 48
+        Me.Button6.Tag = "4"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(805, 21)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(80, 13)
+        Me.Label36.TabIndex = 47
+        Me.Label36.Text = "No. Rekening"
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(808, 37)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox12.TabIndex = 46
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(300, 21)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(70, 13)
+        Me.Label37.TabIndex = 45
+        Me.Label37.Text = "Nama Bank"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Location = New System.Drawing.Point(303, 37)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox13.TabIndex = 44
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(526, 21)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(133, 13)
+        Me.Label38.TabIndex = 43
+        Me.Label38.Text = "Alamat Bank / Cabang"
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(529, 37)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(273, 21)
+        Me.TextBox14.TabIndex = 42
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(74, 21)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(139, 13)
+        Me.Label39.TabIndex = 41
+        Me.Label39.Text = "Nama Pemilik Rekening"
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Location = New System.Drawing.Point(77, 37)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox15.TabIndex = 40
+        '
+        'ListView5
+        '
+        Me.ListView5.FullRowSelect = True
+        Me.ListView5.GridLines = True
+        Me.ListView5.Location = New System.Drawing.Point(18, 64)
+        Me.ListView5.Name = "ListView5"
+        Me.ListView5.Size = New System.Drawing.Size(1191, 409)
+        Me.ListView5.TabIndex = 39
+        Me.ListView5.UseCompatibleStateImageBehavior = False
+        Me.ListView5.View = System.Windows.Forms.View.Details
+        '
+        'Label40
+        '
+        Me.Label40.Location = New System.Drawing.Point(15, 21)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(53, 30)
+        Me.Label40.TabIndex = 52
+        Me.Label40.Text = "Default"
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.Panel2)
+        Me.TabPage5.Controls.Add(Me.Label42)
+        Me.TabPage5.Controls.Add(Me.TextBox17)
+        Me.TabPage5.Controls.Add(Me.CheckBox1)
+        Me.TabPage5.Controls.Add(Me.btnAddD)
+        Me.TabPage5.Controls.Add(Me.btnDeleteD)
+        Me.TabPage5.Controls.Add(Me.btnSaveD)
+        Me.TabPage5.Controls.Add(Me.Label28)
+        Me.TabPage5.Controls.Add(Me.TextBox6)
+        Me.TabPage5.Controls.Add(Me.Label26)
+        Me.TabPage5.Controls.Add(Me.TextBox5)
+        Me.TabPage5.Controls.Add(Me.Label25)
+        Me.TabPage5.Controls.Add(Me.TextBox4)
+        Me.TabPage5.Controls.Add(Me.Label24)
+        Me.TabPage5.Controls.Add(Me.TextBox3)
+        Me.TabPage5.Controls.Add(Me.ListView3)
+        Me.TabPage5.Controls.Add(Me.Label30)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(1232, 495)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Shipping Address"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(0, 21)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(19, 37)
+        Me.Panel2.TabIndex = 1
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(1031, 21)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(73, 13)
+        Me.Label42.TabIndex = 56
+        Me.Label42.Text = "Keterangan"
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Location = New System.Drawing.Point(1034, 37)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(175, 21)
+        Me.TextBox17.TabIndex = 55
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(37, 37)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox1.TabIndex = 53
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'btnAddD
+        '
+        Me.btnAddD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD.ImageIndex = 4
+        Me.btnAddD.ImageList = Me.ImageList1
+        Me.btnAddD.Location = New System.Drawing.Point(1180, 9)
+        Me.btnAddD.Name = "btnAddD"
+        Me.btnAddD.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD.TabIndex = 52
+        Me.btnAddD.Tag = "3"
+        Me.btnAddD.UseVisualStyleBackColor = True
+        '
+        'btnDeleteD
+        '
+        Me.btnDeleteD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD.ImageIndex = 2
+        Me.btnDeleteD.ImageList = Me.ImageList1
+        Me.btnDeleteD.Location = New System.Drawing.Point(1149, 9)
+        Me.btnDeleteD.Name = "btnDeleteD"
+        Me.btnDeleteD.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD.TabIndex = 51
+        Me.btnDeleteD.Tag = "3"
+        Me.btnDeleteD.UseVisualStyleBackColor = True
+        '
+        'btnSaveD
+        '
+        Me.btnSaveD.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD.ImageIndex = 3
+        Me.btnSaveD.ImageList = Me.ImageList1
+        Me.btnSaveD.Location = New System.Drawing.Point(1118, 9)
+        Me.btnSaveD.Name = "btnSaveD"
+        Me.btnSaveD.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD.TabIndex = 50
+        Me.btnSaveD.Tag = "3"
+        Me.btnSaveD.UseVisualStyleBackColor = True
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(805, 21)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(31, 13)
+        Me.Label28.TabIndex = 49
+        Me.Label28.Text = "Telp"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(808, 37)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox6.TabIndex = 48
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(300, 21)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(26, 13)
+        Me.Label26.TabIndex = 47
+        Me.Label26.Text = "PIC"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(303, 37)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox5.TabIndex = 46
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(526, 21)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(48, 13)
+        Me.Label25.TabIndex = 45
+        Me.Label25.Text = "Alamat"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(529, 37)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(273, 21)
+        Me.TextBox4.TabIndex = 44
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(74, 21)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(88, 13)
+        Me.Label24.TabIndex = 43
+        Me.Label24.Text = "Nama Instansi"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(77, 37)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox3.TabIndex = 42
+        '
+        'ListView3
+        '
+        Me.ListView3.FullRowSelect = True
+        Me.ListView3.GridLines = True
+        Me.ListView3.Location = New System.Drawing.Point(18, 64)
+        Me.ListView3.Name = "ListView3"
+        Me.ListView3.Size = New System.Drawing.Size(1191, 409)
+        Me.ListView3.TabIndex = 41
+        Me.ListView3.UseCompatibleStateImageBehavior = False
+        Me.ListView3.View = System.Windows.Forms.View.Details
+        '
+        'Label30
+        '
+        Me.Label30.Location = New System.Drawing.Point(15, 21)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(53, 30)
+        Me.Label30.TabIndex = 54
+        Me.Label30.Text = "Default"
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.Panel3)
+        Me.TabPage6.Controls.Add(Me.Label43)
+        Me.TabPage6.Controls.Add(Me.TextBox18)
+        Me.TabPage6.Controls.Add(Me.CheckBox2)
+        Me.TabPage6.Controls.Add(Me.Button1)
+        Me.TabPage6.Controls.Add(Me.Button2)
+        Me.TabPage6.Controls.Add(Me.Button3)
+        Me.TabPage6.Controls.Add(Me.Label31)
+        Me.TabPage6.Controls.Add(Me.TextBox8)
+        Me.TabPage6.Controls.Add(Me.Label32)
+        Me.TabPage6.Controls.Add(Me.TextBox9)
+        Me.TabPage6.Controls.Add(Me.Label33)
+        Me.TabPage6.Controls.Add(Me.TextBox10)
+        Me.TabPage6.Controls.Add(Me.Label34)
+        Me.TabPage6.Controls.Add(Me.TextBox11)
+        Me.TabPage6.Controls.Add(Me.ListView4)
+        Me.TabPage6.Controls.Add(Me.Label35)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(1232, 495)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Forwarder"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'Panel3
+        '
+        Me.Panel3.Location = New System.Drawing.Point(0, 21)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(19, 37)
+        Me.Panel3.TabIndex = 1
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(1031, 21)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(73, 13)
+        Me.Label43.TabIndex = 56
+        Me.Label43.Text = "Keterangan"
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(1034, 37)
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.Size = New System.Drawing.Size(175, 21)
+        Me.TextBox18.TabIndex = 55
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(37, 37)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox2.TabIndex = 53
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ImageIndex = 4
+        Me.Button1.ImageList = Me.ImageList1
+        Me.Button1.Location = New System.Drawing.Point(1180, 9)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(29, 25)
+        Me.Button1.TabIndex = 52
+        Me.Button1.Tag = "5"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageIndex = 2
+        Me.Button2.ImageList = Me.ImageList1
+        Me.Button2.Location = New System.Drawing.Point(1149, 9)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(29, 25)
+        Me.Button2.TabIndex = 51
+        Me.Button2.Tag = "5"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ImageIndex = 3
+        Me.Button3.ImageList = Me.ImageList1
+        Me.Button3.Location = New System.Drawing.Point(1118, 9)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(29, 25)
+        Me.Button3.TabIndex = 50
+        Me.Button3.Tag = "5"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(805, 21)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(31, 13)
+        Me.Label31.TabIndex = 49
+        Me.Label31.Text = "Telp"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(808, 37)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox8.TabIndex = 48
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(300, 21)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(26, 13)
+        Me.Label32.TabIndex = 47
+        Me.Label32.Text = "PIC"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(303, 37)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox9.TabIndex = 46
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(526, 21)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(48, 13)
+        Me.Label33.TabIndex = 45
+        Me.Label33.Text = "Alamat"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Location = New System.Drawing.Point(529, 37)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(273, 21)
+        Me.TextBox10.TabIndex = 44
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(74, 21)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(94, 13)
+        Me.Label34.TabIndex = 43
+        Me.Label34.Text = "Nama Ekspedisi"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(77, 37)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(220, 21)
+        Me.TextBox11.TabIndex = 42
+        '
+        'ListView4
+        '
+        Me.ListView4.FullRowSelect = True
+        Me.ListView4.GridLines = True
+        Me.ListView4.Location = New System.Drawing.Point(18, 64)
+        Me.ListView4.Name = "ListView4"
+        Me.ListView4.Size = New System.Drawing.Size(1191, 409)
+        Me.ListView4.TabIndex = 41
+        Me.ListView4.UseCompatibleStateImageBehavior = False
+        Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'Label35
+        '
+        Me.Label35.Location = New System.Drawing.Point(15, 21)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(53, 30)
+        Me.Label35.TabIndex = 54
+        Me.Label35.Text = "Default"
         '
         'ToolStrip1
         '
@@ -810,6 +1413,12 @@ Partial Class frmSupplier
         Me.TabPage1.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -875,4 +1484,59 @@ Partial Class frmSupplier
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents txtCTPBNo As System.Windows.Forms.TextBox
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView5 As System.Windows.Forms.ListView
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents btnAddD As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD As System.Windows.Forms.Button
+    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView3 As System.Windows.Forms.ListView
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents TextBox18 As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
+    Friend WithEvents ListView4 As System.Windows.Forms.ListView
+    Friend WithEvents Label35 As System.Windows.Forms.Label
 End Class

@@ -141,7 +141,6 @@ Partial Class FTR_Induction
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Label57 = New System.Windows.Forms.Label()
@@ -1445,7 +1444,6 @@ Partial Class FTR_Induction
         Me.Panel9.Controls.Add(Me.TextBox12)
         Me.Panel9.Controls.Add(Me.TextBox11)
         Me.Panel9.Controls.Add(Me.TextBox10)
-        Me.Panel9.Controls.Add(Me.Label54)
         Me.Panel9.Controls.Add(Me.Label55)
         Me.Panel9.Controls.Add(Me.Label56)
         Me.Panel9.Controls.Add(Me.Label57)
@@ -1500,21 +1498,11 @@ Partial Class FTR_Induction
         Me.TextBox10.Size = New System.Drawing.Size(219, 21)
         Me.TextBox10.TabIndex = 0
         '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label54.Location = New System.Drawing.Point(12, 150)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(52, 13)
-        Me.Label54.TabIndex = 11
-        Me.Label54.Text = "Custom 7"
-        '
         'Label55
         '
         Me.Label55.AutoSize = True
         Me.Label55.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label55.Location = New System.Drawing.Point(12, 125)
+        Me.Label55.Location = New System.Drawing.Point(12, 150)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(52, 13)
         Me.Label55.TabIndex = 10
@@ -1524,7 +1512,7 @@ Partial Class FTR_Induction
         '
         Me.Label56.AutoSize = True
         Me.Label56.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label56.Location = New System.Drawing.Point(12, 103)
+        Me.Label56.Location = New System.Drawing.Point(12, 123)
         Me.Label56.Name = "Label56"
         Me.Label56.Size = New System.Drawing.Size(52, 13)
         Me.Label56.TabIndex = 9
@@ -1534,7 +1522,7 @@ Partial Class FTR_Induction
         '
         Me.Label57.AutoSize = True
         Me.Label57.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label57.Location = New System.Drawing.Point(12, 80)
+        Me.Label57.Location = New System.Drawing.Point(12, 96)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(52, 13)
         Me.Label57.TabIndex = 8
@@ -1544,7 +1532,7 @@ Partial Class FTR_Induction
         '
         Me.Label58.AutoSize = True
         Me.Label58.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label58.Location = New System.Drawing.Point(12, 58)
+        Me.Label58.Location = New System.Drawing.Point(12, 69)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(52, 13)
         Me.Label58.TabIndex = 7
@@ -1554,7 +1542,7 @@ Partial Class FTR_Induction
         '
         Me.Label59.AutoSize = True
         Me.Label59.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label59.Location = New System.Drawing.Point(12, 33)
+        Me.Label59.Location = New System.Drawing.Point(10, 42)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(52, 13)
         Me.Label59.TabIndex = 6
@@ -1564,7 +1552,7 @@ Partial Class FTR_Induction
         '
         Me.Label60.AutoSize = True
         Me.Label60.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label60.Location = New System.Drawing.Point(12, 11)
+        Me.Label60.Location = New System.Drawing.Point(12, 16)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(52, 13)
         Me.Label60.TabIndex = 5
@@ -2668,7 +2656,6 @@ Partial Class FTR_Induction
     Friend WithEvents Label61 As System.Windows.Forms.Label
     Friend WithEvents Label62 As System.Windows.Forms.Label
     Friend WithEvents Panel9 As System.Windows.Forms.Panel
-    Friend WithEvents Label54 As System.Windows.Forms.Label
     Friend WithEvents Label55 As System.Windows.Forms.Label
     Friend WithEvents Label56 As System.Windows.Forms.Label
     Friend WithEvents Label57 As System.Windows.Forms.Label

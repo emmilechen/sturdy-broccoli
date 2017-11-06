@@ -22,17 +22,52 @@ Public Class frmSupplier
             .ListView1.Columns(0).DisplayIndex = .ListView1.Columns.Count - 1
             .ListView1.CheckBoxes = False
         End With
+        With Me 'rekening
+            .ListView5.Columns.Clear()
+            .ListView5.Columns.Add("Kolom 0", "pk", 0)
+            .ListView5.Columns.Add("Kolom 1", "Default", Me.Label40.Width + 5)
+            .ListView5.Columns.Add("Kolom 2", "Nama Pemilik Rekening", Me.TextBox15.Width + 5)
+            .ListView5.Columns.Add("Kolom 3", "Nama Bank", Me.TextBox13.Width + 5)
+            .ListView5.Columns.Add("Kolom 4", "Alamat Bank", Me.TextBox14.Width + 5)
+            .ListView5.Columns.Add("Kolom 5", "No. Rekening", Me.TextBox12.Width + 5)
+            .ListView5.Columns.Add("Kolom 6", "Keterangan", Me.TextBox16.Width + 5)
+        End With
+        With Me 'delivery address
+            .ListView3.Columns.Clear()
+            .ListView3.Columns.Add("Kolom 0", "pk", 0)
+            .ListView3.Columns.Add("Kolom 1", "Default", Me.Label30.Width + 5)
+            .ListView3.Columns.Add("Kolom 2", "Nama Instansi", Me.TextBox3.Width + 5)
+            .ListView3.Columns.Add("Kolom 3", "PIC", Me.TextBox5.Width + 5)
+            .ListView3.Columns.Add("Kolom 4", "Alamat", Me.TextBox4.Width + 5)
+            .ListView3.Columns.Add("Kolom 5", "Telp", Me.TextBox6.Width + 5)
+            .ListView3.Columns.Add("Kolom 6", "Keterangan", Me.TextBox17.Width + 5)
+        End With
+        With Me 'ekspedisi
+            .ListView4.Columns.Clear()
+            .ListView4.Columns.Add("Kolom 0", "pk", 0)
+            .ListView4.Columns.Add("Kolom 1", "Default", Me.Label35.Width + 5)
+            .ListView4.Columns.Add("Kolom 2", "Nama Ekspedisi", Me.TextBox11.Width + 5)
+            .ListView4.Columns.Add("Kolom 3", "PIC", Me.TextBox9.Width + 5)
+            .ListView4.Columns.Add("Kolom 4", "Alamat", Me.TextBox10.Width + 5)
+            .ListView4.Columns.Add("Kolom 5", "Telp", Me.TextBox8.Width + 5)
+            .ListView4.Columns.Add("Kolom 6", "Keterangan", Me.TextBox18.Width + 5)
+        End With
         Me.btncancel.Enabled = False
         Me.btndelete.Enabled = False
         Me.TabControl1.SelectedTab = Me.TabPage1
-        Me.cmbCTitle.Focus()
+        Me.TabPage2.Enabled = False : Me.TabPage3.Enabled = False : Me.TabPage4.Enabled = False : Me.TabPage5.Enabled = False : Me.TabPage6.Enabled = False
+        Me.Text = "Customer" : Me.cmbCTitle.Focus()
     End Sub
     Private Function isirecord(ByVal guidno As Integer)
         'Me.txtguid.Text = guidno ' : Me.txtkode.Text = guidno
         Me.ListView1.CheckBoxes = True
         Fillobject(Me.txtguid, Me.TabPage1, "select", "sp_mt_supplier", Me.txtguid.Text, "@s_id") : clear_lvw2()
         opensearchform(Me.ListView1, "primarykey", "sys_dropdown_sort", "sys_dropdown_id, sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr in ('machine_division')", "sys_dropdown_sort", 0)
-        Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
+        viewdataonlv(Me.ListView5, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.Button6.Tag & ")", "isdefault", 0)
+        viewdataonlv(Me.ListView3, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.btnSaveD.Tag & ")", "isdefault", 0)
+        viewdataonlv(Me.ListView4, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.Button3.Tag & ")", "isdefault", 0)
+        Me.Text = "Customer - " & Me.txtSName.Text : Me.btncancel.Enabled = True : Me.btndelete.Enabled = True
+        Me.TabPage2.Enabled = True : Me.TabPage3.Enabled = True : Me.TabPage4.Enabled = True : Me.TabPage5.Enabled = True : Me.TabPage6.Enabled = True
     End Function
     Private Function opensearchform(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
         On Error Resume Next
@@ -241,7 +276,6 @@ Public Class frmSupplier
 
         End If
     End Sub
-
     Private Sub ListView1_ItemChecked(sender As Object, e As System.Windows.Forms.ItemCheckedEventArgs) Handles ListView1.ItemChecked
         If Me.txtSCode.Text = "" Then Exit Sub
         If Me.ListView1.SelectedItems.Count = 1 Then
@@ -253,4 +287,107 @@ Public Class frmSupplier
 
         End If
     End Sub
+    Private Function insertupdate(tugas As String, jobstatus As Integer, pk As Integer, isaktif As Integer, teks1 As String, teks2 As String, teks3 As String, teks4 As String, teks5 As String) As Boolean
+        insertupdate = Executestr("EXEC sp_rt_customer '" & tugas & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "','" & My.Settings.UserName & "','" & pk & "','" & Me.txtguid.Text & "','" & jobstatus & "','" & isaktif & "','" & teks1 & "','" & teks2 & "','" & teks3 & "','" & teks4 & "','" & teks5 & "','0'")
+    End Function
+    Private Function viewdataonlv(ByVal namalistview As ListView, ByVal strfield1 As String, ByVal strfield2 As String, ByVal strfield3 As String, ByVal strtabel As String, ByVal strwhr As String, ByVal strord As String, Optional openargs As Integer = 0) As String
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim str(10) As String, strsql As String
+        Dim itm As ListViewItem
+        Dim dr As SqlDataReader, ix As Integer = 0
+        If cn.State = ConnectionState.Closed Then cn.Open()
+        With namalistview
+            .Items.Clear()
+            strsql = "SELECT " & strfield1 & ", " & strfield2 & ", " & strfield3 & " FROM " & strtabel & " where " & strwhr & " order by " & strord
+            cmd = New SqlCommand(strsql, cn)
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                Do While dr.Read()
+                    str(0) = IIf(IsDBNull(dr.Item(0).ToString()), "#", dr.Item(0).ToString())
+                    str(1) = IIf(IsDBNull(dr.Item(1).ToString()), "#", dr.Item(1).ToString())
+                    str(2) = IIf(IsDBNull(dr.Item(2).ToString()), "#", dr.Item(2).ToString())
+                    str(3) = IIf(IsDBNull(dr.Item(3).ToString()), "#", dr.Item(3).ToString())
+                    str(4) = IIf(IsDBNull(dr.Item(4).ToString()), "#", dr.Item(4).ToString())
+                    str(5) = IIf(IsDBNull(dr.Item(5).ToString()), "#", dr.Item(5).ToString())
+                    str(6) = IIf(IsDBNull(dr.Item(6).ToString()), "#", dr.Item(6).ToString())
+                    itm = New ListViewItem(str)
+                    .Items.Add(itm)
+                    'If Me.txtguid.Text <> "" Then namalistview.Items(CInt(ix)).Checked = IIf(GetCurrentID("pk_mesin_id", "rt_mesin_div", "flag_id=2 and pk_mesin_id='" & Me.txtCCode.Text & "' and pk_mesin_idf='" & dr.Item(0).ToString() & "'") = Me.txtCCode.Text, True, False)
+                    ix = ix + 1
+                Loop
+            End If
+            dr.Close()
+            cmd.Dispose()
+        End With
+    End Function
+    'bank account
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+        If insertupdate(IIf(Me.CheckBox3.Tag = "", "insert", "update"), Me.Button6.Tag, IIf(Me.CheckBox3.Tag = "", 0, Me.CheckBox3.Tag), getvalcheck(Me.CheckBox3.Checked), Me.TextBox15.Text, Me.TextBox13.Text, Me.TextBox14.Text, Me.TextBox12.Text, Me.TextBox16.Text) Then viewdataonlv(Me.ListView5, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.Button6.Tag & ")", "isdefault", 0) : Me.CheckBox3.Tag = "" : ClearObjectonForm(Me.TabPage4) : Me.TextBox15.Select()
+    End Sub
+    Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
+        If Me.CheckBox3.Tag = "" Then Exit Sub
+        insertupdate("delete", Me.Button6.Tag, IIf(Me.CheckBox3.Tag = "", 0, Me.CheckBox3.Tag), getvalcheck(Me.CheckBox3.Checked), Me.TextBox15.Text, Me.TextBox13.Text, Me.TextBox14.Text, Me.TextBox12.Text, Me.TextBox16.Text)
+    End Sub
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+        Me.CheckBox3.Tag = "" : ClearObjectonForm(Me.TabPage4) : Me.TextBox15.Select()
+    End Sub
+    Private Sub ListView5_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView5.SelectedIndexChanged
+        If ListView5.SelectedItems.Count > 0 Then
+            Me.CheckBox3.Tag = Me.ListView5.Items(ListView5.FocusedItem.Index).Text
+            Me.CheckBox3.Checked = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox15.Text = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox13.Text = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox14.Text = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(4).Text
+            Me.TextBox12.Text = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(5).Text
+            Me.TextBox16.Text = Me.ListView5.Items(ListView5.FocusedItem.Index).SubItems(6).Text
+        End If
+    End Sub
+    'delivery address
+    Private Sub btnSaveD_Click(sender As System.Object, e As System.EventArgs) Handles btnSaveD.Click
+        If insertupdate(IIf(Me.CheckBox1.Tag = "", "insert", "update"), Me.btnSaveD.Tag, IIf(Me.CheckBox1.Tag = "", 0, Me.CheckBox1.Tag), getvalcheck(Me.CheckBox1.Checked), Me.TextBox3.Text, Me.TextBox5.Text, Me.TextBox4.Text, Me.TextBox6.Text, Me.TextBox17.Text) Then viewdataonlv(Me.ListView3, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.btnSaveD.Tag & ")", "isdefault", 0) : Me.CheckBox1.Tag = "" : ClearObjectonForm(Me.TabPage5) : Me.TextBox3.Select()
+    End Sub
+    Private Sub btnDeleteD_Click(sender As System.Object, e As System.EventArgs) Handles btnDeleteD.Click
+        If Me.CheckBox1.Tag = "" Then Exit Sub
+        insertupdate("delete", Me.btnSaveD.Tag, IIf(Me.CheckBox1.Tag = "", 0, Me.CheckBox1.Tag), getvalcheck(Me.CheckBox1.Checked), Me.TextBox3.Text, Me.TextBox5.Text, Me.TextBox4.Text, Me.TextBox6.Text, Me.TextBox17.Text)
+    End Sub
+    Private Sub btnAddD_Click(sender As System.Object, e As System.EventArgs) Handles btnAddD.Click
+        Me.CheckBox1.Tag = "" : ClearObjectonForm(Me.TabPage5) : Me.TextBox3.Select()
+    End Sub
+    Private Sub ListView3_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView3.SelectedIndexChanged
+        If ListView3.SelectedItems.Count > 0 Then
+            Me.CheckBox1.Tag = Me.ListView3.Items(ListView3.FocusedItem.Index).Text
+            Me.CheckBox1.Checked = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox3.Text = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox5.Text = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox4.Text = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(4).Text
+            Me.TextBox6.Text = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(5).Text
+            Me.TextBox17.Text = Me.ListView3.Items(ListView3.FocusedItem.Index).SubItems(6).Text
+        End If
+    End Sub
+    'forwarder
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        If insertupdate(IIf(Me.CheckBox2.Tag = "", "insert", "update"), Me.Button3.Tag, IIf(Me.CheckBox2.Tag = "", 0, Me.CheckBox2.Tag), getvalcheck(Me.CheckBox2.Checked), Me.TextBox11.Text, Me.TextBox9.Text, Me.TextBox10.Text, Me.TextBox8.Text, Me.TextBox18.Text) Then viewdataonlv(Me.ListView4, "primarykey", "isdefault", "text1, text2, text3, text4, text5", "rt_customer", "c_idf=" & Me.txtguid.Text & " AND statusdata in (" & Me.Button3.Tag & ")", "isdefault", 0) : Me.CheckBox2.Tag = "" : ClearObjectonForm(Me.TabPage6) : Me.TextBox11.Select()
+    End Sub
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        If Me.CheckBox1.Tag = "" Then Exit Sub
+        insertupdate("delete", Me.Button3.Tag, IIf(Me.CheckBox2.Tag = "", 0, Me.CheckBox2.Tag), getvalcheck(Me.CheckBox2.Checked), Me.TextBox11.Text, Me.TextBox9.Text, Me.TextBox10.Text, Me.TextBox8.Text, Me.TextBox18.Text)
+    End Sub
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        Me.CheckBox2.Tag = "" : ClearObjectonForm(Me.TabPage6) : Me.TextBox11.Select()
+    End Sub
+    Private Sub ListView4_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView4.SelectedIndexChanged
+        If ListView4.SelectedItems.Count > 0 Then
+            Me.CheckBox2.Tag = Me.ListView4.Items(ListView4.FocusedItem.Index).Text
+            Me.CheckBox2.Checked = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(1).Text
+            Me.TextBox11.Text = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(2).Text
+            Me.TextBox9.Text = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(3).Text
+            Me.TextBox10.Text = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(4).Text
+            Me.TextBox8.Text = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(5).Text
+            Me.TextBox18.Text = Me.ListView4.Items(ListView4.FocusedItem.Index).SubItems(6).Text
+        End If
+    End Sub
+
+  
+    
 End Class

@@ -22,6 +22,8 @@ Public Class frmUserAccess
             clear_lvw()
         End If
         m_UserAccessId = 0
+        Me.btnEdit.Visible = True
+        Me.btnEdit.Top = 0
         'view_record()
         'btnEdit_Click(sender, e)
     End Sub
@@ -321,5 +323,113 @@ Public Class frmUserAccess
                 btnAdd_Click(sender, e)
             End If
         End If
+    End Sub
+
+    Private Sub CheckBox11_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox11.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox10_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox10.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox9_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox9.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox8_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox8.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox7_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox7.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox6_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox6.CheckedChanged
+
+    End Sub
+
+    Private Sub Label15_Click(sender As System.Object, e As System.EventArgs) Handles Label15.Click
+
+    End Sub
+
+    Private Sub Label14_Click(sender As System.Object, e As System.EventArgs) Handles Label14.Click
+
+    End Sub
+
+    Private Sub Label13_Click(sender As System.Object, e As System.EventArgs) Handles Label13.Click
+
+    End Sub
+
+    Private Sub Label12_Click(sender As System.Object, e As System.EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub Label11_Click(sender As System.Object, e As System.EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub Label10_Click(sender As System.Object, e As System.EventArgs) Handles Label10.Click
+
+    End Sub
+
+    Private Sub Label16_Click(sender As System.Object, e As System.EventArgs) Handles Label16.Click
+
+    End Sub
+
+    Private Sub txtFormDescription_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtFormDescription.TextChanged
+
+    End Sub
+
+    Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub chbFormView_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormView.CheckedChanged
+
+    End Sub
+
+    Private Sub Label9_Click(sender As System.Object, e As System.EventArgs) Handles Label9.Click
+
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormEdit.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormDelete.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormCancel.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox4_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormSave.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckBox5_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chbFormFind.CheckedChanged
+
+    End Sub
+
+    Private Sub Label4_Click(sender As System.Object, e As System.EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label5_Click(sender As System.Object, e As System.EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub Label6_Click(sender As System.Object, e As System.EventArgs) Handles Label6.Click
+
+    End Sub
+
+    Private Sub Label7_Click(sender As System.Object, e As System.EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As System.Object, e As System.EventArgs) Handles Label8.Click
+
     End Sub
 End Class

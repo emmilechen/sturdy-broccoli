@@ -20,7 +20,7 @@ Public Class FTR_Induction
         AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_name+', '+c_title", "mt_customer", "c_code<>''", "c_name")
         AssignValuetoCombo(Me.ComboBox2, "", "user_id", "user_fname", "mt_user", "issales=1", "user_fname")
         AssignValuetoCombo(Me.ComboBox3, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=1", "sku_name")
-        AssignValuetoCombo(Me.ComboBox4, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=0", "sku_name")
+        AssignValuetoCombo(Me.ComboBox4, "", "mc_id", "mc_no", "tr_mc", "mc_no<>''", "mc_no")
         AssignValuetoCombo(Me.ComboBox5, "", "sys_dropdown_id", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='sid_status'", "sys_dropdown_sort")
 
         AssignValuetoCombo(Me.ComboBox6, "", "user_fname", "user_fname", "mt_user", "user_fname<>''", "user_fname")
@@ -320,7 +320,6 @@ Public Class FTR_Induction
         Dim xno As String
         'If Me.txtguid.Text <> "" Then xno = Me.txtguid.Text : isirecord(xno)
     End Sub
-
     Private Sub cmdsave_Click(sender As System.Object, e As System.EventArgs) Handles cmdsave.Click
         Dim strsql As String
         If ComboBox5.SelectedValue = "" Then Exit Sub

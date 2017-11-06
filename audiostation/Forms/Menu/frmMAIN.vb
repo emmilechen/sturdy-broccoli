@@ -102,11 +102,13 @@ Public Class frmMAIN
         Me.Controls.Add(menu)
     End Sub
     Private Function openformcommon(namaform As Form)
-        'If Not GetPermission("frmUser") = False Then
+        Dim FormInstanceType As String = namaform.Name.ToString
+        'If Not GetPermission(FormInstanceType) Then Exit Function
         namaform.MdiParent = Me
         namaform.Show()
         namaform.BringToFront()
         namaform.Top = 0 : namaform.Left = 0
+
     End Function
     Private Function openformutility(openargs As String, judul As String)
         Me.Cursor = Cursors.AppStarting
@@ -1431,5 +1433,8 @@ Public Class frmMAIN
     End Sub
     Private Sub MachineDivisionToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles MachineDivisionToolStripMenuItem1.Click
         openformutility(sender.Tag.ToString, sender.ToString)
+    End Sub
+    Private Sub MasterCardToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MasterCardToolStripMenuItem.Click
+        openformcommon(ftr_mc)
     End Sub
 End Class

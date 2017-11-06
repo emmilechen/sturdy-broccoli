@@ -118,9 +118,15 @@ Public Class FDLSearch
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"
-            Case Is = 7 'absen produksi
+            Case Is = 7 'costing
                 xfield0 = "cost_id" : xfield1 = "cost_no" : xfield2 = "cost_date" : xfield3 = "c_name+' ~'+cost_note" : xtable = "tr_costing a inner join mt_customer b on a.customer_id_f=b.c_id "
                 opensearchform(xfield0 & ", " & xfield1, xfield2, xfield3, xtable, "cost_no<>''", "cost_no", Me.txtopenargs.Text)
+                Me.ComboBox2.Items.Clear()
+                Me.ComboBox2.Items.Add("<--ALL-->")
+                Me.ComboBox2.Text = "<--ALL-->"
+            Case Is = 8 'master card
+                xfield0 = "mc_id" : xfield1 = "mc_no" : xfield2 = "mc_date" : xfield3 = "c_name+' ~'+revisiket" : xtable = "tr_mc a inner join mt_customer b on a.cust_idf=b.c_id "
+                opensearchform(xfield0 & ", " & xfield1, xfield2, xfield3, xtable, "mc_no<>''", "mc_no", Me.txtopenargs.Text)
                 Me.ComboBox2.Items.Clear()
                 Me.ComboBox2.Items.Add("<--ALL-->")
                 Me.ComboBox2.Text = "<--ALL-->"

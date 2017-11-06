@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 Public Class ftr_scosting
     Dim strConnection As String = My.Settings.ConnStr
     Private strConn As String = My.Settings.ConnStr
@@ -27,6 +29,7 @@ Public Class ftr_scosting
 
         AssignValuetoCombo(Me.ComboBox8, "", "sys_dropdown_sort", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='costing_status'", "sys_dropdown_sort") : Me.ComboBox8.SelectedValue = 0
         With Me
+            'BEGIN LIISTVIEW1
             .ListView1.Columns.Clear()
             .ListView1.Columns.Add("Kolom 0", "guid", 0)
 
@@ -60,6 +63,31 @@ Public Class ftr_scosting
             .ListView1.Columns.Add("Kolom 8.2", "Unit_5", Me.ComboBox13.Width + 5)
 
             .ListView1.Columns.Add("Kolom 9", "Jumlah", Me.TextBox19.Width + 33)
+            'END LIISTVIEW1
+
+            'BEGIN LV_UKURAN
+            .lv_ukuran.Columns.Clear()
+            .lv_ukuran.Columns.Add("Kolom 0", "guid", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "A", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "B", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "C", 0)
+
+            .lv_ukuran.Columns.Add("Kolom 1", "A", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "B", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "C", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "Out", 0)
+
+            .lv_ukuran.Columns.Add("Kolom 1", "A", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "B", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "C", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "Out", 0)
+
+            .lv_ukuran.Columns.Add("Kolom 1", "A", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "B", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "C", 0)
+            .lv_ukuran.Columns.Add("Kolom 1", "Out", 0)
+            'END LV_UKURAN
+
         End With
         Me.txtguid.Text = "0" : Me.txtguid_d.Text = "0" : Me.btnSaveD.Tag = "N"
         Me.ListView1.Items.Clear()
@@ -212,7 +240,36 @@ err_cmdsave_Click:
         Me.Close()
     End Sub
     Private Sub cmdprint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdprint.Click
+        Dim strConnection As String = My.Settings.ConnStr
+        Dim Connection As New SqlConnection(strConnection)
+        Dim strSQL As String
 
+        strSQL = "exec RPT_Costing_Form " & Me.txtguid.Text
+        Dim DA As New SqlDataAdapter(strSQL, Connection)
+        Dim DS As New DataSet
+
+        DA.Fill(DS, "SO_")
+
+        Dim strReportPath As String = Application.StartupPath & "\Reports\RPT_Costing_Form_b.rpt"
+
+        If Not IO.File.Exists(strReportPath) Then
+            Throw (New Exception("Unable to locate report file:" & _
+              vbCrLf & strReportPath))
+        End If
+
+        Dim cr As New ReportDocument
+        Dim NewMDIChild As New frmDocViewer()
+        NewMDIChild.Text = "Induction Form"
+        NewMDIChild.Show()
+
+        cr.Load(strReportPath)
+        cr.SetDataSource(DS.Tables("SO_"))
+        With NewMDIChild
+            .myCrystalReportViewer.ShowRefreshButton = False
+            .myCrystalReportViewer.ShowCloseButton = False
+            .myCrystalReportViewer.ShowGroupTreeButton = False
+            .myCrystalReportViewer.ReportSource = cr
+        End With
     End Sub
     Private Sub txtguid_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtguid.TextChanged
         If Me.cmdsave.Tag = "X" Then Exit Sub
@@ -343,6 +400,7 @@ err_cmdsave_Click:
         Me.TextBox16.Text = "0"
         Me.TextBox17.Text = "0"
         Me.TextBox18.Text = "0"
+        Me.TextBox19.Text = "0"
         AssignValuetoCombo(Me.ComboBox6, "", "primarykey", "sys_dropdown_val", "sys_dropdown", "sys_dropdown_whr='production_cost_component' and primarykey not in (" & loopthroughlistview(Me.ListView1, 1, "") & ")", "sys_dropdown_sort")
         Me.ComboBox6.SelectedValue = ""
         If Me.ListView1.Items.Count > 0 Then Me.TextBox20.Text = loopthroughlistview(Me.ListView1, 22, "", True) : Me.TextBox21.Text = Me.TextBox20.Text / Me.TextBox2.Text : Me.TextBox22.Text = ((Me.TextBox26.Text - Me.TextBox21.Text) / Me.TextBox26.Text) * 100 : Me.TextBox20.Text = FormatNumber(IIf(Me.TextBox20.Text = "", 0, Me.TextBox20.Text), 2)
@@ -413,5 +471,8 @@ err_cmdsave_Click:
     End Sub
     Private Sub btnDeleteD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD.Click
         MsgBox("Temporarily this function is disabled !", MsgBoxStyle.Information, "Costing")
+    End Sub
+    Private Sub Button9_Click(sender As System.Object, e As System.EventArgs) Handles Button9.Click
+
     End Sub
 End Class
