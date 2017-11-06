@@ -94,13 +94,15 @@ Module modFunction
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@user_level_id", SqlDbType.Int, 50)
         prm1.Value = p_UserLevel
-        Dim prm2 As SqlParameter = cmd.Parameters.Add("@form_name", SqlDbType.NVarChar, 50)
-        prm2.Value = FormName
+        Dim prm2 As SqlParameter = cmd.Parameters.Add("@user_access_id", SqlDbType.Int, 50)
+        prm2.Value = 0
+        Dim prm3 As SqlParameter = cmd.Parameters.Add("@form_name", SqlDbType.NVarChar, 50)
+        prm3.Value = FormName
 
         If cn.State = Data.ConnectionState.Closed Then cn.Open()
         Dim myReader As SqlDataReader = cmd.ExecuteReader()
         While myReader.Read()
-            GetPermission = myReader.GetBoolean(3)
+            GetPermission = CBool(myReader.GetValue(3).ToString)
             If GetPermission = False Then
                 MsgBox("You don't have authority to open the form. Please contact your administrator.", vbCritical + vbOKOnly, myReader.GetString(2))
             End If
@@ -144,7 +146,7 @@ Module modFunction
             If cn.State = Data.ConnectionState.Closed Then cn.Open()
             Dim myReader As SqlDataReader = cmd.ExecuteReader()
             While myReader.Read
-                formDelete = myReader.GetBoolean(4)
+                formDelete = CBool(myReader.GetValue(4))
             End While
             myReader.Close()
             cn.Close()
@@ -153,6 +155,7 @@ Module modFunction
             Else
                 Return False
             End If
+            Exit Function
         Catch ex As Exception
             MsgBox(ex.Message)
             If ConnectionState.Open = 1 Then cn.Close()
@@ -614,10 +617,70 @@ Module modFunction
             Exit Function
         End Try
     End Function
+    Public Function FillSysInit(ByVal task As Boolean, ByVal root As Control, ByVal namasp As String) As Boolean
+        Dim sqlComm As New SqlCommand()
+        Dim strConn As String = My.Settings.ConnStr
+        Try
+            Dim sqlCon = New SqlConnection(strConn)
+            Using (sqlCon)
+                sqlCon.Open()
+                '=====================BEGIN=====================
+                For Each ctrl As Control In root.Controls
+                    If ctrl.Tag <> "" Or ctrl.Tag <> Nothing Then
+                        Dim nilai As String
+                            'cek dulu ada ga object yg dimaksud
+                            Dim strsqlexec As String = "select * from " & namasp & " where sys_init_id='" & ctrl.Tag & "'"
+                            sqlComm = New SqlCommand(strsqlexec, sqlCon)
+                            Dim sqlReader As SqlDataReader = sqlComm.ExecuteReader()
+                        If sqlReader.Read Then
+                            If task Then 'select
+                                If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
+                                    ctrl.Text = IIf(sqlReader.Item(2).ToString = Decimal.Ceiling(sqlReader.Item(2).ToString), Decimal.ToInt32(sqlReader.Item(2).ToString).ToString(), sqlReader.Item(2).ToString)
+                                Else 'kalo outputnya ga ada field ybs, maka gagal
+                                    If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(2).ToString = "False", "0", IIf(sqlReader.Item(2).ToString = "True", "1", sqlReader.Item(2).ToString))
+                                    If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(2).ToString 'sqlReader.Item("sys_init_val").ToString
+                                    If TypeOf ctrl Is CheckBox Then CType(ctrl, CheckBox).Checked = getvalcheck(sqlReader.Item(2).ToString)
+                                End If
+                            Else 'update
+                                If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then nilai = ctrl.Text '= IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
+                                If TypeOf ctrl Is ComboBox Then nilai = CType(ctrl, ComboBox).SelectedValue ' = sqlReader.Item(ctrl.Tag).ToString
+                                If TypeOf ctrl Is CheckBox Then nilai = CType(ctrl, CheckBox).Checked '= CBool(sqlReader.Item(ctrl.Tag).ToString)
+                                Executestr("update sys_init SET modified='" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "',modifiedby='" & My.Settings.UserName & "',sys_init_val='" & nilai & "' WHERE sys_init_id='" & ctrl.Tag & "'") ' values ('" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "','" & ctrl.Tag & "','" & ctrl.Tag & "','" & nilai & "')")
+                            End If
+                        Else
+                            'insert to table
+                            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then nilai = ctrl.Text '= IIf(sqlReader.Item(ctrl.Tag).ToString = "False", "0", IIf(sqlReader.Item(ctrl.Tag).ToString = "True", "1", sqlReader.Item(ctrl.Tag).ToString))
+                            If TypeOf ctrl Is ComboBox Then nilai = CType(ctrl, ComboBox).SelectedValue ' = sqlReader.Item(ctrl.Tag).ToString
+                            If TypeOf ctrl Is CheckBox Then nilai = CType(ctrl, CheckBox).Checked '= CBool(sqlReader.Item(ctrl.Tag).ToString)
+                            Executestr("insert into sys_init(created,createdby,modified,modifiedby,sys_init_id, sys_init_desc, sys_init_val) values ('" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "', '" & Format(Date.Now(), "MM/dd/yyyy hh:mm:ss tt") & "', '" & My.Settings.UserName & "','" & ctrl.Tag & "','" & ctrl.Tag & "','" & nilai & "')")
+                            If task Then 'select
+                                If Microsoft.VisualBasic.Right(ctrl.Tag, 3) = "val" Then
+                                    ctrl.Text = IIf(sqlReader.Item(ctrl.Tag).ToString = Decimal.Ceiling(sqlReader.Item(ctrl.Tag).ToString), Decimal.ToInt32(sqlReader.Item(ctrl.Tag).ToString).ToString(), sqlReader.Item(ctrl.Tag).ToString)
+                                Else 'kalo outputnya ga ada field ybs, maka gagal
+                                    If TypeOf ctrl Is TextBox Or TypeOf ctrl Is DateTimePicker Then ctrl.Text = IIf(sqlReader.Item(2).ToString = "False", "0", IIf(sqlReader.Item(2).ToString = "True", "1", sqlReader.Item(2).ToString))
+                                    If TypeOf ctrl Is ComboBox Then CType(ctrl, ComboBox).SelectedValue = sqlReader.Item(2).ToString 'sqlReader.Item("sys_init_val").ToString
+                                    If TypeOf ctrl Is CheckBox Then CType(ctrl, CheckBox).Checked = getvalcheck(sqlReader.Item(2).ToString)
+                                End If
+                            End If
+                        End If
+                            sqlComm.Dispose() : sqlReader.Close()
+                    End If
+                Next ctrl
+                '=====================END=====================
+                sqlCon.Close()
+            End Using
+            FillSysInit = True
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Information, "-")
+            FillSysInit = False
+            Exit Function
+        End Try
+    End Function
     Public Function AssignValuetoCombo(ByVal namacombo As ComboBox, strunion As String, fieldkey As String, fieldteks As String, namatabel As String, kondisi As String, sortby As String, Optional defaultval As String = "")
         On Error Resume Next
         '==========================================Fill Combo Template=========================================
-        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by nama", cn)
+        Dim DA As New SqlDataAdapter(strunion & "select " & fieldkey & " as guidstr, " & fieldteks & " as nama from " & namatabel & " where " & kondisi & " order by " & sortby, cn)
         Dim DS As New DataSet
 
         DA.Fill(DS, "event")
@@ -650,6 +713,27 @@ Module modFunction
         DA.Dispose()
         DS.Dispose()
         '==========================================END Fill combo Combo1=========================================
+    End Function
+    Public Function GetInit(ByVal initName As String, ByVal System As Boolean) As String
+        On Error Resume Next
+        Dim cmd As SqlCommand
+        Dim dr As SqlDataReader
+
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+
+        cmd = New SqlCommand("select sys_dropdown_val from sys_dropdown where sys_dropdown_whr='" & initName & "'", cn)
+        dr = cmd.ExecuteReader()
+
+        If dr.Read() Then
+
+            GetInit = IIf(IsDBNull(dr.Item("sys_dropdown_val").ToString()), "#", dr.Item("sys_dropdown_val").ToString())
+
+        End If
+
+        dr.Close()
+        cmd.Dispose()
     End Function
     Public Function ClearObjectonForm(ByVal root As Control)
         On Error Resume Next
