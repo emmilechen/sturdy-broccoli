@@ -164,6 +164,8 @@ Partial Class ftr_mc_sub1
         Me.RadioButton19 = New System.Windows.Forms.RadioButton()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -338,7 +340,9 @@ Partial Class ftr_mc_sub1
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Location = New System.Drawing.Point(16, 230)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -1589,6 +1593,24 @@ Partial Class ftr_mc_sub1
         Me.TextBox11.Size = New System.Drawing.Size(215, 21)
         Me.TextBox11.TabIndex = 132
         '
+        'TabPage6
+        '
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(730, 318)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Folder & Glue Process"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'TabPage7
+        '
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(730, 318)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Flow Process"
+        Me.TabPage7.UseVisualStyleBackColor = True
+        '
         'ftr_mc_sub1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1795,4 +1817,6 @@ Partial Class ftr_mc_sub1
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents ListBox10 As System.Windows.Forms.ListBox
     Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
 End Class
