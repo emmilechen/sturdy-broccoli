@@ -13,6 +13,7 @@ Public Class ftr_scosting
         ClearObjectonForm(Me)
         AssignValuetoCombo(Me.ComboBox1, "", "c_id", "c_name+', '+c_title", "mt_customer", "c_code<>''", "c_name")
         AssignValuetoCombo(Me.ComboBox14, "", "sku_id", "sku_name", "mt_sku", "is_finished_goods=1", "sku_name")
+        AssignValuetoCombo(Me.ComboBox17, "", "category_id", "category_name", "mt_sku_category", "parent_id=0", "category_name")
 
         AssignValuetoCombo(Me.ComboBox2, "select 0 as guidstr, 'PILIH' as nama union ", "uom_id", "uom_code", "mt_sku_uom", "1=1", "uom_code", "0")
         AssignValuetoCombo(Me.ComboBox3, "select 0 as guidstr, 'PILIH' as nama union ", "uom_id", "uom_code", "mt_sku_uom", "1=1", "uom_code", "0")
@@ -472,7 +473,9 @@ err_cmdsave_Click:
     Private Sub btnDeleteD_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDeleteD.Click
         MsgBox("Temporarily this function is disabled !", MsgBoxStyle.Information, "Costing")
     End Sub
-    Private Sub Button9_Click(sender As System.Object, e As System.EventArgs) Handles Button9.Click
+
+   
+    Private Sub Label44_Click(sender As System.Object, e As System.EventArgs) Handles Label44.Click
 
     End Sub
 End Class

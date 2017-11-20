@@ -23,7 +23,7 @@ Public Class frmUserAccess
         End If
         m_UserAccessId = 0
         Me.btnEdit.Visible = True
-        Me.btnEdit.Top = 0
+        'Me.btnEdit.Top = 0
         'view_record()
         'btnEdit_Click(sender, e)
     End Sub
@@ -88,8 +88,15 @@ Public Class frmUserAccess
             .Clear()
             .View = View.Details
             .Columns.Add("form_name", 0)
-            .Columns.Add("Form Description", 350)
-            .Columns.Add("Form View", 80)
+            .Columns.Add("Form Description", 370)
+            .Columns.Add("Open", Me.Label5.Width + 5)
+            .Columns.Add("Save", Me.Label4.Width + 5)
+            .Columns.Add("Edit", Me.Label6.Width + 5)
+            .Columns.Add("Find", Me.Label7.Width + 5)
+            .Columns.Add("Cancel", Me.Label8.Width + 5)
+            .Columns.Add("Delete", Me.Label9.Width + 5)
+            .Columns.Add("Re-Print", Me.Label18.Width + 5)
+            .Columns.Add("Exp-Data", Me.Label20.Width + 5)
         End With
 
         cmd = New SqlCommand("usp_mt_user_access_SEL", cn)

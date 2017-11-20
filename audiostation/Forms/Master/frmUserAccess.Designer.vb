@@ -83,7 +83,7 @@ Partial Class frmUserAccess
         Me.ListView1.Location = New System.Drawing.Point(8, 136)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(784, 416)
+        Me.ListView1.Size = New System.Drawing.Size(784, 408)
         Me.ListView1.TabIndex = 5
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -128,9 +128,9 @@ Partial Class frmUserAccess
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(696, 488)
+        Me.btnCancel.Location = New System.Drawing.Point(328, 64)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(84, 26)
+        Me.btnCancel.Size = New System.Drawing.Size(48, 24)
         Me.btnCancel.TabIndex = 10
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -140,9 +140,9 @@ Partial Class frmUserAccess
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(426, 488)
+        Me.btnEdit.Location = New System.Drawing.Point(176, 64)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(84, 26)
+        Me.btnEdit.Size = New System.Drawing.Size(48, 24)
         Me.btnEdit.TabIndex = 7
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
@@ -152,9 +152,9 @@ Partial Class frmUserAccess
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(606, 488)
+        Me.btnSave.Location = New System.Drawing.Point(280, 64)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(84, 26)
+        Me.btnSave.Size = New System.Drawing.Size(40, 24)
         Me.btnSave.TabIndex = 9
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -207,9 +207,9 @@ Partial Class frmUserAccess
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(516, 488)
+        Me.btnAdd.Location = New System.Drawing.Point(232, 64)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(84, 26)
+        Me.btnAdd.Size = New System.Drawing.Size(40, 24)
         Me.btnAdd.TabIndex = 8
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True

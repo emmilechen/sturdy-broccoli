@@ -129,6 +129,8 @@ Partial Class frmMAIN
         Me.ProductionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MachineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MachineDivisionToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator32 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MasterCardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator17 = New System.Windows.Forms.ToolStripSeparator()
         Me.UnitOfMeasurementElectricalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitOfMeasurementSizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -215,8 +217,7 @@ Partial Class frmMAIN
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.MasterCardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator32 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator33 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -260,7 +261,7 @@ Partial Class frmMAIN
         '
         'UserToolStripMenuItem1
         '
-        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator18, Me.UserToolStripMenuItem, Me.UserLevelToolStripMenuItem, Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem})
+        Me.UserToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator18, Me.UserToolStripMenuItem, Me.UserLevelToolStripMenuItem, Me.ToolStripSeparator33, Me.DepartementToolStripMenuItem, Me.DivisionToolStripMenuItem})
         Me.UserToolStripMenuItem1.Name = "UserToolStripMenuItem1"
         Me.UserToolStripMenuItem1.Size = New System.Drawing.Size(42, 20)
         Me.UserToolStripMenuItem1.Text = "User"
@@ -268,31 +269,31 @@ Partial Class frmMAIN
         'ToolStripSeparator18
         '
         Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
-        Me.ToolStripSeparator18.Size = New System.Drawing.Size(140, 6)
+        Me.ToolStripSeparator18.Size = New System.Drawing.Size(149, 6)
         '
         'UserToolStripMenuItem
         '
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UserToolStripMenuItem.Text = "User List"
         '
         'UserLevelToolStripMenuItem
         '
         Me.UserLevelToolStripMenuItem.Name = "UserLevelToolStripMenuItem"
-        Me.UserLevelToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
-        Me.UserLevelToolStripMenuItem.Text = "User Group"
+        Me.UserLevelToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.UserLevelToolStripMenuItem.Text = "User Group-Authority"
         '
         'DepartementToolStripMenuItem
         '
         Me.DepartementToolStripMenuItem.Name = "DepartementToolStripMenuItem"
-        Me.DepartementToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.DepartementToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DepartementToolStripMenuItem.Tag = "unit_user_dept"
         Me.DepartementToolStripMenuItem.Text = "Departement"
         '
         'DivisionToolStripMenuItem
         '
         Me.DivisionToolStripMenuItem.Name = "DivisionToolStripMenuItem"
-        Me.DivisionToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.DivisionToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DivisionToolStripMenuItem.Tag = "unit_user_div"
         Me.DivisionToolStripMenuItem.Text = "Division"
         '
@@ -855,6 +856,17 @@ Partial Class frmMAIN
         Me.MachineDivisionToolStripMenuItem1.Tag = "machine_division"
         Me.MachineDivisionToolStripMenuItem1.Text = "Machine Division"
         '
+        'ToolStripSeparator32
+        '
+        Me.ToolStripSeparator32.Name = "ToolStripSeparator32"
+        Me.ToolStripSeparator32.Size = New System.Drawing.Size(244, 6)
+        '
+        'MasterCardToolStripMenuItem
+        '
+        Me.MasterCardToolStripMenuItem.Name = "MasterCardToolStripMenuItem"
+        Me.MasterCardToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
+        Me.MasterCardToolStripMenuItem.Text = "Master Card"
+        '
         'ToolStripSeparator17
         '
         Me.ToolStripSeparator17.Name = "ToolStripSeparator17"
@@ -1391,16 +1403,10 @@ Partial Class frmMAIN
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(30, 17)
         Me.ToolStripStatusLabel.Text = "User"
         '
-        'MasterCardToolStripMenuItem
+        'ToolStripSeparator33
         '
-        Me.MasterCardToolStripMenuItem.Name = "MasterCardToolStripMenuItem"
-        Me.MasterCardToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
-        Me.MasterCardToolStripMenuItem.Text = "Master Card"
-        '
-        'ToolStripSeparator32
-        '
-        Me.ToolStripSeparator32.Name = "ToolStripSeparator32"
-        Me.ToolStripSeparator32.Size = New System.Drawing.Size(244, 6)
+        Me.ToolStripSeparator33.Name = "ToolStripSeparator33"
+        Me.ToolStripSeparator33.Size = New System.Drawing.Size(149, 6)
         '
         'frmMAIN
         '
@@ -1621,4 +1627,5 @@ Partial Class frmMAIN
     Friend WithEvents MachineDivisionToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator32 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents MasterCardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator33 As System.Windows.Forms.ToolStripSeparator
 End Class
