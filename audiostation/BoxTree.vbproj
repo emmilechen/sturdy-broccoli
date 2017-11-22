@@ -602,12 +602,6 @@
     <Compile Include="Forms\Setting\frmSYSSetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\ftr_mc_sub2.Designer.vb">
-      <DependentUpon>ftr_mc_sub2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\ftr_mc_sub2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Transaction\fdlCUtility.Designer.vb">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
     </Compile>
@@ -618,12 +612,6 @@
       <DependentUpon>fdlSOProder.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Transaction\fdlSOProder.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Transaction\ftr_mc_sub1.Designer.vb">
-      <DependentUpon>ftr_mc_sub1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Transaction\ftr_mc_sub1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Transaction\frmabsenproduksi.Designer.vb">
@@ -1972,17 +1960,11 @@
     <EmbeddedResource Include="Forms\Setting\frmSYSSetting.resx">
       <DependentUpon>frmSYSSetting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\ftr_mc_sub2.resx">
-      <DependentUpon>ftr_mc_sub2.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlCUtility.resx">
       <DependentUpon>fdlCUtility.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\fdlSOProder.resx">
       <DependentUpon>fdlSOProder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\ftr_mc_sub1.resx">
-      <DependentUpon>ftr_mc_sub1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Transaction\frmabsenproduksi.resx">
       <DependentUpon>frmabsenproduksi.vb</DependentUpon>
