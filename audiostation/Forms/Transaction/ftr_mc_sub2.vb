@@ -1,3 +1,3 @@
-﻿Public Class ftr_mc_sub1
+﻿Public Class ftr_mc_sub2
 
 End Class
