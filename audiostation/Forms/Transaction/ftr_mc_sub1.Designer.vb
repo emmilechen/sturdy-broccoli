@@ -52,6 +52,7 @@ Partial Class ftr_mc_sub1
         Me.RadioButton14 = New System.Windows.Forms.RadioButton()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btnSupplier = New System.Windows.Forms.Button()
         Me.NumericTextBox8 = New boxtree.NumericTextBox()
         Me.NumericTextBox7 = New boxtree.NumericTextBox()
         Me.NumericTextBox6 = New boxtree.NumericTextBox()
@@ -75,6 +76,10 @@ Partial Class ftr_mc_sub1
         Me.btnAddD1 = New System.Windows.Forms.Button()
         Me.btnDeleteD1 = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label18 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -88,6 +93,10 @@ Partial Class ftr_mc_sub1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label56 = New System.Windows.Forms.Label()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.NumericTextBox31 = New boxtree.NumericTextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.RadioButton19 = New System.Windows.Forms.RadioButton()
         Me.RadioButton17 = New System.Windows.Forms.RadioButton()
@@ -100,9 +109,9 @@ Partial Class ftr_mc_sub1
         Me.Label21 = New System.Windows.Forms.Label()
         Me.NumericTextBox9 = New boxtree.NumericTextBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnSaveD2 = New System.Windows.Forms.Button()
+        Me.btnAddD2 = New System.Windows.Forms.Button()
+        Me.btnDeleteD2 = New System.Windows.Forms.Button()
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -119,10 +128,15 @@ Partial Class ftr_mc_sub1
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.NumericTextBox13 = New boxtree.NumericTextBox()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnSaveD3 = New System.Windows.Forms.Button()
+        Me.btnAddD3 = New System.Windows.Forms.Button()
+        Me.btnDeleteD3 = New System.Windows.Forms.Button()
         Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.NumericTextBox20 = New boxtree.NumericTextBox()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -140,10 +154,17 @@ Partial Class ftr_mc_sub1
         Me.TextBox17 = New System.Windows.Forms.TextBox()
         Me.NumericTextBox15 = New boxtree.NumericTextBox()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
+        Me.btnSaveD4 = New System.Windows.Forms.Button()
+        Me.btnAddD4 = New System.Windows.Forms.Button()
+        Me.btnDeleteD4 = New System.Windows.Forms.Button()
         Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.RadioButton22 = New System.Windows.Forms.RadioButton()
@@ -156,16 +177,22 @@ Partial Class ftr_mc_sub1
         Me.NumericTextBox22 = New boxtree.NumericTextBox()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.NumericTextBox33 = New boxtree.NumericTextBox()
         Me.Label43 = New System.Windows.Forms.Label()
         Me.cmbPODtlType = New System.Windows.Forms.ComboBox()
         Me.NumericTextBox23 = New boxtree.NumericTextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.NumericTextBox24 = New boxtree.NumericTextBox()
         Me.Label42 = New System.Windows.Forms.Label()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
+        Me.btnSaveD5 = New System.Windows.Forms.Button()
+        Me.btnAddD5 = New System.Windows.Forms.Button()
+        Me.btnDeleteD5 = New System.Windows.Forms.Button()
         Me.ListView5 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.NumericTextBox32 = New boxtree.NumericTextBox()
         Me.Label51 = New System.Windows.Forms.Label()
@@ -186,6 +213,16 @@ Partial Class ftr_mc_sub1
         Me.RadioButton24 = New System.Windows.Forms.RadioButton()
         Me.RadioButton25 = New System.Windows.Forms.RadioButton()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton33 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton34 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton31 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton32 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton29 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton30 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton27 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton28 = New System.Windows.Forms.RadioButton()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.cmdSave = New System.Windows.Forms.ToolStripButton()
         Me.cmdFind = New System.Windows.Forms.ToolStripButton()
@@ -195,20 +232,16 @@ Partial Class ftr_mc_sub1
         Me.cmdExit = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdPrint = New System.Windows.Forms.ToolStripButton()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton27 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton28 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton29 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton30 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton31 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton32 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton33 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton34 = New System.Windows.Forms.RadioButton()
         Me.Label50 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Label52 = New System.Windows.Forms.Label()
         Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.cmbStockMovementType = New System.Windows.Forms.ComboBox()
+        Me.Label53 = New System.Windows.Forms.Label()
+        Me.Label54 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label58 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -227,9 +260,9 @@ Partial Class ftr_mc_sub1
         Me.TabPage8.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.TabPage9.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label9
@@ -531,6 +564,7 @@ Partial Class ftr_mc_sub1
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.btnSupplier)
         Me.TabPage1.Controls.Add(Me.NumericTextBox8)
         Me.TabPage1.Controls.Add(Me.NumericTextBox7)
         Me.TabPage1.Controls.Add(Me.NumericTextBox6)
@@ -554,6 +588,16 @@ Partial Class ftr_mc_sub1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Cylinder"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'btnSupplier
+        '
+        Me.btnSupplier.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSupplier.ImageIndex = 0
+        Me.btnSupplier.Location = New System.Drawing.Point(505, 33)
+        Me.btnSupplier.Name = "btnSupplier"
+        Me.btnSupplier.Size = New System.Drawing.Size(29, 25)
+        Me.btnSupplier.TabIndex = 111
+        Me.btnSupplier.UseVisualStyleBackColor = True
         '
         'NumericTextBox8
         '
@@ -621,7 +665,7 @@ Partial Class ftr_mc_sub1
         Me.GroupBox4.Controls.Add(Me.RadioButton16)
         Me.GroupBox4.Location = New System.Drawing.Point(9, 141)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(97, 77)
+        Me.GroupBox4.Size = New System.Drawing.Size(123, 77)
         Me.GroupBox4.TabIndex = 54
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Cylinder Type"
@@ -689,7 +733,7 @@ Partial Class ftr_mc_sub1
         Me.TextBox8.Location = New System.Drawing.Point(419, 36)
         Me.TextBox8.MaxLength = 50
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(263, 21)
+        Me.TextBox8.Size = New System.Drawing.Size(80, 21)
         Me.TextBox8.TabIndex = 47
         '
         'Label8
@@ -787,12 +831,33 @@ Partial Class ftr_mc_sub1
         '
         'ListView1
         '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
         Me.ListView1.Location = New System.Drawing.Point(10, 54)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(714, 166)
         Me.ListView1.TabIndex = 112
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Grade"
+        Me.ColumnHeader1.Width = 90
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Width"
+        Me.ColumnHeader2.Width = 90
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Thickness"
+        Me.ColumnHeader3.Width = 90
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Remark"
+        Me.ColumnHeader4.Width = 90
         '
         'Label18
         '
@@ -831,7 +896,7 @@ Partial Class ftr_mc_sub1
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(314, 12)
+        Me.Label16.Location = New System.Drawing.Point(318, 11)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(43, 13)
         Me.Label16.TabIndex = 107
@@ -839,7 +904,7 @@ Partial Class ftr_mc_sub1
         '
         'TextBox12
         '
-        Me.TextBox12.Location = New System.Drawing.Point(317, 28)
+        Me.TextBox12.Location = New System.Drawing.Point(321, 27)
         Me.TextBox12.MaxLength = 50
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(121, 21)
@@ -848,7 +913,7 @@ Partial Class ftr_mc_sub1
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 11)
+        Me.Label15.Location = New System.Drawing.Point(10, 10)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(36, 13)
         Me.Label15.TabIndex = 105
@@ -857,7 +922,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox1
         '
         Me.NumericTextBox1.AllowSpace = False
-        Me.NumericTextBox1.Location = New System.Drawing.Point(133, 28)
+        Me.NumericTextBox1.Location = New System.Drawing.Point(137, 27)
         Me.NumericTextBox1.MaxLength = 18
         Me.NumericTextBox1.Name = "NumericTextBox1"
         Me.NumericTextBox1.Size = New System.Drawing.Size(86, 21)
@@ -867,7 +932,7 @@ Partial Class ftr_mc_sub1
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(258, 12)
+        Me.Label20.Location = New System.Drawing.Point(262, 11)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(53, 13)
         Me.Label20.TabIndex = 103
@@ -876,7 +941,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox2
         '
         Me.NumericTextBox2.AllowSpace = False
-        Me.NumericTextBox2.Location = New System.Drawing.Point(225, 28)
+        Me.NumericTextBox2.Location = New System.Drawing.Point(229, 27)
         Me.NumericTextBox2.MaxLength = 18
         Me.NumericTextBox2.Name = "NumericTextBox2"
         Me.NumericTextBox2.Size = New System.Drawing.Size(86, 21)
@@ -886,7 +951,7 @@ Partial Class ftr_mc_sub1
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(166, 12)
+        Me.Label14.Location = New System.Drawing.Point(170, 11)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(62, 13)
         Me.Label14.TabIndex = 42
@@ -894,7 +959,7 @@ Partial Class ftr_mc_sub1
         '
         'TextBox11
         '
-        Me.TextBox11.Location = New System.Drawing.Point(6, 28)
+        Me.TextBox11.Location = New System.Drawing.Point(10, 27)
         Me.TextBox11.MaxLength = 50
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(121, 21)
@@ -902,6 +967,12 @@ Partial Class ftr_mc_sub1
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.Label58)
+        Me.TabPage3.Controls.Add(Me.DateTimePicker1)
+        Me.TabPage3.Controls.Add(Me.Label56)
+        Me.TabPage3.Controls.Add(Me.Label55)
+        Me.TabPage3.Controls.Add(Me.TextBox18)
+        Me.TabPage3.Controls.Add(Me.NumericTextBox31)
         Me.TabPage3.Controls.Add(Me.GroupBox5)
         Me.TabPage3.Controls.Add(Me.NumericTextBox12)
         Me.TabPage3.Controls.Add(Me.Label23)
@@ -911,9 +982,9 @@ Partial Class ftr_mc_sub1
         Me.TabPage3.Controls.Add(Me.Label21)
         Me.TabPage3.Controls.Add(Me.NumericTextBox9)
         Me.TabPage3.Controls.Add(Me.Label19)
-        Me.TabPage3.Controls.Add(Me.Button1)
-        Me.TabPage3.Controls.Add(Me.Button2)
-        Me.TabPage3.Controls.Add(Me.Button3)
+        Me.TabPage3.Controls.Add(Me.btnSaveD2)
+        Me.TabPage3.Controls.Add(Me.btnAddD2)
+        Me.TabPage3.Controls.Add(Me.btnDeleteD2)
         Me.TabPage3.Controls.Add(Me.ListView2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
@@ -922,6 +993,42 @@ Partial Class ftr_mc_sub1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Printing"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(196, 12)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(85, 13)
+        Me.Label56.TabIndex = 123
+        Me.Label56.Text = "Print Description"
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(9, 10)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(60, 13)
+        Me.Label55.TabIndex = 122
+        Me.Label55.Text = "Printing On"
+        '
+        'TextBox18
+        '
+        Me.TextBox18.Location = New System.Drawing.Point(199, 28)
+        Me.TextBox18.MaxLength = 50
+        Me.TextBox18.Name = "TextBox18"
+        Me.TextBox18.Size = New System.Drawing.Size(154, 21)
+        Me.TextBox18.TabIndex = 121
+        '
+        'NumericTextBox31
+        '
+        Me.NumericTextBox31.AllowSpace = False
+        Me.NumericTextBox31.Location = New System.Drawing.Point(122, 28)
+        Me.NumericTextBox31.MaxLength = 18
+        Me.NumericTextBox31.Name = "NumericTextBox31"
+        Me.NumericTextBox31.Size = New System.Drawing.Size(71, 21)
+        Me.NumericTextBox31.TabIndex = 120
+        Me.NumericTextBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'GroupBox5
         '
@@ -990,7 +1097,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox11
         '
         Me.NumericTextBox11.AllowSpace = False
-        Me.NumericTextBox11.Location = New System.Drawing.Point(434, 26)
+        Me.NumericTextBox11.Location = New System.Drawing.Point(638, 283)
         Me.NumericTextBox11.MaxLength = 18
         Me.NumericTextBox11.Name = "NumericTextBox11"
         Me.NumericTextBox11.Size = New System.Drawing.Size(86, 21)
@@ -1000,7 +1107,7 @@ Partial Class ftr_mc_sub1
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(473, 10)
+        Me.Label22.Location = New System.Drawing.Point(677, 267)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(47, 13)
         Me.Label22.TabIndex = 115
@@ -1009,7 +1116,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox10
         '
         Me.NumericTextBox10.AllowSpace = False
-        Me.NumericTextBox10.Location = New System.Drawing.Point(342, 26)
+        Me.NumericTextBox10.Location = New System.Drawing.Point(546, 283)
         Me.NumericTextBox10.MaxLength = 18
         Me.NumericTextBox10.Name = "NumericTextBox10"
         Me.NumericTextBox10.Size = New System.Drawing.Size(86, 21)
@@ -1019,7 +1126,7 @@ Partial Class ftr_mc_sub1
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(389, 10)
+        Me.Label21.Location = New System.Drawing.Point(593, 267)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(44, 13)
         Me.Label21.TabIndex = 113
@@ -1028,7 +1135,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox9
         '
         Me.NumericTextBox9.AllowSpace = False
-        Me.NumericTextBox9.Location = New System.Drawing.Point(228, 26)
+        Me.NumericTextBox9.Location = New System.Drawing.Point(454, 283)
         Me.NumericTextBox9.MaxLength = 18
         Me.NumericTextBox9.Name = "NumericTextBox9"
         Me.NumericTextBox9.Size = New System.Drawing.Size(86, 21)
@@ -1038,42 +1145,42 @@ Partial Class ftr_mc_sub1
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(245, 10)
+        Me.Label19.Location = New System.Drawing.Point(471, 267)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(69, 13)
         Me.Label19.TabIndex = 111
         Me.Label19.Text = "Netto (g/m2)"
         '
-        'Button1
+        'btnSaveD2
         '
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.ImageIndex = 4
-        Me.Button1.Location = New System.Drawing.Point(626, 26)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(29, 25)
-        Me.Button1.TabIndex = 108
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSaveD2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD2.ImageIndex = 4
+        Me.btnSaveD2.Location = New System.Drawing.Point(626, 26)
+        Me.btnSaveD2.Name = "btnSaveD2"
+        Me.btnSaveD2.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD2.TabIndex = 108
+        Me.btnSaveD2.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnAddD2
         '
-        Me.Button2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageIndex = 3
-        Me.Button2.Location = New System.Drawing.Point(695, 26)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(29, 25)
-        Me.Button2.TabIndex = 110
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAddD2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD2.ImageIndex = 3
+        Me.btnAddD2.Location = New System.Drawing.Point(695, 26)
+        Me.btnAddD2.Name = "btnAddD2"
+        Me.btnAddD2.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD2.TabIndex = 110
+        Me.btnAddD2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnDeleteD2
         '
-        Me.Button3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ImageIndex = 2
-        Me.Button3.Location = New System.Drawing.Point(661, 26)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(29, 25)
-        Me.Button3.TabIndex = 109
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnDeleteD2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD2.ImageIndex = 2
+        Me.btnDeleteD2.Location = New System.Drawing.Point(661, 26)
+        Me.btnDeleteD2.Name = "btnDeleteD2"
+        Me.btnDeleteD2.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD2.TabIndex = 109
+        Me.btnDeleteD2.UseVisualStyleBackColor = True
         '
         'ListView2
         '
@@ -1100,9 +1207,9 @@ Partial Class ftr_mc_sub1
         Me.TabPage4.Controls.Add(Me.TextBox6)
         Me.TabPage4.Controls.Add(Me.NumericTextBox13)
         Me.TabPage4.Controls.Add(Me.Label24)
-        Me.TabPage4.Controls.Add(Me.Button4)
-        Me.TabPage4.Controls.Add(Me.Button5)
-        Me.TabPage4.Controls.Add(Me.Button6)
+        Me.TabPage4.Controls.Add(Me.btnSaveD3)
+        Me.TabPage4.Controls.Add(Me.btnAddD3)
+        Me.TabPage4.Controls.Add(Me.btnDeleteD3)
         Me.TabPage4.Controls.Add(Me.ListView3)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
@@ -1235,45 +1342,71 @@ Partial Class ftr_mc_sub1
         Me.Label24.TabIndex = 115
         Me.Label24.Text = "Thickness"
         '
-        'Button4
+        'btnSaveD3
         '
-        Me.Button4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.ImageIndex = 4
-        Me.Button4.Location = New System.Drawing.Point(623, 44)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(29, 25)
-        Me.Button4.TabIndex = 112
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnSaveD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD3.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD3.ImageIndex = 4
+        Me.btnSaveD3.Location = New System.Drawing.Point(620, 23)
+        Me.btnSaveD3.Name = "btnSaveD3"
+        Me.btnSaveD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD3.TabIndex = 112
+        Me.btnSaveD3.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnAddD3
         '
-        Me.Button5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ImageIndex = 3
-        Me.Button5.Location = New System.Drawing.Point(692, 44)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(29, 25)
-        Me.Button5.TabIndex = 114
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnAddD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD3.ImageIndex = 3
+        Me.btnAddD3.Location = New System.Drawing.Point(689, 23)
+        Me.btnAddD3.Name = "btnAddD3"
+        Me.btnAddD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD3.TabIndex = 114
+        Me.btnAddD3.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnDeleteD3
         '
-        Me.Button6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ImageIndex = 2
-        Me.Button6.Location = New System.Drawing.Point(658, 44)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(29, 25)
-        Me.Button6.TabIndex = 113
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnDeleteD3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD3.ImageIndex = 2
+        Me.btnDeleteD3.Location = New System.Drawing.Point(655, 23)
+        Me.btnDeleteD3.Name = "btnDeleteD3"
+        Me.btnDeleteD3.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD3.TabIndex = 113
+        Me.btnDeleteD3.UseVisualStyleBackColor = True
         '
         'ListView3
         '
-        Me.ListView3.Location = New System.Drawing.Point(9, 75)
+        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.ListView3.Location = New System.Drawing.Point(9, 54)
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(712, 199)
+        Me.ListView3.Size = New System.Drawing.Size(712, 220)
         Me.ListView3.TabIndex = 111
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Process"
+        Me.ColumnHeader5.Width = 90
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "Resin"
+        Me.ColumnHeader6.Width = 90
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "Thickness"
+        Me.ColumnHeader7.Width = 90
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "Anchor Coating"
+        Me.ColumnHeader8.Width = 90
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "Remarks"
+        Me.ColumnHeader9.Width = 120
         '
         'TabPage5
         '
@@ -1293,9 +1426,9 @@ Partial Class ftr_mc_sub1
         Me.TabPage5.Controls.Add(Me.TextBox17)
         Me.TabPage5.Controls.Add(Me.NumericTextBox15)
         Me.TabPage5.Controls.Add(Me.Label35)
-        Me.TabPage5.Controls.Add(Me.Button7)
-        Me.TabPage5.Controls.Add(Me.Button8)
-        Me.TabPage5.Controls.Add(Me.Button9)
+        Me.TabPage5.Controls.Add(Me.btnSaveD4)
+        Me.TabPage5.Controls.Add(Me.btnAddD4)
+        Me.TabPage5.Controls.Add(Me.btnDeleteD4)
         Me.TabPage5.Controls.Add(Me.ListView4)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
@@ -1453,45 +1586,78 @@ Partial Class ftr_mc_sub1
         Me.Label35.TabIndex = 125
         Me.Label35.Text = "Ratio"
         '
-        'Button7
+        'btnSaveD4
         '
-        Me.Button7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button7.ImageIndex = 4
-        Me.Button7.Location = New System.Drawing.Point(623, 44)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(29, 25)
-        Me.Button7.TabIndex = 116
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnSaveD4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD4.ImageIndex = 4
+        Me.btnSaveD4.Location = New System.Drawing.Point(623, 44)
+        Me.btnSaveD4.Name = "btnSaveD4"
+        Me.btnSaveD4.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD4.TabIndex = 116
+        Me.btnSaveD4.UseVisualStyleBackColor = True
         '
-        'Button8
+        'btnAddD4
         '
-        Me.Button8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.ImageIndex = 3
-        Me.Button8.Location = New System.Drawing.Point(692, 44)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(29, 25)
-        Me.Button8.TabIndex = 118
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnAddD4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD4.ImageIndex = 3
+        Me.btnAddD4.Location = New System.Drawing.Point(692, 44)
+        Me.btnAddD4.Name = "btnAddD4"
+        Me.btnAddD4.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD4.TabIndex = 118
+        Me.btnAddD4.UseVisualStyleBackColor = True
         '
-        'Button9
+        'btnDeleteD4
         '
-        Me.Button9.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.ImageIndex = 2
-        Me.Button9.Location = New System.Drawing.Point(658, 44)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(29, 25)
-        Me.Button9.TabIndex = 117
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.btnDeleteD4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD4.ImageIndex = 2
+        Me.btnDeleteD4.Location = New System.Drawing.Point(658, 44)
+        Me.btnDeleteD4.Name = "btnDeleteD4"
+        Me.btnDeleteD4.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD4.TabIndex = 117
+        Me.btnDeleteD4.UseVisualStyleBackColor = True
         '
         'ListView4
         '
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
         Me.ListView4.Location = New System.Drawing.Point(9, 75)
         Me.ListView4.Name = "ListView4"
         Me.ListView4.Size = New System.Drawing.Size(712, 199)
         Me.ListView4.TabIndex = 115
         Me.ListView4.UseCompatibleStateImageBehavior = False
         Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "Process"
+        Me.ColumnHeader10.Width = 90
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "Adhesive/Catalyst"
+        Me.ColumnHeader11.Width = 120
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "Ratio"
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "Coating Weight"
+        Me.ColumnHeader13.Width = 100
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "Anilog"
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "Solid Content"
+        Me.ColumnHeader15.Width = 90
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "Cyl (LPI)"
         '
         'TabPage6
         '
@@ -1615,15 +1781,17 @@ Partial Class ftr_mc_sub1
         '
         'TabPage7
         '
+        Me.TabPage7.Controls.Add(Me.Label57)
+        Me.TabPage7.Controls.Add(Me.NumericTextBox33)
         Me.TabPage7.Controls.Add(Me.Label43)
         Me.TabPage7.Controls.Add(Me.cmbPODtlType)
         Me.TabPage7.Controls.Add(Me.NumericTextBox23)
         Me.TabPage7.Controls.Add(Me.Label41)
         Me.TabPage7.Controls.Add(Me.NumericTextBox24)
         Me.TabPage7.Controls.Add(Me.Label42)
-        Me.TabPage7.Controls.Add(Me.Button10)
-        Me.TabPage7.Controls.Add(Me.Button11)
-        Me.TabPage7.Controls.Add(Me.Button12)
+        Me.TabPage7.Controls.Add(Me.btnSaveD5)
+        Me.TabPage7.Controls.Add(Me.btnAddD5)
+        Me.TabPage7.Controls.Add(Me.btnDeleteD5)
         Me.TabPage7.Controls.Add(Me.ListView5)
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
@@ -1632,6 +1800,25 @@ Partial Class ftr_mc_sub1
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Quality"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(101, 8)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(44, 13)
+        Me.Label57.TabIndex = 148
+        Me.Label57.Text = "Process"
+        '
+        'NumericTextBox33
+        '
+        Me.NumericTextBox33.AllowSpace = False
+        Me.NumericTextBox33.Location = New System.Drawing.Point(105, 24)
+        Me.NumericTextBox33.MaxLength = 18
+        Me.NumericTextBox33.Name = "NumericTextBox33"
+        Me.NumericTextBox33.Size = New System.Drawing.Size(71, 21)
+        Me.NumericTextBox33.TabIndex = 147
+        Me.NumericTextBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label43
         '
@@ -1654,7 +1841,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox23
         '
         Me.NumericTextBox23.AllowSpace = False
-        Me.NumericTextBox23.Location = New System.Drawing.Point(195, 24)
+        Me.NumericTextBox23.Location = New System.Drawing.Point(274, 24)
         Me.NumericTextBox23.MaxLength = 18
         Me.NumericTextBox23.Name = "NumericTextBox23"
         Me.NumericTextBox23.Size = New System.Drawing.Size(86, 21)
@@ -1664,7 +1851,7 @@ Partial Class ftr_mc_sub1
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(205, 8)
+        Me.Label41.Location = New System.Drawing.Point(284, 8)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(75, 13)
         Me.Label41.TabIndex = 143
@@ -1673,7 +1860,7 @@ Partial Class ftr_mc_sub1
         'NumericTextBox24
         '
         Me.NumericTextBox24.AllowSpace = False
-        Me.NumericTextBox24.Location = New System.Drawing.Point(103, 24)
+        Me.NumericTextBox24.Location = New System.Drawing.Point(182, 24)
         Me.NumericTextBox24.MaxLength = 18
         Me.NumericTextBox24.Name = "NumericTextBox24"
         Me.NumericTextBox24.Size = New System.Drawing.Size(86, 21)
@@ -1683,51 +1870,69 @@ Partial Class ftr_mc_sub1
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(116, 8)
+        Me.Label42.Location = New System.Drawing.Point(195, 8)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(73, 13)
         Me.Label42.TabIndex = 141
         Me.Label42.Text = "TD (gr/15mm)"
         '
-        'Button10
+        'btnSaveD5
         '
-        Me.Button10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button10.ImageIndex = 4
-        Me.Button10.Location = New System.Drawing.Point(623, 44)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(29, 25)
-        Me.Button10.TabIndex = 120
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.btnSaveD5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSaveD5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSaveD5.ImageIndex = 4
+        Me.btnSaveD5.Location = New System.Drawing.Point(623, 44)
+        Me.btnSaveD5.Name = "btnSaveD5"
+        Me.btnSaveD5.Size = New System.Drawing.Size(29, 25)
+        Me.btnSaveD5.TabIndex = 120
+        Me.btnSaveD5.UseVisualStyleBackColor = True
         '
-        'Button11
+        'btnAddD5
         '
-        Me.Button11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button11.ImageIndex = 3
-        Me.Button11.Location = New System.Drawing.Point(692, 44)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(29, 25)
-        Me.Button11.TabIndex = 122
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.btnAddD5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddD5.ImageIndex = 3
+        Me.btnAddD5.Location = New System.Drawing.Point(692, 44)
+        Me.btnAddD5.Name = "btnAddD5"
+        Me.btnAddD5.Size = New System.Drawing.Size(29, 25)
+        Me.btnAddD5.TabIndex = 122
+        Me.btnAddD5.UseVisualStyleBackColor = True
         '
-        'Button12
+        'btnDeleteD5
         '
-        Me.Button12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button12.ImageIndex = 2
-        Me.Button12.Location = New System.Drawing.Point(658, 44)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(29, 25)
-        Me.Button12.TabIndex = 121
-        Me.Button12.UseVisualStyleBackColor = True
+        Me.btnDeleteD5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteD5.ImageIndex = 2
+        Me.btnDeleteD5.Location = New System.Drawing.Point(658, 44)
+        Me.btnDeleteD5.Name = "btnDeleteD5"
+        Me.btnDeleteD5.Size = New System.Drawing.Size(29, 25)
+        Me.btnDeleteD5.TabIndex = 121
+        Me.btnDeleteD5.UseVisualStyleBackColor = True
         '
         'ListView5
         '
+        Me.ListView5.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader17, Me.ColumnHeader18, Me.ColumnHeader19, Me.ColumnHeader20})
         Me.ListView5.Location = New System.Drawing.Point(9, 75)
         Me.ListView5.Name = "ListView5"
         Me.ListView5.Size = New System.Drawing.Size(712, 199)
         Me.ListView5.TabIndex = 119
         Me.ListView5.UseCompatibleStateImageBehavior = False
         Me.ListView5.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader17
+        '
+        Me.ColumnHeader17.Text = "Line Type"
+        Me.ColumnHeader17.Width = 90
+        '
+        'ColumnHeader18
+        '
+        Me.ColumnHeader18.Text = "Process"
+        '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "TD"
+        '
+        'ColumnHeader20
+        '
+        Me.ColumnHeader20.Text = "MD"
         '
         'TabPage8
         '
@@ -1944,6 +2149,120 @@ Partial Class ftr_mc_sub1
         Me.TabPage9.Text = "Packing"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.RadioButton33)
+        Me.GroupBox10.Controls.Add(Me.RadioButton34)
+        Me.GroupBox10.Controls.Add(Me.RadioButton31)
+        Me.GroupBox10.Controls.Add(Me.RadioButton32)
+        Me.GroupBox10.Controls.Add(Me.RadioButton29)
+        Me.GroupBox10.Controls.Add(Me.RadioButton30)
+        Me.GroupBox10.Location = New System.Drawing.Point(105, 16)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(257, 77)
+        Me.GroupBox10.TabIndex = 44
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Packing2"
+        '
+        'RadioButton33
+        '
+        Me.RadioButton33.AutoSize = True
+        Me.RadioButton33.Location = New System.Drawing.Point(172, 43)
+        Me.RadioButton33.Name = "RadioButton33"
+        Me.RadioButton33.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton33.TabIndex = 46
+        Me.RadioButton33.TabStop = True
+        Me.RadioButton33.Text = "Other"
+        Me.RadioButton33.UseVisualStyleBackColor = True
+        '
+        'RadioButton34
+        '
+        Me.RadioButton34.AutoSize = True
+        Me.RadioButton34.Location = New System.Drawing.Point(172, 20)
+        Me.RadioButton34.Name = "RadioButton34"
+        Me.RadioButton34.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton34.TabIndex = 45
+        Me.RadioButton34.TabStop = True
+        Me.RadioButton34.Text = "Pallet"
+        Me.RadioButton34.UseVisualStyleBackColor = True
+        '
+        'RadioButton31
+        '
+        Me.RadioButton31.AutoSize = True
+        Me.RadioButton31.Location = New System.Drawing.Point(75, 41)
+        Me.RadioButton31.Name = "RadioButton31"
+        Me.RadioButton31.Size = New System.Drawing.Size(77, 17)
+        Me.RadioButton31.TabIndex = 44
+        Me.RadioButton31.TabStop = True
+        Me.RadioButton31.Text = "Corrugated"
+        Me.RadioButton31.UseVisualStyleBackColor = True
+        '
+        'RadioButton32
+        '
+        Me.RadioButton32.AutoSize = True
+        Me.RadioButton32.Location = New System.Drawing.Point(75, 18)
+        Me.RadioButton32.Name = "RadioButton32"
+        Me.RadioButton32.Size = New System.Drawing.Size(87, 17)
+        Me.RadioButton32.TabIndex = 43
+        Me.RadioButton32.TabStop = True
+        Me.RadioButton32.Text = "Carton Sheet"
+        Me.RadioButton32.UseVisualStyleBackColor = True
+        '
+        'RadioButton29
+        '
+        Me.RadioButton29.AutoSize = True
+        Me.RadioButton29.Location = New System.Drawing.Point(6, 43)
+        Me.RadioButton29.Name = "RadioButton29"
+        Me.RadioButton29.Size = New System.Drawing.Size(56, 17)
+        Me.RadioButton29.TabIndex = 42
+        Me.RadioButton29.TabStop = True
+        Me.RadioButton29.Text = "Plastic"
+        Me.RadioButton29.UseVisualStyleBackColor = True
+        '
+        'RadioButton30
+        '
+        Me.RadioButton30.AutoSize = True
+        Me.RadioButton30.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton30.Name = "RadioButton30"
+        Me.RadioButton30.Size = New System.Drawing.Size(43, 17)
+        Me.RadioButton30.TabIndex = 41
+        Me.RadioButton30.TabStop = True
+        Me.RadioButton30.Text = "Box"
+        Me.RadioButton30.UseVisualStyleBackColor = True
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.RadioButton27)
+        Me.GroupBox9.Controls.Add(Me.RadioButton28)
+        Me.GroupBox9.Location = New System.Drawing.Point(15, 16)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(84, 77)
+        Me.GroupBox9.TabIndex = 43
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Packing1"
+        '
+        'RadioButton27
+        '
+        Me.RadioButton27.AutoSize = True
+        Me.RadioButton27.Location = New System.Drawing.Point(6, 43)
+        Me.RadioButton27.Name = "RadioButton27"
+        Me.RadioButton27.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButton27.TabIndex = 42
+        Me.RadioButton27.TabStop = True
+        Me.RadioButton27.Text = "Export"
+        Me.RadioButton27.UseVisualStyleBackColor = True
+        '
+        'RadioButton28
+        '
+        Me.RadioButton28.AutoSize = True
+        Me.RadioButton28.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton28.Name = "RadioButton28"
+        Me.RadioButton28.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton28.TabIndex = 41
+        Me.RadioButton28.TabStop = True
+        Me.RadioButton28.Text = "Local"
+        Me.RadioButton28.UseVisualStyleBackColor = True
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdSave, Me.cmdFind, Me.cmdCancel, Me.cmdDelete, Me.cmdNew, Me.cmdExit, Me.ToolStripSeparator1, Me.cmdPrint})
@@ -2014,120 +2333,6 @@ Partial Class ftr_mc_sub1
         Me.cmdPrint.Size = New System.Drawing.Size(49, 22)
         Me.cmdPrint.Text = "&Print"
         '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.RadioButton27)
-        Me.GroupBox9.Controls.Add(Me.RadioButton28)
-        Me.GroupBox9.Location = New System.Drawing.Point(15, 16)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(70, 77)
-        Me.GroupBox9.TabIndex = 43
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Packing1"
-        '
-        'RadioButton27
-        '
-        Me.RadioButton27.AutoSize = True
-        Me.RadioButton27.Location = New System.Drawing.Point(6, 43)
-        Me.RadioButton27.Name = "RadioButton27"
-        Me.RadioButton27.Size = New System.Drawing.Size(57, 17)
-        Me.RadioButton27.TabIndex = 42
-        Me.RadioButton27.TabStop = True
-        Me.RadioButton27.Text = "Export"
-        Me.RadioButton27.UseVisualStyleBackColor = True
-        '
-        'RadioButton28
-        '
-        Me.RadioButton28.AutoSize = True
-        Me.RadioButton28.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton28.Name = "RadioButton28"
-        Me.RadioButton28.Size = New System.Drawing.Size(49, 17)
-        Me.RadioButton28.TabIndex = 41
-        Me.RadioButton28.TabStop = True
-        Me.RadioButton28.Text = "Local"
-        Me.RadioButton28.UseVisualStyleBackColor = True
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Me.RadioButton33)
-        Me.GroupBox10.Controls.Add(Me.RadioButton34)
-        Me.GroupBox10.Controls.Add(Me.RadioButton31)
-        Me.GroupBox10.Controls.Add(Me.RadioButton32)
-        Me.GroupBox10.Controls.Add(Me.RadioButton29)
-        Me.GroupBox10.Controls.Add(Me.RadioButton30)
-        Me.GroupBox10.Location = New System.Drawing.Point(91, 16)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(257, 77)
-        Me.GroupBox10.TabIndex = 44
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Packing2"
-        '
-        'RadioButton29
-        '
-        Me.RadioButton29.AutoSize = True
-        Me.RadioButton29.Location = New System.Drawing.Point(6, 43)
-        Me.RadioButton29.Name = "RadioButton29"
-        Me.RadioButton29.Size = New System.Drawing.Size(55, 17)
-        Me.RadioButton29.TabIndex = 42
-        Me.RadioButton29.TabStop = True
-        Me.RadioButton29.Text = "Plastic"
-        Me.RadioButton29.UseVisualStyleBackColor = True
-        '
-        'RadioButton30
-        '
-        Me.RadioButton30.AutoSize = True
-        Me.RadioButton30.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton30.Name = "RadioButton30"
-        Me.RadioButton30.Size = New System.Drawing.Size(43, 17)
-        Me.RadioButton30.TabIndex = 41
-        Me.RadioButton30.TabStop = True
-        Me.RadioButton30.Text = "Box"
-        Me.RadioButton30.UseVisualStyleBackColor = True
-        '
-        'RadioButton31
-        '
-        Me.RadioButton31.AutoSize = True
-        Me.RadioButton31.Location = New System.Drawing.Point(75, 41)
-        Me.RadioButton31.Name = "RadioButton31"
-        Me.RadioButton31.Size = New System.Drawing.Size(80, 17)
-        Me.RadioButton31.TabIndex = 44
-        Me.RadioButton31.TabStop = True
-        Me.RadioButton31.Text = "Corrugated"
-        Me.RadioButton31.UseVisualStyleBackColor = True
-        '
-        'RadioButton32
-        '
-        Me.RadioButton32.AutoSize = True
-        Me.RadioButton32.Location = New System.Drawing.Point(75, 18)
-        Me.RadioButton32.Name = "RadioButton32"
-        Me.RadioButton32.Size = New System.Drawing.Size(89, 17)
-        Me.RadioButton32.TabIndex = 43
-        Me.RadioButton32.TabStop = True
-        Me.RadioButton32.Text = "Carton Sheet"
-        Me.RadioButton32.UseVisualStyleBackColor = True
-        '
-        'RadioButton33
-        '
-        Me.RadioButton33.AutoSize = True
-        Me.RadioButton33.Location = New System.Drawing.Point(172, 43)
-        Me.RadioButton33.Name = "RadioButton33"
-        Me.RadioButton33.Size = New System.Drawing.Size(53, 17)
-        Me.RadioButton33.TabIndex = 46
-        Me.RadioButton33.TabStop = True
-        Me.RadioButton33.Text = "Other"
-        Me.RadioButton33.UseVisualStyleBackColor = True
-        '
-        'RadioButton34
-        '
-        Me.RadioButton34.AutoSize = True
-        Me.RadioButton34.Location = New System.Drawing.Point(172, 20)
-        Me.RadioButton34.Name = "RadioButton34"
-        Me.RadioButton34.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton34.TabIndex = 45
-        Me.RadioButton34.TabStop = True
-        Me.RadioButton34.Text = "Pallet"
-        Me.RadioButton34.UseVisualStyleBackColor = True
-        '
         'Label50
         '
         Me.Label50.AutoSize = True
@@ -2163,11 +2368,66 @@ Partial Class ftr_mc_sub1
         Me.TextBox15.Size = New System.Drawing.Size(430, 78)
         Me.TextBox15.TabIndex = 51
         '
+        'cmbStockMovementType
+        '
+        Me.cmbStockMovementType.FormattingEnabled = True
+        Me.cmbStockMovementType.Location = New System.Drawing.Point(434, 99)
+        Me.cmbStockMovementType.Name = "cmbStockMovementType"
+        Me.cmbStockMovementType.Size = New System.Drawing.Size(83, 21)
+        Me.cmbStockMovementType.TabIndex = 53
+        '
+        'Label53
+        '
+        Me.Label53.AutoSize = True
+        Me.Label53.Location = New System.Drawing.Point(333, 102)
+        Me.Label53.Name = "Label53"
+        Me.Label53.Size = New System.Drawing.Size(98, 13)
+        Me.Label53.TabIndex = 54
+        Me.Label53.Text = "Production Process"
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(333, 129)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(46, 13)
+        Me.Label54.TabIndex = 56
+        Me.Label54.Text = "Content"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(434, 126)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(83, 21)
+        Me.ComboBox1.TabIndex = 55
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(12, 28)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(97, 21)
+        Me.DateTimePicker1.TabIndex = 124
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(117, 12)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(60, 13)
+        Me.Label58.TabIndex = 125
+        Me.Label58.Text = "Print Order"
+        '
         'ftr_mc_sub1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(767, 682)
+        Me.Controls.Add(Me.Label54)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.Label53)
+        Me.Controls.Add(Me.cmbStockMovementType)
         Me.Controls.Add(Me.Label52)
         Me.Controls.Add(Me.TextBox15)
         Me.Controls.Add(Me.Label50)
@@ -2224,12 +2484,12 @@ Partial Class ftr_mc_sub1
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.TabPage9.ResumeLayout(False)
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2314,9 +2574,9 @@ Partial Class ftr_mc_sub1
     Friend WithEvents btnAddD1 As System.Windows.Forms.Button
     Friend WithEvents btnDeleteD1 As System.Windows.Forms.Button
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD2 As System.Windows.Forms.Button
+    Friend WithEvents btnAddD2 As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD2 As System.Windows.Forms.Button
     Friend WithEvents ListView2 As System.Windows.Forms.ListView
     Friend WithEvents NumericTextBox11 As boxtree.NumericTextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -2342,9 +2602,9 @@ Partial Class ftr_mc_sub1
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents NumericTextBox13 As boxtree.NumericTextBox
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD3 As System.Windows.Forms.Button
+    Friend WithEvents btnAddD3 As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD3 As System.Windows.Forms.Button
     Friend WithEvents ListView3 As System.Windows.Forms.ListView
     Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
@@ -2356,9 +2616,9 @@ Partial Class ftr_mc_sub1
     Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
     Friend WithEvents NumericTextBox15 As boxtree.NumericTextBox
     Friend WithEvents Label35 As System.Windows.Forms.Label
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD4 As System.Windows.Forms.Button
+    Friend WithEvents btnAddD4 As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD4 As System.Windows.Forms.Button
     Friend WithEvents ListView4 As System.Windows.Forms.ListView
     Friend WithEvents NumericTextBox19 As boxtree.NumericTextBox
     Friend WithEvents Label37 As System.Windows.Forms.Label
@@ -2382,9 +2642,9 @@ Partial Class ftr_mc_sub1
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents NumericTextBox24 As boxtree.NumericTextBox
     Friend WithEvents Label42 As System.Windows.Forms.Label
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents Button11 As System.Windows.Forms.Button
-    Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents btnSaveD5 As System.Windows.Forms.Button
+    Friend WithEvents btnAddD5 As System.Windows.Forms.Button
+    Friend WithEvents btnDeleteD5 As System.Windows.Forms.Button
     Friend WithEvents ListView5 As System.Windows.Forms.ListView
     Friend WithEvents Label43 As System.Windows.Forms.Label
     Friend WithEvents cmbPODtlType As System.Windows.Forms.ComboBox
@@ -2420,4 +2680,37 @@ Partial Class ftr_mc_sub1
     Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
     Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
+    Friend WithEvents cmbStockMovementType As System.Windows.Forms.ComboBox
+    Friend WithEvents Label53 As System.Windows.Forms.Label
+    Friend WithEvents Label54 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents btnSupplier As System.Windows.Forms.Button
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label56 As System.Windows.Forms.Label
+    Friend WithEvents Label55 As System.Windows.Forms.Label
+    Friend WithEvents TextBox18 As System.Windows.Forms.TextBox
+    Friend WithEvents NumericTextBox31 As boxtree.NumericTextBox
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label57 As System.Windows.Forms.Label
+    Friend WithEvents NumericTextBox33 As boxtree.NumericTextBox
+    Friend WithEvents ColumnHeader17 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader18 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader19 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label58 As System.Windows.Forms.Label
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
 End Class
