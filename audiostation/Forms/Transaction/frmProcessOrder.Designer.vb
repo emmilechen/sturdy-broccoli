@@ -33,6 +33,7 @@ Partial Class frmProcessOrder
         Me.txtSKUName = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.cmbMachineID = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.dtp1 = New System.Windows.Forms.DateTimePicker()
@@ -112,7 +113,6 @@ Partial Class frmProcessOrder
         Me.dtpProderDate = New System.Windows.Forms.DateTimePicker()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.btnSO = New System.Windows.Forms.Button()
-        Me.cmbMachineID = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -219,6 +219,15 @@ Partial Class frmProcessOrder
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Preparation1"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'cmbMachineID
+        '
+        Me.cmbMachineID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMachineID.FormattingEnabled = True
+        Me.cmbMachineID.Location = New System.Drawing.Point(145, 72)
+        Me.cmbMachineID.Name = "cmbMachineID"
+        Me.cmbMachineID.Size = New System.Drawing.Size(126, 21)
+        Me.cmbMachineID.TabIndex = 85
         '
         'Label15
         '
@@ -966,15 +975,6 @@ Partial Class frmProcessOrder
         Me.btnSO.Size = New System.Drawing.Size(29, 25)
         Me.btnSO.TabIndex = 2
         Me.btnSO.UseVisualStyleBackColor = True
-        '
-        'cmbMachineID
-        '
-        Me.cmbMachineID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbMachineID.FormattingEnabled = True
-        Me.cmbMachineID.Location = New System.Drawing.Point(145, 72)
-        Me.cmbMachineID.Name = "cmbMachineID"
-        Me.cmbMachineID.Size = New System.Drawing.Size(126, 21)
-        Me.cmbMachineID.TabIndex = 85
         '
         'frmProcessOrder
         '

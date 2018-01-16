@@ -545,4 +545,13 @@ err_ToolStripButton4_Click:
         NewFormDialog.FrmCallerId = Me.Name
         NewFormDialog.ShowDialog()
     End Sub
+
+    Private Sub cmdfind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdfind.Click
+        Dim child As New FDLSearch()
+        child.txtopenargs.Text = "8"
+        If child.ShowDialog() = DialogResult.OK Then
+            Me.txtguid.Text = child.txtChildText0.Text
+            isirecord(Me.txtguid.Text)
+        End If
+    End Sub
 End Class

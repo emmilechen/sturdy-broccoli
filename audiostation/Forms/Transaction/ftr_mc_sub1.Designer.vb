@@ -25,8 +25,8 @@ Partial Class ftr_mc_sub1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ftr_mc_sub1))
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtRefNo = New System.Windows.Forms.TextBox()
-        Me.dtpSODate = New System.Windows.Forms.DateTimePicker()
+        Me.txtProductCode = New System.Windows.Forms.TextBox()
+        Me.dtp1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -52,6 +52,7 @@ Partial Class ftr_mc_sub1
         Me.RadioButton14 = New System.Windows.Forms.RadioButton()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txtSID = New System.Windows.Forms.TextBox()
         Me.btnSupplier = New System.Windows.Forms.Button()
         Me.NumericTextBox8 = New boxtree.NumericTextBox()
         Me.NumericTextBox7 = New boxtree.NumericTextBox()
@@ -72,6 +73,7 @@ Partial Class ftr_mc_sub1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d1 = New System.Windows.Forms.TextBox()
         Me.btnSaveD1 = New System.Windows.Forms.Button()
         Me.btnAddD1 = New System.Windows.Forms.Button()
         Me.btnDeleteD1 = New System.Windows.Forms.Button()
@@ -93,6 +95,9 @@ Partial Class ftr_mc_sub1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d2 = New System.Windows.Forms.TextBox()
+        Me.Label58 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label56 = New System.Windows.Forms.Label()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.TextBox18 = New System.Windows.Forms.TextBox()
@@ -113,7 +118,11 @@ Partial Class ftr_mc_sub1
         Me.btnAddD2 = New System.Windows.Forms.Button()
         Me.btnDeleteD2 = New System.Windows.Forms.Button()
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d3 = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.NumericTextBox14 = New boxtree.NumericTextBox()
@@ -138,6 +147,7 @@ Partial Class ftr_mc_sub1
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d4 = New System.Windows.Forms.TextBox()
         Me.NumericTextBox20 = New boxtree.NumericTextBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.NumericTextBox19 = New boxtree.NumericTextBox()
@@ -177,10 +187,11 @@ Partial Class ftr_mc_sub1
         Me.NumericTextBox22 = New boxtree.NumericTextBox()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.txtguid_d5 = New System.Windows.Forms.TextBox()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.NumericTextBox33 = New boxtree.NumericTextBox()
         Me.Label43 = New System.Windows.Forms.Label()
-        Me.cmbPODtlType = New System.Windows.Forms.ComboBox()
+        Me.cmbLineType = New System.Windows.Forms.ComboBox()
         Me.NumericTextBox23 = New boxtree.NumericTextBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.NumericTextBox24 = New boxtree.NumericTextBox()
@@ -236,12 +247,11 @@ Partial Class ftr_mc_sub1
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Label52 = New System.Windows.Forms.Label()
         Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.cmbStockMovementType = New System.Windows.Forms.ComboBox()
+        Me.cmbProductionProcess = New System.Windows.Forms.ComboBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label58 = New System.Windows.Forms.Label()
+        Me.txtguid = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -283,21 +293,21 @@ Partial Class ftr_mc_sub1
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Date"
         '
-        'txtRefNo
+        'txtProductCode
         '
-        Me.txtRefNo.Location = New System.Drawing.Point(434, 42)
-        Me.txtRefNo.MaxLength = 50
-        Me.txtRefNo.Name = "txtRefNo"
-        Me.txtRefNo.Size = New System.Drawing.Size(127, 21)
-        Me.txtRefNo.TabIndex = 34
+        Me.txtProductCode.Location = New System.Drawing.Point(434, 42)
+        Me.txtProductCode.MaxLength = 50
+        Me.txtProductCode.Name = "txtProductCode"
+        Me.txtProductCode.Size = New System.Drawing.Size(127, 21)
+        Me.txtProductCode.TabIndex = 34
         '
-        'dtpSODate
+        'dtp1
         '
-        Me.dtpSODate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpSODate.Location = New System.Drawing.Point(125, 38)
-        Me.dtpSODate.Name = "dtpSODate"
-        Me.dtpSODate.Size = New System.Drawing.Size(97, 21)
-        Me.dtpSODate.TabIndex = 33
+        Me.dtp1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp1.Location = New System.Drawing.Point(125, 38)
+        Me.dtp1.Name = "dtp1"
+        Me.dtp1.Size = New System.Drawing.Size(97, 21)
+        Me.dtp1.TabIndex = 33
         '
         'Label1
         '
@@ -564,6 +574,7 @@ Partial Class ftr_mc_sub1
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.txtSID)
         Me.TabPage1.Controls.Add(Me.btnSupplier)
         Me.TabPage1.Controls.Add(Me.NumericTextBox8)
         Me.TabPage1.Controls.Add(Me.NumericTextBox7)
@@ -588,6 +599,18 @@ Partial Class ftr_mc_sub1
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Cylinder"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txtSID
+        '
+        Me.txtSID.BackColor = System.Drawing.Color.IndianRed
+        Me.txtSID.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSID.Location = New System.Drawing.Point(540, 37)
+        Me.txtSID.Name = "txtSID"
+        Me.txtSID.ReadOnly = True
+        Me.txtSID.Size = New System.Drawing.Size(54, 21)
+        Me.txtSID.TabIndex = 112
+        Me.txtSID.Tag = "process_order_id"
+        Me.txtSID.Visible = False
         '
         'btnSupplier
         '
@@ -774,6 +797,7 @@ Partial Class ftr_mc_sub1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.txtguid_d1)
         Me.TabPage2.Controls.Add(Me.btnSaveD1)
         Me.TabPage2.Controls.Add(Me.btnAddD1)
         Me.TabPage2.Controls.Add(Me.btnDeleteD1)
@@ -797,6 +821,18 @@ Partial Class ftr_mc_sub1
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Film"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'txtguid_d1
+        '
+        Me.txtguid_d1.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d1.Location = New System.Drawing.Point(570, 23)
+        Me.txtguid_d1.Name = "txtguid_d1"
+        Me.txtguid_d1.ReadOnly = True
+        Me.txtguid_d1.Size = New System.Drawing.Size(53, 21)
+        Me.txtguid_d1.TabIndex = 116
+        Me.txtguid_d1.Tag = "cost_d_id"
+        Me.txtguid_d1.Visible = False
         '
         'btnSaveD1
         '
@@ -898,16 +934,16 @@ Partial Class ftr_mc_sub1
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(318, 11)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(43, 13)
+        Me.Label16.Size = New System.Drawing.Size(48, 13)
         Me.Label16.TabIndex = 107
-        Me.Label16.Text = "Remark"
+        Me.Label16.Text = "Remarks"
         '
         'TextBox12
         '
         Me.TextBox12.Location = New System.Drawing.Point(321, 27)
         Me.TextBox12.MaxLength = 50
         Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(121, 21)
+        Me.TextBox12.Size = New System.Drawing.Size(243, 21)
         Me.TextBox12.TabIndex = 106
         '
         'Label15
@@ -967,6 +1003,7 @@ Partial Class ftr_mc_sub1
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.txtguid_d2)
         Me.TabPage3.Controls.Add(Me.Label58)
         Me.TabPage3.Controls.Add(Me.DateTimePicker1)
         Me.TabPage3.Controls.Add(Me.Label56)
@@ -993,6 +1030,35 @@ Partial Class ftr_mc_sub1
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Printing"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'txtguid_d2
+        '
+        Me.txtguid_d2.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d2.Location = New System.Drawing.Point(359, 26)
+        Me.txtguid_d2.Name = "txtguid_d2"
+        Me.txtguid_d2.ReadOnly = True
+        Me.txtguid_d2.Size = New System.Drawing.Size(53, 21)
+        Me.txtguid_d2.TabIndex = 126
+        Me.txtguid_d2.Tag = "cost_d_id"
+        Me.txtguid_d2.Visible = False
+        '
+        'Label58
+        '
+        Me.Label58.AutoSize = True
+        Me.Label58.Location = New System.Drawing.Point(117, 12)
+        Me.Label58.Name = "Label58"
+        Me.Label58.Size = New System.Drawing.Size(60, 13)
+        Me.Label58.TabIndex = 125
+        Me.Label58.Text = "Print Order"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(12, 28)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(97, 21)
+        Me.DateTimePicker1.TabIndex = 124
         '
         'Label56
         '
@@ -1184,6 +1250,7 @@ Partial Class ftr_mc_sub1
         '
         'ListView2
         '
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader21, Me.ColumnHeader22, Me.ColumnHeader23})
         Me.ListView2.Location = New System.Drawing.Point(12, 57)
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Size = New System.Drawing.Size(712, 199)
@@ -1191,8 +1258,24 @@ Partial Class ftr_mc_sub1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader21
+        '
+        Me.ColumnHeader21.Text = "Printing On"
+        Me.ColumnHeader21.Width = 90
+        '
+        'ColumnHeader22
+        '
+        Me.ColumnHeader22.Text = "Print Order"
+        Me.ColumnHeader22.Width = 90
+        '
+        'ColumnHeader23
+        '
+        Me.ColumnHeader23.Text = "Print Description"
+        Me.ColumnHeader23.Width = 200
+        '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.txtguid_d3)
         Me.TabPage4.Controls.Add(Me.Label30)
         Me.TabPage4.Controls.Add(Me.TextBox13)
         Me.TabPage4.Controls.Add(Me.NumericTextBox14)
@@ -1218,6 +1301,18 @@ Partial Class ftr_mc_sub1
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Extrusion"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'txtguid_d3
+        '
+        Me.txtguid_d3.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d3.Location = New System.Drawing.Point(564, -1)
+        Me.txtguid_d3.Name = "txtguid_d3"
+        Me.txtguid_d3.ReadOnly = True
+        Me.txtguid_d3.Size = New System.Drawing.Size(53, 21)
+        Me.txtguid_d3.TabIndex = 129
+        Me.txtguid_d3.Tag = "cost_d_id"
+        Me.txtguid_d3.Visible = False
         '
         'Label30
         '
@@ -1410,6 +1505,7 @@ Partial Class ftr_mc_sub1
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.txtguid_d4)
         Me.TabPage5.Controls.Add(Me.NumericTextBox20)
         Me.TabPage5.Controls.Add(Me.Label38)
         Me.TabPage5.Controls.Add(Me.NumericTextBox19)
@@ -1437,6 +1533,18 @@ Partial Class ftr_mc_sub1
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "DryLami"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'txtguid_d4
+        '
+        Me.txtguid_d4.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d4.Location = New System.Drawing.Point(557, 44)
+        Me.txtguid_d4.Name = "txtguid_d4"
+        Me.txtguid_d4.ReadOnly = True
+        Me.txtguid_d4.Size = New System.Drawing.Size(53, 21)
+        Me.txtguid_d4.TabIndex = 145
+        Me.txtguid_d4.Tag = "cost_d_id"
+        Me.txtguid_d4.Visible = False
         '
         'NumericTextBox20
         '
@@ -1781,10 +1889,11 @@ Partial Class ftr_mc_sub1
         '
         'TabPage7
         '
+        Me.TabPage7.Controls.Add(Me.txtguid_d5)
         Me.TabPage7.Controls.Add(Me.Label57)
         Me.TabPage7.Controls.Add(Me.NumericTextBox33)
         Me.TabPage7.Controls.Add(Me.Label43)
-        Me.TabPage7.Controls.Add(Me.cmbPODtlType)
+        Me.TabPage7.Controls.Add(Me.cmbLineType)
         Me.TabPage7.Controls.Add(Me.NumericTextBox23)
         Me.TabPage7.Controls.Add(Me.Label41)
         Me.TabPage7.Controls.Add(Me.NumericTextBox24)
@@ -1800,6 +1909,18 @@ Partial Class ftr_mc_sub1
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Quality"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'txtguid_d5
+        '
+        Me.txtguid_d5.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid_d5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid_d5.Location = New System.Drawing.Point(366, 24)
+        Me.txtguid_d5.Name = "txtguid_d5"
+        Me.txtguid_d5.ReadOnly = True
+        Me.txtguid_d5.Size = New System.Drawing.Size(53, 21)
+        Me.txtguid_d5.TabIndex = 149
+        Me.txtguid_d5.Tag = "cost_d_id"
+        Me.txtguid_d5.Visible = False
         '
         'Label57
         '
@@ -1829,14 +1950,14 @@ Partial Class ftr_mc_sub1
         Me.Label43.TabIndex = 146
         Me.Label43.Text = "Line Type"
         '
-        'cmbPODtlType
+        'cmbLineType
         '
-        Me.cmbPODtlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbPODtlType.FormattingEnabled = True
-        Me.cmbPODtlType.Location = New System.Drawing.Point(11, 24)
-        Me.cmbPODtlType.Name = "cmbPODtlType"
-        Me.cmbPODtlType.Size = New System.Drawing.Size(88, 21)
-        Me.cmbPODtlType.TabIndex = 145
+        Me.cmbLineType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbLineType.FormattingEnabled = True
+        Me.cmbLineType.Location = New System.Drawing.Point(11, 24)
+        Me.cmbLineType.Name = "cmbLineType"
+        Me.cmbLineType.Size = New System.Drawing.Size(88, 21)
+        Me.cmbLineType.TabIndex = 145
         '
         'NumericTextBox23
         '
@@ -2368,13 +2489,13 @@ Partial Class ftr_mc_sub1
         Me.TextBox15.Size = New System.Drawing.Size(430, 78)
         Me.TextBox15.TabIndex = 51
         '
-        'cmbStockMovementType
+        'cmbProductionProcess
         '
-        Me.cmbStockMovementType.FormattingEnabled = True
-        Me.cmbStockMovementType.Location = New System.Drawing.Point(434, 99)
-        Me.cmbStockMovementType.Name = "cmbStockMovementType"
-        Me.cmbStockMovementType.Size = New System.Drawing.Size(83, 21)
-        Me.cmbStockMovementType.TabIndex = 53
+        Me.cmbProductionProcess.FormattingEnabled = True
+        Me.cmbProductionProcess.Location = New System.Drawing.Point(434, 99)
+        Me.cmbProductionProcess.Name = "cmbProductionProcess"
+        Me.cmbProductionProcess.Size = New System.Drawing.Size(83, 21)
+        Me.cmbProductionProcess.TabIndex = 53
         '
         'Label53
         '
@@ -2402,32 +2523,28 @@ Partial Class ftr_mc_sub1
         Me.ComboBox1.Size = New System.Drawing.Size(83, 21)
         Me.ComboBox1.TabIndex = 55
         '
-        'DateTimePicker1
+        'txtguid
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(12, 28)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(97, 21)
-        Me.DateTimePicker1.TabIndex = 124
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(117, 12)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(60, 13)
-        Me.Label58.TabIndex = 125
-        Me.Label58.Text = "Print Order"
+        Me.txtguid.BackColor = System.Drawing.Color.IndianRed
+        Me.txtguid.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtguid.Location = New System.Drawing.Point(228, 39)
+        Me.txtguid.Name = "txtguid"
+        Me.txtguid.ReadOnly = True
+        Me.txtguid.Size = New System.Drawing.Size(54, 21)
+        Me.txtguid.TabIndex = 84
+        Me.txtguid.Tag = "process_order_id"
+        Me.txtguid.Visible = False
         '
         'ftr_mc_sub1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(767, 682)
+        Me.Controls.Add(Me.txtguid)
         Me.Controls.Add(Me.Label54)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label53)
-        Me.Controls.Add(Me.cmbStockMovementType)
+        Me.Controls.Add(Me.cmbProductionProcess)
         Me.Controls.Add(Me.Label52)
         Me.Controls.Add(Me.TextBox15)
         Me.Controls.Add(Me.Label50)
@@ -2445,8 +2562,8 @@ Partial Class ftr_mc_sub1
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtRefNo)
-        Me.Controls.Add(Me.dtpSODate)
+        Me.Controls.Add(Me.txtProductCode)
+        Me.Controls.Add(Me.dtp1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "ftr_mc_sub1"
         Me.Text = "Master Card"
@@ -2496,8 +2613,8 @@ Partial Class ftr_mc_sub1
     End Sub
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txtRefNo As System.Windows.Forms.TextBox
-    Friend WithEvents dtpSODate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtProductCode As System.Windows.Forms.TextBox
+    Friend WithEvents dtp1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -2647,7 +2764,7 @@ Partial Class ftr_mc_sub1
     Friend WithEvents btnDeleteD5 As System.Windows.Forms.Button
     Friend WithEvents ListView5 As System.Windows.Forms.ListView
     Friend WithEvents Label43 As System.Windows.Forms.Label
-    Friend WithEvents cmbPODtlType As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbLineType As System.Windows.Forms.ComboBox
     Friend WithEvents NumericTextBox32 As boxtree.NumericTextBox
     Friend WithEvents Label51 As System.Windows.Forms.Label
     Friend WithEvents NumericTextBox29 As boxtree.NumericTextBox
@@ -2680,7 +2797,7 @@ Partial Class ftr_mc_sub1
     Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
     Friend WithEvents Label52 As System.Windows.Forms.Label
     Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
-    Friend WithEvents cmbStockMovementType As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbProductionProcess As System.Windows.Forms.ComboBox
     Friend WithEvents Label53 As System.Windows.Forms.Label
     Friend WithEvents Label54 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
@@ -2713,4 +2830,14 @@ Partial Class ftr_mc_sub1
     Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Label58 As System.Windows.Forms.Label
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtguid As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d4 As System.Windows.Forms.TextBox
+    Friend WithEvents txtguid_d5 As System.Windows.Forms.TextBox
+    Friend WithEvents txtSID As System.Windows.Forms.TextBox
+    Friend WithEvents ColumnHeader21 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader22 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader23 As System.Windows.Forms.ColumnHeader
 End Class

@@ -73,6 +73,30 @@ Partial Class ftr_mc_sub2
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton18 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton19 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton14 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton17 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton12 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton13 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton11 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.ListBox10 = New System.Windows.Forms.ListBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.ListBox9 = New System.Windows.Forms.ListBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -102,6 +126,7 @@ Partial Class ftr_mc_sub2
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.NumericTextBox20 = New boxtree.NumericTextBox()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -123,6 +148,7 @@ Partial Class ftr_mc_sub2
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.cmdSave = New System.Windows.Forms.ToolStripButton()
         Me.cmdFind = New System.Windows.Forms.ToolStripButton()
@@ -140,32 +166,6 @@ Partial Class ftr_mc_sub2
         Me.NumericTextBox33 = New boxtree.NumericTextBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.ListBox10 = New System.Windows.Forms.ListBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton5 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton6 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton7 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton8 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton9 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton11 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton12 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton13 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton14 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton17 = New System.Windows.Forms.RadioButton()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton18 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton19 = New System.Windows.Forms.RadioButton()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -173,15 +173,15 @@ Partial Class ftr_mc_sub2
         Me.GroupBox4.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label9
@@ -279,7 +279,7 @@ Partial Class ftr_mc_sub2
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(78, 22)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(71, 17)
+        Me.RadioButton2.Size = New System.Drawing.Size(72, 17)
         Me.RadioButton2.TabIndex = 42
         Me.RadioButton2.Text = "Non Food"
         Me.RadioButton2.UseVisualStyleBackColor = True
@@ -290,7 +290,7 @@ Partial Class ftr_mc_sub2
         Me.GroupBox2.Controls.Add(Me.RadioButton4)
         Me.GroupBox2.Location = New System.Drawing.Point(496, 156)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(148, 46)
+        Me.GroupBox2.Size = New System.Drawing.Size(158, 46)
         Me.GroupBox2.TabIndex = 43
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Industry or Medicine"
@@ -451,7 +451,7 @@ Partial Class ftr_mc_sub2
         Me.RadioButton15.AutoSize = True
         Me.RadioButton15.Location = New System.Drawing.Point(53, 20)
         Me.RadioButton15.Name = "RadioButton15"
-        Me.RadioButton15.Size = New System.Drawing.Size(38, 17)
+        Me.RadioButton15.Size = New System.Drawing.Size(39, 17)
         Me.RadioButton15.TabIndex = 42
         Me.RadioButton15.TabStop = True
         Me.RadioButton15.Text = "No"
@@ -462,7 +462,7 @@ Partial Class ftr_mc_sub2
         Me.RadioButton16.AutoSize = True
         Me.RadioButton16.Location = New System.Drawing.Point(6, 20)
         Me.RadioButton16.Name = "RadioButton16"
-        Me.RadioButton16.Size = New System.Drawing.Size(42, 17)
+        Me.RadioButton16.Size = New System.Drawing.Size(43, 17)
         Me.RadioButton16.TabIndex = 41
         Me.RadioButton16.TabStop = True
         Me.RadioButton16.Text = "Yes"
@@ -642,9 +642,9 @@ Partial Class ftr_mc_sub2
         Me.Label39.AutoSize = True
         Me.Label39.Location = New System.Drawing.Point(9, 12)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(29, 13)
+        Me.Label39.Size = New System.Drawing.Size(79, 13)
         Me.Label39.TabIndex = 113
-        Me.Label39.Text = "Print"
+        Me.Label39.Text = "Print reference"
         '
         'ListBox1
         '
@@ -702,6 +702,259 @@ Partial Class ftr_mc_sub2
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Coating Process"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(351, 117)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(65, 13)
+        Me.Label42.TabIndex = 133
+        Me.Label42.Text = "Composition"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Location = New System.Drawing.Point(424, 114)
+        Me.TextBox11.MaxLength = 50
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(215, 21)
+        Me.TextBox11.TabIndex = 132
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.RadioButton18)
+        Me.GroupBox9.Controls.Add(Me.RadioButton19)
+        Me.GroupBox9.Location = New System.Drawing.Point(611, 247)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(113, 65)
+        Me.GroupBox9.TabIndex = 131
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Special Request"
+        '
+        'RadioButton18
+        '
+        Me.RadioButton18.AutoSize = True
+        Me.RadioButton18.Location = New System.Drawing.Point(6, 43)
+        Me.RadioButton18.Name = "RadioButton18"
+        Me.RadioButton18.Size = New System.Drawing.Size(72, 17)
+        Me.RadioButton18.TabIndex = 42
+        Me.RadioButton18.TabStop = True
+        Me.RadioButton18.Text = "Milky Line"
+        Me.RadioButton18.UseVisualStyleBackColor = True
+        '
+        'RadioButton19
+        '
+        Me.RadioButton19.AutoSize = True
+        Me.RadioButton19.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton19.Name = "RadioButton19"
+        Me.RadioButton19.Size = New System.Drawing.Size(83, 17)
+        Me.RadioButton19.TabIndex = 41
+        Me.RadioButton19.TabStop = True
+        Me.RadioButton19.Text = "Anti Scratch"
+        Me.RadioButton19.UseVisualStyleBackColor = True
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.RadioButton14)
+        Me.GroupBox8.Controls.Add(Me.RadioButton17)
+        Me.GroupBox8.Location = New System.Drawing.Point(424, 247)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(167, 47)
+        Me.GroupBox8.TabIndex = 130
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Windows Patching"
+        '
+        'RadioButton14
+        '
+        Me.RadioButton14.AutoSize = True
+        Me.RadioButton14.Location = New System.Drawing.Point(86, 20)
+        Me.RadioButton14.Name = "RadioButton14"
+        Me.RadioButton14.Size = New System.Drawing.Size(75, 17)
+        Me.RadioButton14.TabIndex = 42
+        Me.RadioButton14.TabStop = True
+        Me.RadioButton14.Text = "PET Layer"
+        Me.RadioButton14.UseVisualStyleBackColor = True
+        '
+        'RadioButton17
+        '
+        Me.RadioButton17.AutoSize = True
+        Me.RadioButton17.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton17.Name = "RadioButton17"
+        Me.RadioButton17.Size = New System.Drawing.Size(75, 17)
+        Me.RadioButton17.TabIndex = 41
+        Me.RadioButton17.TabStop = True
+        Me.RadioButton17.Text = "PVC Layer"
+        Me.RadioButton17.UseVisualStyleBackColor = True
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.RadioButton12)
+        Me.GroupBox7.Controls.Add(Me.RadioButton13)
+        Me.GroupBox7.Location = New System.Drawing.Point(611, 194)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(97, 47)
+        Me.GroupBox7.TabIndex = 129
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Anti Scratch"
+        '
+        'RadioButton12
+        '
+        Me.RadioButton12.AutoSize = True
+        Me.RadioButton12.Location = New System.Drawing.Point(53, 20)
+        Me.RadioButton12.Name = "RadioButton12"
+        Me.RadioButton12.Size = New System.Drawing.Size(39, 17)
+        Me.RadioButton12.TabIndex = 42
+        Me.RadioButton12.TabStop = True
+        Me.RadioButton12.Text = "No"
+        Me.RadioButton12.UseVisualStyleBackColor = True
+        '
+        'RadioButton13
+        '
+        Me.RadioButton13.AutoSize = True
+        Me.RadioButton13.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton13.Name = "RadioButton13"
+        Me.RadioButton13.Size = New System.Drawing.Size(43, 17)
+        Me.RadioButton13.TabIndex = 41
+        Me.RadioButton13.TabStop = True
+        Me.RadioButton13.Text = "Yes"
+        Me.RadioButton13.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.RadioButton11)
+        Me.GroupBox6.Controls.Add(Me.RadioButton9)
+        Me.GroupBox6.Controls.Add(Me.RadioButton10)
+        Me.GroupBox6.Location = New System.Drawing.Point(424, 194)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(163, 47)
+        Me.GroupBox6.TabIndex = 128
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Hot Stamp Type"
+        '
+        'RadioButton11
+        '
+        Me.RadioButton11.AutoSize = True
+        Me.RadioButton11.Location = New System.Drawing.Point(109, 20)
+        Me.RadioButton11.Name = "RadioButton11"
+        Me.RadioButton11.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton11.TabIndex = 43
+        Me.RadioButton11.TabStop = True
+        Me.RadioButton11.Text = "Other"
+        Me.RadioButton11.UseVisualStyleBackColor = True
+        '
+        'RadioButton9
+        '
+        Me.RadioButton9.AutoSize = True
+        Me.RadioButton9.Location = New System.Drawing.Point(63, 20)
+        Me.RadioButton9.Name = "RadioButton9"
+        Me.RadioButton9.Size = New System.Drawing.Size(47, 17)
+        Me.RadioButton9.TabIndex = 42
+        Me.RadioButton9.TabStop = True
+        Me.RadioButton9.Text = "Gold"
+        Me.RadioButton9.UseVisualStyleBackColor = True
+        '
+        'RadioButton10
+        '
+        Me.RadioButton10.AutoSize = True
+        Me.RadioButton10.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton10.Name = "RadioButton10"
+        Me.RadioButton10.Size = New System.Drawing.Size(51, 17)
+        Me.RadioButton10.TabIndex = 41
+        Me.RadioButton10.TabStop = True
+        Me.RadioButton10.Text = "Silver"
+        Me.RadioButton10.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.RadioButton7)
+        Me.GroupBox5.Controls.Add(Me.RadioButton8)
+        Me.GroupBox5.Location = New System.Drawing.Point(611, 141)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(97, 47)
+        Me.GroupBox5.TabIndex = 55
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Rigid"
+        '
+        'RadioButton7
+        '
+        Me.RadioButton7.AutoSize = True
+        Me.RadioButton7.Location = New System.Drawing.Point(53, 20)
+        Me.RadioButton7.Name = "RadioButton7"
+        Me.RadioButton7.Size = New System.Drawing.Size(39, 17)
+        Me.RadioButton7.TabIndex = 42
+        Me.RadioButton7.TabStop = True
+        Me.RadioButton7.Text = "No"
+        Me.RadioButton7.UseVisualStyleBackColor = True
+        '
+        'RadioButton8
+        '
+        Me.RadioButton8.AutoSize = True
+        Me.RadioButton8.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton8.Name = "RadioButton8"
+        Me.RadioButton8.Size = New System.Drawing.Size(43, 17)
+        Me.RadioButton8.TabIndex = 41
+        Me.RadioButton8.TabStop = True
+        Me.RadioButton8.Text = "Yes"
+        Me.RadioButton8.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.RadioButton5)
+        Me.GroupBox3.Controls.Add(Me.RadioButton6)
+        Me.GroupBox3.Location = New System.Drawing.Point(424, 141)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(175, 47)
+        Me.GroupBox3.TabIndex = 127
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Flute Orientation"
+        '
+        'RadioButton5
+        '
+        Me.RadioButton5.AutoSize = True
+        Me.RadioButton5.Location = New System.Drawing.Point(94, 20)
+        Me.RadioButton5.Name = "RadioButton5"
+        Me.RadioButton5.Size = New System.Drawing.Size(72, 17)
+        Me.RadioButton5.TabIndex = 42
+        Me.RadioButton5.TabStop = True
+        Me.RadioButton5.Text = "Horizontal"
+        Me.RadioButton5.UseVisualStyleBackColor = True
+        '
+        'RadioButton6
+        '
+        Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Location = New System.Drawing.Point(6, 20)
+        Me.RadioButton6.Name = "RadioButton6"
+        Me.RadioButton6.Size = New System.Drawing.Size(60, 17)
+        Me.RadioButton6.TabIndex = 41
+        Me.RadioButton6.TabStop = True
+        Me.RadioButton6.Text = "Vertical"
+        Me.RadioButton6.UseVisualStyleBackColor = True
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(421, 33)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(58, 13)
+        Me.Label41.TabIndex = 126
+        Me.Label41.Text = "Flute Type"
+        '
+        'ListBox10
+        '
+        Me.ListBox10.FormattingEnabled = True
+        Me.ListBox10.Location = New System.Drawing.Point(424, 49)
+        Me.ListBox10.Name = "ListBox10"
+        Me.ListBox10.Size = New System.Drawing.Size(120, 56)
+        Me.ListBox10.TabIndex = 125
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(411, 15)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(85, 13)
+        Me.Label23.TabIndex = 124
+        Me.Label23.Text = "Lamination Type"
         '
         'Label22
         '
@@ -979,6 +1232,15 @@ Partial Class ftr_mc_sub2
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
         '
+        'TabPage6
+        '
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(730, 318)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Folder & Glue Process"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.NumericTextBox20)
@@ -1197,6 +1459,15 @@ Partial Class ftr_mc_sub2
         Me.ListView4.UseCompatibleStateImageBehavior = False
         Me.ListView4.View = System.Windows.Forms.View.Details
         '
+        'TabPage7
+        '
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(730, 318)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Flow Process"
+        Me.TabPage7.UseVisualStyleBackColor = True
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdSave, Me.cmdFind, Me.cmdCancel, Me.cmdDelete, Me.cmdNew, Me.cmdExit, Me.ToolStripSeparator1, Me.cmdPrint})
@@ -1340,278 +1611,7 @@ Partial Class ftr_mc_sub2
         Me.Label54.TabIndex = 110
         Me.Label54.Text = "Open Size"
         '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(411, 15)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(85, 13)
-        Me.Label23.TabIndex = 124
-        Me.Label23.Text = "Lamination Type"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(421, 33)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(58, 13)
-        Me.Label41.TabIndex = 126
-        Me.Label41.Text = "Flute Type"
-        '
-        'ListBox10
-        '
-        Me.ListBox10.FormattingEnabled = True
-        Me.ListBox10.Location = New System.Drawing.Point(424, 49)
-        Me.ListBox10.Name = "ListBox10"
-        Me.ListBox10.Size = New System.Drawing.Size(120, 56)
-        Me.ListBox10.TabIndex = 125
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.RadioButton5)
-        Me.GroupBox3.Controls.Add(Me.RadioButton6)
-        Me.GroupBox3.Location = New System.Drawing.Point(424, 141)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(175, 47)
-        Me.GroupBox3.TabIndex = 127
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Flute Orientation"
-        '
-        'RadioButton5
-        '
-        Me.RadioButton5.AutoSize = True
-        Me.RadioButton5.Location = New System.Drawing.Point(94, 20)
-        Me.RadioButton5.Name = "RadioButton5"
-        Me.RadioButton5.Size = New System.Drawing.Size(73, 17)
-        Me.RadioButton5.TabIndex = 42
-        Me.RadioButton5.TabStop = True
-        Me.RadioButton5.Text = "Horizontal"
-        Me.RadioButton5.UseVisualStyleBackColor = True
-        '
-        'RadioButton6
-        '
-        Me.RadioButton6.AutoSize = True
-        Me.RadioButton6.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton6.Name = "RadioButton6"
-        Me.RadioButton6.Size = New System.Drawing.Size(60, 17)
-        Me.RadioButton6.TabIndex = 41
-        Me.RadioButton6.TabStop = True
-        Me.RadioButton6.Text = "Vertical"
-        Me.RadioButton6.UseVisualStyleBackColor = True
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.RadioButton7)
-        Me.GroupBox5.Controls.Add(Me.RadioButton8)
-        Me.GroupBox5.Location = New System.Drawing.Point(611, 141)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(97, 47)
-        Me.GroupBox5.TabIndex = 55
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Rigid"
-        '
-        'RadioButton7
-        '
-        Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Location = New System.Drawing.Point(53, 20)
-        Me.RadioButton7.Name = "RadioButton7"
-        Me.RadioButton7.Size = New System.Drawing.Size(38, 17)
-        Me.RadioButton7.TabIndex = 42
-        Me.RadioButton7.TabStop = True
-        Me.RadioButton7.Text = "No"
-        Me.RadioButton7.UseVisualStyleBackColor = True
-        '
-        'RadioButton8
-        '
-        Me.RadioButton8.AutoSize = True
-        Me.RadioButton8.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton8.Name = "RadioButton8"
-        Me.RadioButton8.Size = New System.Drawing.Size(42, 17)
-        Me.RadioButton8.TabIndex = 41
-        Me.RadioButton8.TabStop = True
-        Me.RadioButton8.Text = "Yes"
-        Me.RadioButton8.UseVisualStyleBackColor = True
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.RadioButton11)
-        Me.GroupBox6.Controls.Add(Me.RadioButton9)
-        Me.GroupBox6.Controls.Add(Me.RadioButton10)
-        Me.GroupBox6.Location = New System.Drawing.Point(424, 194)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(163, 47)
-        Me.GroupBox6.TabIndex = 128
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Hot Stamp Type"
-        '
-        'RadioButton9
-        '
-        Me.RadioButton9.AutoSize = True
-        Me.RadioButton9.Location = New System.Drawing.Point(63, 20)
-        Me.RadioButton9.Name = "RadioButton9"
-        Me.RadioButton9.Size = New System.Drawing.Size(46, 17)
-        Me.RadioButton9.TabIndex = 42
-        Me.RadioButton9.TabStop = True
-        Me.RadioButton9.Text = "Gold"
-        Me.RadioButton9.UseVisualStyleBackColor = True
-        '
-        'RadioButton10
-        '
-        Me.RadioButton10.AutoSize = True
-        Me.RadioButton10.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton10.Name = "RadioButton10"
-        Me.RadioButton10.Size = New System.Drawing.Size(51, 17)
-        Me.RadioButton10.TabIndex = 41
-        Me.RadioButton10.TabStop = True
-        Me.RadioButton10.Text = "Silver"
-        Me.RadioButton10.UseVisualStyleBackColor = True
-        '
-        'RadioButton11
-        '
-        Me.RadioButton11.AutoSize = True
-        Me.RadioButton11.Location = New System.Drawing.Point(109, 20)
-        Me.RadioButton11.Name = "RadioButton11"
-        Me.RadioButton11.Size = New System.Drawing.Size(53, 17)
-        Me.RadioButton11.TabIndex = 43
-        Me.RadioButton11.TabStop = True
-        Me.RadioButton11.Text = "Other"
-        Me.RadioButton11.UseVisualStyleBackColor = True
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.Controls.Add(Me.RadioButton12)
-        Me.GroupBox7.Controls.Add(Me.RadioButton13)
-        Me.GroupBox7.Location = New System.Drawing.Point(611, 194)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(97, 47)
-        Me.GroupBox7.TabIndex = 129
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Anti Scratch"
-        '
-        'RadioButton12
-        '
-        Me.RadioButton12.AutoSize = True
-        Me.RadioButton12.Location = New System.Drawing.Point(53, 20)
-        Me.RadioButton12.Name = "RadioButton12"
-        Me.RadioButton12.Size = New System.Drawing.Size(38, 17)
-        Me.RadioButton12.TabIndex = 42
-        Me.RadioButton12.TabStop = True
-        Me.RadioButton12.Text = "No"
-        Me.RadioButton12.UseVisualStyleBackColor = True
-        '
-        'RadioButton13
-        '
-        Me.RadioButton13.AutoSize = True
-        Me.RadioButton13.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton13.Name = "RadioButton13"
-        Me.RadioButton13.Size = New System.Drawing.Size(42, 17)
-        Me.RadioButton13.TabIndex = 41
-        Me.RadioButton13.TabStop = True
-        Me.RadioButton13.Text = "Yes"
-        Me.RadioButton13.UseVisualStyleBackColor = True
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.RadioButton14)
-        Me.GroupBox8.Controls.Add(Me.RadioButton17)
-        Me.GroupBox8.Location = New System.Drawing.Point(424, 247)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(167, 47)
-        Me.GroupBox8.TabIndex = 130
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Windows Patching"
-        '
-        'RadioButton14
-        '
-        Me.RadioButton14.AutoSize = True
-        Me.RadioButton14.Location = New System.Drawing.Point(86, 20)
-        Me.RadioButton14.Name = "RadioButton14"
-        Me.RadioButton14.Size = New System.Drawing.Size(73, 17)
-        Me.RadioButton14.TabIndex = 42
-        Me.RadioButton14.TabStop = True
-        Me.RadioButton14.Text = "PET Layer"
-        Me.RadioButton14.UseVisualStyleBackColor = True
-        '
-        'RadioButton17
-        '
-        Me.RadioButton17.AutoSize = True
-        Me.RadioButton17.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton17.Name = "RadioButton17"
-        Me.RadioButton17.Size = New System.Drawing.Size(74, 17)
-        Me.RadioButton17.TabIndex = 41
-        Me.RadioButton17.TabStop = True
-        Me.RadioButton17.Text = "PVC Layer"
-        Me.RadioButton17.UseVisualStyleBackColor = True
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.RadioButton18)
-        Me.GroupBox9.Controls.Add(Me.RadioButton19)
-        Me.GroupBox9.Location = New System.Drawing.Point(611, 247)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(113, 65)
-        Me.GroupBox9.TabIndex = 131
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Special Request"
-        '
-        'RadioButton18
-        '
-        Me.RadioButton18.AutoSize = True
-        Me.RadioButton18.Location = New System.Drawing.Point(6, 43)
-        Me.RadioButton18.Name = "RadioButton18"
-        Me.RadioButton18.Size = New System.Drawing.Size(70, 17)
-        Me.RadioButton18.TabIndex = 42
-        Me.RadioButton18.TabStop = True
-        Me.RadioButton18.Text = "Milky Line"
-        Me.RadioButton18.UseVisualStyleBackColor = True
-        '
-        'RadioButton19
-        '
-        Me.RadioButton19.AutoSize = True
-        Me.RadioButton19.Location = New System.Drawing.Point(6, 20)
-        Me.RadioButton19.Name = "RadioButton19"
-        Me.RadioButton19.Size = New System.Drawing.Size(83, 17)
-        Me.RadioButton19.TabIndex = 41
-        Me.RadioButton19.TabStop = True
-        Me.RadioButton19.Text = "Anti Scratch"
-        Me.RadioButton19.UseVisualStyleBackColor = True
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(351, 117)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(65, 13)
-        Me.Label42.TabIndex = 133
-        Me.Label42.Text = "Composition"
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(424, 114)
-        Me.TextBox11.MaxLength = 50
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(215, 21)
-        Me.TextBox11.TabIndex = 132
-        '
-        'TabPage6
-        '
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(730, 318)
-        Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Folder & Glue Process"
-        Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'TabPage7
-        '
-        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(730, 318)
-        Me.TabPage7.TabIndex = 6
-        Me.TabPage7.Text = "Flow Process"
-        Me.TabPage7.UseVisualStyleBackColor = True
-        '
-        'ftr_mc_sub1
+        'ftr_mc_sub2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1639,7 +1639,7 @@ Partial Class ftr_mc_sub2
         Me.Controls.Add(Me.txtRefNo)
         Me.Controls.Add(Me.dtpSODate)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Name = "ftr_mc_sub1"
+        Me.Name = "ftr_mc_sub2"
         Me.Text = "Master Card - General Technical Offset"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1654,24 +1654,24 @@ Partial Class ftr_mc_sub2
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.TabPage5.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
