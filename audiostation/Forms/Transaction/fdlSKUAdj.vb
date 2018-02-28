@@ -47,13 +47,11 @@ Public Class fdlSKUAdj
             .Columns.Add("Average Cost", 90, HorizontalAlignment.Right)
         End With
 
-        cmd = New SqlCommand("sp_mt_sku_SEL", cn)
+        cmd = New SqlCommand("usp_mt_sku_SEL", cn)
         cmd.CommandType = CommandType.StoredProcedure
 
         Dim prm1 As SqlParameter = cmd.Parameters.Add("@sku_name", SqlDbType.NVarChar, 50)
         prm1.Value = IIf(txtFilter.Text = "", DBNull.Value, txtFilter.Text)
-        Dim prm3 As SqlParameter = cmd.Parameters.Add("@is_package", SqlDbType.Bit)
-        prm3.Value = 0
 
         cn.Open()
 
